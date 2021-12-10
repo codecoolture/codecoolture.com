@@ -1,0 +1,8 @@
+.AppArticle {
+  max-width: 900px;
+  padding: 5vh 5vw;
+}
+
+.AppArticle__Breadcrumbs {
+  margin-bottom: 1em;
+}

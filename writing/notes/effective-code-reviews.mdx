@@ -1,0 +1,41 @@
+---
+date: "2020-03-26"
+spoiler: "Un consejo sencillo para reducir la complejidad de las pull requests y facilitar su revisión"
+title: "Revisiones de código efectivas"
+url: "/notes/effective-code-reviews"
+---
+
+# Revisiones de código efectivas
+
+[Single-responsibility principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) es, sin duda, uno de
+los principios de diseño de software que más me gusta. Aplica muy bien a un montón de escenarios, tanto a escala "micro"
+(funciones, clases) como "macro" (arquitectura, microservicios). Si estáis lidiando en un escenario donde las _pull
+requests_ son, habitualmente, más grandes de lo que os gustaría y por tanto, necesitan de mucho tiempo para ser
+revisadas (convirtiéndose casi accidentalmente en cuellos de botella) os ánimo a probar la aplicación de SRP.
+
+¿Cómo encajaría en este contexto? A mí me gusta enunciarlo de la siguiente manera:
+
+> Una pull request debe contener cambios relacionados con una única responsabilidad.
+
+Como veis, dentro del enunciado anterior, tendrían cabida _code reviews_ con multitud de cambios pero (y este _pero_ es
+importante) siempre y cuando estén relacionados con una única responsabilidad. Y es que, en la práctica, la complejidad
+a la hora de revisar una _pull request_ no está tanto relacionada con el número de cambios, sino con el volumen de
+responsabilidades que están siendo cambiadas a la vez (es decir, un _renaming_ por aquí junto a un cambio en el código
+de esta función por allá).
+
+Como ejemplo, uno de los sospechoso habituales de generar un montón de cambios: renombrar un método, clase, etc. Si este
+cambio se traduce en una única _pull request_, estaremos facilitando mucho la vida de la compañera que tenga que revisar
+nuestro código ya que todos los cambios están relacionados con una única _responsabilidad_ y sólo deberá poner el foco
+en garantizar que la acción se haya hecho correctamente (¡imaginad que, además, tuviera que validarlo junto a otro
+montón de cambios de diversa índole que acompañen a la pull request!).
+
+> La complejidad a la hora de revisar una _pull request_ no está tanto relacionada con el número de cambios, sino con el
+> volumen de responsabilidades que están siendo cambiadas a la vez.
+
+Conseguir un flujo así implica que tengamos que quitar de nuestra cabeza la idea de que _1 feature_ equivale a _1 pull
+request_ y eso es algo que sólo podemos conseguir si
+[desacoplamos nuestro repositorio de nuestra estrategia de entrega de software](/blog/decoupling-vcs-from-software-delivery).
+
+Por supuesto, todos los consejos habituales sobre cómo realizar buenas revisiones de código aplican también con este
+enfoque (y si queréis un repaso completo sobre cómo realizar _la pull request perfecta_, os recomiendo
+[esta charla](https://www.youtube.com/watch?v=8-ymTkrZPLg) de [Patricia Gao](https://twitter.com/patriciagao)).

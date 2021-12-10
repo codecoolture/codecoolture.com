@@ -1,0 +1,114 @@
+---
+date: "2020-07-16"
+spoiler: "Detalles y curiosidades sobre cómo construí mi portfolio utilizando NEXT.js"
+title: "Portfolio y blog utilizando NEXT.js"
+url: "/notes/portfolio-blog-nextjs"
+---
+
+# Portfolio y blog utilizando NEXT.js
+
+En esta nota os quiero contar algún detalle sobre cómo construí este website utilizando NEXT.js, un framework
+desarrollado por Vercel que utiliza React como librería principal y que permite, de manera sencilla, servir una
+aplicación React desde el servidor utilizando _server-side rendering_ (¡aunque quedarnos únicamente con esto sería
+simplificarlo demasiado!).
+
+> Mi intención aquí no es hacer un recorrido en profundidad de NEXT.js o cómo implementar un portfolio utilizándolo. Si
+> os pica la curiosidad, el proyecto tiene una muy buena [documentación](https://nextjs.org/docs/getting-started), con
+> [multitud de ejemplos](https://github.com/vercel/next.js/tree/canary/examples) y
+> [tutoriales](https://nextjs.org/learn/basics/create-nextjs-app).
+
+## Iterando entre diferentes versiones de Next
+
+El primer commit para desarrollar [codecoolture.com](http://codecoolture.com) es del 24 de agosto de 2018. Por aquel
+entonces las necesidades del proyecto eran tener un montón de ficheros estáticos que explicasen qué servicios tenía
+pensado ofrecer como _freelance_ y, para ello, utilicé la funcionalidad de Next: `next export`, que genera un conjunto
+de ficheros HTML como resultado de aplicar _server-side rendering_ a la aplicación y _exportar_ su resultado.
+
+Más adelante, me decidí por añadir un blog (y este apartado de notas) y en ese punto, las cosas empezaron a complicarse
+(sobre porqué decidí implementar mi blog _in house_ en lugar de utilizar plataformas como Medium, las razones son muy
+parecidas a las expuestas por Marina Aisa cuando
+[escribió sobre su experiencia trabajando con Nuxt](https://marinaaisa.com/es/blog/blog-usando-vue-nuxt-markdown/)).
+Para seguir manteniendo ese enfoque estático, tenía que añadir las diferentes entradas manualmente en alguna página tipo
+índice que sirviera para que el proceso de exportación supiese que existían y pudiese crear sus ficheros HTML
+relacionados (simplificándolo mucho, sería algo similar a lo que necesita un bot para hacer _crawling_ de una web).
+
+Para no depender de un proceso manual, me decidí por abandonar la exportación estática y desplegar Next en una instancia
+de AppEngine para hacer que las páginas del blog (junto con su índice) se comenzasen a pintar dinámicamente utilizando
+SSR. Veréis que aunque Vercel es una plataforma que le encaje como anillo al dedo a un proyecto que utilice Next, este
+se puede desplegar en cualquier servicio que admita ejecutar aplicaciones Node (aunque no todos son capaces de sacarle
+partido al potencial _serverless_ del framework, pero eso sería un tema para otro momento).
+
+Actualmente, y tras actualizar Next a su versión 9.3, pude recuperar la exportación estática gracias a la adición de una
+función `getStaticPaths` que permite indicarle a Next (de manera programática, en tiempo de compilación) qué paginas
+existen y cuáles tiene que exportar. En el mismo fichero que se utiliza para definir una entrada en el blog, se exporta
+un función cómo la siguiente:
+
+```tsx
+export const getStaticPaths: GetStaticPaths = async () => {
+  const repository = await MarkdownRepository.fromDirectory(getConfig().writing.articles);
+
+  const paths = (await repository.all()).map((article) => {
+    const slug = article.metadata.slug;
+
+    if (!slug) {
+      throw new Error(`ERROR: Missing slug for article: ${JSON.stringify(article.metadata, null, 2)}`);
+    }
+
+    return { params: { slug } };
+  });
+
+  return { fallback: false, paths };
+};
+```
+
+La función pide a un repositorio de artículos que devuelva todos los documentos que existen y utiliza esta información
+para indicar a Next cómo encontrarlos (a través de la propiedad `slug` de cada _path_). `MardownRepository` es una
+entidad de mi proyecto (y no algo que venga con Next), y es que el patrón _Repository_ es una abstracción que utilizo
+muy habitualmente ya que encaja en un montón de escenarios (realmente, en casi cualquiera que tenga acceso a datos).
+
+> Como [Cassidy Williams](https://twitter.com/cassidoo) lo explica mejor que yo, podéis echar un vistazo a
+> [este blogpost](https://www.netlify.com/blog/2020/05/04/building-a-markdown-blog-with-next-9.4-and-netlify/) donde
+> explica en profundidad cómo crear un blog con Next.
+
+## MDX: escribiendo contenido de manera cómoda
+
+No, la verdad que React + JSX no es la mejor manera para escribir contenido de manera ágil y cómoda... Para hacerlo, me
+decidí por un [plugin de Next](https://github.com/vercel/next.js/tree/canary/packages/next-mdx) que permite generar
+páginas escribiendo directamente ficheros [MDX](https://mdxjs.com/) (que, en resumen, son ficheros en formato Markdown
+pero que permiten integrar componentes React directamente en el cuerpo del documento). Este mismo esquema es el que
+utilicé para escribir los artículos del blog y las notas; todo junto, en resumen, hace que el 100% del contenido de la
+web se escriba en MDX y únicamente utilice React + JSX para definir los componentes.
+
+Además, con MDX, podemos indicar qué componentes React queremos mapear con cada elemento HTML. Esto es especialmente
+útil para poder reutilizar los mismos componentes a través de toda la aplicación:
+
+```tsx
+import { Blockquote } from "../../components/Blockquote";
+import { Link } from "../../components/Link";
+import { List } from "../../components/List";
+import { Text } from "../../components/Text";
+import { Title } from "../../components/Title";
+
+/* ... */
+
+<MDX
+  components={{
+    a: Link,
+    blockquote: Blockquote,
+    h1: Title,
+    ul: List,
+  }}
+>
+  {post.content}
+</MDX>;
+```
+
+## Otros detalles
+
+- Para los estilos de la aplicación me decanté por utilizar CSS y no una solución CSS-in-JS, aunque seguramente mi
+  decisión ahora hubiese sido distinta (después de utilizar `emotion` durante los últimos meses, la verdad es que me he
+  sentido muy cómodo). Ambos enfoques se pueden utilizar sin mayores problemas en Next (siendo el uso de CSS soportado
+  por defecto, sin necesidad de configurar nada).
+- La web se sirve desde Firebase Hosting (tengo la mayoría de proyectos en Google Cloud y me era más cómodo mantener
+  todo dentro de la misma nube que desplegar este site en Vercel o Netlify -opciones también muy válidas y con una
+  _developer experience_ muy bien ejecutada). Los despliegues están automatizados a través de GitLab CI/CD.

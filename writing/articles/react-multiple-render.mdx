@@ -1,0 +1,99 @@
+---
+date: "2019-02-04"
+spoiler: "Varios métodos de instancia especializados en construir una parte concreta de la UI de un componente"
+title: "Code Smell: React.MultipleRender"
+url: "/blog/react-multiple-render"
+---
+
+# React: MultipleRender
+
+El síntoma más claro de este _code smell_ es la aparición de varios métodos de instancia tipo `render` especializados en
+construir una parte de la UI de un componente React. Suele aparecer especialmente en componentes complejos (o de gran
+tamaño, como una página) cuando diferentes partes de la interfaz precisan de alguna comprobación o cálculo extra que
+afecte a su representación.
+
+```tsx
+export class Blog extends React.Component<{ articles: Article[] }> {
+  public render() {
+    return (
+      <>
+        {this.renderHeader()}
+
+        {this.renderArticles()}
+      </>
+    );
+  }
+
+  private renderHeader() {
+    const {
+      articles: { length: numberOfArticles },
+    } = this.props;
+
+    if (numberOfArticles === 0) {
+      return (
+        <header>
+          <p>No articles 😯</p>
+        </header>
+      );
+    }
+
+    return (
+      <header>
+        <p>Yay! {numberOfArticles} articles 🎉</p>
+      </header>
+    );
+  }
+
+  private renderArticles() {
+    return this.props.articles.map((article) => {
+      return (
+        <section>
+          <h1>
+            <a href={article.url}>{article.title}</a>
+          </h1>
+        </section>
+      );
+    });
+  }
+}
+```
+
+En el caso anterior, vemos que la representación de la cabecera de la página varía en función del número de artículos
+que se vayan a mostrar. Del mismo modo que la lógica para pintar la colección de artículos está encapsulada en su propio
+método de instancia.
+
+Con echar un simple vistazo al método `render`, ya vemos con claridad cuáles son las verdaderas responsabilidades de
+nuestra página: definir un _layout_ que muestre una cabecera y una colección de artículos.
+
+¿Es, por tanto, responsabilidad de la página conocer los _internals_ de la cabecera y la lógica necesaria para pintar la
+colección de artículos? No. Este componente contiene más de una responsabilidad y no cumple con el
+[Principio de Responsabilidad Única](https://en.wikipedia.org/wiki/Single_responsibility_principle).
+
+Para mejorar nuestro diseño, bastaría con definir dos nuevos componentes que encapsulen la lógica necesaria para pintar
+ambas partes. Con este enfoque, ganaríamos cierta capacidad para reutilizar esos componentes en otros lugares de nuestra
+interfaz (aunque no es condición necesaria para crear un nuevo componente) a la vez que reducimos la complejidad del
+componente padre, que no necesita ya llevar consigo toda la lógica de las diferentes partes que la conforman.
+
+Además, si seguís un enfoque de integración y entrega continua, veréis que es mucho más sencillo
+[aplicar _feature flags_](/blog/branch-by-abstraction-react) sobre estos pequeños componentes de vuestra interfaz en
+lugar de en mitad de componentes grandes y complejos, donde se estarían mezclando responsabilidades y requisitos de
+distintas partes de la aplicación.
+
+```tsx
+import { Articles } from "./components/Articles";
+import { Header } from "./components/Header";
+
+export function Blog(props: { articles: Article[] }) {
+  return (
+    <>
+      <Header {...props} />
+
+      <Articles {...props} />
+    </>
+  );
+}
+```
+
+Este _code smell_ está relacionado con otros de propósito general (no relacionados directamente con React) como
+[_Large Class_](https://sourcemaking.com/refactoring/smells/large-class) y técnicas de _refactoring_ como
+[Extract Class](https://refactoring.guru/extract-class).

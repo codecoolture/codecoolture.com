@@ -1,0 +1,126 @@
+.AppHeader {
+  --appHeaderBgColor: var(--c-blue-400);
+  --appHeaderColor: var(--c-white);
+  --appHeaderDotColor: var(--c-yellow);
+}
+
+.AppHeader.Light {
+  --appHeaderBgColor: var(--c-white);
+  --appHeaderColor: var(--c-black-400);
+  --appHeaderDotColor: var(--c-blue-400);
+}
+
+.AppHeader {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 5vw;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+
+  background-color: var(--appHeaderBgColor);
+  color: var(--appHeaderColor);
+}
+
+.AppHeader--Absolute {
+  position: absolute;
+
+  background: transparent;
+}
+
+.AppHeader--NoBackLink {
+  flex-direction: row-reverse;
+}
+
+.AppHeader p {
+  font-size: var(--fs-s);
+  font-weight: 700;
+}
+
+.AppHeader__Link {
+  color: currentColor;
+  text-decoration: none;
+}
+
+.Menu__List {
+  display: none;
+
+  list-style-type: none;
+}
+
+.Menu__List--isOpen {
+  align-items: flex-start;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 35vh;
+  justify-content: space-evenly;
+  left: 0;
+  margin-top: 10px;
+  padding: 0 1em;
+  position: absolute;
+  width: 100%;
+
+  background-color: var(--c-blue-700);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.Menu__Item {
+  font-size: var(--fs-m);
+
+  color: var(--c-white);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.Menu__List__Item:not(:first-of-type) {
+  margin-top: 0.5em;
+}
+
+.Menu__Trigger {
+  border: 0;
+  font-size: var(--fs-xs);
+  letter-spacing: 1px;
+  padding: 10px;
+
+  background-color: var(--c-blue-300);
+  border-radius: 3px;
+  color: var(--c-white);
+  font-family: var(--ff-sans-serif);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 750px) {
+  .AppHeader {
+    align-items: baseline;
+  }
+
+  .AppHeader h1 {
+    font-size: var(--fs-m);
+  }
+
+  .Menu__Trigger {
+    display: none;
+  }
+
+  .Menu__List {
+    display: flex;
+    flex-direction: row;
+
+    list-style-type: none;
+  }
+
+  .Menu__Item {
+    font-size: var(--fs-s);
+
+    color: currentColor;
+  }
+
+  .Menu__List__Item:not(:first-of-type) {
+    margin-left: 1.5em;
+    margin-top: 0;
+  }
+}

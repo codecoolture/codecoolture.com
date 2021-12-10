@@ -1,0 +1,123 @@
+.Hero {
+  --wave-height: 25vw;
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20vh 0 5vh;
+  position: relative;
+
+  background: var(--c-blue-400);
+  color: var(--c-white);
+  text-align: center;
+  margin-bottom: calc(var(--wave-height) / 1.5);
+}
+
+.Hero::after {
+  content: "";
+
+  bottom: calc(-1 * var(--wave-height) + 1px); /* prevents a little blank line in some devices (iPad) */
+  height: var(--wave-height);
+  position: absolute;
+  width: 100%;
+
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' standalone='no'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%234b4cdf' fill-opacity='1' d='M0,256L48,229.3C96,203,192,149,288,128C384,107,480,117,576,138.7C672,160,768,192,864,202.7C960,213,1056,203,1152,186.7C1248,171,1344,149,1392,138.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.Hero h1 {
+  font-size: var(--fs-xl);
+  margin-bottom: 0.1em;
+
+  font-family: var(--ff-serif);
+}
+
+.Hero p {
+  font-size: var(--fs-l);
+  line-height: 1.4;
+  padding: 0 2vw;
+
+  font-family: var(--ff-serif);
+}
+
+.Hero p:not(:first-of-type) {
+  margin-top: 1em;
+}
+
+.Briefs {
+  max-width: 1000px;
+}
+
+.Brief {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+.Brief::before {
+  content: "";
+
+  height: 3em;
+  margin-bottom: 0.5em;
+  width: 3em;
+
+  background-size: contain;
+}
+
+.Brief--Consulting::before {
+  background-image: url("/static/img/icons/services.svg");
+}
+
+.Brief--Training::before {
+  background-image: url("/static/img/icons/idea.svg");
+}
+
+.Brief h1 {
+  font-size: var(--fs-l);
+}
+
+.Brief p {
+  font-size: var(--fs-m);
+  line-height: 1.65;
+  text-align: center;
+}
+
+.Brief__Button {
+  font-size: var(--fs-m);
+  margin-top: 0.5em;
+
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.Picture {
+  max-width: 100%;
+}
+
+@media screen and (min-width: 750px) {
+  .Hero p {
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+
+  .Briefs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 3em auto;
+  }
+
+  .Brief {
+    flex-grow: 1;
+    width: 350px;
+  }
+
+  .Picture {
+    margin: 0 auto;
+    max-width: 85%;
+    width: 800px;
+  }
+}

@@ -1,0 +1,91 @@
+---
+date: "2019-01-21"
+spoiler:
+  "NakedCode es un posible code smell que consiste en escribir y ejecutar código
+  directamente en el cuerpo de un módulo"
+title: "Code Smell: JavaScript.NakedCode"
+url: "/blog/javascript-naked-code"
+---
+
+# JavaScript: NakedCode
+
+> Código que se escribe y, por tanto se ejecuta, sin estar encapsulado en ningún
+> bloque o procedimiento (como por ejemplo una función o una clase).
+
+En JavaScript, sufrimos de una relación de amor-odio con el contexto de
+ejecución goblal. Hasta la aparición de los módulos en la especificación de ES6+
+la manera más habitual de gestionar dependencias en nuestra aplicación era a
+través de la variable global `window`, accesible desde cualquier punto de
+nuestro programa.
+
+Con los módulos, llegó una manera de gestionar esas dependencias de manera
+explícita y favorecer técnicas como
+[tree shaking](https://github.com/rollup/rollup#tree-shaking) para mejorar el
+rendimiento de nuestras aplicaciones. Mientras que, a su vez, ganamos también
+cierta capacidad para encapsular nuestro código y evitar que se ejecutase en el
+contexto global de la aplicación, junto al resto de código de otros ficheros.
+
+Sin embargo, sigue siendo habitual encontrar este tipo de
+[code smell](https://martinfowler.com/bliki/CodeSmell.html) gracias a lo
+sencillo de codificar directamente en el cuerpo de módulos ECMAScript:
+
+```js
+const repository = {};
+
+export function addTodo(todo) {
+  if (repository[todo.id]) {
+    return;
+  }
+
+  repository[todo.id] = todo;
+}
+```
+
+Aunque escribir código directamente en el cuerpo de un módulo tiene sus casos de
+uso, tiene efectos laterales que pueden ser **no** evidentes:
+
+- El código del módulo (sin encapsular) es ejecutado por el intérprete la
+  primera vez que se importa, por lo que perdemos la habilidad de controlar
+  cuándo evaluar un fragmento de código para, por ejemplo, establecer un
+  escenario de ejecución determinado en nuestras pruebas.
+- En el ejemplo anterior, la variable `repository` es un objeto _global_ (aunque
+  únicamente accesible desde el propio cuerpo del módulo) que dificulta
+  enormemente la capacidad de probar el código de manera unitaria, ya que hay
+  que gestionar el estado de un variable sobre la que no tenemos acceso.
+- Podemos incurrir en problemas de rendimiento (_memory leaks_), al disponer de
+  una serie de variables globales sobre las que el recolector de basura no puede
+  actuar en caso de no ser necesarias (siempre mantendrán -al menos- una
+  referencia).
+
+¿Cómo podríamos mejorar el caso anterior? Envolviendo el cuerpo del módulo en
+una función `createRepository` que nos devuelva el control sobre el contexto de
+ejecución del repositorio.
+
+```js
+export function createRepository(todos = {}) {
+  const repository = { ...todos };
+
+  return {
+    addTodo(todo) {
+      if (repository[todo.id]) {
+        return;
+      }
+
+      repository[todo.id] = todo;
+    },
+  };
+}
+```
+
+A pesar de los problemas anteriores, existen escenarios donde realmente sí
+queramos ejecutar código en el cuerpo del módulo para poder beneficiarnos del
+hecho de ser una suerte de
+[_Singleton_](https://en.wikipedia.org/wiki/Singleton_pattern):
+
+- Fichero `index` donde inicializar dependencias globales de la aplicación.
+
+Cabe recordar que un _code smell_ no significa que algo esté _mal_. Simplemente
+se refiere a un patrón que _puede_ (esto es importante) conllevar consigo males
+de diseño. En este caso, a no ser que sea plenamente consciente de los efectos
+laterales que conlleva, evito utilizar _naked code_ en el cuerpo de mis módulos
+JavaScript.

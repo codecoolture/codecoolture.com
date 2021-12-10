@@ -1,0 +1,27 @@
+.Heading {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: break-word;
+
+  font-weight: 700;
+}
+
+.Heading--Jumbo {
+  font-size: var(--fs-xl);
+  margin-bottom: 0.5em;
+}
+
+.Heading--Xl {
+  font-size: var(--fs-l);
+  margin-bottom: 0.5em;
+}
+
+.Heading--L {
+  font-size: calc(var(--fs-m) * 1.25);
+  margin-bottom: 0.5em;
+}
+
+.Heading--M {
+  font-size: var(--fs-m);
+  margin-bottom: 0.25em;
+}

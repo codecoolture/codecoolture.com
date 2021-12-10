@@ -1,0 +1,44 @@
+import { Application } from "../layouts/Application";
+import { Theme } from "../layouts/Application/Theme";
+
+export default ({ children }) => {
+  return (
+    <Application theme={Theme.Light}>
+      <Application.Article>{children}</Application.Article>
+    </Application>
+  );
+};
+
+# Sobre mí
+
+Ingeniero de Software especializado en desarrollo de producto y tecnologías web, llevo los últimos años trabajando en
+empresas de producto ([Sweetspot][sweetspot], [PrivacyCloud][privacycloud], [FounderNest][foundernest],
+[ClickDimensions][clickdimensions]) donde he liderado equipos y proyectos en diferentes grados de madurez (desde
+mantenimiento y evolución de código _legacy_ hasta el arranque de nuevos desarrollos y proyectos).
+
+Mis habilidades se centran en la implantación y evolución de procesos de desarrollo orientados a generar (¡y mantener!)
+equipos de alto rendimiento a través de prácticas de _Agile_, _eXtreme Programming_ y _DevOps_. Además, he contribuido
+activamente a diseñar e implementar aplicaciones web sostenibles, fáciles de probar, escalar y mantener.
+
+En 2016 arranqué la primera gran comunidad de software en Asturias: [AsturiasHacking][asturiashacking].
+
+He participado también como ponente en diferentes eventos nacionales e internacionales ([Codemotion Madrid][codemotion],
+[Agile Testing Days][atd]).
+
+Si quieres algo más de información sobre mí, tengo perfiles en diferentes redes sociales donde comparto gran parte de mi
+actividad profesional:
+
+- [Twitter][twitter]
+- [GitHub][github]
+- [LinkedIn][linkedin]
+
+[sweetspot]: https://sweetspot.com
+[privacycloud]: https://privacycloud.com
+[foundernest]: https://foundernest.com
+[clickdimensions]: https://clickdimensions.com
+[asturiashacking]: https://meetup.com/asturiashacking
+[codemotion]: https://www.youtube.com/watch?v=07lk3GLKoa4
+[atd]: https://agiletestingdays.com/2018/session/confident-software-delivery/
+[twitter]: https://twitter.com/codecoolture
+[github]: https://github.com/sergioalvz
+[linkedin]: https://linkedin.com/in/sergioalvarezsuarez

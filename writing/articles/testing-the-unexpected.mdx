@@ -1,0 +1,100 @@
+---
+date: "2021-03-08"
+spoiler: "A reasonable approach to test React components with unexpected async effects."
+title: "Testing the unexpected"
+url: "/blog/testing-the-unexpected"
+---
+
+# Testing the unexpected
+
+Imagine you are coding a new React component to upload a file. The component will receive a callback to notify the app
+if the upload has been or not successful. You may end with something similar to:
+
+```tsx
+/**
+ * We will use the `executor` function to simulate different
+ * scenarios from our tests.
+ */
+function UploadButton({ executor, onSuccess }) {
+  return (
+    <button
+      type="button"
+      onClick={async () => {
+        await executor();
+
+        onSuccess();
+      }}
+    >
+      Upload
+    </button>
+  );
+}
+```
+
+To test the most simple scenario, that the `<UploadButton />` component uses the callback once the upload completed, we
+can rely on the standard approach:
+
+```tsx
+it("uses the callback to notify that the upload completed", async () => {
+  const spy = jest.fn();
+
+  render(<UploadButton executor={success} onSuccess={spy} />);
+
+  user.click(screen.getByText("Upload"));
+
+  await waitFor(() => {
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+});
+```
+
+But things are more complicated if we want to ensure that the `onSuccess` callback does not get executed if something
+unexpected happens and the process fails. The initial and most naive implementation might be to assure that the spy is
+never called when using the failing executor:
+
+```tsx
+it("does not use the callback if something goes wrong", async () => {
+  const spy = jest.fn();
+
+  render(<UploadButton executor={fail} onSuccess={spy} />);
+
+  user.click(screen.getByText("Upload"));
+
+  await waitFor(() => {
+    expect(spy).toHaveBeenCalledTimes(0);
+  });
+});
+```
+
+**Even if it passes, the test is not checking that the spy never gets called**. Since the executor is an asynchronous
+process, and the spy starts with zero calls, the expectation is valid right away. You can spot this by replacing
+`executor={fail}` with `executor={success}` --that's the kind of change that should make the test have a different
+result, but it continues passing!
+
+To test this scenario, we need to come up with a different approach:
+
+```tsx
+it("does not use the callback if something goes wrong", async () => {
+  const asyncRender = new Promise<undefined>((resolve, reject) => {
+    render(<UploadButton executor={fail} onSuccess={reject} />);
+
+    user.click(screen.getByText("Upload"));
+
+    setTimeout(resolve, 0);
+  });
+
+  await expect(asyncRender).resolves.toBeUndefined();
+});
+```
+
+By embracing the asynchronous nature of this problem, we can wrap the rendering within a promise and use its reject
+function as `onSuccess` callback. Remember that promises execute immediately but return a delayed response. To give some
+room for the component to fail, I use the [setTimeout][settimeout] trick to force the process to complete pending tasks
+from the queue.
+
+Now, `asyncRender` should always resolve (with an `undefined` value). If it does not, our component is having issues
+handling the `onSuccess` callback and calling it even when the upload fails (since it is what the failing executor
+does). If you change `executor={fail}` by `executor={success}`, you may see the result keeps coherent, and the test then
+fails.
+
+[settimeout]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#zero_delays

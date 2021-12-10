@@ -1,0 +1,75 @@
+---
+date: "2019-06-16"
+spoiler: "Como una extensión más de la ley de Conway, es muy habitual
+encontrarse con proyectos donde la estrategia de branching del sistema de
+control de versiones está fuertemente relacionada con la estrategia de entrega
+de software."
+title:
+  "Desacoplando la entrega de software de los sistemas de control de versiones"
+url: "/blog/decoupling-vcs-from-software-delivery"
+---
+
+# Desacoplando la entrega de software de los sistemas de control de versiones
+
+Como una extensión más de la
+[ley de Conway](https://es.wikipedia.org/wiki/Ley_de_Conway), es muy habitual
+encontrarse con proyectos donde la estrategia de _branching_ del sistema de
+control de versiones está fuertemente relacionada con la estrategia de entrega
+de software. Esta relación entre ambos mundos puede parecer conveniente (por
+ejemplo: utilizar una rama para representar el código _vivo_ en producción o
+_staging_, congelar los cambios que van a desplegarse en una rama `release/*`,
+etc.) pero, con el paso del tiempo, puede traer consigo efectos
+contraproducentes:
+
+- **Viola el principio de responsabilidad única**. Si algo nos queda claro sobre
+  el _Single Reponsability Principle_ es que cada abstracción sólo debe tener
+  _una única razón para cambiar_ (en palabras de Robert C. Martin). Si cambios
+  en los procesos de entrega de software (flujos de resolución de _hotfixes_,
+  nuevos entornos) implican cambios en la estructura de nuestro repositorio (o
+  cambios en la manera de interactuar con él), los límites entre ambos contextos
+  no están bien establecidos.
+- **Todo se vuelve innecesariamente complejo**. Aún con flujos muy populares
+  como `git-flow` (y herramientas muy sofisticadas a su alrededor, construidas
+  como una capa de abstracción sobre `git`), se _hackea_ el sistema de control
+  de versiones para dejar de ser una herramienta de _tracking_ y colaboración
+  por un sistema de despliegue y configuración.
+- **Resta flexibilidad**. Si es el sistema de control de versiones el encargado
+  de determinar qué funcionalidades se van a liberar al final de una iteración,
+  se pueden dar situaciones en las que una rama se quede _congelada_ por
+  contener funcionalidad defectuosa que inevitablemente contamina al resto de
+  cambios de esa misma rama, bloqueando la entrega de nueva funcionalidad.
+
+![Imagen de un repositorio que utiliza git-flow](/static/articles/decoupling-vcs-from-software-delivery/git-flow.jpg "Este repositorio utiliza el sistema de control de versiones como una herramienta de entrega de software para la próxima iteración (aplicando un flujo similar a git-flow)")
+
+Para aliviar los problemas anteriores, una solución pasa por mover la
+responsabilidad de decidir qué funcionalidades están disponibles en cada entorno
+desde el sistema de control de versiones a la propia base de código. Es decir,
+decidir programáticamente si una funcionalidad está habilitada o no en función
+de en qué entorno se está ejecutando la aplicación.
+
+Una representación habitual de este principio es a través del uso de
+[Feature Flags](https://featureflags.io), que no dejan de ser, conceptualmente,
+bloques condicionales que se sitúan en algún punto de nuestra base de código y
+deciden si un camino de ejecución debe evaluarse o no.
+
+Con esta estrategia, únicamente necesitaríamos una rama `master` donde fusionar
+las _feature branches_ de funcionalidades terminadas y una configuración de
+_feature flags_ que defina los entornos en los que estarían disponibles. Por
+ejemplo: habilitar la funcionalidad únicamente en entornos de _staging_ para
+realizar pruebas de rendimiento, labores de _quality assurance_, etc. La
+resolución de hotfixes, se podría realizar igualmente sobre la rama `master`,
+pues es esta la que siempre se despliega y define qué funcionalidades estarían
+disponibles en cada momento y para cada entorno.
+
+![Imagen de un repositorio con una única rama master y múltiples feature branches](/static/articles/decoupling-vcs-from-software-delivery/with-feature-flags.jpg "En este ejemplo, el repositorio es agnóstico de la capa de entrega de software, que estará gestionada por la propia base de código mediante el uso de feature toggles.")
+
+Siguiendo esta dirección, también se obtendrían beneficios adicionales como, por
+ejemplo, poder realizar _merges_ de manera mucho más recurrente (al estar el
+entorno de producción siempre protegido a través de _feature flags_). Esto
+podría derivar, a su vez, en procesos de _code review_ con un número menor de
+cambios y ciclos de _feedback_ más cortos, siempre que lo combinemos con
+técnicas como _continuous integration_ y _continuous delivery_.
+
+## Otras lecturas relacionadas
+
+- [Decoupling Deployment from Release - ThoughtWorks' Technology Radar](https://www.thoughtworks.com/radar/techniques/decoupling-deployment-from-release)

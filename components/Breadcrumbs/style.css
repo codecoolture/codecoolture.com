@@ -1,0 +1,13 @@
+.Breadcrumbs {
+  display: flex;
+}
+
+.Breadcrumb {
+  font-size: var(--fs-m);
+}
+
+.Breadcrumb:not(:first-of-type)::before {
+  content: "»";
+
+  margin: 0 0.25em;
+}

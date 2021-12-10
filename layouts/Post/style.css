@@ -1,0 +1,16 @@
+.Post {
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 5vh 5vw;
+}
+
+.Post__Header {
+  align-items: baseline;
+  display: flex;
+  margin-bottom: 0.5em;
+}
+
+.Post__Header > *:not(:first-child)::before {
+  content: "·";
+  margin: 0 0.25em;
+}

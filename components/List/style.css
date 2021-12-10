@@ -1,0 +1,38 @@
+.List {
+  margin: 1em 0;
+}
+
+.List--Bullet {
+  list-style-type: none;
+}
+
+.List--Number {
+  list-style-position: inside;
+  list-style-type: decimal;
+}
+
+.List__Item {
+  line-height: 1.65;
+}
+
+.List__Item:not(:first-of-type) {
+  margin-top: 0.35em;
+}
+
+.List--Bullet .List__Item {
+  align-items: baseline;
+  display: flex;
+}
+
+.List--Bullet .List__Item::before {
+  content: "";
+
+  box-sizing: border-box;
+  border: 0.1em solid var(--c-black-400);
+  flex-shrink: 0;
+  height: 0.75em;
+  margin-right: 10px;
+  width: 0.75em;
+
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.4);
+}

@@ -1,0 +1,35 @@
+import { Application } from "../../layouts/Application";
+import { QuickContact } from "../../components/QuickContact";
+import { Theme } from "../../layouts/Application/Theme";
+
+export default ({ children }) => {
+  return (
+    <Application theme={Theme.Light}>
+      <Application.Article breadcrumbs={[{ label: "Servicios", url: "/services" }, { label: "Consultoría" }]}>
+        {children}
+      </Application.Article>
+    </Application>
+  );
+};
+
+# Consultoría
+
+He ayudado a equipos en los siguientes contextos: arranque de un nuevo proyecto (donde se necesita información sobre qué
+herramientas utilizar o qué arquitecturas aplicar) y modernización de una aplicación web ya existente para dar cabida a
+nuevos requisitos de negocio, mejorar la calidad del código, mantenibilidad, etc.
+
+Mi misión es aportar soluciones que estén alineadas con los objetivos de negocio y encajen en el _stack_ tecnológico del
+equipo.
+
+Si te encuentras en alguna de las siguientes situaciones, estaría encantado de hablar y echarte una mano:
+
+- Vas a arrancar un proyecto web pero tienes dudas sobre qué herramientas utilizar, qué arquitectura aplicar o qué
+  alternativas existen.
+- La base de código de tu proyecto es difícil de mantener y escalar; no es fácil añadir nuevas funcionalidades y los
+  tiempos de desarrollo son más altos de lo que te gustaría.
+- Te gustaría disponer de una segunda opinión (_code review_) y sesiones recurrentes con el equipo para discutir
+  decisiones de arquitectura y diseño de software.
+- El proceso de entrega de software no es seguro ni confiable. Los ciclos de _feedback_ son muy largos y no existen los
+  mecanismos para poder entregar valor rápidamente y de manera continua.
+
+<QuickContact subject="Sesión de Consultoría">Hablar sobre consultoría</QuickContact>

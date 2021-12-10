@@ -1,0 +1,35 @@
+---
+date: "2019-05-30"
+spoiler:
+  "Una manera rápida y sencilla de almacenar y sincronizar tus configuraciones"
+title: ".dotfiles"
+url: "/notes/dotfiles"
+---
+
+# .dotfiles
+
+Muchas de las herramientas que utilizamos a diario almacenan su configuración
+utilizando ficheros denominados _dotfiles_, (llamados así por su esquema de
+nombrado, empezando habitualmente por un _punto_: `.bashrc`, `.zshrc`).
+
+Al tratarse de ficheros en texto plano, es muy sencillo poder almacenarlos en un
+sistema de control de versiones y poder reutilizarlos (y sincronizarlos) desde
+diferentes equipos.
+
+En Internet ya hay muchos ejemplos de [_dotfiles_](https://dotfiles.github.io/)
+que pueden servir de referencia (los de
+[Jess Frazelle](https://github.com/jessfraz/dotfiles) son espectaculares) pero,
+al final, es normal que cada persona tenga su propia configuración con detalles
+que le hacen ser más productivo o productiva.
+
+Alguna de las estrategias más populares para poder instalar _dotfiles_ es hacer
+uso de [_symlinks_](https://en.wikipedia.org/wiki/Symbolic_link) y requerir el
+menor número de dependencias posible (precisamente, uno de los casos de uso más
+habituales es utilizarlos para replicar las dependencias y configuraciones
+existentes en otro sistema).
+
+En mi caso, [mis _dotfiles_](https://github.com/sergioalvz/.dotfiles) tienen
+como únicas dependencias `curl` y `make` (disponibles tras una instalación
+_limpia_ de macOS), que se utilizan para instalar `homebrew` y, a través de un
+fichero `Brewfile`, instalar automáticamente el software con el que trabajo
+habitualmente 🚀

@@ -1,0 +1,16 @@
+.Posts__Item:not(:last-of-type) {
+  margin-bottom: 2em;
+}
+
+.Posts__Timestamp {
+  font-size: var(--fs-xs);
+  letter-spacing: 1px;
+  margin-bottom: 0.5em;
+
+  color: var(--c-black-200);
+  text-transform: uppercase;
+}
+
+.Posts__Title {
+  margin-bottom: 0.2em;
+}

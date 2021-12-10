@@ -1,0 +1,76 @@
+.AppFooter {
+  padding: 1em 1em 0;
+
+  background-color: var(--c-blue-400);
+}
+
+.AppFooter__Nav {
+  display: flex;
+
+  list-style-type: none;
+}
+
+.AppFooter__Nav__Item {
+  font-size: var(--fs-m);
+  letter-spacing: 1px;
+
+  color: var(--c-white);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.AppFooter__Nav__Item:not(:first-of-type)::before {
+  content: "/";
+
+  margin: 0 5px;
+
+  color: var(--c-yellow);
+}
+
+.AppFooter__Text {
+  font-size: var(--fs-m);
+  line-height: 1.65;
+  margin-top: 1em;
+
+  color: var(--c-white);
+  font-family: var(--ff-serif);
+}
+
+.AppFooter__Links {
+  margin-top: 1em;
+
+  list-style-type: none;
+}
+
+.AppFooter__LinkWrapper {
+  display: flex;
+  font-size: var(--fs-m);
+  margin-top: 0.5em;
+}
+
+.AppFooter__Link {
+  letter-spacing: 1px;
+
+  color: var(--c-white);
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.AppFooter__Footer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 1em -1em 0 -1em;
+  padding: 0.25em 0;
+  width: calc(100% + 2em); /* summing parent's padding */
+
+  background-color: var(--c-blue-700);
+  color: var(--c-white);
+}
+
+.AppFooter__Code {
+  font-size: var(--fs-xs);
+
+  color: var(--c-white);
+}

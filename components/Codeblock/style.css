@@ -1,0 +1,6 @@
+@import "~prismjs/themes/prism.css";
+
+.Codeblock[class*="language-"] {
+  font-size: var(--fs-s);
+  margin-bottom: 1em;
+}

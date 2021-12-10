@@ -1,0 +1,239 @@
+---
+canonical: "https://octuweb.com/test-driven-front-end-development/"
+date: "2020-11-01"
+spoiler:
+  "El desarrollo de cualquier aplicación web es complejo. Hay un montón de funcionalidad por crear y, seguramente, poco
+  tiempo 🤯 Sin embargo, con la nueva generación de herramientas front-end hay una metodología que nos puede ayudar a no
+  perder el foco y entregar valor de manera continua, con confianza."
+title: "Test-driven front-end development"
+url: "/blog/test-driven-front-end-development"
+---
+
+# Test-driven front-end development
+
+> Este artículo fue publicado originalmente en la edición de 2020 de
+> [Octuweb](https://octuweb.com/test-driven-front-end-development/).
+
+En la edición de 2018 **Cristina Ponce** publicó [Testing en el front](https://octuweb.com/testing-front/), una guía
+sobre los diferentes tipos de pruebas que podemos realizar en aplicaciones front-end. Apoyándonos en ese artículo, vamos
+a hablar aquí de cómo aprovechar la nueva generación de herramientas para alcanzar flujos de desarrollo que, hasta hace
+solo unos años, no eran (tan) fácilmente aplicables en este contexto: **Test-Driven Development** (o **TDD**).
+
+## Pero primero, ¿qué es TDD?
+
+Test-Driven Development es una metodología que se basa en aplicar pequeños ciclos de desarrollo con el objetivo de
+resolver casos de prueba. De manera más concreta, lo podemos definir en 3 pasos:
+
+1. Codificar una prueba que defina el nuevo comportamiento que queremos añadir a nuestro sistema
+2. Escribir la menor cantidad de código posible que nos permita hacer pasar el test anterior
+3. Mejorar el código anterior utilizando las pruebas como red de seguridad (a.k.a _refactoring_)
+
+En TDD clásico, lo habitual es comenzar por las entidades más internas de nuestro sistema para ir construyendo capas una
+encima de otra hasta terminar de implementar la funcionalidad. En front-end sin embargo, y con las herramientas
+actuales, lo más natural es utilizar una variación denominada **ATDD** (inspirada en **Outside-in**, un enfoque de TDD
+que se originó en la comunidad de eXtreme Programming de Londres), donde se empieza creando un primer test en la capa
+más externa del sistema (en este caso, la interfaz o un componente) para ir construyendo desde ahí el resto de la
+funcionalidad.
+
+## Escribiendo nuestro primer test
+
+En su sentido más estricto, TDD es una herramienta de desarrollo (un flujo de trabajo, una metodología) y no tiene que
+verse como un instrumento de calidad (entendiendo esta como la disciplina para el control de defectos). Por tanto, su
+objetivo es ayudar a las programadoras a entregar valor lo antes posible, con confianza. En ATDD, por ejemplo, el primer
+test nos tiene que permitir poner el foco en el problema que vamos a resolver y servirnos como guía durante el
+desarrollo de la funcionalidad. Lo habitual es intentar reflejar en este primer test los criterios de aceptación que
+perseguimos cumplir con la historia de usuario en curso.
+
+Por ejemplo, supongamos que estamos trabajando en el front-end para la web de una editorial de libros y queremos añadir
+una página de contacto:
+
+> Es posible acceder a una página de contacto para, indicando email, asunto y mensaje, ponerse en contacto con la
+> editorial. Una vez completada la operación, se realizará una redirección a una página de éxito con un mensaje que
+> indique que todo ha ido bien.
+>
+> Hay disponible un endpoint `/api/contact` que completa la operación en el back-end.
+
+Utilizando [**Cypress**](https://www.cypress.io/), podemos trasladar esta descripción a una prueba de alto nivel como la
+siguiente:
+
+```tsx
+// Location: cypress/integration/sendContactMessage.test.ts
+
+context("sendContactMessage", () => {
+  specify("A user can send a contact message", () => {
+    // Setup
+    cy.server();
+    cy.route2("/api/contact", { statusCode: 200 });
+
+    // Act
+    cy.visit("/contact");
+    cy.findByLabelText(/tu email/i).type("hola@codecoolture.com");
+    cy.findByLabelText(/asunto/i).type("Información sobre próximos libros");
+    cy.findByLabelText(/mensaje/i).type("Hola, me gustaría obtener más información sobre próximos libros.");
+    cy.findByText(/enviar/i).click();
+
+    // Assert
+    cy.url().should("eql", Cypress.config().baseUrl + "/contact/success");
+    cy.findByText(/tu mensaje ha sido enviado con éxito/i).should("exist");
+  });
+});
+```
+
+La prueba anterior codifica el escenario de aceptación básico: primero, hacemos que Cypress simule la respuesta al
+endpoint `/api/contact` para indicar que todo ha ido bien (devolverá un código `200`), y después interactuamos con la
+aplicación para ir a la página de contacto y completar el formulario. Por último, validamos que se ha llevado al usuario
+a la página de éxito tras enviar el formulario.
+
+> Ahora que hemos visto un ejemplo, seguramente nos sea más sencillo explicar qué es Cypress: un framework de testing
+> para construir pruebas de aceptación sobre un navegador, utilizando JavaScript.
+
+En el ejemplo anterior, la prueba se ejecutará sobre nuestra propia aplicación. En este caso, **como todavía no hemos
+escrito código de producción, lo que esperamos es que el test falle**. Es ahora cuando tenemos que escribir la mínima
+cantidad posible de código para que este test pueda pasar.
+
+```tsx
+// Location: pages/contact.tsx
+
+export default function Contact() {
+  return (
+    <main>
+      <Formik
+        initialValues={{ email: "", subject: "", message: "" }}
+        onSubmit={async ({ email, subject, message }) => {
+          const response = await fetch("/api/contact", {
+            body: JSON.stringify({ email, subject, message }),
+            headers: { "content-type": "application/json" },
+            method: "post",
+          });
+
+          if (response.ok) {
+            window.location.href = "/contact/success";
+          }
+        }}
+      >
+        {() => {
+          return (
+            <Form>
+              <label>
+                Tu email <Field id="email" name="email" />
+              </label>
+              <label>
+                Asunto <Field name="subject" />
+              </label>
+              <label>
+                Mensaje <Field name="message" />
+              </label>
+              <button type="submit">Enviar</button>
+            </Form>
+          );
+        }}
+      </Formik>
+    </main>
+  );
+}
+```
+
+```tsx
+// Location: pages/contact/success.tsx
+
+export default function ContactSuccess() {
+  return <p>¡Enhorabuena! Tu mensaje ha sido enviado con éxito</p>;
+}
+```
+
+Obviando algunos detalles de implementación (como el uso de [Formik](https://formik.org/) para el formulario), los dos
+fragmentos de código anteriores muestran una posible implementación (básica pero funcional) que sirve para hacer pasar
+nuestro primer test de aceptación. En este punto, podemos añadir CSS a nuestra nueva página o extraer comportamientos a
+otro tipo de entidades (por ejemplo, mover la operación de `onSubmit` a un servicio). Si nuestro test sigue en verde al
+completar los cambios, tendremos la certeza de que no hemos roto nada ✅
+
+## Aplicando ciclos de desarrollo más pequeños
+
+Aunque Cypress es un magnífico framework de testing, las pruebas de tan alto nivel suelen venir con algunos compromisos:
+es difícil poder ejercitar todos los caminos de ejecución posibles y son lentas. Recordad que con TDD estamos buscando
+mejorar nuestra productividad por lo que **necesitamos que los ciclos de feedback sean lo más cortos posibles**. Para
+ello, mi consejo es utilizar pruebas de aceptación para cubrir el _happy path_ de la funcionalidad (y quizás algún
+escenario de error clave) y después iterar en ciclos de desarrollo más pequeños facilitados por pruebas de una
+granularidad más baja (en front-end, podríamos entenderlas como híbridos de integración + unitaria, centradas en
+componentes).
+
+Si volvemos al ejemplo anterior, seguramente hay ciertas reglas de experiencia de usuario que queramos validar sobre el
+formulario de contacto: que no se pueda completar la operación sin un email de remite o sin el cuerpo del mensaje, que
+aparezcan correctamente los mensajes de error, que los campos permitan únicamente ciertos patrones, etc. Aunque estas
+pruebas se podrían hacer también utilizando Cypress, su latencia es a menudo lo suficientemente grande como para
+preferir moverlos a tests de más bajo nivel (por lo general, más rápidos).
+
+Para hacer pruebas de componentes (en React, aunque las mismas herramientas están disponibles en otros frameworks como
+Vue o Angular) mi consejo es utilizar [**Testing Library**](https://testing-library.com/) en conjunción con
+[**Jest**](https://jestjs.io/). Por ejemplo, vamos a añadir un nuevo comportamiento a nuestra página de Contacto, aunque
+esta vez iterando en un nivel de abstracción más bajo:
+
+> El formulario sólo debe enviarse si contiene un email de remite y un mensaje.
+
+```tsx
+// Location: components/ContactForm.test.tsx
+
+describe("ContactForm", () => {
+  it("does not submit the form if some required fields are missing", async () => {
+    // Setup
+    const spy = jest.fn();
+    render(<ContactForm onSubmit={spy} />);
+
+    // Act
+    await user.type(screen.getByLabelText(/asunto/i), "Información próximos libros");
+    user.click(screen.getByText(/enviar/i));
+
+    // Assert
+    await expect(screen.findAllByText("Este campo es obligatorio.")).resolves.toHaveLength(2);
+    await waitFor(() => expect(spy).not.toHaveBeenCalled());
+  });
+});
+```
+
+El test anterior codifica el nuevo comportamiento que queremos validar. Veréis que, en un primer vistazo, la apariencia
+del test es similar al primero que creamos utilizando Cypress. La única diferencia es que aquí se prueba el componente
+de manera aislada en lugar de simular a un usuario real utilizando la aplicación. En Testing Library, no hay ningún
+navegador ejecutándose en paralelo, como sí ocurre con Cypress; así, mientras el último que hemos escrito podemos
+ejecutarlo en ~2 segundos, el primero necesita de ~22 segundos.
+
+Cuando trabajamos a un nivel de granularidad más bajo, nuestros tests pueden afectar al diseño de nuestros componentes
+(por lo general, haciéndolos más sencillos de probar). En este caso, he decidido inyectar la función que gestiona el
+envío del formulario para poder reemplazarla por un espía que me permita validar que no se ha invocado cuando no debía
+(aunque también podríamos haber espiado el módulo HTTP con [**nock**](https://github.com/nock/nock)). Este es otro de
+los beneficios clave de TDD, ser capaces de ir definiendo el diseño de nuestras interfaces a medida que escribimos las
+pruebas.
+
+Como todos estos cambios no están repercutiendo en cambios de comportamiento a nivel de aceptación, nuestro test de
+Cypress debería seguir pasando después de cada modificación, ayudándonos de nuevo a garantizar que no hemos roto nada
+✅.
+
+Ahora, al igual que en el ejercicio anterior, tendríamos que escribir la menor cantidad de código que sirva para hacer
+pasar este test.
+
+> Pss! Podéis ver el ejemplo completo en [este repositorio de GitHub](https://github.com/codecoolture/octuweb-2020) 👀
+
+## Conclusión
+
+¿Que conseguiremos aplicando un flujo similar al anterior? En la literatura de TDD, estaríamos aplicando lo que se
+conoce como
+[Outside-In development with Double Loop TDD](http://coding-is-like-cooking.info/2013/04/outside-in-development-with-double-loop-tdd/)
+o el proceso descrito en el libro
+[Growing Object-Oriented Software, Guided by Tests](https://www.goodreads.com/book/show/4268826-growing-object-oriented-software-guided-by-tests).
+
+Primero, arrancamos con un test de aceptación (o del nivel de granularidad más alto que podamos) que nos ayudará a
+mantener el foco en la funcionalidad que queremos resolver. En ocasiones, este test puede estar fallando durante varias
+horas porque necesite de otros ciclos complementarios más pequeños que nos ayuden avanzar (el ejemplo anterior era tan
+sencillo que no lo hemos necesitado). Para esos ciclos complementarios es donde podemos hacer uso de flujos como TDD
+clásico (útil para avanzar en piezas de bajo nivel como funciones, clases, servicios) y herramientas como Testing
+Library (para probar los diversos componentes que construyan la interfaz) o _simplemente_ Jest (para lógica de negocio
+como controladores, funciones de utilidad, etc.).
+
+## Otras referencias
+
+- Además de los enlaces contenidos en el artículo, podéis encontrar más referencias a TDD en
+  [esta página](https://www.notion.so/codecoolture/Public-References-50b1e927fe1641748f95610353e97b7f).
+- Cypress tiene una sección de [mejores prácticas](https://docs.cypress.io/guides/references/best-practices.html) con
+  algunos consejos muy útiles sobre cómo escribir pruebas de aceptación.
+- [Kent C. Dodds](https://twitter.com/kentcdodds/) (creador de Testing Library) tiene bastantes artículos relacionados
+  con testing de aplicaciones front-end (desde TDD hasta diferentes estrategias de testing). Podéis encontrarlos en
+  [su blog](https://kentcdodds.com/blog?q=testing).

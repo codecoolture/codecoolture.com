@@ -1,0 +1,72 @@
+---
+date: "2021-10-03"
+spoiler: "Colección de enlaces interesantes recopilados durante el tercer trimestre de 2021."
+title: "🔗 Quarterlinks #9: Q3 2021"
+url: "/notes/quarterlinks-q3-2021"
+---
+
+# Quarterlinks #9: Q3 2021
+
+## Career Framework
+
+Una buena parte de este tercer trimestre la dediqué a diseñar una primera iteración del career framework para el equipo
+de ingeniería de PrivacyCloud. Muchas empresas tecnológicas tienen públicos estos documentos así que, como no podía ser
+de otra manera, aproveché la oportunidad para leer un montón de ellos, aprender y tratar de implementar uno que
+recogiese con acierto nuestras expectativas de cada rol (siempre, claro, adaptadas al propio contexto y cultura del
+equipo y la empresa).
+
+Además de un índice muy útil como [progression.fyi][progression.fyi], os dejo por aquí los cinco ejemplos que más me han
+gustado (tanto por su filosofía, como por su explicación y diseño de cada camino y nivel).
+
+- **[Career Ladders by Sarah Drasner][career-ladders]**: es un punto de partida fantástico para diseñar un career ladder
+  para un equipo de ingeniería: define cada rol con 4-5 puntos que ejemplifican los comportamientos y expectativas, huye
+  de la trampa de un checklist y explica con bastante acierto cómo encaja el rol de Tech Lead (en mi experiencia, muy
+  ambiguo) en todo esto.
+- **[Engineering levels at Carta][carta]**: lo más interesante son las partes donde explican el razonamiento y filosofía
+  detrás de su framework (_fairness_, _compensation_, _career progression_).
+- **[Dropbox Engineering Career Framework][dropbox]**: su definición de impacto y cómo articulan todo el framework
+  alrededor de este concepto.
+- **[Engineering Levels at SoundCloud][soundcloud]**: es bastante conciso y me ha ayudado a no irme por las ramas (_keep
+  it simple_).
+- **[CircleCI Engineering Competency Matrix][circleci]**: es, de los cinco, el que mayor exhaustividad muestra a la hora
+  de definir las compentencias en diferentes niveles. Personalmente, no he seguido su enfoque, pero me ha ayudado a
+  perfilar algunas ideas.
+
+> Si quieres echar un vistazo al Career Framework de PrivacyCloud, [escríbeme](mailto:sergio@codecoolture.com), cuéntame
+> un poco sobre ti y estaré encantado de enviarte una copia!
+
+## 🛠 Código
+
+- **[`searls/todo_or_die`][todo]**: no sé si sería buena idea utilizarlo en una proyecto _real_ pero me ha encantado la
+  idea: ¿qué te parece si esos `TODO` que NUNCA resuelves empiezan a lanzar excepciones pasados N días? 😄
+
+```ruby
+class UsersController < ApiController
+  TodoOrDie("delete after JS app has propagated", by: "2019-02-04")
+  def show
+    redirect_to root_path
+  end
+end
+```
+
+- **[`radix-ui/colors`][radix]**: me gusta crear interfaces usables, accesibles y bonitas a pesar de no tener
+  conocimientos de diseño (más allá de los adquiridos con la experiencia), así que recursos como este siempre me parecen
+  oro. Radix UI tiene un módulo de colores que puedes instalar de manera independiente y que, más allá de tener unas
+  escalas muy bonitas, tiene una documentación ❤️ que te ayuda a decidir qué tonos tienes que utilizar en cada momento
+  (como fondo cuando el elemento tiene el `:hover`, como borde cuando el elemento no es interactivo, como color de
+  texto, etc.). Simplemente funciona.
+
+## 🎱 Bola extra: Love, Death & Robots
+
+Netflix produce esta pequeña joya de animación. Son 2 temporadas con capítulos muy cortos (algunos no duran más que unos
+pocos minutos) que muestran diferentes distopías donde, cada vez más, los humanos tienen que compartir su vida con
+avances tecnológicos de todo tipo.
+
+[progression.fyi]: https://www.progression.fyi/
+[carta]: https://medium.com/building-carta/engineering-levels-at-carta-d33db2a55a20
+[dropbox]: https://dropbox.github.io/dbx-career-framework/
+[soundcloud]: https://developers.soundcloud.com/blog/engineering-levels
+[circleci]: https://docs.google.com/spreadsheets/d/131XZCEb8LoXqy79WWrhCX4sBnGhCM1nAIz4feFZJsEo/edit#gid=0
+[career-ladders]: https://career-ladders.dev/
+[todo]: https://github.com/searls/todo_or_die
+[radix]: https://github.com/radix-ui/colors
