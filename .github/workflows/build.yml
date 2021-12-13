@@ -21,4 +21,16 @@ jobs:
           node-version: "14.16.0"
           cache: "yarn"
       - run: "yarn install"
-      - run: "yarn test"
+      - run: "yarn ci:test"
+
+  test_acceptance:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14.16.0"
+          cache: "yarn"
+      - run: "yarn install"
+      - run: "yarn ci:test:acc"

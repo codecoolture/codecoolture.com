@@ -42,7 +42,9 @@ export function Footer() {
       </ul>
 
       <section className="AppFooter__Footer">
-        <Code className="AppFooter__Code">$: npx codecoolture</Code>
+        <Code data-qa="npx-command" className="AppFooter__Code">
+          $: npx codecoolture
+        </Code>
       </section>
     </footer>
   );
