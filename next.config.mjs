@@ -1,8 +1,8 @@
 import nextMDX from "@next/mdx";
-import remarkExternalLinks from "remark-external-links";
+import rehypeExternalLinks from "rehype-external-links";
 
 const withMDX = nextMDX({
-  options: { remarkPlugins: [remarkExternalLinks] },
+  options: { rehypePlugins: [rehypeExternalLinks] },
 });
 
 /**
