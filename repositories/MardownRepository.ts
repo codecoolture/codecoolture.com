@@ -43,7 +43,7 @@ export class MarkdownRepository {
         content: markdown.getContent(),
         metadata: markdown.getMetadata(),
       };
-    } catch (error) {
+    } catch (error: any) {
       if (error && error.code === "ENOENT") {
         throw new FileNotFound(`The requested file "${this.root}/${path}" does not exist!`);
       }
