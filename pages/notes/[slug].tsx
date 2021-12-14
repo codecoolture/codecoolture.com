@@ -3,6 +3,8 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import React from "react";
+import remarkExternalLinks from "remark-external-links";
+import remarkUnwrapImages from "remark-unwrap-images";
 import { getConfig } from "../../config";
 import { Article as Note } from "../../entities/Article";
 import { Post } from "../../layouts/Post";
@@ -55,7 +57,7 @@ export const getStaticProps: GetStaticProps<NoteProps> = async ({ params }) => {
         content: await serialize(note.content, {
           mdxOptions: {
             rehypePlugins: [require("@mapbox/rehype-prism")],
-            remarkPlugins: [require("remark-unwrap-images"), require("remark-external-links")],
+            remarkPlugins: [remarkUnwrapImages, remarkExternalLinks],
           },
         }),
         metadata: note.metadata,
