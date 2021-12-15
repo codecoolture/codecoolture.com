@@ -15,7 +15,7 @@
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  padding: 1em 5vw;
+  padding: 1em 0;
   position: relative;
   width: 100%;
   z-index: 1;

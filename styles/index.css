@@ -15,6 +15,7 @@
 @import "../layouts/Application/components/Article/style.css";
 @import "../layouts/Application/components/Footer/style.css";
 @import "../layouts/Application/components/Header/style.css";
+@import "../layouts/Application/components/Column/style.css";
 @import "../layouts/Post/style.css";
 @import "../layouts/Post/components/Footer/style.css";
 @import "../layouts/Posts/style.css";

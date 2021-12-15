@@ -1,7 +1,5 @@
 .Post {
-  margin: 0 auto;
-  max-width: 900px;
-  padding: 5vh 5vw;
+  padding: 5vh 0;
 }
 
 .Post__Header {

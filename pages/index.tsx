@@ -8,33 +8,38 @@ export default function Homepage() {
   return (
     <Application headerPosition="absolute" hideBackLink>
       <section className="Hero">
-        <h1>Ayudo a equipos a desarrollar mejor software y entregar valor de manera sostenible.</h1>
+        <Application.Column>
+          <h1>Ayudo a equipos a desarrollar mejor software y entregar valor de manera sostenible.</h1>
+        </Application.Column>
       </section>
 
-      <section className="Briefs">
-        <div className="Brief Brief--Consulting">
-          <h2>Consultoría</h2>
+      <Application.Column>
+        <section className="Briefs">
+          <div className="Brief Brief--Consulting">
+            <h2>Consultoría</h2>
 
-          <p>Soluciones basadas en mi experiencia trabajando con diferentes tecnologías, proyectos y equipos.</p>
+            <p>Soluciones basadas en mi experiencia trabajando con diferentes tecnologías, proyectos y equipos.</p>
 
-          <NextLink href="/services/consulting" passHref>
-            <Link className="Brief__Button">Saber más</Link>
-          </NextLink>
-        </div>
+            <NextLink href="/services/consulting" passHref>
+              <Link className="Brief__Button">Saber más</Link>
+            </NextLink>
+          </div>
 
-        <div className="Brief Brief--Training">
-          <h2>Formación</h2>
+          <div className="Brief Brief--Training">
+            <h2>Formación</h2>
 
-          <p>
-            Sesiones prácticas sobre buenas prácticas de desarrollo de software (<em>test-driven development</em>,
-            CI/CD), React o el ecosistema JavaScript.
-          </p>
+            <p>
+              Sesiones prácticas sobre buenas prácticas de desarrollo de software (<em>test-driven development</em>,
+              CI/CD), React o el ecosistema JavaScript.
+            </p>
 
-          <NextLink href="/services/workshops" passHref>
-            <Link className="Brief__Button">Saber más</Link>
-          </NextLink>
-        </div>
-      </section>
+            <NextLink href="/services/workshops" passHref>
+              <Link className="Brief__Button">Saber más</Link>
+            </NextLink>
+          </div>
+        </section>
+      </Application.Column>
+
       <section className="Picture">
         <Figure
           alt="Sergio facilitando una sesión sobre TDD y la práctica deliberada de software (Spotahome, Madrid 2019)"
