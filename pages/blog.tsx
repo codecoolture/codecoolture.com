@@ -21,7 +21,7 @@ export default class Articles extends React.Component<ArticlesProps> {
       <Application theme={Theme.Light}>
         <Application.Article>
           <Heading el="h1" size="xl">
-            Artículos
+            Blog
           </Heading>
 
           <Text>

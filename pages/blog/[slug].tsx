@@ -18,7 +18,7 @@ export default class Articles extends React.Component<ArticleProps> {
   public render() {
     const post = {
       ...this.props.article,
-      breadcrumbs: () => [{ label: "Artículos", url: "/blog" }],
+      breadcrumbs: () => [{ label: "Blog", url: "/blog" }],
     };
 
     return <Post post={post} />;

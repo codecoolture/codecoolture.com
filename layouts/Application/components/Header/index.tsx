@@ -50,7 +50,7 @@ export class Header extends Component<HeaderProps, HeaderState> {
             </li>
             <li className="Menu__List__Item Menu__Item">
               <NextLink href="/blog">
-                <a className="AppHeader__Link">Artículos</a>
+                <a className="AppHeader__Link">Blog</a>
               </NextLink>
             </li>
             <li className="Menu__List__Item Menu__Item">
