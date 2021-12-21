@@ -40,19 +40,6 @@
   --c-gray-11: var(--gray11);
   --c-gray-12: var(--gray12);
 
-  --c-yellow-1: var(--yellow1);
-  --c-yellow-2: var(--yellow2);
-  --c-yellow-3: var(--yellow3);
-  --c-yellow-4: var(--yellow4);
-  --c-yellow-5: var(--yellow5);
-  --c-yellow-6: var(--yellow6);
-  --c-yellow-7: var(--yellow7);
-  --c-yellow-8: var(--yellow8);
-  --c-yellow-9: var(--yellow9);
-  --c-yellow-10: var(--yellow10);
-  --c-yellow-11: var(--yellow11);
-  --c-yellow-12: var(--yellow12);
-
   --c-indigo-1: var(--indigo1);
   --c-indigo-2: var(--indigo2);
   --c-indigo-3: var(--indigo3);
@@ -65,6 +52,19 @@
   --c-indigo-10: var(--indigo10);
   --c-indigo-11: var(--indigo11);
   --c-indigo-12: var(--indigo12);
+
+  --c-yellow-1: var(--yellow1);
+  --c-yellow-2: var(--yellow2);
+  --c-yellow-3: var(--yellow3);
+  --c-yellow-4: var(--yellow4);
+  --c-yellow-5: var(--yellow5);
+  --c-yellow-6: var(--yellow6);
+  --c-yellow-7: var(--yellow7);
+  --c-yellow-8: var(--yellow8);
+  --c-yellow-9: var(--yellow9);
+  --c-yellow-10: var(--yellow10);
+  --c-yellow-11: var(--yellow11);
+  --c-yellow-12: var(--yellow12);
 
   --c-white: var(--gray1);
 
