@@ -78,14 +78,14 @@
 }
 
 .Menu__Trigger {
-  border: 0;
+  border: 1px solid var(--c-indigo-7);
   font-size: var(--fs-xs);
   letter-spacing: 1px;
   padding: 10px;
 
-  background-color: var(--c-indigo-10);
+  background-color: var(--c-indigo-3);
   border-radius: 3px;
-  color: var(--c-white);
+  color: var(--c-indigo-11);
   font-family: var(--ff-sans-serif);
   font-weight: 700;
   text-transform: uppercase;
