@@ -28,7 +28,7 @@
   content: "";
 
   box-sizing: border-box;
-  border: 0.1em solid var(--c-black-400);
+  border: 0.1em solid var(--c-gray-12);
   flex-shrink: 0;
   height: 0.75em;
   margin-right: 10px;

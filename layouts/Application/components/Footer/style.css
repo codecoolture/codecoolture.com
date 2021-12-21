@@ -1,7 +1,7 @@
 .AppFooter {
   padding: 1em 0 0;
 
-  background-color: var(--c-blue-400);
+  background-color: var(--c-indigo-9);
 }
 
 .AppFooter__Nav {
@@ -24,7 +24,7 @@
 
   margin: 0 5px;
 
-  color: var(--c-yellow);
+  color: var(--c-yellow-9);
 }
 
 .AppFooter__Text {
@@ -64,7 +64,7 @@
   margin-top: 1em;
   padding: 0.25em 0;
 
-  background-color: var(--c-blue-700);
+  background-color: var(--c-indigo-10);
   color: var(--c-white);
 }
 
