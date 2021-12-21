@@ -66,7 +66,7 @@
   --c-indigo-11: var(--indigo11);
   --c-indigo-12: var(--indigo12);
 
-  --c-white: #fff;
+  --c-white: var(--gray1);
 
   --ff-serif: "IBM Plex Serif", serif;
   --ff-sans-serif: "IBM Plex Sans", sans-serif;
@@ -89,6 +89,8 @@ html,
 body {
   font-size: var(--fs-m);
   width: 100%;
+
+  background-color: var(--c-white);
 }
 
 body {
