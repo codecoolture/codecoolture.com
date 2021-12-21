@@ -1,13 +1,11 @@
 .AppHeader {
-  --appHeaderBgColor: var(--c-indigo-9);
-  --appHeaderColor: var(--c-white);
-  --appHeaderDotColor: var(--c-yellow-9);
+  --app-header-bg-color: var(--c-indigo-9);
+  --app-header-color: var(--c-white);
 }
 
 .AppHeader.Light {
-  --appHeaderBgColor: var(--c-white);
-  --appHeaderColor: var(--c-gray-12);
-  --appHeaderDotColor: var(--c-indigo-9);
+  --app-header-bg-color: var(--c-white);
+  --app-header-color: var(--c-gray-12);
 }
 
 .AppHeader {
@@ -20,8 +18,8 @@
   width: 100%;
   z-index: 1;
 
-  background-color: var(--appHeaderBgColor);
-  color: var(--appHeaderColor);
+  background-color: var(--app-header-bg-color);
+  color: var(--app-header-color);
 }
 
 .AppHeader--Absolute {
