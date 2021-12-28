@@ -12,3 +12,7 @@
   content: "·";
   margin: 0 0.25em;
 }
+
+.Post__Figure {
+  margin: 2em 0;
+}

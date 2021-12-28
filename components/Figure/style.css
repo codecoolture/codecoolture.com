@@ -1,7 +1,6 @@
 .Figure {
   display: flex;
   flex-direction: column;
-  margin: 2em 0;
 }
 
 .Figure__Img {

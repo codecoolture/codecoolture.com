@@ -49,7 +49,7 @@ export function Post({ post }: PostProps) {
                 h3: function h3(props: JSX.IntrinsicElements["h3"]) {
                   return <Heading el="h3" size="m" {...props} />;
                 },
-                img: Figure,
+                img: (props: JSX.IntrinsicElements["img"]) => <Figure className="Post__Figure" {...props} />,
                 inlineCode: Code,
                 li: List.Item,
                 ol: function OrderedList(props: JSX.IntrinsicElements["ol"]) {
