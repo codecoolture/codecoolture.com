@@ -36,14 +36,19 @@
   font-family: var(--ff-sans-serif);
 }
 
-.Brief {
+.Services {
+  display: grid;
+  padding: 5em 0;
+  row-gap: 5em;
+}
+
+.Service {
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: 1em;
 }
 
-.Brief::before {
+.Service::before {
   content: "";
 
   height: 3em;
@@ -53,30 +58,44 @@
   background-size: contain;
 }
 
-.Brief--Consulting::before {
+.Service--Consulting::before {
   background-image: url("/static/img/icons/services.svg");
 }
 
-.Brief--Training::before {
+.Service--Training::before {
   background-image: url("/static/img/icons/idea.svg");
 }
 
-.Brief h2 {
+.Service h2 {
   font-size: var(--fs-l);
 }
 
-.Brief p {
+.Service p {
   font-size: var(--fs-m);
   line-height: 1.65;
   text-align: center;
 }
 
-.Brief__Button {
-  font-size: var(--fs-m);
-  margin-top: 0.5em;
+.Service__Button {
+  --transition-delay: 0.15s;
 
-  font-weight: 700;
-  text-transform: uppercase;
+  border: 2px solid var(--c-indigo-7);
+  font-size: var(--fs-m);
+  margin-top: 1em;
+  padding: 0.5em 1em;
+
+  background-color: var(--c-indigo-3);
+  border-radius: 99999px;
+  color: var(--c-indigo-11);
+  font-weight: 400;
+  text-decoration: none;
+
+  transition: border-color var(--transition-delay) ease-in, background-color var(--transition-delay) ease-in;
+}
+
+.Service__Button:hover {
+  background-color: var(--c-indigo-4);
+  border-color: var(--c-indigo-8);
 }
 
 .Picture {
@@ -84,16 +103,9 @@
 }
 
 @media screen and (min-width: 750px) {
-  .Briefs {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: 3em auto;
-  }
-
-  .Brief {
-    flex-grow: 1;
-    width: 350px;
+  .Services {
+    column-gap: 5em;
+    grid-auto-flow: column;
   }
 
   .Picture {

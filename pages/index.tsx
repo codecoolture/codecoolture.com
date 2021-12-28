@@ -14,18 +14,18 @@ export default function Homepage() {
       </section>
 
       <Application.Column>
-        <section className="Briefs">
-          <div className="Brief Brief--Consulting">
+        <section className="Services">
+          <div className="Service Service--Consulting">
             <h2>Consultoría</h2>
 
             <p>Soluciones basadas en mi experiencia trabajando con diferentes tecnologías, proyectos y equipos.</p>
 
             <NextLink href="/services/consulting" passHref>
-              <Link className="Brief__Button">Saber más</Link>
+              <Link className="Service__Button">Saber más</Link>
             </NextLink>
           </div>
 
-          <div className="Brief Brief--Training">
+          <div className="Service Service--Training">
             <h2>Formación</h2>
 
             <p>
@@ -34,7 +34,7 @@ export default function Homepage() {
             </p>
 
             <NextLink href="/services/workshops" passHref>
-              <Link className="Brief__Button">Saber más</Link>
+              <Link className="Service__Button">Conoce las formaciones</Link>
             </NextLink>
           </div>
         </section>
