@@ -1,7 +1,7 @@
 import NextLink from "next/link";
 import React from "react";
+import { Button } from "../components/Button";
 import { Figure } from "../components/Figure";
-import { Link } from "../components/Link";
 import { Application } from "../layouts/Application";
 
 export default function Homepage() {
@@ -21,7 +21,7 @@ export default function Homepage() {
             <p>Soluciones basadas en mi experiencia trabajando con diferentes tecnologías, proyectos y equipos.</p>
 
             <NextLink href="/services/consulting" passHref>
-              <Link className="Service__Button">Saber más</Link>
+              <Button className="Service__Button">Saber más</Button>
             </NextLink>
           </div>
 
@@ -34,7 +34,7 @@ export default function Homepage() {
             </p>
 
             <NextLink href="/services/workshops" passHref>
-              <Link className="Service__Button">Conoce las formaciones</Link>
+              <Button className="Service__Button">Conoce las formaciones</Button>
             </NextLink>
           </div>
         </section>

@@ -4,13 +4,13 @@
 
 @import "../components/Blockquote/style.css";
 @import "../components/Breadcrumbs/style.css";
+@import "../components/Button/style.css";
 @import "../components/Code/style.css";
 @import "../components/Codeblock/style.css";
 @import "../components/Figure/style.css";
 @import "../components/Heading/style.css";
 @import "../components/Link/style.css";
 @import "../components/List/style.css";
-@import "../components/QuickContact/style.css";
 @import "../components/Text/style.css";
 @import "../components/Timestamp/style.css";
 @import "../components/Underline/style.css";

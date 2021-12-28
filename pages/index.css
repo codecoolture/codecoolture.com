@@ -77,25 +77,7 @@
 }
 
 .Service__Button {
-  --transition-delay: 0.15s;
-
-  border: 2px solid var(--c-indigo-7);
-  font-size: var(--fs-m);
   margin-top: 1em;
-  padding: 0.5em 1em;
-
-  background-color: var(--c-indigo-3);
-  border-radius: 99999px;
-  color: var(--c-indigo-11);
-  font-weight: 400;
-  text-decoration: none;
-
-  transition: border-color var(--transition-delay) ease-in, background-color var(--transition-delay) ease-in;
-}
-
-.Service__Button:hover {
-  background-color: var(--c-indigo-4);
-  border-color: var(--c-indigo-8);
 }
 
 .Picture {

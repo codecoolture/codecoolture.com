@@ -1,0 +1,24 @@
+.Button {
+  --button-transition-delay: 0.15s;
+
+  border: 2px solid var(--c-indigo-7);
+  display: inline-block;
+  font-size: var(--fs-m);
+  max-width: calc(100% - 2em);
+  padding: 0.5em 1em;
+
+  background-color: var(--c-indigo-3);
+  border-radius: 99999px;
+  color: var(--c-indigo-11);
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+
+  transition: border-color var(--button-transition-delay) ease-in,
+    background-color var(--button-transition-delay) ease-in;
+}
+
+.Button:hover {
+  background-color: var(--c-indigo-4);
+  border-color: var(--c-indigo-8);
+}

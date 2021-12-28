@@ -1,18 +1,19 @@
 import React from "react";
+import { classNames } from "../../lib/classNames";
+import { Button } from "../Button";
 
-import { Link } from "../Link";
-
-interface QuickContactProps {
-  children: React.ReactText;
+export type QuickContactProps = {
+  children: string;
+  className?: string;
   subject: string;
-}
+};
 
-export function QuickContact({ children, subject }: QuickContactProps) {
+export function QuickContact({ children, className, subject }: QuickContactProps) {
   const href = `mailto:hola@codecoolture.com?subject=${subject}`;
 
   return (
-    <Link href={href} className="QuickContact">
+    <Button className={classNames(className)} href={href}>
       {children}
-    </Link>
+    </Button>
   );
 }
