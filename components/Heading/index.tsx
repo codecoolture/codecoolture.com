@@ -1,4 +1,5 @@
 import React from "react";
+import { classNames } from "../../lib/classNames";
 
 interface HeadingProps {
   children?: React.ReactNode;
@@ -7,12 +8,10 @@ interface HeadingProps {
   el?: "h1" | "h2" | "h3" | "p";
 }
 
-export function Heading({ children, className, el = "h1", size = "xl" }: HeadingProps) {
-  const classes = ["Heading", `Heading--${size.charAt(0).toUpperCase() + size.slice(1)}`, className]
-    .filter(Boolean)
-    .join(" ");
-
-  const Element = el;
-
-  return <Element className={classes}>{children}</Element>;
+export function Heading({ children, className, el: Element = "h1", size = "xl" }: HeadingProps) {
+  return (
+    <Element className={classNames("Heading", `Heading--${size.charAt(0).toUpperCase() + size.slice(1)}`, className)}>
+      {children}
+    </Element>
+  );
 }

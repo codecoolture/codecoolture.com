@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { classNames } from "../../lib/classNames";
 
 export interface CarouselProps {
   children: React.ReactNode;
@@ -31,8 +32,6 @@ function useInterval(callback: UseIntervalCallback, delay: number) {
 }
 
 export function Carousel({ delay, children, className }: CarouselProps) {
-  const classes = [className].filter(Boolean).join(" ");
-
   const numberOfChilds = React.Children.count(children);
 
   const [currentChildrenIndex, setChildrenIndex] = useState(0);
@@ -46,5 +45,5 @@ export function Carousel({ delay, children, className }: CarouselProps) {
     setChildrenIndex(currentChildrenIndex + 1);
   }, delay);
 
-  return <div className={classes}>{React.Children.toArray(children)[currentChildrenIndex]}</div>;
+  return <div className={classNames(className)}>{React.Children.toArray(children)[currentChildrenIndex]}</div>;
 }

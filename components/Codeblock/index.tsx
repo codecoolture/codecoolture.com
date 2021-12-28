@@ -1,4 +1,5 @@
 import React from "react";
+import { classNames } from "../../lib/classNames";
 
 interface CodeblockProps {
   children: React.ReactNode;
@@ -6,7 +7,5 @@ interface CodeblockProps {
 }
 
 export function Codeblock({ children, className }: CodeblockProps) {
-  const classes = ["Codeblock", className].filter(Boolean).join(" ");
-
-  return <pre className={classes}>{children}</pre>;
+  return <pre className={classNames("Codeblock", className)}>{children}</pre>;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { classNames } from "../../lib/classNames";
 
 type LinkProps = Pick<JSX.IntrinsicElements["a"], "href" | "rel" | "target"> & {
   className?: string;
@@ -11,10 +12,8 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
   //
   // eslint-disable-next-line react/prop-types
   ({ children, className, href, rel, target }: LinkProps, ref) => {
-    const classes = ["Link", className].filter(Boolean).join(" ");
-
     return (
-      <a className={classes} href={href} target={target} ref={ref} rel={rel}>
+      <a className={classNames("Link", className)} href={href} target={target} ref={ref} rel={rel}>
         {children}
       </a>
     );

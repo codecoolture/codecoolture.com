@@ -1,4 +1,5 @@
 import React from "react";
+import { classNames } from "../../lib/classNames";
 
 interface CodeProps {
   "data-qa"?: string;
@@ -8,10 +9,8 @@ interface CodeProps {
 }
 
 export function Code({ children, className, ...props }: CodeProps) {
-  const classes = ["Code", className].filter(Boolean).join(" ");
-
   return (
-    <code className={classes} {...props}>
+    <code className={classNames("Code", className)} {...props}>
       {children}
     </code>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import { classNames } from "../../lib/classNames";
 
 function Item({ children }: { children: React.ReactNode }) {
   return (
@@ -14,13 +15,13 @@ export type ListProps = {
 };
 
 export function List({ children, type = "bullet" }: ListProps) {
-  const classes = ["List", type === "bullet" && "List--Bullet", type === "number" && "List--Number"]
-    .filter(Boolean)
-    .join(" ");
-
   const ListType = type === "bullet" ? "ul" : "ol";
 
-  return <ListType className={classes}>{children}</ListType>;
+  return (
+    <ListType className={classNames("List", type === "bullet" && "List--Bullet", type === "number" && "List--Number")}>
+      {children}
+    </ListType>
+  );
 }
 
 List.Item = Item;

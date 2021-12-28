@@ -9,6 +9,7 @@ import { Heading } from "../../../../components/Heading";
 import { Link } from "../../../../components/Link";
 import { List } from "../../../../components/List";
 import { Text } from "../../../../components/Text";
+import { classNames } from "../../../../lib/classNames";
 
 export interface ArticleProps {
   breadcrumbs?: Breadcrumb[];
@@ -18,7 +19,6 @@ export interface ArticleProps {
 
 export function Article({ breadcrumbs = [], children, className }: ArticleProps) {
   const hasBreadcrumbs = breadcrumbs && breadcrumbs.length > 0;
-  const classes = ["AppArticle", className].filter(Boolean).join(" ");
 
   return (
     <Application.Column>
@@ -40,7 +40,7 @@ export function Article({ breadcrumbs = [], children, className }: ArticleProps)
           ul: List,
         }}
       >
-        <article className={classes}>
+        <article className={classNames("AppArticle", className)}>
           {hasBreadcrumbs && <Breadcrumbs className="AppArticle__Breadcrumbs" path={breadcrumbs} />}
           {children}
         </article>

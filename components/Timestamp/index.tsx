@@ -1,4 +1,5 @@
 import React from "react";
+import { classNames } from "../../lib/classNames";
 
 export interface TimestampProps {
   className?: string;
@@ -15,9 +16,7 @@ export function Timestamp({
     year: "numeric",
   },
 }: TimestampProps) {
-  const classes = ["Date", className].filter(Boolean).join(" ");
-
   const timestamp = new Date(date);
 
-  return <p className={classes}>{timestamp.toLocaleDateString("es-ES", format)}</p>;
+  return <p className={classNames("Date", className)}>{timestamp.toLocaleDateString("es-ES", format)}</p>;
 }
