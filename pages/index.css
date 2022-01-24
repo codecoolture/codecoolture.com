@@ -81,6 +81,7 @@
 }
 
 .Picture {
+  margin: 3em auto;
   max-width: 100%;
 }
 
@@ -91,7 +92,6 @@
   }
 
   .Picture {
-    margin: 0 auto;
     max-width: 85%;
     width: 800px;
   }
