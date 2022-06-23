@@ -7,7 +7,6 @@ import { Text } from "../components/Text";
 import { getConfig } from "../config";
 import { Article as Note } from "../entities/Article";
 import { Application } from "../layouts/Application";
-import { Theme } from "../layouts/Application/Theme";
 import { Posts } from "../layouts/Posts";
 import { MarkdownRepository } from "../repositories/MardownRepository";
 
@@ -18,7 +17,7 @@ interface NotesProps {
 export default class Notes extends React.Component<NotesProps> {
   public render() {
     return (
-      <Application theme={Theme.Light}>
+      <Application>
         <Application.Article>
           <Heading el="h1" size="xl">
             Notas

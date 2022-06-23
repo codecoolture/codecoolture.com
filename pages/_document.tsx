@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
           <link rel="shortcut icon" href="/static/img/favicon-64.png" type="image/png" />
         </Head>
 
-        <body>
+        <body className="dark-theme">
           <Main />
           <NextScript />
         </body>

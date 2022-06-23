@@ -1,14 +1,4 @@
 .AppHeader {
-  --app-header-bg-color: var(--c-indigo-9);
-  --app-header-color: var(--c-white);
-}
-
-.AppHeader.Light {
-  --app-header-bg-color: var(--c-white);
-  --app-header-color: var(--c-gray-12);
-}
-
-.AppHeader {
   align-items: center;
   box-sizing: border-box;
   display: flex;
@@ -18,14 +8,8 @@
   width: 100%;
   z-index: 1;
 
-  background-color: var(--app-header-bg-color);
-  color: var(--app-header-color);
-}
-
-.AppHeader--Absolute {
-  position: absolute;
-
-  background: transparent;
+  background-color: var(--c-gray-1);
+  color: var(--c-gray-12);
 }
 
 .AppHeader--NoBackLink {

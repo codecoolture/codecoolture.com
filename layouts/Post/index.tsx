@@ -13,7 +13,6 @@ import { Text } from "../../components/Text";
 import { Timestamp } from "../../components/Timestamp";
 import { Article } from "../../entities/Article";
 import { Application } from "../Application";
-import { Theme } from "../Application/Theme";
 import { Footer } from "./components/Footer";
 
 export interface PostProps {
@@ -27,7 +26,7 @@ export function Post({ post }: PostProps) {
     <>
       <Seo post={post} />
 
-      <Application theme={Theme.Light}>
+      <Application>
         <section className="Post">
           <Application.Column>
             <header className="Post__Header">

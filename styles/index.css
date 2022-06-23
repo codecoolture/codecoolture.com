@@ -1,6 +1,6 @@
-@import "@radix-ui/colors/gray.css";
-@import "@radix-ui/colors/indigo.css";
-@import "@radix-ui/colors/yellow.css";
+@import "@radix-ui/colors/grayDark.css";
+@import "@radix-ui/colors/indigoDark.css";
+@import "@radix-ui/colors/yellowDark.css";
 
 @import "../components/Blockquote/style.css";
 @import "../components/Breadcrumbs/style.css";
@@ -27,6 +27,20 @@
 @import "../pages/index.css";
 
 :root {
+  --ff-serif: "IBM Plex Serif", serif;
+  --ff-sans-serif: "IBM Plex Sans", sans-serif;
+  --ff-monospace: "IBM Plex Mono", monospace;
+
+  --fs-xl: 2.5em;
+  --fs-l: 1.5em;
+  --fs-m: 18px;
+  --fs-s: 0.8em;
+  --fs-xs: 0.6em;
+  --fs-xxs: 0.5em;
+}
+
+:root,
+.dark-theme {
   --c-gray-1: var(--gray1);
   --c-gray-2: var(--gray2);
   --c-gray-3: var(--gray3);
@@ -66,18 +80,7 @@
   --c-yellow-11: var(--yellow11);
   --c-yellow-12: var(--yellow12);
 
-  --c-white: var(--gray1);
-
-  --ff-serif: "IBM Plex Serif", serif;
-  --ff-sans-serif: "IBM Plex Sans", sans-serif;
-  --ff-monospace: "IBM Plex Mono", monospace;
-
-  --fs-xl: 2.5em;
-  --fs-l: 1.5em;
-  --fs-m: 18px;
-  --fs-s: 0.8em;
-  --fs-xs: 0.6em;
-  --fs-xxs: 0.5em;
+  --c-white: #fff;
 }
 
 * {
@@ -90,7 +93,7 @@ body {
   font-size: var(--fs-m);
   width: 100%;
 
-  background-color: var(--c-white);
+  background-color: var(--c-gray-1);
 }
 
 body {

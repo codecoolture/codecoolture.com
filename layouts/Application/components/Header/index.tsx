@@ -1,12 +1,9 @@
 import NextLink from "next/link";
 import React, { Component } from "react";
 import { classNames } from "../../../../lib/classNames";
-import { Theme } from "../../Theme";
 
 interface HeaderProps {
   hideBackLink?: boolean;
-  position?: "absolute";
-  theme?: Theme;
 }
 
 interface HeaderState {
@@ -17,17 +14,10 @@ export class Header extends Component<HeaderProps, HeaderState> {
   public state: HeaderState = { isMenuOpen: false };
 
   public render() {
-    const { hideBackLink, position, theme } = this.props;
+    const { hideBackLink } = this.props;
 
     return (
-      <header
-        className={classNames(
-          "AppHeader",
-          hideBackLink && "AppHeader--NoBackLink",
-          position === "absolute" && "AppHeader--Absolute",
-          theme === Theme.Light && "Light",
-        )}
-      >
+      <header className={classNames("AppHeader", hideBackLink && "AppHeader--NoBackLink")}>
         {!hideBackLink && (
           <p>
             <NextLink href="/">

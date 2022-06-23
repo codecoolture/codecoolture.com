@@ -1,7 +1,8 @@
 .AppFooter {
+  border-top: 1px solid var(--c-gray-6);
   padding: 1em 0 0;
 
-  background-color: var(--c-indigo-9);
+  background-color: var(--c-gray-2);
 }
 
 .AppFooter__Nav {
@@ -14,7 +15,6 @@
   font-size: var(--fs-m);
   letter-spacing: 1px;
 
-  color: var(--c-white);
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -24,7 +24,7 @@
 
   margin: 0 5px;
 
-  color: var(--c-yellow-9);
+  color: var(--c-yellow-6);
 }
 
 .AppFooter__Text {
@@ -32,7 +32,7 @@
   line-height: 1.65;
   margin-top: 1em;
 
-  color: var(--c-white);
+  color: var(--c-gray-12);
   font-family: var(--ff-serif);
 }
 
@@ -51,7 +51,7 @@
 .AppFooter__Link {
   letter-spacing: 1px;
 
-  color: var(--c-white);
+  color: var(--c-gray-12);
   font-weight: 700;
   text-decoration: none;
   text-transform: uppercase;
@@ -64,12 +64,12 @@
   margin-top: 1em;
   padding: 0.25em 0;
 
-  background-color: var(--c-indigo-10);
-  color: var(--c-white);
+  background-color: var(--c-gray-2);
+  color: var(--c-gray-12);
 }
 
 .AppFooter__Code {
   font-size: var(--fs-xs);
 
-  color: var(--c-white);
+  color: var(--c-gray-12);
 }

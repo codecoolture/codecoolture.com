@@ -1,9 +1,8 @@
 import { Application } from "../layouts/Application";
-import { Theme } from "../layouts/Application/Theme";
 
 export default ({ children }) => {
   return (
-    <Application theme={Theme.Light}>
+    <Application>
       <Application.Article>{children}</Application.Article>
     </Application>
   );
