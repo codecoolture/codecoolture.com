@@ -43,11 +43,6 @@ export class Header extends Component<HeaderProps, HeaderState> {
 
           <ul className={`Menu__List ${this.state.isMenuOpen ? "Menu__List--isOpen" : ""}`}>
             <li className="Menu__List__Item Menu__Item">
-              <NextLink href="/services">
-                <a className="AppHeader__Link">Servicios</a>
-              </NextLink>
-            </li>
-            <li className="Menu__List__Item Menu__Item">
               <NextLink href="/blog">
                 <a className="AppHeader__Link">Blog</a>
               </NextLink>

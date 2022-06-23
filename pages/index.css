@@ -36,61 +36,12 @@
   font-family: var(--ff-sans-serif);
 }
 
-.Services {
-  display: grid;
-  padding: 5em 0;
-  row-gap: 5em;
-}
-
-.Service {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.Service::before {
-  content: "";
-
-  height: 3em;
-  margin-bottom: 0.5em;
-  width: 3em;
-
-  background-size: contain;
-}
-
-.Service--Consulting::before {
-  background-image: url("/static/img/icons/services.svg");
-}
-
-.Service--Training::before {
-  background-image: url("/static/img/icons/idea.svg");
-}
-
-.Service h2 {
-  font-size: var(--fs-l);
-}
-
-.Service p {
-  font-size: var(--fs-m);
-  line-height: 1.65;
-  text-align: center;
-}
-
-.Service__Button {
-  margin-top: 1em;
-}
-
 .Picture {
-  margin: 3em auto;
+  margin: 15em auto 3em;
   max-width: 100%;
 }
 
 @media screen and (min-width: 750px) {
-  .Services {
-    column-gap: 5em;
-    grid-auto-flow: column;
-  }
-
   .Picture {
     max-width: 85%;
     width: 800px;
