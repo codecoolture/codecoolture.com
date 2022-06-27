@@ -18,5 +18,5 @@ export function Timestamp({
 }: TimestampProps) {
   const timestamp = new Date(date);
 
-  return <p className={classNames("Date", className)}>{timestamp.toLocaleDateString("es-ES", format)}</p>;
+  return <p className={classNames("Date", className)}>{timestamp.toLocaleDateString("en-US", format)}</p>;
 }
