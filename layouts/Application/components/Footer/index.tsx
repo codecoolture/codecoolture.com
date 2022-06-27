@@ -12,7 +12,7 @@ export function Footer() {
           <ul className="AppFooter__Nav">
             <li className="AppFooter__Nav__Item">
               <NextLink href="/contact">
-                <a className="AppFooter__Link">Contacto</a>
+                <a className="AppFooter__Link">Contact</a>
               </NextLink>
             </li>
 
@@ -31,14 +31,13 @@ export function Footer() {
         </nav>
 
         <p className="AppFooter__Text">
-          Soy Sergio y vivo en Asturias. Mi principal área de interés es el diseño e implementación de arquitecturas web
-          sostenibles. Ayudo a equipos de desarrollo a entregar valor de manera confiable, rápida y continua.
+          Hey, I&apos;m Sergio! I build maintainable and performant full-stack web applications.
         </p>
 
         <ul className="AppFooter__Links">
           <li className="AppFooter__LinkWrapper">
             <Link href="https://twitter.com/codecoolture" target="_blank" className="AppFooter__Link">
-              <Underline>Seguir @codecoolture</Underline>
+              <Underline>Follow @codecoolture</Underline>
             </Link>
           </li>
         </ul>
