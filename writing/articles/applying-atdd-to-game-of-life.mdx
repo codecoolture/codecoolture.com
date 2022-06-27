@@ -1,63 +1,51 @@
 ---
 date: "2019-12-12"
+language: "Español"
 spoiler:
-  "¿Qué es ATDD? Imagínate aplicar TDD no sólo para resolver pequeñas piezas de
-  funcionalidad si no para conseguir un sistema desplegable en cada iteración."
+  "¿Qué es ATDD? Imagínate aplicar TDD no sólo para resolver pequeñas piezas de funcionalidad si no para conseguir un
+  sistema desplegable en cada iteración."
 title: "Aplicando ATDD para resolver El Juego de la Vida"
 url: "/blog/applying-atdd-to-game-of-life"
 ---
 
 # Aplicando ATDD para resolver El Juego de la Vida
 
-> Nota: en la literatura, ATDD suele ir acompañado de un conjunto de prácticas y
-> herramientas más amplio que lo descrito en este artículo. Mi objetivo aquí es
-> transmitir mi experiencia sobre cómo aplicar parte de sus principios para
-> mejorar nuestra productividad a la hora de resolver determinados problemas,
-> visto únicamente desde el plano de desarrollo de software.
+> Nota: en la literatura, ATDD suele ir acompañado de un conjunto de prácticas y herramientas más amplio que lo descrito
+> en este artículo. Mi objetivo aquí es transmitir mi experiencia sobre cómo aplicar parte de sus principios para
+> mejorar nuestra productividad a la hora de resolver determinados problemas, visto únicamente desde el plano de
+> desarrollo de software.
 
-Una de las situaciones más habituales que me he encontrado en los últimos años
-cuando facilito coding dojos o coderetreats (donde muchas personas se enfrentan
-por primera vez a resolver una _kata_ aplicando metodologías como TDD) es
-observar cómo los participantes empiezan atacando el problema de una manera que
-no les ayuda a avanzar, sino más bien les obliga a perderse en pequeños detalles
-de implementación o incluso a sufrir de cierta _parálisis por análisis_.
+Una de las situaciones más habituales que me he encontrado en los últimos años cuando facilito coding dojos o
+coderetreats (donde muchas personas se enfrentan por primera vez a resolver una _kata_ aplicando metodologías como TDD)
+es observar cómo los participantes empiezan atacando el problema de una manera que no les ayuda a avanzar, sino más bien
+les obliga a perderse en pequeños detalles de implementación o incluso a sufrir de cierta _parálisis por análisis_.
 
-Al principio, yo también pensaba que aplicar TDD debería ser suficiente por sí
-mismo para evitar esa fricción inicial y tener _working software_ lo más rápido
-posible, pero tras observarlo (y sufrirlo) durante varios años, me he dado
-cuenta que no siempre es así. Cuando empezamos a trabajar con TDD es habitual
-que tratemos de solucionar el problema desde aquellos puntos donde nos es más
-sencillo poder aplicarlo (pequeñas piezas de bajo nivel, como una función
-sencilla), aunque no sean las partes que nos ayuden a llegar antes a resolver el
-problema (y por tanto, a entregar valor).
+Al principio, yo también pensaba que aplicar TDD debería ser suficiente por sí mismo para evitar esa fricción inicial y
+tener _working software_ lo más rápido posible, pero tras observarlo (y sufrirlo) durante varios años, me he dado cuenta
+que no siempre es así. Cuando empezamos a trabajar con TDD es habitual que tratemos de solucionar el problema desde
+aquellos puntos donde nos es más sencillo poder aplicarlo (pequeñas piezas de bajo nivel, como una función sencilla),
+aunque no sean las partes que nos ayuden a llegar antes a resolver el problema (y por tanto, a entregar valor).
 
-Como parte de la preparación para facilitar el
-[GDCR19](https://www.coderetreat.org/), estuve trabajando en resolver el Juego
-de la Vida utilizando un enfoque basado en
-[ATDD](https://en.wikipedia.org/wiki/Acceptance_test%E2%80%93driven_development)
-(_acceptance test-driven development_), una aplicación de TDD que nos obliga a
-pensar en pruebas de muy alto nivel (aceptación) con la idea de tener una
-versión desplegable de nuestro sistema con cada iteración.
+Como parte de la preparación para facilitar el [GDCR19](https://www.coderetreat.org/), estuve trabajando en resolver el
+Juego de la Vida utilizando un enfoque basado en
+[ATDD](https://en.wikipedia.org/wiki/Acceptance_test%E2%80%93driven_development) (_acceptance test-driven development_),
+una aplicación de TDD que nos obliga a pensar en pruebas de muy alto nivel (aceptación) con la idea de tener una versión
+desplegable de nuestro sistema con cada iteración.
 
 ## El síndrome de la página en blanco, o _ese_ primer test
 
-Una de las ventajas de aplicar ATDD es que esa primera _crisis_ sobre cómo
-atacar el problema me vino resuelta casi de base. En este caso, sabía que el
-sistema debía ser un CLI que, a partir de un fichero de entrada, generase un
-fichero de salida con la siguiente evolución del tablero
-([aquí](http://codingdojo.org/kata/GameOfLife/#problem-description) tenéis un
-enlace con las reglas del juego).
+Una de las ventajas de aplicar ATDD es que esa primera _crisis_ sobre cómo atacar el problema me vino resuelta casi de
+base. En este caso, sabía que el sistema debía ser un CLI que, a partir de un fichero de entrada, generase un fichero de
+salida con la siguiente evolución del tablero ([aquí](http://codingdojo.org/kata/GameOfLife/#problem-description) tenéis
+un enlace con las reglas del juego).
 
-La primera porción de funcionalidad mínima (de alto nivel) que se me ocurrió
-implementar fue un CLI que, dadas las condiciones anteriores, supiera
-evolucionar un tablero con despoblación.
+La primera porción de funcionalidad mínima (de alto nivel) que se me ocurrió implementar fue un CLI que, dadas las
+condiciones anteriores, supiera evolucionar un tablero con despoblación.
 
-Seguramente, esta sea la diferencia más notable frente a tratar de resolver el
-problema utilizando (únicamente) TDD a nivel unitario (de ahora en adelante,
-UTDD -aunque no creo que este concepto esté definido en ningún sitio 😅). Con
-UTDD nos vemos _obligados_ a detectar desde el principio una primera entidad
-sobre la que escribir los tests, lo que en muchas ocasiones me ha hecho perder
-el foco y caer en la trampa del
+Seguramente, esta sea la diferencia más notable frente a tratar de resolver el problema utilizando (únicamente) TDD a
+nivel unitario (de ahora en adelante, UTDD -aunque no creo que este concepto esté definido en ningún sitio 😅). Con UTDD
+nos vemos _obligados_ a detectar desde el principio una primera entidad sobre la que escribir los tests, lo que en
+muchas ocasiones me ha hecho perder el foco y caer en la trampa del
 [Big Design Up Front](https://wiki.c2.com/?BigDesignUpFront).
 
 ```ts
@@ -77,82 +65,65 @@ it("supports underpopulation", () => {
 
 Pero vayamos paso a paso por el test anterior:
 
-- La función `play` es un simple envoltorio que ejecuta en un shell la
-  instrucción indicada. En este caso, nuestro ejecutable es el fichero
-  `src/cli.ts` y se le pasan como parámetro ambos: el fichero de entrada con el
-  tablero inicial y el fichero de salida donde guardar la evolución.
-- Una vez ejecutado el script, recuperamos el resultado a partir del fichero de
-  salida indicado y comprobamos que sea el resultado esperado.
+- La función `play` es un simple envoltorio que ejecuta en un shell la instrucción indicada. En este caso, nuestro
+  ejecutable es el fichero `src/cli.ts` y se le pasan como parámetro ambos: el fichero de entrada con el tablero inicial
+  y el fichero de salida donde guardar la evolución.
+- Una vez ejecutado el script, recuperamos el resultado a partir del fichero de salida indicado y comprobamos que sea el
+  resultado esperado.
 
-ATDD sigue el mismo ciclo Red-Green-Refactor que TDD, por lo que en esta primera
-iteración hemos sentado las expectativas tanto de un primer comportamiento del
-sistema como de su propia interfaz para operar, sin tener aún nada de código de
-producción implementado. Si estáis acostumbradas a trabajar con UTDD, es posible
-que este primer test os parezca _demasiado grande_. Y es que con ATDD el **ciclo
-de feedback** es mucho más largo.
+ATDD sigue el mismo ciclo Red-Green-Refactor que TDD, por lo que en esta primera iteración hemos sentado las
+expectativas tanto de un primer comportamiento del sistema como de su propia interfaz para operar, sin tener aún nada de
+código de producción implementado. Si estáis acostumbradas a trabajar con UTDD, es posible que este primer test os
+parezca _demasiado grande_. Y es que con ATDD el **ciclo de feedback** es mucho más largo.
 
 ## Añadiendo nuevos comportamientos
 
-Con el test anterior en verde, ya dispondríamos de una versión 0.1.0 de nuestro
-Juego de la Vida 🙂 Un CLI que, a partir de un fichero de entrada, sería capaz
-de evolucionar el tablero detectando aquellas células que sufran de despoblación
-y guardando el resultado en el fichero de salida indicado.
+Con el test anterior en verde, ya dispondríamos de una versión 0.1.0 de nuestro Juego de la Vida 🙂 Un CLI que, a partir
+de un fichero de entrada, sería capaz de evolucionar el tablero detectando aquellas células que sufran de despoblación y
+guardando el resultado en el fichero de salida indicado.
 
-Pero para implementar el Juego de la Vida de manera completa, hay que tener en
-cuenta también otros escenarios. El enfoque que apliqué para ello fue ir creando
-un nuevo test para cada nuevo comportamiento. Así pues, tras implementar el
-soporte para despoblación, el siguiente en la lista era el escenario de
-sobrepoblación.
+Pero para implementar el Juego de la Vida de manera completa, hay que tener en cuenta también otros escenarios. El
+enfoque que apliqué para ello fue ir creando un nuevo test para cada nuevo comportamiento. Así pues, tras implementar el
+soporte para despoblación, el siguiente en la lista era el escenario de sobrepoblación.
 
-Con esa prueba también en verde, tendríamos una nueva versión 0.2.0 del sistema
-lista para desplegar; esta vez, soportando ya un nuevo escenario. Este mismo
-flujo se utilizaría para implementar el resto de reglas.
+Con esa prueba también en verde, tendríamos una nueva versión 0.2.0 del sistema lista para desplegar; esta vez,
+soportando ya un nuevo escenario. Este mismo flujo se utilizaría para implementar el resto de reglas.
 
-> Cada nuevo test define un nuevo comportamiento de alto nivel en el sistema. Al
-> resolverlo, nuestro software debería estar listo para ser desplegado.
+> Cada nuevo test define un nuevo comportamiento de alto nivel en el sistema. Al resolverlo, nuestro software debería
+> estar listo para ser desplegado.
 
 ## ATDD y productividad
 
-Seguramente, aplicar ATDD tampoco me hubiese ayudado a terminar de implementar
-el Juego de la Vida en los 45 minutos que duran las sesiones de un coderetreat
-🙃, pero sí creo que me habría permitido acercarme mucho más que si hubiese
+Seguramente, aplicar ATDD tampoco me hubiese ayudado a terminar de implementar el Juego de la Vida en los 45 minutos que
+duran las sesiones de un coderetreat 🙃, pero sí creo que me habría permitido acercarme mucho más que si hubiese
 intentado solucionar el sistema siguiendo una estrategia _bottom-up_.
 
-Trabajar con tests de aceptación me ayudó a ganar foco y programar rápidamente
-una solución que los pusiese en verde. Sentir que con cada prueba disfrutas de
-un sistema desplegable (aunque su implementación no sea perfecta a nivel de
-diseño) me parece un gran _boost_ de productividad. Con 4 pruebas, tienes las
-reglas de negocio del Juego de la Vida cubiertas y puedes empezar a aplicar
-_refactoring_ para extraer comportamientos a nuevas entidades de manera muy
-confiable (los test de aceptación te aseguran que el sistema funciona punto a
-punto -y esto, cuando sueles trabajar con muchos pequeños tests unitarios, está
-muy bien).
+Trabajar con tests de aceptación me ayudó a ganar foco y programar rápidamente una solución que los pusiese en verde.
+Sentir que con cada prueba disfrutas de un sistema desplegable (aunque su implementación no sea perfecta a nivel de
+diseño) me parece un gran _boost_ de productividad. Con 4 pruebas, tienes las reglas de negocio del Juego de la Vida
+cubiertas y puedes empezar a aplicar _refactoring_ para extraer comportamientos a nuevas entidades de manera muy
+confiable (los test de aceptación te aseguran que el sistema funciona punto a punto -y esto, cuando sueles trabajar con
+muchos pequeños tests unitarios, está muy bien).
 
 ## ATDD y UTDD
 
-El Juego de la Vida es un problema sencillo, que prácticamente se resuelve con
-unas pocas líneas de código. En sistemas más sofisticados, donde estemos
-implementando funcionalidad más compleja, es muy habitual mezclar ambos ciclos
-para disfrutar de las ventajas de ambos enfoques (lo más habitual es que
-trabajemos con código _legacy_, donde aplicar UTDD es _sencillo_ al tener muchas
-entidades de dominio ya modeladas en nuestro sistema).
+El Juego de la Vida es un problema sencillo, que prácticamente se resuelve con unas pocas líneas de código. En sistemas
+más sofisticados, donde estemos implementando funcionalidad más compleja, es muy habitual mezclar ambos ciclos para
+disfrutar de las ventajas de ambos enfoques (lo más habitual es que trabajemos con código _legacy_, donde aplicar UTDD
+es _sencillo_ al tener muchas entidades de dominio ya modeladas en nuestro sistema).
 
-Juntar ambas estrategias termina generando un _ciclo de ciclos_, donde el test
-de aceptación está en rojo mientras que vamos aplicando ciclos de UTDD para
-tratar de ponerlo en verde (y terminar de implementar ese nuevo comportamiento
-de alto nivel en el sistema).
+Juntar ambas estrategias termina generando un _ciclo de ciclos_, donde el test de aceptación está en rojo mientras que
+vamos aplicando ciclos de UTDD para tratar de ponerlo en verde (y terminar de implementar ese nuevo comportamiento de
+alto nivel en el sistema).
 
 ## Contenido relacionado
 
 Si os habéis quedado con ganas de investigar un poco más, el libro
 [Growing Object-Oriented Software, Guided by Tests](https://www.amazon.es/Growing-Object-Oriented-Software-Addison-Wesley-Signature-ebook/dp/B002TIOYVW)
-cubre muy bien (y en profundidad) esta manera de trabajar y resolver los
-problemas. Además, he publicado en
-[GitHub](https://github.com/sergioalvz/practice/tree/master/game-of-life-atdd)
-la implementación que utilicé para practicar con este enfoque mientras resolvía
-el Juego de la Vida.
+cubre muy bien (y en profundidad) esta manera de trabajar y resolver los problemas. Además, he publicado en
+[GitHub](https://github.com/sergioalvz/practice/tree/master/game-of-life-atdd) la implementación que utilicé para
+practicar con este enfoque mientras resolvía el Juego de la Vida.
 
-La estrategias comentadas en este artículo también se representan en la
-literatura a través de los conceptos de **Inside Out** y **Outside In** (que se
-cubren en detalle en
+La estrategias comentadas en este artículo también se representan en la literatura a través de los conceptos de **Inside
+Out** y **Outside In** (que se cubren en detalle en
 [este artículo](https://8thlight.com/blog/georgina-mcfadyen/2016/06/27/inside-out-tdd-vs-outside-in.html)).

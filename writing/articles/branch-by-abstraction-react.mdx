@@ -1,49 +1,42 @@
 ---
 date: "2019-01-12"
+language: "Español"
 spoiler:
-  "Una sencilla estrategia para implementar técnicas de integración continua en
-  React utilizando Branch by Abstraction y Feature Flags."
+  "Una sencilla estrategia para implementar técnicas de integración continua en React utilizando Branch by Abstraction y
+  Feature Flags."
 title: "Branch By Abstraction en Componentes React"
 url: "/blog/branch-by-abstraction-react"
 ---
 
 # Branch by Abstraction en Componentes React
 
-En ocasiones, nos vemos en la situación de tener que actualizar varios
-componentes de nuestra interfaz de usuario para ajustarlos a nuevas directrices
-de diseño. Otras veces, necesitamos reemplazar su implementación para hacer
-frente a nuevos requisitos de negocio. Si el número de cambios es lo
-suficientemente alto, es posible que no se puedan realizar de manera atómica (o
-tengan que ser sincronizados con eventos fuera del control del equipo de
-desarrollo como, por ejemplo, la publicación de una nueva imagen de marca) a la
-vez que necesitamos continuar entregando valor en forma de nuevas
-funcionalidades, corrigiendo defectos o aplicando alguna que otra mejora.
+En ocasiones, nos vemos en la situación de tener que actualizar varios componentes de nuestra interfaz de usuario para
+ajustarlos a nuevas directrices de diseño. Otras veces, necesitamos reemplazar su implementación para hacer frente a
+nuevos requisitos de negocio. Si el número de cambios es lo suficientemente alto, es posible que no se puedan realizar
+de manera atómica (o tengan que ser sincronizados con eventos fuera del control del equipo de desarrollo como, por
+ejemplo, la publicación de una nueva imagen de marca) a la vez que necesitamos continuar entregando valor en forma de
+nuevas funcionalidades, corrigiendo defectos o aplicando alguna que otra mejora.
 
-En este artículo vamos a hablar sobre una estrategia que nos permita obtener un
-flujo de integración continua evitando, por tanto, mantener los cambios en
-nuestros componentes en una rama independiente en el sistema de control de
-versiones durante el transcurso de su desarrollo.
+En este artículo vamos a hablar sobre una estrategia que nos permita obtener un flujo de integración continua evitando,
+por tanto, mantener los cambios en nuestros componentes en una rama independiente en el sistema de control de versiones
+durante el transcurso de su desarrollo.
 
-¿Cómo lo conseguiremos? Haciendo uso de dos técnicas muy habituales en equipos
-que trabajan con prácticas como _continuous integration_ o _continuous
-delivery_: [Feature Flags](http://featureflags.io/) (o Feature Toggles si
+¿Cómo lo conseguiremos? Haciendo uso de dos técnicas muy habituales en equipos que trabajan con prácticas como
+_continuous integration_ o _continuous delivery_: [Feature Flags](http://featureflags.io/) (o Feature Toggles si
 [leéis a Martin Fowler](https://martinfowler.com/bliki/FeatureToggle.html)) y
 [Branch By Abstraction](https://martinfowler.com/bliki/BranchByAbstraction.html).
 
-Ambas estrategias nos permitirán fusionar código de manera regular sobre la rama
-principal, aún con funcionalidades parcialmente terminadas, evitando así
-mantener ramas en paralelo que podrían estar días (o semanas) sin integrarse con
+Ambas estrategias nos permitirán fusionar código de manera regular sobre la rama principal, aún con funcionalidades
+parcialmente terminadas, evitando así mantener ramas en paralelo que podrían estar días (o semanas) sin integrarse con
 el trabajo realizado por el resto del equipo.
 
-> Las feature flags son, conceptualmente, bloques condicionales que permiten
-> habilitar o deshabilitar una funcionalidad (o un camino de ejecución) en base
-> a un conjunto de condiciones (como pueden ser: el entorno de ejecución, el
-> perfil del usuario o un porcentaje de tráfico)
+> Las feature flags son, conceptualmente, bloques condicionales que permiten habilitar o deshabilitar una funcionalidad
+> (o un camino de ejecución) en base a un conjunto de condiciones (como pueden ser: el entorno de ejecución, el perfil
+> del usuario o un porcentaje de tráfico)
 
-Pongamos como ejemplo que, en nuestra aplicación, llevamos ya un tiempo
-utilizando `<AwesomeCalendar />` (un componente de terceros) como _widget_ de
-calendario. En los puntos donde es necesario mostrar un calendario, importamos
-el componente y lo insertamos en el _layout_ de la página.
+Pongamos como ejemplo que, en nuestra aplicación, llevamos ya un tiempo utilizando `<AwesomeCalendar />` (un componente
+de terceros) como _widget_ de calendario. En los puntos donde es necesario mostrar un calendario, importamos el
+componente y lo insertamos en el _layout_ de la página.
 
 ```tsx
 import React from "react";
@@ -63,17 +56,14 @@ function Page() {
 }
 ```
 
-Debido a una serie de requisitos, tenemos que crear un nuevo componente para
-mostrar un calendario que sustituya a `AwesomeCalendar` y le añada un _extra_ de
-funcionalidad para dar cabida a nuevas historias de usuario. El desarrollo del
-componente se extenderá durante varias semanas.
+Debido a una serie de requisitos, tenemos que crear un nuevo componente para mostrar un calendario que sustituya a
+`AwesomeCalendar` y le añada un _extra_ de funcionalidad para dar cabida a nuevas historias de usuario. El desarrollo
+del componente se extenderá durante varias semanas.
 
-El primer paso para poder integrar nuestro componente de manera continua es
-asegurar que somos capaces de controlar cuándo y cómo se utiliza para poder
-aislar a los consumidores de `AwesomeCalendar` de los cambios en el mismo. Para
-ello, vamos a empezar creando una nueva _abstracción_ `Calendar` que pasará a
-ser utilizada por el resto de componentes y mantendrá la misma interfaz que
-ofrecía `AwesomeCalendar`:
+El primer paso para poder integrar nuestro componente de manera continua es asegurar que somos capaces de controlar
+cuándo y cómo se utiliza para poder aislar a los consumidores de `AwesomeCalendar` de los cambios en el mismo. Para
+ello, vamos a empezar creando una nueva _abstracción_ `Calendar` que pasará a ser utilizada por el resto de componentes
+y mantendrá la misma interfaz que ofrecía `AwesomeCalendar`:
 
 ```tsx
 import React from "react";
@@ -85,8 +75,7 @@ export function Calendar({ date }: { date: Date }) {
 }
 ```
 
-Como vemos, la manera de consumir este nuevo componente sería muy parecida a la
-versión anterior:
+Como vemos, la manera de consumir este nuevo componente sería muy parecida a la versión anterior:
 
 ```tsx
 import React from "react";
@@ -106,13 +95,11 @@ function Page() {
 }
 ```
 
-> En este punto, ya podríamos fusionar nuestros cambios con la rama de código
-> principal para que el resto de trabajo en curso pueda ir haciendo uso de
-> nuestro (no tan) _nuevo_ componente.
+> En este punto, ya podríamos fusionar nuestros cambios con la rama de código principal para que el resto de trabajo en
+> curso pueda ir haciendo uso de nuestro (no tan) _nuevo_ componente.
 
-A continuación, vamos a crear una implementación muy sencilla de nuestro propio
-calendario, que empezará apoyándose en una implementación nativa de `datetime`
-pero respetando la interfaz original del componente `AwesomeCalendar`:
+A continuación, vamos a crear una implementación muy sencilla de nuestro propio calendario, que empezará apoyándose en
+una implementación nativa de `datetime` pero respetando la interfaz original del componente `AwesomeCalendar`:
 
 ```tsx
 import React from "react";
@@ -124,13 +111,11 @@ export function NewCalendar({ date }: { date: Date }) {
 }
 ```
 
-Una vez hemos eliminado la responsabilidad de elegir qué calendario utilizar de
-los consumidores del componente, podemos utilizar _feature flags_ para
-determinar qué calendario mostrar en cada momento.
+Una vez hemos eliminado la responsabilidad de elegir qué calendario utilizar de los consumidores del componente, podemos
+utilizar _feature flags_ para determinar qué calendario mostrar en cada momento.
 
-En este caso, vamos a permitir que cualquier entorno que **no sea producción**
-utilice siempre nuestro propio calendario, con el objetivo de obtener _feedback_
-sobre su experiencia de uso a medida que avanzamos en su desarrollo:
+En este caso, vamos a permitir que cualquier entorno que **no sea producción** utilice siempre nuestro propio
+calendario, con el objetivo de obtener _feedback_ sobre su experiencia de uso a medida que avanzamos en su desarrollo:
 
 ```ts
 export function isNewCalendarEnabled() {
@@ -138,14 +123,12 @@ export function isNewCalendarEnabled() {
 }
 ```
 
-> Este caso, representamos la feature flag con una simple función que comprueba
-> el entorno de ejecución actual, pero existen
-> [sistemas más sofisticados](https://github.com/Unleash/unleash) para gestionar
-> el estado de los _toggles_ en nuestra aplicación.
+> Este caso, representamos la feature flag con una simple función que comprueba el entorno de ejecución actual, pero
+> existen [sistemas más sofisticados](https://github.com/Unleash/unleash) para gestionar el estado de los _toggles_ en
+> nuestra aplicación.
 
-Ahora, nuestra nueva abstracción `Calendar` (que hace las veces de factoría)
-puede hacer uso de esta función para determinar qué componente de calendario
-utilizar, manteniendo al resto de consumidores aislados de toda complejidad:
+Ahora, nuestra nueva abstracción `Calendar` (que hace las veces de factoría) puede hacer uso de esta función para
+determinar qué componente de calendario utilizar, manteniendo al resto de consumidores aislados de toda complejidad:
 
 ```tsx
 import React from "react";
@@ -157,26 +140,19 @@ import { NewCalendar } from "./components";
 import { isNewCalendarEnabled } from "../features";
 
 export function Calendar(props: { date: Date }) {
-  return isNewCalendarEnabled() ? (
-    <NewCalendar {...props} />
-  ) : (
-    <AwesomeCalendar {...props} />
-  );
+  return isNewCalendarEnabled() ? <NewCalendar {...props} /> : <AwesomeCalendar {...props} />;
 }
 ```
 
-A partir de este momento, todas las pantallas de nuestra interfaz de usuario que
-necesiten de un calendario, utilizarán la abstracción `Calendar` y será esta
-misma abstracción la que se encargará de utilizar la implementación concreta del
+A partir de este momento, todas las pantallas de nuestra interfaz de usuario que necesiten de un calendario, utilizarán
+la abstracción `Calendar` y será esta misma abstracción la que se encargará de utilizar la implementación concreta del
 calendario que corresponda en función del entorno de ejecución.
 
-Como vemos, aplicar técnicas como _branch by abstraction_ y _feature flags_ nos
-permite alcanzar un flujo de integración (y entrega) continua en nuestros
-componentes aportándonos beneficios cómo:
+Como vemos, aplicar técnicas como _branch by abstraction_ y _feature flags_ nos permite alcanzar un flujo de integración
+(y entrega) continua en nuestros componentes aportándonos beneficios cómo:
 
-- Minimizar la superficie de cambios a fusionar cuando integramos trabajo en
-  curso
-- Tomar el control sobre cuándo se ejercita un camino de ejecución y poder
-  habilitarlo y deshabilitarlo en base a una serie de condiciones
-- Dotar a los equipos de negocio de visibilidad sobre el trabajo en curso en
-  tareas de larga duración (sin sacrificar ninguna de las premisas anteriores)
+- Minimizar la superficie de cambios a fusionar cuando integramos trabajo en curso
+- Tomar el control sobre cuándo se ejercita un camino de ejecución y poder habilitarlo y deshabilitarlo en base a una
+  serie de condiciones
+- Dotar a los equipos de negocio de visibilidad sobre el trabajo en curso en tareas de larga duración (sin sacrificar
+  ninguna de las premisas anteriores)

@@ -14,3 +14,15 @@
 .Posts__Title {
   margin-bottom: 0.2em;
 }
+
+.Posts__Item__Language {
+  border: 1px solid var(--c-gray-6);
+  display: inline-block;
+  font-size: var(--fs-xs);
+  margin-bottom: 0.5em;
+  padding: 2px 4px;
+
+  background-color: var(--c-gray-3);
+  border-radius: 2px;
+  color: var(--c-gray-11);
+}
