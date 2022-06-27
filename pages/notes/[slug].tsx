@@ -18,7 +18,7 @@ export default class Notes extends React.Component<NoteProps> {
   public render() {
     const post = {
       ...this.props.note,
-      breadcrumbs: () => [{ label: "Notas", url: "/notes" }],
+      breadcrumbs: () => [{ label: "Notes", url: "/notes" }],
     };
 
     return <Post post={post} />;

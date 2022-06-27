@@ -18,7 +18,7 @@ export function Footer() {
   return (
     <footer className="Post__Footer">
       <Text>
-        Si tienes cualquier duda o comentario, podemos continuar la conversación en{" "}
+        Do you have any comments or doubts? We may continue the conversation on{" "}
         <Chip type="twitter" href="https://twitter.com/codecoolture">
           Twitter
         </Chip>
