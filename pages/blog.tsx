@@ -24,12 +24,12 @@ export default class Articles extends React.Component<ArticlesProps> {
           </Heading>
 
           <Text>
-            Textos sobre diseño de software, código sostenible o entrega continua de valor. Para textos más cortos,
-            puedes visitar la sección de{" "}
+            These are long-form texts about software design, sustainable code, and continuous delivery. You may read
+            more casual writings in the{" "}
             <NextLink href="/notes" passHref>
-              <Link>Notas</Link>
-            </NextLink>
-            .
+              <Link>Notes</Link>
+            </NextLink>{" "}
+            section if you wish.
           </Text>
 
           <Posts posts={this.props.articles || []} />

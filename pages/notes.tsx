@@ -24,12 +24,12 @@ export default class Notes extends React.Component<NotesProps> {
           </Heading>
 
           <Text>
-            En paralelo al{" "}
+            Here you may find casual writings about software development, productivity, random thoughts, books, and
+            everything that does not really fit in the{" "}
             <NextLink href="/blog" passHref>
-              <Link>blog técnico</Link>
-            </NextLink>
-            , en este espacio puedes encontrar textos cortos sobre desarrollo de software, productividad y todo aquello
-            que no tenga cabida en la sección anterior 🙂
+              <Link>blog</Link>
+            </NextLink>{" "}
+            🙂
           </Text>
 
           <Posts posts={this.props.notes || []} />
