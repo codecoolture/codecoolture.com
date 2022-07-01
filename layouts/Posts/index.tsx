@@ -18,15 +18,23 @@ export function Posts({ posts }: PostsProps) {
 
         return (
           <div key={idx} className="Posts__Item">
-            {typeof language === "string" && <p className="Posts__Item__Language">{language}</p>}
-
-            <Heading el="p" size="m" className="Posts__Title">
+            <Heading el="p" size="m" className="Post__Title">
               <NextLink href={url} passHref>
                 <Link>{title}</Link>
               </NextLink>
             </Heading>
 
-            <Timestamp className="Posts__Timestamp" date={date} />
+            <ul className="Post__Subheading">
+              <li className="Post__Subheading__Item">
+                <Timestamp className="Post__Timestamp" date={date} />
+              </li>
+
+              {typeof language === "string" && (
+                <li className="Post__Subheading__Item">
+                  <p className="Post__Language">{language}</p>
+                </li>
+              )}
+            </ul>
 
             <Text>{spoiler}</Text>
           </div>
