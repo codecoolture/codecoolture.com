@@ -2,27 +2,42 @@
   margin-bottom: 2em;
 }
 
-.Posts__Timestamp {
+.Post__Title {
+  margin-bottom: 0.2em;
+}
+
+.Post__Subheading {
+  align-items: center;
+  display: flex;
+  list-style-type: none;
+}
+
+.Post__Subheading__Item {
+  align-items: center;
+  display: flex;
+}
+
+.Post__Subheading__Item:not(:first-of-type)::before {
+  content: "·";
+  margin: 0 0.5em;
+
+  color: var(--c-gray-11);
+}
+
+.Post__Timestamp {
   font-size: var(--fs-xs);
   letter-spacing: 1px;
-  margin-bottom: 0.5em;
 
   color: var(--c-gray-11);
   text-transform: uppercase;
 }
 
-.Posts__Title {
-  margin-bottom: 0.2em;
-}
-
-.Posts__Item__Language {
-  border: 1px solid var(--c-gray-6);
-  display: inline-block;
+.Post__Language {
+  border: 1px solid var(--c-yellow-6);
   font-size: var(--fs-xs);
-  margin-bottom: 0.5em;
   padding: 2px 4px;
 
-  background-color: var(--c-gray-3);
+  background-color: var(--c-yellow-3);
   border-radius: 2px;
-  color: var(--c-gray-11);
+  color: var(--c-yellow-11);
 }
