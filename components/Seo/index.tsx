@@ -1,10 +1,9 @@
 import Head from "next/head";
-import React from "react";
 import { Article } from "../../entities/Article";
 
 function description(post?: Pick<Article, "metadata">) {
   if (!post) {
-    return "Soy Sergio y vivo en Asturias. Mi principal área de conocimiento es el diseño e implementación de arquitecturas web sostenibles. Ayudo a equipos de ingeniería a entregar valor de manera confiable, rápida y continua.";
+    return "Hey, I'm Sergio! I build maintainable and performant full-stack web applications.";
   }
 
   return post.metadata.spoiler;
@@ -20,7 +19,7 @@ function image(post?: Pick<Article, "metadata">) {
 
 function title(post?: Pick<Article, "metadata">) {
   if (!post) {
-    return "Codecoolture: Consultoría, Workshops y JavaScript";
+    return "Sergio Álvarez (Codecoolture)";
   }
 
   return post.metadata.title;
@@ -48,7 +47,7 @@ export function Seo({ post }: { post?: Pick<Article, "metadata"> }) {
       <meta name="description" content={description(post)} />
       <meta
         name="keywords"
-        content="consultoría, javascript, front-end, react, formación, tdd, testing, desarrollo, typescript, node, consultor"
+        content="consulting, javascript, front-end, react, workshops, tdd, testing, software, typescript, node, consultant, freelance"
       />
 
       <meta key="og:description" property="og:description" content={description(post)} />
