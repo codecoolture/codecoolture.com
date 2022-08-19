@@ -1,0 +1,15 @@
+.Homepage {
+  padding: 4em 2em;
+}
+
+.Homepage__Text {
+  font-size: var(--fs-l);
+  line-height: 1.65;
+  max-width: 900px;
+
+  font-family: var(--ff-serif);
+}
+
+.Homepage__Text:not(:last-child) {
+  margin-bottom: 1em;
+}

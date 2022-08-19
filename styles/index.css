@@ -24,7 +24,7 @@
 @import "../layouts/Post/components/Footer/style.css";
 @import "../layouts/Posts/style.css";
 
-@import "../pages/index.css";
+@import "./pages/index.css";
 
 :root {
   --ff-serif: "IBM Plex Serif", serif;
