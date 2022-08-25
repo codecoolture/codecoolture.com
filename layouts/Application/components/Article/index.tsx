@@ -28,7 +28,7 @@ export function Article({ breadcrumbs = [], children, className }: ArticleProps)
           blockquote: Blockquote,
           code: Code,
           h1: function h1(props: JSX.IntrinsicElements["h1"]) {
-            return <Heading el="h1" size="xl" {...props} />;
+            return <Heading el="h1" size="jumbo" {...props} />;
           },
           h2: function h2(props: JSX.IntrinsicElements["h2"]) {
             return <Heading el="h2" size="l" {...props} />;

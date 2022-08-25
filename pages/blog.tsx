@@ -19,11 +19,11 @@ export default class Articles extends React.Component<ArticlesProps> {
     return (
       <Application>
         <Application.Article>
-          <Heading el="h1" size="xl">
+          <Heading el="h1" size="jumbo">
             Blog
           </Heading>
 
-          <Text>
+          <Text size="l">
             These are long-form texts about software design, sustainable code, and continuous delivery. You may read
             more casual writings in the{" "}
             <NextLink href="/notes" passHref>
