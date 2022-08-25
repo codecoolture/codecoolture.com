@@ -20,7 +20,7 @@ export default class Notes extends React.Component<NotesProps> {
       <Application>
         <Application.Article>
           <Heading el="h1" size="jumbo">
-            Notas
+            Notes
           </Heading>
 
           <Text size="l">
