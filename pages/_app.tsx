@@ -1,6 +1,5 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
-import React from "react";
 import { Seo } from "../components/Seo";
 import { useFathom } from "../hooks";
 import "../styles/index.css";
