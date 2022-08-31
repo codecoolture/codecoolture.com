@@ -1,8 +1,9 @@
 import nextMDX from "@next/mdx";
-import rehypeExternalLinks from "rehype-external-links";
 
 const withMDX = nextMDX({
-  options: { rehypePlugins: [rehypeExternalLinks] },
+  options: {
+    providerImportSource: "@mdx-js/react",
+  },
 });
 
 /**

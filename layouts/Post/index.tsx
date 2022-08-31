@@ -1,12 +1,11 @@
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import React from "react";
 import { Blockquote } from "../../components/Blockquote";
 import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { Code } from "../../components/Code";
 import { Codeblock } from "../../components/Codeblock";
 import { Figure } from "../../components/Figure";
 import { Heading } from "../../components/Heading";
-import { Link } from "../../components/Link";
+import { LinkWithoutRef } from "../../components/Link";
 import { List } from "../../components/List";
 import { Seo } from "../../components/Seo";
 import { Text } from "../../components/Text";
@@ -36,7 +35,7 @@ export function Post({ post }: PostProps) {
 
             <MDXRemote
               components={{
-                a: Link,
+                a: LinkWithoutRef,
                 blockquote: Blockquote,
                 code: Code,
                 h1: function h1(props: JSX.IntrinsicElements["h1"]) {

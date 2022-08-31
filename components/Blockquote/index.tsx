@@ -1,5 +1,3 @@
-import React from "react";
-
-export function Blockquote({ children }: { children: React.ReactNode }) {
+export function Blockquote({ children }: Pick<JSX.IntrinsicElements["blockquote"], "children">) {
   return <blockquote className="Blockquote">{children}</blockquote>;
 }

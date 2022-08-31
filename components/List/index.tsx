@@ -1,7 +1,6 @@
-import React from "react";
 import { classNames } from "../../lib/classNames";
 
-function Item({ children }: { children: React.ReactNode }) {
+function Item({ children }: Pick<JSX.IntrinsicElements["li"], "children">) {
   return (
     <li className="List__Item">
       <span>{children}</span>
@@ -9,8 +8,7 @@ function Item({ children }: { children: React.ReactNode }) {
   );
 }
 
-export type ListProps = {
-  children: React.ReactNode;
+export type ListProps = Pick<JSX.IntrinsicElements["ul"], "children"> & {
   type?: "bullet" | "number";
 };
 

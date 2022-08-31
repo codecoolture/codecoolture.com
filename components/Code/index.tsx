@@ -1,12 +1,8 @@
-import React from "react";
 import { classNames } from "../../lib/classNames";
 
-interface CodeProps {
+type CodeProps = Pick<JSX.IntrinsicElements["code"], "className" | "children"> & {
   "data-qa"?: string;
-
-  children: React.ReactNode;
-  className?: string;
-}
+};
 
 export function Code({ children, className, ...props }: CodeProps) {
   return (
