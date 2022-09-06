@@ -1,8 +1,8 @@
 import { pathExists, readdir } from "fs-extra";
 import sortBy from "lodash/sortBy";
-import { Article } from "../entities/Article";
-import { FileNotFound } from "../exceptions/FileNotFound";
-import { Markdown } from "./util/Markdown";
+import { Article } from "../../entities/Article";
+import { FileNotFound } from "../../exceptions/FileNotFound";
+import { Markdown } from "./Markdown";
 
 export class MarkdownRepository {
   public static async fromDirectory(path: string) {

@@ -8,7 +8,7 @@ import { getConfig } from "../config";
 import { Article as Note } from "../entities/Article";
 import { Application } from "../layouts/Application";
 import { Posts } from "../layouts/Posts";
-import { MarkdownRepository } from "../repositories/MardownRepository";
+import { MarkdownRepository } from "../cms/lib/MarkdownRepository";
 
 interface NotesProps {
   notes: Note[];

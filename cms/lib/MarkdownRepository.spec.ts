@@ -1,14 +1,16 @@
 import { join } from "path";
-import { MarkdownRepository } from "../../repositories/MardownRepository";
+import { MarkdownRepository } from "./MarkdownRepository";
 
 describe("MarkdownRepository", () => {
+  const FIXTURES_DIR_PATH = join(__dirname, "../../tests/fixtures/cms/lib/MarkdownRepository");
+
   describe(".fromDirectory", () => {
     it("throws an error if the root directory does not exist", async () => {
       await expect(MarkdownRepository.fromDirectory("not-found-directory")).rejects.toThrowError();
     });
 
     it("builds the instance otherwise", async () => {
-      await expect(MarkdownRepository.fromDirectory(join(__dirname, "./fixtures"))).resolves.toBeInstanceOf(
+      await expect(MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH))).resolves.toBeInstanceOf(
         MarkdownRepository,
       );
     });
@@ -16,7 +18,7 @@ describe("MarkdownRepository", () => {
 
   describe("#all", () => {
     it("returns an empty collection if there are no markdowns", async () => {
-      const subject = await MarkdownRepository.fromDirectory(join(__dirname, "./fixtures/empty"));
+      const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./empty"));
 
       const result = await subject.all();
 
@@ -24,7 +26,7 @@ describe("MarkdownRepository", () => {
     });
 
     it("returns all the available markdown files sorted by date", async () => {
-      const subject = await MarkdownRepository.fromDirectory(join(__dirname, "./fixtures/examples"));
+      const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./examples"));
 
       const result = await subject.all();
 
@@ -44,13 +46,13 @@ describe("MarkdownRepository", () => {
 
   describe("#show", () => {
     it("throws an exception if the file does not exist", async () => {
-      const subject = await MarkdownRepository.fromDirectory(join(__dirname, "./fixtures/examples"));
+      const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./examples"));
 
       await expect(subject.show("non-existing")).rejects.toThrowError();
     });
 
     it("returns the file otherwise", async () => {
-      const subject = await MarkdownRepository.fromDirectory(join(__dirname, "./fixtures/examples"));
+      const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./examples"));
 
       const result = await subject.show("first-article.md");
 

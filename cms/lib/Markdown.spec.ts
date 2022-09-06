@@ -1,7 +1,9 @@
 import { join } from "path";
-import { Markdown } from "../../../repositories/util/Markdown";
+import { Markdown } from "./Markdown";
 
 describe("Markdown", () => {
+  const FIXTURES_DIR_PATH = join(__dirname, "../../tests/fixtures/cms/lib/Markdown");
+
   describe(".fromFile", () => {
     it("fails if the file does not exist", async () => {
       await expect(Markdown.fromFile("whatever")).rejects.toThrowError();
@@ -12,7 +14,7 @@ describe("Markdown", () => {
     let subject: Markdown;
 
     beforeEach(async () => {
-      subject = await Markdown.fromFile(join(__dirname, "./fixtures/example.mdx"));
+      subject = await Markdown.fromFile(join(FIXTURES_DIR_PATH, "./example.mdx"));
     });
 
     it("returns the metadata from the specific file", async () => {

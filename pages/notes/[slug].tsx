@@ -7,7 +7,7 @@ import remarkUnwrapImages from "remark-unwrap-images";
 import { getConfig } from "../../config";
 import { Article as Note } from "../../entities/Article";
 import { Post } from "../../layouts/Post";
-import { MarkdownRepository } from "../../repositories/MardownRepository";
+import { MarkdownRepository } from "../../cms/lib/MarkdownRepository";
 
 interface NoteProps {
   note: Pick<Note, "metadata"> & { content: MDXRemoteSerializeResult };
