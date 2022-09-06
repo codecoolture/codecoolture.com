@@ -15,14 +15,14 @@ interface Setting {
 const Settings: { [index: string]: Setting } = {
   [Environment.Development]: {
     writing: {
-      articles: join(process.cwd(), "writing/articles"),
-      notes: join(process.cwd(), "writing/notes"),
+      articles: join(process.cwd(), "cms/content/articles"),
+      notes: join(process.cwd(), "cms/content/notes"),
     },
   },
   [Environment.Production]: {
     writing: {
-      articles: join(process.cwd(), "writing/articles"),
-      notes: join(process.cwd(), "writing/notes"),
+      articles: join(process.cwd(), "cms/content/articles"),
+      notes: join(process.cwd(), "cms/content/notes"),
     },
   },
 };
