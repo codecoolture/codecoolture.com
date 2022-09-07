@@ -32,12 +32,23 @@
   text-transform: uppercase;
 }
 
-.Post__Language {
-  border: 1px solid var(--c-yellow-6);
+.Post__Badge {
+  border-width: 1px;
   font-size: var(--fs-xs);
   padding: 2px 4px;
 
-  background-color: var(--c-yellow-3);
   border-radius: 2px;
+  border-style: solid;
+}
+
+.Post__Badge--Language {
+  background-color: var(--c-yellow-3);
+  border-color: var(--c-yellow-6);
   color: var(--c-yellow-11);
+}
+
+.Post__Badge--Draft {
+  background-color: var(--c-indigo-3);
+  border-color: var(--c-indigo-6);
+  color: var(--c-indigo-11);
 }

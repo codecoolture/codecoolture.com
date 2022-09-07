@@ -14,7 +14,7 @@ export function Posts({ posts }: PostsProps) {
   return (
     <>
       {posts.map((post, idx) => {
-        const { date, language, spoiler, title, url } = post.metadata;
+        const { date, draft, language, spoiler, title, url } = post.metadata;
 
         return (
           <div key={idx} className="Posts__Item">
@@ -29,9 +29,15 @@ export function Posts({ posts }: PostsProps) {
                 <Timestamp className="Post__Timestamp" date={date} />
               </li>
 
+              {typeof draft === "boolean" && draft && (
+                <li className="Post__Subheading__Item">
+                  <p className="Post__Badge Post__Badge--Draft">Draft</p>
+                </li>
+              )}
+
               {typeof language === "string" && (
                 <li className="Post__Subheading__Item">
-                  <p className="Post__Language">{language}</p>
+                  <p className="Post__Badge Post__Badge--Language">{language}</p>
                 </li>
               )}
             </ul>

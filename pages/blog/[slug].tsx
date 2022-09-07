@@ -4,10 +4,11 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import React from "react";
 import remarkUnwrapImages from "remark-unwrap-images";
+import { MarkdownRepository } from "../../cms/lib/MarkdownRepository";
 import { getConfig } from "../../config";
 import { Article } from "../../entities/Article";
 import { Post } from "../../layouts/Post";
-import { MarkdownRepository } from "../../cms/lib/MarkdownRepository";
+import { isDevelopment } from "../../lib/env";
 
 interface ArticleProps {
   article: Pick<Article, "metadata"> & { content: MDXRemoteSerializeResult };
@@ -27,7 +28,7 @@ export default class Articles extends React.Component<ArticleProps> {
 export const getStaticPaths: GetStaticPaths = async () => {
   const repository = await MarkdownRepository.fromDirectory(getConfig().writing.articles);
 
-  const paths = (await repository.all()).map((article) => {
+  const paths = (await repository.all({ drafts: isDevelopment() })).map((article) => {
     const slug = article.metadata.url.split("/").pop();
 
     if (!slug) {
@@ -48,7 +49,7 @@ export const getStaticProps: GetStaticProps<ArticleProps> = async ({ params }) =
   const repository = await MarkdownRepository.fromDirectory(getConfig().writing.articles);
 
   const defaultArticle = { metadata: { cover: "https://codecoolture.com/static/articles/cover.jpg" } };
-  const article = merge(defaultArticle, await repository.show(`${params.slug}.mdx`));
+  const article = merge(defaultArticle, await repository.show(`${params.slug}.mdx`, { drafts: isDevelopment() }));
 
   return {
     props: {

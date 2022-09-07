@@ -1,6 +1,7 @@
 import { GetStaticProps } from "next";
 import NextLink from "next/link";
 import React from "react";
+import { MarkdownRepository } from "../cms/lib/MarkdownRepository";
 import { Heading } from "../components/Heading";
 import { Link } from "../components/Link";
 import { Text } from "../components/Text";
@@ -8,7 +9,7 @@ import { getConfig } from "../config";
 import { Article } from "../entities/Article";
 import { Application } from "../layouts/Application";
 import { Posts } from "../layouts/Posts";
-import { MarkdownRepository } from "../cms/lib/MarkdownRepository";
+import { isDevelopment } from "../lib/env";
 
 interface ArticlesProps {
   articles: Article[];
@@ -42,7 +43,7 @@ export default class Articles extends React.Component<ArticlesProps> {
 export const getStaticProps: GetStaticProps<ArticlesProps> = async () => {
   const repository = await MarkdownRepository.fromDirectory(getConfig().writing.articles);
 
-  const articles = await repository.all();
+  const articles = await repository.all({ drafts: isDevelopment() });
 
   return { props: { articles } };
 };
