@@ -1,16 +1,11 @@
 import { orderBy, reject } from "lodash";
 import { readdir, stat } from "node:fs/promises";
 import { Article } from "../../entities/Article";
-import { DirectoryNotFound } from "../../exceptions/DirectoryNotFound";
-import { FileNotFound } from "../../exceptions/FileNotFound";
+import { DirectoryNotFound, FileNotFound, isNodeError } from "./errors";
 import { Markdown } from "./Markdown";
 
 type AllOptions = { drafts: boolean };
 type ShowOptions = { drafts: boolean };
-
-function isNodeError(err: unknown): err is NodeJS.ErrnoException {
-  return typeof err === "object" && err !== null && "code" in err;
-}
 
 export class MarkdownRepository {
   public static async fromDirectory(path: string) {

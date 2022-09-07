@@ -1,6 +1,6 @@
 import { join } from "path";
-import { DirectoryNotFound } from "../../exceptions/DirectoryNotFound";
-import { FileNotFound } from "../../exceptions/FileNotFound";
+import { DirectoryNotFound, FileNotFound } from "./errors";
+
 import { MarkdownRepository } from "./MarkdownRepository";
 
 describe("MarkdownRepository", () => {
