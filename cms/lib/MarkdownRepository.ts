@@ -1,8 +1,11 @@
 import { pathExists, readdir } from "fs-extra";
-import sortBy from "lodash/sortBy";
+import { orderBy, reject } from "lodash";
 import { Article } from "../../entities/Article";
 import { FileNotFound } from "../../exceptions/FileNotFound";
 import { Markdown } from "./Markdown";
+
+type AllOptions = { drafts: boolean };
+type ShowOptions = { drafts: boolean };
 
 export class MarkdownRepository {
   public static async fromDirectory(path: string) {
@@ -17,7 +20,7 @@ export class MarkdownRepository {
 
   private constructor(private root: string) {}
 
-  public async all(): Promise<Article[]> {
+  public async all(options: AllOptions = { drafts: false }): Promise<Article[]> {
     const files = await readdir(this.root);
     const articles = await Promise.all(
       files
@@ -32,12 +35,22 @@ export class MarkdownRepository {
         }),
     );
 
-    return sortBy(articles, "metadata.date").reverse();
+    const articlesFromNewestToOldest = orderBy(articles, ["metadata.date"], ["desc"]);
+
+    if (options.drafts) {
+      return articlesFromNewestToOldest;
+    }
+
+    return reject(articlesFromNewestToOldest, "metadata.draft");
   }
 
-  public async show(path: string): Promise<Article> {
+  public async show(path: string, options: ShowOptions = { drafts: false }): Promise<Article> {
     try {
       const markdown = await Markdown.fromFile(`${this.root}/${path}`);
+
+      if (!options.drafts && markdown.getMetadata().draft) {
+        throw new FileNotFound();
+      }
 
       return {
         content: markdown.getContent(),

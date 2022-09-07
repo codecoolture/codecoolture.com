@@ -1,4 +1,5 @@
 import { join } from "path";
+import { FileNotFound } from "../../exceptions/FileNotFound";
 import { MarkdownRepository } from "./MarkdownRepository";
 
 describe("MarkdownRepository", () => {
@@ -42,13 +43,54 @@ describe("MarkdownRepository", () => {
         }),
       ]);
     });
+
+    describe("working with drafts", () => {
+      it("does not return drafts by default", async () => {
+        const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./drafts"));
+
+        const results = await subject.all();
+
+        expect(results).toEqual([
+          expect.objectContaining({
+            metadata: expect.objectContaining({ title: "Not a draft" }),
+          }),
+        ]);
+      });
+
+      it("does not return drafts if explicitly asked not to", async () => {
+        const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./drafts"));
+
+        const results = await subject.all({ drafts: false });
+
+        expect(results).toEqual([
+          expect.objectContaining({
+            metadata: expect.objectContaining({ title: "Not a draft" }),
+          }),
+        ]);
+      });
+
+      it("returns drafts if asked to", async () => {
+        const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./drafts"));
+
+        const results = await subject.all({ drafts: true });
+
+        expect(results).toEqual([
+          expect.objectContaining({
+            metadata: expect.objectContaining({ title: "Not a draft" }),
+          }),
+          expect.objectContaining({
+            metadata: expect.objectContaining({ title: "A draft" }),
+          }),
+        ]);
+      });
+    });
   });
 
   describe("#show", () => {
     it("throws an exception if the file does not exist", async () => {
       const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./examples"));
 
-      await expect(subject.show("non-existing")).rejects.toThrowError();
+      await expect(subject.show("non-existing")).rejects.toThrowError(FileNotFound);
     });
 
     it("returns the file otherwise", async () => {
@@ -61,6 +103,27 @@ describe("MarkdownRepository", () => {
           metadata: { date: "2019-03-01", title: "Mid article" },
         }),
       );
+    });
+
+    describe("working with drafts", () => {
+      it("throws an exception if the file is a draft and drafts are not allowed", async () => {
+        const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./drafts"));
+
+        await expect(subject.show("draft.md")).rejects.toThrowError(FileNotFound);
+        await expect(subject.show("draft.md", { drafts: false })).rejects.toThrowError(FileNotFound);
+      });
+
+      it("returns the file if it is a draft and drafts are allowed", async () => {
+        const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./drafts"));
+
+        const result = await subject.show("draft.md", { drafts: true });
+
+        expect(result).toEqual(
+          expect.objectContaining({
+            metadata: expect.objectContaining({ title: "A draft" }),
+          }),
+        );
+      });
     });
   });
 });
