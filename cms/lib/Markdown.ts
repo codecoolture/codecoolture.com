@@ -1,5 +1,5 @@
 import frontMatter from "front-matter";
-import { readFile } from "fs-extra";
+import { readFile } from "node:fs/promises";
 import { Metadata } from "../../entities/Metadata";
 
 export class Markdown {

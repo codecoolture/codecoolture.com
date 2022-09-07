@@ -1,4 +1,5 @@
 import { join } from "path";
+import { DirectoryNotFound } from "../../exceptions/DirectoryNotFound";
 import { FileNotFound } from "../../exceptions/FileNotFound";
 import { MarkdownRepository } from "./MarkdownRepository";
 
@@ -7,7 +8,7 @@ describe("MarkdownRepository", () => {
 
   describe(".fromDirectory", () => {
     it("throws an error if the root directory does not exist", async () => {
-      await expect(MarkdownRepository.fromDirectory("not-found-directory")).rejects.toThrowError();
+      await expect(MarkdownRepository.fromDirectory("not-found-directory")).rejects.toThrowError(DirectoryNotFound);
     });
 
     it("builds the instance otherwise", async () => {

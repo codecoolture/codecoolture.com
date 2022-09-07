@@ -1,18 +1,30 @@
-import { pathExists, readdir } from "fs-extra";
 import { orderBy, reject } from "lodash";
+import { readdir, stat } from "node:fs/promises";
 import { Article } from "../../entities/Article";
+import { DirectoryNotFound } from "../../exceptions/DirectoryNotFound";
 import { FileNotFound } from "../../exceptions/FileNotFound";
 import { Markdown } from "./Markdown";
 
 type AllOptions = { drafts: boolean };
 type ShowOptions = { drafts: boolean };
 
+function isNodeError(err: unknown): err is NodeJS.ErrnoException {
+  return typeof err === "object" && err !== null && "code" in err;
+}
+
 export class MarkdownRepository {
   public static async fromDirectory(path: string) {
-    const isValidPath = await pathExists(path);
+    try {
+      /**
+       * Let's check if the directory exists.
+       */
+      await stat(path);
+    } catch (error) {
+      if (isNodeError(error) && error.code === "ENOENT") {
+        throw new DirectoryNotFound(`The requested directory "${path}" does not exist!`);
+      }
 
-    if (!isValidPath) {
-      throw new Error(`Directory "${path}" does not exist!`);
+      throw error;
     }
 
     return new MarkdownRepository(path);
@@ -56,8 +68,8 @@ export class MarkdownRepository {
         content: markdown.getContent(),
         metadata: markdown.getMetadata(),
       };
-    } catch (error: any) {
-      if (error && error.code === "ENOENT") {
+    } catch (error) {
+      if (isNodeError(error) && error.code === "ENOENT") {
         throw new FileNotFound(`The requested file "${this.root}/${path}" does not exist!`);
       }
 
