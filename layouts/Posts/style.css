@@ -1,5 +1,5 @@
-.Posts__Item:not(:last-of-type) {
-  margin-bottom: 2em;
+.Posts__Title:not(:first-of-type) {
+  margin-top: 1.5em;
 }
 
 .Post__Title {
