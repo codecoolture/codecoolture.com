@@ -27,6 +27,15 @@
   color: var(--c-yellow-9);
 }
 
+.AppFooter__Link {
+  letter-spacing: 1px;
+
+  color: var(--c-gray-12);
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 .AppFooter__Text {
   font-size: var(--fs-m);
   line-height: 1.65;
@@ -37,39 +46,32 @@
 }
 
 .AppFooter__Links {
-  margin-top: 1em;
+  display: flex;
+  margin: 1em 0;
 
   list-style-type: none;
 }
 
-.AppFooter__LinkWrapper {
-  display: flex;
-  font-size: var(--fs-m);
-  margin-top: 0.5em;
+.AppFooter__Links__Item:not(:first-child) {
+  margin-left: 0.5em;
 }
 
-.AppFooter__Link {
-  letter-spacing: 1px;
-
-  color: var(--c-gray-12);
-  font-weight: 700;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.AppFooter__Footer {
+.AppFooter__Links__Link {
   align-items: center;
+  border: 2px solid var(--c-yellow-7);
   display: flex;
+  font-size: var(--fs-s);
   justify-content: center;
-  margin-top: 1em;
-  padding: 0.25em 0;
+  padding: 0.5em;
 
-  background-color: var(--c-gray-2);
-  color: var(--c-gray-12);
+  background-color: var(--c-yellow-3);
+  border-radius: 100%;
+  color: var(--c-yellow-11);
+
+  transition: background-color ease-in 150ms, border-color ease-in 150ms;
 }
 
-.AppFooter__Code {
-  font-size: var(--fs-xs);
-
-  color: var(--c-gray-12);
+.AppFooter__Links__Link:hover {
+  background-color: var(--c-yellow-4);
+  border-color: var(--c-yellow-8);
 }

@@ -1,8 +1,0 @@
-.Underline {
-  box-shadow: inset 0px -0.2em 0px 0px var(--c-yellow-9);
-  transition: box-shadow 0.2s ease-in-out;
-}
-
-.Underline:hover {
-  box-shadow: inset 0px -0.4em 0px 0px var(--c-yellow-9);
-}

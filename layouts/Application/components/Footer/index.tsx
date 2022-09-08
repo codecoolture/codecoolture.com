@@ -1,8 +1,6 @@
 import NextLink from "next/link";
+import { FaGithub, FaLinkedin, FaRss, FaTwitter } from "react-icons/fa";
 import { Application } from "../..";
-import { Code } from "../../../../components/Code";
-import { Link } from "../../../../components/Link";
-import { Underline } from "../../../../components/Underline";
 
 export function Footer() {
   return (
@@ -31,23 +29,36 @@ export function Footer() {
         </nav>
 
         <p className="AppFooter__Text">
-          Hey, I&apos;m Sergio! I build maintainable and performant full-stack web applications.
+          Hey, I&apos;m Sergio! I build maintainable and performant full-stack web applications from my lovely home
+          region, Asturias.
         </p>
 
         <ul className="AppFooter__Links">
-          <li className="AppFooter__LinkWrapper">
-            <Link href="https://twitter.com/codecoolture" target="_blank" className="AppFooter__Link">
-              <Underline>Follow @codecoolture</Underline>
-            </Link>
+          <li className="AppFooter__Links__Item">
+            <a href="https://twitter.com/codecoolture" className="AppFooter__Links__Link">
+              <FaTwitter />
+            </a>
+          </li>
+
+          <li className="AppFooter__Links__Item">
+            <a href="https://github.com/sergioalvz" className="AppFooter__Links__Link">
+              <FaGithub />
+            </a>
+          </li>
+
+          <li className="AppFooter__Links__Item">
+            <a href="https://www.linkedin.com/in/sergioalvarezsuarez/" className="AppFooter__Links__Link">
+              <FaLinkedin />
+            </a>
+          </li>
+
+          <li className="AppFooter__Links__Item">
+            <a href="/feed.xml" className="AppFooter__Links__Link">
+              <FaRss />
+            </a>
           </li>
         </ul>
       </Application.Column>
-
-      <section className="AppFooter__Footer">
-        <Code data-qa="npx-command" className="AppFooter__Code">
-          $: npx codecoolture
-        </Code>
-      </section>
     </footer>
   );
 }
