@@ -10,18 +10,19 @@ export class RssFeedGenerator {
     const BASE_URL = "https://codecoolture.com";
 
     const feed = new Feed({
-      title: "Codecoolture",
-      copyright: `All rights reserved. Sergio Álvarez. ${new Date().getFullYear()}`,
-      id: "https://codecoolture.com",
-      generator: "https://github.com/codecoolture/codecoolture.com",
-      link: "https://codecoolture.com",
-      description:
-        "Articles and notes about software development. Written by Sergio Álvarez. Better code, one piece at a time.",
       author: {
         name: "Sergio Álvarez",
         email: "hola@codecoolture.com",
         link: "https://codecoolture.com/about",
       },
+      copyright: `All rights reserved. Sergio Álvarez. ${new Date().getFullYear()}`,
+      description:
+        "Articles and notes about software development. Written by Sergio Álvarez. Better code, one piece at a time.",
+      generator: "https://github.com/codecoolture/codecoolture.com",
+      id: "https://codecoolture.com",
+      image: `${BASE_URL}/static/img/rss/sergio.jpg`,
+      link: "https://codecoolture.com",
+      title: "Codecoolture",
     });
 
     const allArticles = await Promise.all(
