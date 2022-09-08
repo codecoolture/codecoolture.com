@@ -6,3 +6,5 @@
 **/cypress/screenshots
 
 **/tsconfig.tsbuildinfo
+
+**/public/feed.xml

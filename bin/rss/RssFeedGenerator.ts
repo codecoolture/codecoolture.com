@@ -37,8 +37,8 @@ export class RssFeedGenerator {
     for (const article of newestToOldestArticles) {
       feed.addItem({
         title: article.metadata.title,
-        id: `${BASE_URL}/${article.metadata.url}`,
-        link: `${BASE_URL}/${article.metadata.url}`,
+        id: `${BASE_URL}${article.metadata.url}`,
+        link: `${BASE_URL}${article.metadata.url}`,
         description: article.metadata.spoiler,
         content: marked(article.content),
         date: new Date(article.metadata.date),
