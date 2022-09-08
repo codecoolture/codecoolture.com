@@ -48,7 +48,7 @@
   },
   "scripts": {
     "analyze": "yarn lint && yarn typecheck",
-    "build": "next build",
+    "build": "yarn build:rss && next build",
     "build:rss": "NODE_ENV=development yarn ts:exec ./bin/rss/index.ts",
     "ci:test": "yarn test --runInBand",
     "ci:test:acc": "yarn build && yarn start-server-and-test start 3000 'cypress run'",
