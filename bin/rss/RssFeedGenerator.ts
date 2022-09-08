@@ -42,6 +42,7 @@ export class RssFeedGenerator {
         description: article.metadata.spoiler,
         content: marked(article.content),
         date: new Date(article.metadata.date),
+        image: article.metadata.cover,
       });
     }
 
