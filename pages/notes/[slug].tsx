@@ -4,10 +4,11 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import React from "react";
 import remarkUnwrapImages from "remark-unwrap-images";
+import { MarkdownRepository } from "../../cms/lib/MarkdownRepository";
 import { getConfig } from "../../config";
 import { Article as Note } from "../../entities/Article";
 import { Post } from "../../layouts/Post";
-import { MarkdownRepository } from "../../cms/lib/MarkdownRepository";
+import { isDevelopment } from "../../lib/env";
 
 interface NoteProps {
   note: Pick<Note, "metadata"> & { content: MDXRemoteSerializeResult };
@@ -27,7 +28,7 @@ export default class Notes extends React.Component<NoteProps> {
 export const getStaticPaths: GetStaticPaths = async () => {
   const repository = await MarkdownRepository.fromDirectory(getConfig().writing.notes);
 
-  const paths = (await repository.all()).map((note) => {
+  const paths = (await repository.all({ drafts: isDevelopment() })).map((note) => {
     const slug = note.metadata.url.split("/").pop();
 
     if (!slug) {
@@ -48,7 +49,7 @@ export const getStaticProps: GetStaticProps<NoteProps> = async ({ params }) => {
   const repository = await MarkdownRepository.fromDirectory(getConfig().writing.notes);
 
   const defaultNote = { metadata: { cover: "https://codecoolture.com/static/notes/cover.jpg" } };
-  const note = merge(defaultNote, await repository.show(`${params.slug}.mdx`));
+  const note = merge(defaultNote, await repository.show(`${params.slug}.mdx`, { drafts: isDevelopment() }));
 
   return {
     props: {
