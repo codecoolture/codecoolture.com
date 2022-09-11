@@ -4,7 +4,7 @@ import { Application } from "../..";
 
 export function Footer() {
   return (
-    <footer className="AppFooter">
+    <footer className="AppFooter" data-qa="app-footer">
       <Application.Column>
         <nav>
           <ul className="AppFooter__Nav">
