@@ -1,5 +1,6 @@
 import { orderBy } from "lodash";
 import NextLink from "next/link";
+import React from "react";
 import { Article } from "../../cms/models/Article";
 import { Heading } from "../../components/Heading";
 import { Link } from "../../components/Link";
@@ -23,7 +24,7 @@ export function Posts({ posts }: PostsProps) {
     <>
       {orderBy(Object.entries(groupByYear), "[0]", "desc").map(([year, articles]) => {
         return (
-          <>
+          <React.Fragment key={year}>
             <Heading el="h2" size="xl" className="Posts__Title">
               {year}
             </Heading>
@@ -32,7 +33,7 @@ export function Posts({ posts }: PostsProps) {
               const { date, draft, language, spoiler, title, url } = post.metadata;
 
               return (
-                <>
+                <React.Fragment key={url}>
                   <Heading el="p" size="m" className="Post__Title">
                     <NextLink href={url} passHref>
                       <Link>{title}</Link>
@@ -58,10 +59,10 @@ export function Posts({ posts }: PostsProps) {
                   </ul>
 
                   <Text>{spoiler}</Text>
-                </>
+                </React.Fragment>
               );
             })}
-          </>
+          </React.Fragment>
         );
       })}
     </>
