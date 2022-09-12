@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Article } from "../../entities/Article";
+import { Article } from "../../cms/models/Article";
 
 function description(post?: Pick<Article, "metadata">) {
   if (!post) {

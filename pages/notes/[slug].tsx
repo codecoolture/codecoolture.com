@@ -5,8 +5,8 @@ import { serialize } from "next-mdx-remote/serialize";
 import React from "react";
 import remarkUnwrapImages from "remark-unwrap-images";
 import { MarkdownRepository } from "../../cms/lib/MarkdownRepository";
+import { Article as Note } from "../../cms/models/Article";
 import { getConfig } from "../../config";
-import { Article as Note } from "../../entities/Article";
 import { Post } from "../../layouts/Post";
 import { isDevelopment } from "../../lib/env";
 

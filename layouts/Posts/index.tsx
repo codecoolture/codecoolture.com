@@ -1,10 +1,10 @@
 import { orderBy } from "lodash";
 import NextLink from "next/link";
+import { Article } from "../../cms/models/Article";
 import { Heading } from "../../components/Heading";
 import { Link } from "../../components/Link";
 import { Text } from "../../components/Text";
 import { Timestamp } from "../../components/Timestamp";
-import { Article } from "../../entities/Article";
 
 export interface PostsProps {
   posts: Article[];

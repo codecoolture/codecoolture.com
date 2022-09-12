@@ -1,6 +1,6 @@
 import { orderBy, reject } from "lodash";
 import { readdir, stat } from "node:fs/promises";
-import { Article } from "../../entities/Article";
+import { Article } from "../models/Article";
 import { DirectoryNotFound, FileNotFound, isNodeError } from "./errors";
 import { Markdown } from "./Markdown";
 

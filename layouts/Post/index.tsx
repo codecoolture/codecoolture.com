@@ -1,4 +1,5 @@
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { Article } from "../../cms/models/Article";
 import { Blockquote } from "../../components/Blockquote";
 import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { Code } from "../../components/Code";
@@ -10,7 +11,6 @@ import { List } from "../../components/List";
 import { Seo } from "../../components/Seo";
 import { Text } from "../../components/Text";
 import { Timestamp } from "../../components/Timestamp";
-import { Article } from "../../entities/Article";
 import { Application } from "../Application";
 import { Footer } from "./components/Footer";
 

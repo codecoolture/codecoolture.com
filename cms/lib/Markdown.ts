@@ -1,6 +1,6 @@
 import frontMatter from "front-matter";
 import { readFile } from "node:fs/promises";
-import { Metadata } from "../../entities/Metadata";
+import { Metadata } from "../models/Metadata";
 
 export class Markdown {
   public static async fromFile(path: string): Promise<Markdown> {
