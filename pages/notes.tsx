@@ -1,12 +1,11 @@
 import { GetStaticProps } from "next";
 import NextLink from "next/link";
 import React from "react";
-import { MarkdownRepository } from "../cms/lib/MarkdownRepository";
 import { Article as Note } from "../cms/models/Article";
+import { noteRepository } from "../cms/repositories";
 import { Heading } from "../components/Heading";
 import { Link } from "../components/Link";
 import { Text } from "../components/Text";
-import { getConfig } from "../config";
 import { Application } from "../layouts/Application";
 import { Posts } from "../layouts/Posts";
 import { isDevelopment } from "../lib/env";
@@ -41,9 +40,7 @@ export default class Notes extends React.Component<NotesProps> {
 }
 
 export const getStaticProps: GetStaticProps<NotesProps> = async () => {
-  const repository = await MarkdownRepository.fromDirectory(getConfig().writing.notes);
-
-  const notes = await repository.all({ drafts: isDevelopment() });
+  const notes = await noteRepository.all({ drafts: isDevelopment() });
 
   return { props: { notes } };
 };

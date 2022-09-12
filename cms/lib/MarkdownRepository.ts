@@ -1,13 +1,10 @@
 import { orderBy, reject } from "lodash";
 import { readdir, stat } from "node:fs/promises";
-import { Article } from "../models/Article";
+import { ArticleRepository } from "../repositories/ArticleRepository";
 import { DirectoryNotFound, FileNotFound, isNodeError } from "./errors";
 import { Markdown } from "./Markdown";
 
-type AllOptions = { drafts: boolean };
-type ShowOptions = { drafts: boolean };
-
-export class MarkdownRepository {
+export class MarkdownRepository implements ArticleRepository {
   public static async fromDirectory(path: string) {
     try {
       /**
@@ -27,7 +24,7 @@ export class MarkdownRepository {
 
   private constructor(private root: string) {}
 
-  public async all(options: AllOptions = { drafts: false }): Promise<Article[]> {
+  public all: ArticleRepository["all"] = async (options = { drafts: false }) => {
     const files = await readdir(this.root);
     const articles = await Promise.all(
       files
@@ -49,11 +46,11 @@ export class MarkdownRepository {
     }
 
     return reject(articlesFromNewestToOldest, "metadata.draft");
-  }
+  };
 
-  public async show(path: string, options: ShowOptions = { drafts: false }): Promise<Article> {
+  public show: ArticleRepository["show"] = async (slug, options = { drafts: false }) => {
     try {
-      const markdown = await Markdown.fromFile(`${this.root}/${path}`);
+      const markdown = await Markdown.fromFile(`${this.root}/${slug}`);
 
       if (!options.drafts && markdown.getMetadata().draft) {
         throw new FileNotFound();
@@ -65,10 +62,10 @@ export class MarkdownRepository {
       };
     } catch (error) {
       if (isNodeError(error) && error.code === "ENOENT") {
-        throw new FileNotFound(`The requested file "${this.root}/${path}" does not exist!`);
+        throw new FileNotFound(`The requested file "${this.root}/${slug}" does not exist!`);
       }
 
       throw error;
     }
-  }
+  };
 }

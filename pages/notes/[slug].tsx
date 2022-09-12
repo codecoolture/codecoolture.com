@@ -4,9 +4,8 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import React from "react";
 import remarkUnwrapImages from "remark-unwrap-images";
-import { MarkdownRepository } from "../../cms/lib/MarkdownRepository";
 import { Article as Note } from "../../cms/models/Article";
-import { getConfig } from "../../config";
+import { noteRepository } from "../../cms/repositories";
 import { Post } from "../../layouts/Post";
 import { isDevelopment } from "../../lib/env";
 
@@ -26,9 +25,7 @@ export default class Notes extends React.Component<NoteProps> {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const repository = await MarkdownRepository.fromDirectory(getConfig().writing.notes);
-
-  const paths = (await repository.all({ drafts: isDevelopment() })).map((note) => {
+  const paths = (await noteRepository.all({ drafts: isDevelopment() })).map((note) => {
     const slug = note.metadata.url.split("/").pop();
 
     if (!slug) {
@@ -46,10 +43,8 @@ export const getStaticProps: GetStaticProps<NoteProps> = async ({ params }) => {
     throw new Error("ERROR: Cannot create a Note without slug");
   }
 
-  const repository = await MarkdownRepository.fromDirectory(getConfig().writing.notes);
-
   const defaultNote = { metadata: { cover: "https://codecoolture.com/static/notes/cover.jpg" } };
-  const note = merge(defaultNote, await repository.show(`${params.slug}.mdx`, { drafts: isDevelopment() }));
+  const note = merge(defaultNote, await noteRepository.show(`${params.slug}.mdx`, { drafts: isDevelopment() }));
 
   return {
     props: {

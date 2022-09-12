@@ -4,9 +4,8 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import React from "react";
 import remarkUnwrapImages from "remark-unwrap-images";
-import { MarkdownRepository } from "../../cms/lib/MarkdownRepository";
 import { Article } from "../../cms/models/Article";
-import { getConfig } from "../../config";
+import { blogpostRepository } from "../../cms/repositories";
 import { Post } from "../../layouts/Post";
 import { isDevelopment } from "../../lib/env";
 
@@ -26,9 +25,7 @@ export default class Articles extends React.Component<ArticleProps> {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const repository = await MarkdownRepository.fromDirectory(getConfig().writing.articles);
-
-  const paths = (await repository.all({ drafts: isDevelopment() })).map((article) => {
+  const paths = (await blogpostRepository.all({ drafts: isDevelopment() })).map((article) => {
     const slug = article.metadata.url.split("/").pop();
 
     if (!slug) {
@@ -46,10 +43,11 @@ export const getStaticProps: GetStaticProps<ArticleProps> = async ({ params }) =
     throw new Error("ERROR: Cannot create a blogpost without slug");
   }
 
-  const repository = await MarkdownRepository.fromDirectory(getConfig().writing.articles);
-
   const defaultArticle = { metadata: { cover: "https://codecoolture.com/static/articles/cover.jpg" } };
-  const article = merge(defaultArticle, await repository.show(`${params.slug}.mdx`, { drafts: isDevelopment() }));
+  const article = merge(
+    defaultArticle,
+    await blogpostRepository.show(`${params.slug}.mdx`, { drafts: isDevelopment() }),
+  );
 
   return {
     props: {

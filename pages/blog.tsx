@@ -1,12 +1,11 @@
 import { GetStaticProps } from "next";
 import NextLink from "next/link";
 import React from "react";
-import { MarkdownRepository } from "../cms/lib/MarkdownRepository";
 import { Article } from "../cms/models/Article";
+import { blogpostRepository } from "../cms/repositories";
 import { Heading } from "../components/Heading";
 import { Link } from "../components/Link";
 import { Text } from "../components/Text";
-import { getConfig } from "../config";
 import { Application } from "../layouts/Application";
 import { Posts } from "../layouts/Posts";
 import { isDevelopment } from "../lib/env";
@@ -41,9 +40,7 @@ export default class Articles extends React.Component<ArticlesProps> {
 }
 
 export const getStaticProps: GetStaticProps<ArticlesProps> = async () => {
-  const repository = await MarkdownRepository.fromDirectory(getConfig().writing.articles);
-
-  const articles = await repository.all({ drafts: isDevelopment() });
+  const articles = await blogpostRepository.all({ drafts: isDevelopment() });
 
   return { props: { articles } };
 };

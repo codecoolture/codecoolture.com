@@ -11,6 +11,13 @@ const withMDX = nextMDX({
  */
 const nextConfig = {
   pageExtensions: ["ts", "tsx", "mdx"],
+  webpack: (config) => {
+    config.experiments = {
+      topLevelAwait: true,
+    };
+
+    return config;
+  },
 };
 
 export default withMDX(nextConfig);
