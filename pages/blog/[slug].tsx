@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps<ArticleProps> = async ({ params }) =
 
   return {
     props: {
-      article: article.toApiArticle(),
+      article: article.toApiArticle({ cover: "https://codecoolture.com/static/articles/cover.jpg" }),
 
       mdx: await serialize(article.content, {
         mdxOptions: {

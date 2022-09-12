@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps<NoteProps> = async ({ params }) => {
 
   return {
     props: {
-      note: note.toApiArticle(),
+      note: note.toApiArticle({ cover: "https://codecoolture.com/static/notes/cover.jpg" }),
 
       mdx: await serialize(note.content, {
         mdxOptions: {

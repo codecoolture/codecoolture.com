@@ -4,11 +4,11 @@ import { Metadata } from "./Metadata";
 export class Article {
   constructor(public content: string, public metadata: Metadata) {}
 
-  public toApiArticle(): ApiArticle {
+  public toApiArticle(defaults: Partial<ApiArticle> = {}): ApiArticle {
     return {
       canonical: this.metadata.canonical ?? null,
       content: this.content,
-      cover: this.metadata.cover ?? null,
+      cover: this.metadata.cover ?? defaults.cover ?? null,
       date: this.metadata.date,
       draft: !!this.metadata.draft,
       language: this.metadata.language ?? null,
