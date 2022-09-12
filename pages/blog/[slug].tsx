@@ -4,13 +4,13 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import React from "react";
 import remarkUnwrapImages from "remark-unwrap-images";
-import { Article } from "../../cms/models/Article";
+import { ApiArticle } from "../../cms/api/ApiArticle";
 import { blogpostRepository } from "../../cms/repositories";
 import { Post } from "../../layouts/Post";
 import { isDevelopment } from "../../lib/env";
 
 interface ArticleProps {
-  article: Pick<Article, "metadata"> & { content: MDXRemoteSerializeResult };
+  article: Omit<ApiArticle, "content"> & { content: MDXRemoteSerializeResult };
 }
 
 export default class Articles extends React.Component<ArticleProps> {
@@ -52,13 +52,20 @@ export const getStaticProps: GetStaticProps<ArticleProps> = async ({ params }) =
   return {
     props: {
       article: {
+        canonical: article.metadata.canonical ?? null,
         content: await serialize(article.content, {
           mdxOptions: {
             rehypePlugins: [require("@mapbox/rehype-prism")],
             remarkPlugins: [remarkUnwrapImages],
           },
         }),
-        metadata: article.metadata,
+        cover: article.metadata.cover,
+        date: article.metadata.date,
+        draft: !!article.metadata.draft,
+        language: article.metadata.language ?? null,
+        spoiler: article.metadata.spoiler,
+        title: article.metadata.title,
+        url: article.metadata.url,
       },
     },
   };

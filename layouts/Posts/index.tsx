@@ -1,19 +1,19 @@
 import { orderBy } from "lodash";
 import NextLink from "next/link";
 import React from "react";
-import { Article } from "../../cms/models/Article";
+import { ApiArticle } from "../../cms/api/ApiArticle";
 import { Heading } from "../../components/Heading";
 import { Link } from "../../components/Link";
 import { Text } from "../../components/Text";
 import { Timestamp } from "../../components/Timestamp";
 
 export interface PostsProps {
-  posts: Article[];
+  posts: ApiArticle[];
 }
 
 export function Posts({ posts }: PostsProps) {
-  const groupByYear = posts.reduce<Record<number, Article[]>>((acc, current) => {
-    const year = new Date(current.metadata.date).getFullYear();
+  const groupByYear = posts.reduce<Record<number, ApiArticle[]>>((acc, current) => {
+    const year = new Date(current.date).getFullYear();
 
     acc[year] = (acc[year] || []).concat(current);
 
@@ -30,7 +30,7 @@ export function Posts({ posts }: PostsProps) {
             </Heading>
 
             {articles.map((post) => {
-              const { date, draft, language, spoiler, title, url } = post.metadata;
+              const { date, draft, language, spoiler, title, url } = post;
 
               return (
                 <React.Fragment key={url}>

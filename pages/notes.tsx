@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import NextLink from "next/link";
 import React from "react";
-import { Article as Note } from "../cms/models/Article";
+import { ApiArticle } from "../cms/api/ApiArticle";
 import { noteRepository } from "../cms/repositories";
 import { Heading } from "../components/Heading";
 import { Link } from "../components/Link";
@@ -11,7 +11,7 @@ import { Posts } from "../layouts/Posts";
 import { isDevelopment } from "../lib/env";
 
 interface NotesProps {
-  notes: Note[];
+  notes: ApiArticle[];
 }
 
 export default class Notes extends React.Component<NotesProps> {
@@ -42,5 +42,21 @@ export default class Notes extends React.Component<NotesProps> {
 export const getStaticProps: GetStaticProps<NotesProps> = async () => {
   const notes = await noteRepository.all({ drafts: isDevelopment() });
 
-  return { props: { notes } };
+  return {
+    props: {
+      notes: notes.map((note) => {
+        return {
+          canonical: note.metadata.canonical ?? null,
+          content: note.content,
+          cover: note.metadata.cover ?? null,
+          date: note.metadata.date,
+          draft: !!note.metadata.draft,
+          language: note.metadata.language ?? null,
+          spoiler: note.metadata.spoiler,
+          title: note.metadata.title,
+          url: note.metadata.url,
+        };
+      }),
+    },
+  };
 };

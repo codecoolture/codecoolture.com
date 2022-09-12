@@ -4,13 +4,13 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import React from "react";
 import remarkUnwrapImages from "remark-unwrap-images";
-import { Article as Note } from "../../cms/models/Article";
+import { ApiArticle } from "../../cms/api/ApiArticle";
 import { noteRepository } from "../../cms/repositories";
 import { Post } from "../../layouts/Post";
 import { isDevelopment } from "../../lib/env";
 
 interface NoteProps {
-  note: Pick<Note, "metadata"> & { content: MDXRemoteSerializeResult };
+  note: Omit<ApiArticle, "content"> & { content: MDXRemoteSerializeResult };
 }
 
 export default class Notes extends React.Component<NoteProps> {
@@ -49,13 +49,20 @@ export const getStaticProps: GetStaticProps<NoteProps> = async ({ params }) => {
   return {
     props: {
       note: {
+        canonical: note.metadata.canonical ?? null,
         content: await serialize(note.content, {
           mdxOptions: {
             rehypePlugins: [require("@mapbox/rehype-prism")],
             remarkPlugins: [remarkUnwrapImages],
           },
         }),
-        metadata: note.metadata,
+        cover: note.metadata.cover,
+        date: note.metadata.date,
+        draft: !!note.metadata.draft,
+        language: note.metadata.language ?? null,
+        spoiler: note.metadata.spoiler,
+        title: note.metadata.title,
+        url: note.metadata.url,
       },
     },
   };

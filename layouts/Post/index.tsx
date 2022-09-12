@@ -1,5 +1,5 @@
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { Article } from "../../cms/models/Article";
+import { ApiArticle } from "../../cms/api/ApiArticle";
 import { Blockquote } from "../../components/Blockquote";
 import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { Code } from "../../components/Code";
@@ -15,7 +15,7 @@ import { Application } from "../Application";
 import { Footer } from "./components/Footer";
 
 export interface PostProps {
-  post: Pick<Article, "metadata"> & {
+  post: Omit<ApiArticle, "content"> & {
     breadcrumbs: () => Array<{ label: string; url?: string }>;
   } & { content: MDXRemoteSerializeResult };
 }
@@ -23,14 +23,15 @@ export interface PostProps {
 export function Post({ post }: PostProps) {
   return (
     <>
-      <Seo post={post} />
+      {/* FIXME: remove content override */}
+      <Seo post={{ ...post, content: "" }} />
 
       <Application>
         <section className="Post">
           <Application.Column>
             <header className="Post__Header">
               <Breadcrumbs path={post.breadcrumbs()} />
-              <Timestamp date={post.metadata.date} />
+              <Timestamp date={post.date} />
             </header>
 
             <MDXRemote

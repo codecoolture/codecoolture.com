@@ -1,31 +1,31 @@
 import Head from "next/head";
-import { Article } from "../../cms/models/Article";
+import { ApiArticle } from "../../cms/api/ApiArticle";
 
-function description(post?: Pick<Article, "metadata">) {
+function description(post?: ApiArticle) {
   if (!post) {
     return "Hey, I'm Sergio! I build maintainable and performant full-stack web applications.";
   }
 
-  return post.metadata.spoiler;
+  return post.spoiler ?? undefined;
 }
 
-function image(post?: Pick<Article, "metadata">) {
-  if (!post || !post.metadata.cover) {
+function image(post?: ApiArticle) {
+  if (!post || !post.cover) {
     return "https://codecoolture.com/static/img/square-logo.png";
   }
 
-  return post.metadata.cover;
+  return post.cover;
 }
 
-function title(post?: Pick<Article, "metadata">) {
+function title(post?: ApiArticle) {
   if (!post) {
     return "Sergio Álvarez (Codecoolture)";
   }
 
-  return post.metadata.title;
+  return post.title;
 }
 
-function type(post?: Pick<Article, "metadata">) {
+function type(post?: ApiArticle) {
   if (post) {
     return "article";
   }
@@ -33,15 +33,15 @@ function type(post?: Pick<Article, "metadata">) {
   return "website";
 }
 
-function url(post?: Pick<Article, "metadata">) {
+function url(post?: ApiArticle) {
   if (!post) {
     return "https://codecoolture.com";
   }
 
-  return "https://codecoolture.com" + post.metadata.url;
+  return "https://codecoolture.com" + post.url;
 }
 
-export function Seo({ post }: { post?: Pick<Article, "metadata"> }) {
+export function Seo({ post }: { post?: ApiArticle }) {
   return (
     <Head>
       <meta name="description" content={description(post)} />
@@ -63,7 +63,7 @@ export function Seo({ post }: { post?: Pick<Article, "metadata"> }) {
       <meta key="twitter:site" name="twitter:site" content="@codecoolture" />
       <meta key="twitter:title" name="twitter:title" content={title(post)} />
 
-      {post && post.metadata.canonical && <link rel="canonical" href={post.metadata.canonical} />}
+      {typeof post?.canonical === "string" && <link rel="canonical" href={post.canonical} />}
 
       <title>{title(post)}</title>
     </Head>

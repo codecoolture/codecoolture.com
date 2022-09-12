@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import NextLink from "next/link";
 import React from "react";
-import { Article } from "../cms/models/Article";
+import { ApiArticle } from "../cms/api/ApiArticle";
 import { blogpostRepository } from "../cms/repositories";
 import { Heading } from "../components/Heading";
 import { Link } from "../components/Link";
@@ -11,7 +11,7 @@ import { Posts } from "../layouts/Posts";
 import { isDevelopment } from "../lib/env";
 
 interface ArticlesProps {
-  articles: Article[];
+  articles: ApiArticle[];
 }
 
 export default class Articles extends React.Component<ArticlesProps> {
@@ -42,5 +42,21 @@ export default class Articles extends React.Component<ArticlesProps> {
 export const getStaticProps: GetStaticProps<ArticlesProps> = async () => {
   const articles = await blogpostRepository.all({ drafts: isDevelopment() });
 
-  return { props: { articles } };
+  return {
+    props: {
+      articles: articles.map((article) => {
+        return {
+          canonical: article.metadata.canonical ?? null,
+          content: article.content,
+          cover: article.metadata.cover ?? null,
+          date: article.metadata.date,
+          draft: !!article.metadata.draft,
+          language: article.metadata.language ?? null,
+          spoiler: article.metadata.spoiler,
+          title: article.metadata.title,
+          url: article.metadata.url,
+        };
+      }),
+    },
+  };
 };
