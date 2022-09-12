@@ -1,5 +1,6 @@
 import { orderBy, reject } from "lodash";
 import { readdir, stat } from "node:fs/promises";
+import { Article } from "../models/Article";
 import { ArticleRepository } from "../repositories/ArticleRepository";
 import { DirectoryNotFound, FileNotFound, isNodeError } from "./errors";
 import { Markdown } from "./Markdown";
@@ -32,10 +33,7 @@ export class MarkdownRepository implements ArticleRepository {
         .map(async (file) => {
           const markdown = await Markdown.fromFile(`${this.root}/${file}`);
 
-          return {
-            content: markdown.getContent(),
-            metadata: markdown.getMetadata(),
-          };
+          return new Article(markdown.getContent(), markdown.getMetadata());
         }),
     );
 
@@ -56,10 +54,7 @@ export class MarkdownRepository implements ArticleRepository {
         throw new FileNotFound();
       }
 
-      return {
-        content: markdown.getContent(),
-        metadata: markdown.getMetadata(),
-      };
+      return new Article(markdown.getContent(), markdown.getMetadata());
     } catch (error) {
       if (isNodeError(error) && error.code === "ENOENT") {
         throw new FileNotFound(`The requested file "${this.root}/${slug}" does not exist!`);

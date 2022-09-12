@@ -15,22 +15,23 @@ import { Application } from "../Application";
 import { Footer } from "./components/Footer";
 
 export interface PostProps {
-  post: Omit<ApiArticle, "content"> & {
-    breadcrumbs: () => Array<{ label: string; url?: string }>;
-  } & { content: MDXRemoteSerializeResult };
+  breadcrumbs: Array<{ label: string; url?: string }>;
+
+  mdx: MDXRemoteSerializeResult;
+
+  post: ApiArticle;
 }
 
-export function Post({ post }: PostProps) {
+export function Post({ breadcrumbs, mdx, post }: PostProps) {
   return (
     <>
-      {/* FIXME: remove content override */}
-      <Seo post={{ ...post, content: "" }} />
+      <Seo post={post} />
 
       <Application>
         <section className="Post">
           <Application.Column>
             <header className="Post__Header">
-              <Breadcrumbs path={post.breadcrumbs()} />
+              <Breadcrumbs path={breadcrumbs} />
               <Timestamp date={post.date} />
             </header>
 
@@ -58,7 +59,7 @@ export function Post({ post }: PostProps) {
                 pre: Codeblock,
                 ul: List,
               }}
-              {...post.content}
+              {...mdx}
             />
 
             <Footer />

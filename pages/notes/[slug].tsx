@@ -1,4 +1,3 @@
-import { merge } from "lodash";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
@@ -10,17 +9,13 @@ import { Post } from "../../layouts/Post";
 import { isDevelopment } from "../../lib/env";
 
 interface NoteProps {
-  note: Omit<ApiArticle, "content"> & { content: MDXRemoteSerializeResult };
+  mdx: MDXRemoteSerializeResult;
+  note: ApiArticle;
 }
 
 export default class Notes extends React.Component<NoteProps> {
   public render() {
-    const post = {
-      ...this.props.note,
-      breadcrumbs: () => [{ label: "Notes", url: "/notes" }],
-    };
-
-    return <Post post={post} />;
+    return <Post breadcrumbs={[{ label: "Notes", url: "/notes" }]} mdx={this.props.mdx} post={this.props.note} />;
   }
 }
 
@@ -43,27 +38,18 @@ export const getStaticProps: GetStaticProps<NoteProps> = async ({ params }) => {
     throw new Error("ERROR: Cannot create a Note without slug");
   }
 
-  const defaultNote = { metadata: { cover: "https://codecoolture.com/static/notes/cover.jpg" } };
-  const note = merge(defaultNote, await noteRepository.show(`${params.slug}.mdx`, { drafts: isDevelopment() }));
+  const note = await noteRepository.show(`${params.slug}.mdx`, { drafts: isDevelopment() });
 
   return {
     props: {
-      note: {
-        canonical: note.metadata.canonical ?? null,
-        content: await serialize(note.content, {
-          mdxOptions: {
-            rehypePlugins: [require("@mapbox/rehype-prism")],
-            remarkPlugins: [remarkUnwrapImages],
-          },
-        }),
-        cover: note.metadata.cover,
-        date: note.metadata.date,
-        draft: !!note.metadata.draft,
-        language: note.metadata.language ?? null,
-        spoiler: note.metadata.spoiler,
-        title: note.metadata.title,
-        url: note.metadata.url,
-      },
+      note: note.toApiArticle(),
+
+      mdx: await serialize(note.content, {
+        mdxOptions: {
+          rehypePlugins: [require("@mapbox/rehype-prism")],
+          remarkPlugins: [remarkUnwrapImages],
+        },
+      }),
     },
   };
 };

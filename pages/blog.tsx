@@ -44,19 +44,7 @@ export const getStaticProps: GetStaticProps<ArticlesProps> = async () => {
 
   return {
     props: {
-      articles: articles.map((article) => {
-        return {
-          canonical: article.metadata.canonical ?? null,
-          content: article.content,
-          cover: article.metadata.cover ?? null,
-          date: article.metadata.date,
-          draft: !!article.metadata.draft,
-          language: article.metadata.language ?? null,
-          spoiler: article.metadata.spoiler,
-          title: article.metadata.title,
-          url: article.metadata.url,
-        };
-      }),
+      articles: await Promise.all(articles.map((article) => article.toApiArticle())),
     },
   };
 };

@@ -44,19 +44,7 @@ export const getStaticProps: GetStaticProps<NotesProps> = async () => {
 
   return {
     props: {
-      notes: notes.map((note) => {
-        return {
-          canonical: note.metadata.canonical ?? null,
-          content: note.content,
-          cover: note.metadata.cover ?? null,
-          date: note.metadata.date,
-          draft: !!note.metadata.draft,
-          language: note.metadata.language ?? null,
-          spoiler: note.metadata.spoiler,
-          title: note.metadata.title,
-          url: note.metadata.url,
-        };
-      }),
+      notes: await Promise.all(notes.map((note) => note.toApiArticle())),
     },
   };
 };
