@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "12.2.5",
-    "@types/jest": "29.0.1",
+    "@types/jest": "29.0.2",
     "@types/lodash": "4.14.185",
     "@types/marked": "4.0.7",
     "@types/node": "16.11.19",
