@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { ISO_DATE_STRING } from "../../lib/regex";
 
 const Metadata = z.object({
   canonical: z.string().url().optional(),
@@ -6,7 +7,7 @@ const Metadata = z.object({
   draft: z.boolean().optional(),
   language: z.string().optional(),
   spoiler: z.string().optional(),
-  date: z.string(),
+  date: z.string().regex(ISO_DATE_STRING),
   title: z.string(),
   url: z.string(),
 });
