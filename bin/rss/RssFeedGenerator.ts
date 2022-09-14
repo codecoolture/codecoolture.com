@@ -33,9 +33,9 @@ export class RssFeedGenerator {
       }),
     );
 
-    const allApiArticles = allArticles.flat().map((article) => article.toApiArticle());
+    const apiArticles = allArticles.flat().map((article) => article.toApiArticle());
 
-    const apiArticlesFromNewestToOldest = orderBy(allApiArticles, (apiArticle) => apiArticle.date, ["desc"]);
+    const apiArticlesFromNewestToOldest = orderBy(apiArticles, (apiArticle) => apiArticle.date, ["desc"]);
 
     for (const apiArticle of apiArticlesFromNewestToOldest) {
       feed.addItem({
