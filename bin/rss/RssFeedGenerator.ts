@@ -33,17 +33,19 @@ export class RssFeedGenerator {
       }),
     );
 
-    const newestToOldestArticles = orderBy(allArticles.flat(), "metadata.date", "desc");
+    const allApiArticles = allArticles.flat().map((article) => article.toApiArticle());
 
-    for (const article of newestToOldestArticles) {
+    const apiArticlesFromNewestToOldest = orderBy(allApiArticles, (apiArticle) => apiArticle.date, ["desc"]);
+
+    for (const apiArticle of apiArticlesFromNewestToOldest) {
       feed.addItem({
-        title: article.metadata.title,
-        id: `${BASE_URL}${article.metadata.url}`,
-        link: `${BASE_URL}${article.metadata.url}`,
-        description: article.metadata.spoiler,
-        content: marked(article.content),
-        date: new Date(article.metadata.date),
-        image: article.metadata.cover,
+        title: apiArticle.title,
+        id: `${BASE_URL}${apiArticle.url}`,
+        link: `${BASE_URL}${apiArticle.url}`,
+        description: apiArticle.spoiler ?? undefined,
+        content: marked(apiArticle.content),
+        date: new Date(apiArticle.date),
+        image: apiArticle.cover ?? undefined,
       });
     }
 

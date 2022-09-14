@@ -1,6 +1,5 @@
 import frontMatter from "front-matter";
 import { readFile } from "node:fs/promises";
-import { Metadata } from "../models/Metadata";
 
 export class Markdown {
   public static async fromFile(path: string): Promise<Markdown> {
@@ -11,8 +10,8 @@ export class Markdown {
 
   private constructor(private content: string) {}
 
-  public getMetadata(): Metadata {
-    const { attributes: metadata } = frontMatter<Metadata>(this.content);
+  public getMetadata(): unknown {
+    const { attributes: metadata } = frontMatter(this.content);
 
     return metadata;
   }

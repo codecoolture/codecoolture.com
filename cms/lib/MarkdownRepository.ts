@@ -33,28 +33,29 @@ export class MarkdownRepository implements ArticleRepository {
         .map(async (file) => {
           const markdown = await Markdown.fromFile(`${this.root}/${file}`);
 
-          return new Article(markdown.getContent(), markdown.getMetadata());
+          return Article.fromMarkdown(markdown);
         }),
     );
 
-    const articlesFromNewestToOldest = orderBy(articles, ["metadata.date"], ["desc"]);
+    const articlesFromNewestToOldest = orderBy(articles, (article) => article.getDate(), ["desc"]);
 
     if (options.drafts) {
       return articlesFromNewestToOldest;
     }
 
-    return reject(articlesFromNewestToOldest, "metadata.draft");
+    return reject(articlesFromNewestToOldest, (article) => article.isDraft());
   };
 
   public show: ArticleRepository["show"] = async (slug, options = { drafts: false }) => {
     try {
       const markdown = await Markdown.fromFile(`${this.root}/${slug}`);
+      const article = Article.fromMarkdown(markdown);
 
-      if (!options.drafts && markdown.getMetadata().draft) {
+      if (!options.drafts && article.isDraft()) {
         throw new FileNotFound();
       }
 
-      return new Article(markdown.getContent(), markdown.getMetadata());
+      return article;
     } catch (error) {
       if (isNodeError(error) && error.code === "ENOENT") {
         throw new FileNotFound(`The requested file "${this.root}/${slug}" does not exist!`);

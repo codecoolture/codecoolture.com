@@ -1,6 +1,8 @@
 ---
 date: "2019-03-01"
-title: Mid article
+title: "Mid article"
+spoiler: ""
+url: "/path/to/mid-article"
 ---
 
 Hello :)

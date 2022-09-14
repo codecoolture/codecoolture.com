@@ -101,7 +101,7 @@ describe("MarkdownRepository", () => {
 
       expect(result).toEqual(
         expect.objectContaining({
-          metadata: { date: "2019-03-01", title: "Mid article" },
+          metadata: expect.objectContaining({ date: "2019-03-01", title: "Mid article" }),
         }),
       );
     });

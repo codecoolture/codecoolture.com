@@ -21,10 +21,10 @@ export default class Articles extends React.Component<ArticleProps> {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = (await blogpostRepository.all({ drafts: isDevelopment() })).map((article) => {
-    const slug = article.metadata.url.split("/").pop();
+    const slug = article.getUrl().split("/").pop();
 
     if (!slug) {
-      throw new Error(`ERROR: Missing slug for Note. ${JSON.stringify(article.metadata, null, 2)}`);
+      throw new Error(`ERROR: Missing slug for Note. ${JSON.stringify(article.toApiArticle(), null, 2)}`);
     }
 
     return { params: { slug } };
@@ -44,7 +44,7 @@ export const getStaticProps: GetStaticProps<ArticleProps> = async ({ params }) =
     props: {
       article: article.toApiArticle({ cover: "https://codecoolture.com/static/articles/cover.jpg" }),
 
-      mdx: await serialize(article.content, {
+      mdx: await serialize(article.getContent(), {
         mdxOptions: {
           rehypePlugins: [require("@mapbox/rehype-prism")],
           remarkPlugins: [remarkUnwrapImages],
