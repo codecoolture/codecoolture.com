@@ -1,16 +1,18 @@
 import { z } from "zod";
 import { ISO_DATE_STRING } from "../../lib/regex";
 
-const Metadata = z.object({
-  canonical: z.string().url().optional(),
-  cover: z.string().url().optional(),
-  draft: z.boolean().optional(),
-  language: z.string().optional(),
-  spoiler: z.string().optional(),
-  date: z.string().regex(ISO_DATE_STRING),
-  title: z.string(),
-  url: z.string(),
-});
+const Metadata = z
+  .object({
+    canonical: z.string().url().optional(),
+    cover: z.string().url().optional(),
+    published: z.boolean().optional(),
+    language: z.string().optional(),
+    spoiler: z.string().optional(),
+    date: z.string().regex(ISO_DATE_STRING),
+    title: z.string(),
+    url: z.string(),
+  })
+  .strict();
 
 export type Metadata = z.infer<typeof Metadata>;
 

@@ -23,6 +23,7 @@ describe("Markdown", () => {
       expect(metadata).toEqual({
         author: "Sergio Álvarez",
         date: "2019-04-01",
+        published: true,
         title: "Testing React Applications",
       });
     });

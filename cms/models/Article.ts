@@ -17,7 +17,7 @@ export class Article {
   private constructor(private content: string, private metadata: Metadata) {}
 
   public isDraft() {
-    return !!this.metadata.draft;
+    return !this.metadata.published;
   }
 
   public getDate() {
