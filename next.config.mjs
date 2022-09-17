@@ -11,6 +11,9 @@ const withMDX = nextMDX({
  */
 const nextConfig = {
   pageExtensions: ["ts", "tsx", "mdx"],
+
+  trailingSlash: true,
+
   webpack: (config) => {
     config.experiments = {
       topLevelAwait: true,

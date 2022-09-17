@@ -25,7 +25,7 @@ export function Posts({ posts }: PostsProps) {
       {orderBy(Object.entries(groupByYear), "[0]", "desc").map(([year, articles]) => {
         return (
           <React.Fragment key={year}>
-            <Heading el="h2" size="xl" className="Posts__Title">
+            <Heading el="h2" size="xl" className="Posts__Title" data-qa="posts-group-year">
               {year}
             </Heading>
 
