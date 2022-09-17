@@ -58,7 +58,7 @@
     "cy:run": "start-server-and-test dev 3000 'cypress run'",
     "dev": "next-remote-watch ./cms/content",
     "export": "yarn build && next export",
-    "export:start": "http-server out",
+    "export:start": "http-server --silent out",
     "lint": "eslint --ext .tsx --ext .ts .",
     "start": "next start",
     "test": "jest",
