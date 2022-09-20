@@ -8,7 +8,7 @@ url: "/notes/rss-for-next-blog"
 # Adding an RSS feed to a Next.js site
 
 Really Simple Syndication (**RSS**) has been a pretty popular format for syndicating and publishing content on the web.
-Still, platforms do not usually provide an out-of-the-box solution to adopt it.
+Still, platforms don't usually provide an out-of-the-box solution to adopt it.
 
 For Next.js projects, specifically, I'm sure there are probably thousands of articles explaining how to do it (and
 probably a handful of `npm` packages, too!), but in this post, I will try to outline my own approach to this problem to
@@ -16,19 +16,52 @@ add [RSS capabilities for this very same blog](/feed.xml).
 
 ## How to build the RSS feed
 
-The only thing I didn't want to do was study the RSS/atom spec myself to know how to create a valid document. For that
+The only thing I didn't want to do was study the [RSS](https://validator.w3.org/feed/docs/rss2.html) or
+[Atom](https://validator.w3.org/feed/docs/atom.html) spec myself to know how to create a valid document. For that
 reason, I browsed the web looking for a well-maintained `npm` package that could help me externalize part of the work.
 
 [`jpmonette/feed`](https://github.com/jpmonette/feed) ticked all the boxes (some recent commits, a good amount of stars,
-and TypeScript support), so I installed the package and started coding the `RSSFeedGenerator` class.
+and TypeScript support), so I installed the package and started coding the `RssFeedGenerator` class.
 
-The `RSSFeedGenerator` is a simple TypeScript class that receives an array of paths and gets all the posts that live
+The `RssFeedGenerator` is a simple TypeScript class that receives an array of paths and gets all the posts that live
 there. Then, it makes some minor adjustments (flat the collection of posts, order by date) and uses the `jpmonette/feed`
 package to return a valid atom feed string. Since this blog is open-sourced, you may see the actual code for this class
 in
 [`codecoolture/codecoolture.com`](https://github.com/codecoolture/codecoolture.com/blob/fdcbcd2ff6307f5fb42ec463b2547e572edf8047/bin/rss/RssFeedGenerator.ts).
 
-The `RSSFeedGenerator` does not know by itself what the paths are, so it expects them to be injected during
+```ts
+export class RssFeedGenerator {
+  constructor(private paths: string[]) {}
+
+  public async generate(): Promise<string> {
+    const feed = new Feed({
+      /* Add some feed configuration */
+    });
+
+    const allArticles = await Promise.all(
+      this.paths.map(async (path) => {
+        const repository = await MarkdownRepository.fromDirectory(path);
+
+        return repository.all({ drafts: false });
+      }),
+    );
+
+    const apiArticles = allArticles.flat().map((article) => article.toApiArticle());
+
+    const apiArticlesFromNewestToOldest = orderBy(apiArticles, (article) => article.date, ["desc"]);
+
+    for (const apiArticle of apiArticlesFromNewestToOldest) {
+      feed.addItem({
+        /* Add properties for each item */
+      });
+    }
+
+    return feed.atom1();
+  }
+}
+```
+
+The `RssFeedGenerator` does not know by itself what the paths are, so it expects them to be injected during
 initialization. This decision was driven by my approach using test-driven development since I wanted to create different
 fixtures to test different scenarios without relying on the actual production data (posts may change title, date, or
 even get deleted!).
@@ -37,13 +70,13 @@ Design-wise, injecting the RSS feed generator would also be desirable, so we cou
 than having this code coupled to a third-party library. Still, the use case is so simple that I decided to skip the
 extra work (I hope it does not bite me in the future!).
 
-## How to integrate `RSSFeedGenerator` with Next.js
+## How to integrate `RssFeedGenerator` with Next.js
 
 At this point in time, this site uses `next export` to build a static website. Therefore, I couldn't rely on some of the
 more advanced Next.js features such as [API Routes](https://nextjs.org/docs/api-routes/introduction) or even
 [middlewares](https://nextjs.org/docs/advanced-features/middleware). So instead, I decided to integrate the RSS feed
 generation within the Next.js build by adding a new `npm script` that executes `bin/rss/index.ts` (a TypeScript script)
-and creates an `RSSFeedGenerator` instance with the right content paths, using its output to save a file inside the
+and creates an `RssFeedGenerator` instance with the right content paths, using its output to save a file inside the
 Next.js `public/` folder. This is what the script and the new build command look like.
 
 ```diff
@@ -68,5 +101,5 @@ import { RssFeedGenerator } from "./RssFeedGenerator";
 ```
 
 With all these pieces now working together, new deployments of this site will always create a valid RSS feed that can be
-found at [/feed.xml](/feed.xml), keeping the static nature of the site and leveraging a more sophisticated build
+found at [/feed.xml](/feed.xml), keeping the static nature of the website and leveraging a more sophisticated build
 process.
