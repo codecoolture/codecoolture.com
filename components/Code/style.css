@@ -1,5 +1,8 @@
 .Code {
-  font-family: var(--ff-monospace) !important;
+  font-size: 85%;
+  padding: 0.15em 0.25em;
 
-  color: var(--c-indigo-11);
+  background-color: var(--c-yellow-2);
+  font-family: var(--ff-monospace) !important;
+  color: var(--c-yellow-11);
 }

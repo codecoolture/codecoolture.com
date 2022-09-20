@@ -3,4 +3,6 @@
 .Codeblock[class*="language-"] {
   font-size: var(--fs-s);
   margin-bottom: 1em;
+
+  background-color: var(--c-gray-2);
 }
