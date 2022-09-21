@@ -6,3 +6,8 @@
 
   background-color: var(--c-gray-2);
 }
+
+/* Overrides */
+.Codeblock .Code {
+  padding: 0;
+}
