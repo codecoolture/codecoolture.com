@@ -1,4 +1,5 @@
 import { Application } from "../layouts/Application";
+import { Link } from "../components/Link";
 import { Text } from "../components/Text";
 
 export default ({ children }) => {
@@ -11,13 +12,9 @@ export default ({ children }) => {
 
 # About me
 
-<Text size="l">
-
-Hey there! 👋 I'm Sergio, a software engineer from Oviedo, Spain. I've worked in technology for over a decade and had
-the luck to work in different product companies at various stages and positions (from junior engineer to CTO!). I'm
-currently working at [GitHub](https://github.com) as a Senior Software Engineer.
-
-</Text>
+{<Text size="l"> Hey there! 👋 I'm Sergio, a software engineer from Oviedo, Spain. I've worked in technology for over a
+decade and had the luck to work in different product companies at various stages and positions (from junior engineer to
+CTO!). I'm currently working at <Link href="https://github.com">GitHub</Link> as a Senior Software Engineer.</Text>}
 
 My main interests are software design, product development (I have not only worked at product companies but also on
 multiple side projects), and team leadership. I have experience coaching and mentoring software teams. I'm a strong
