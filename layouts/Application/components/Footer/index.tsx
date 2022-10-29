@@ -9,20 +9,20 @@ export function Footer() {
         <nav>
           <ul className="AppFooter__Nav">
             <li className="AppFooter__Nav__Item">
-              <NextLink href="/contact">
-                <a className="AppFooter__Link">Contact</a>
+              <NextLink href="/contact" className="AppFooter__Link">
+                Contact
               </NextLink>
             </li>
 
             <li className="AppFooter__Nav__Item">
-              <NextLink href="/now">
-                <a className="AppFooter__Link">Now</a>
+              <NextLink href="/now" className="AppFooter__Link">
+                Now
               </NextLink>
             </li>
 
             <li className="AppFooter__Nav__Item">
-              <NextLink href="/uses">
-                <a className="AppFooter__Link">Uses</a>
+              <NextLink href="/uses" className="AppFooter__Link">
+                Uses
               </NextLink>
             </li>
           </ul>

@@ -26,9 +26,9 @@ export default class Articles extends React.Component<ArticlesProps> {
           <Text size="l">
             These are long-form texts about software design, sustainable code, and continuous delivery. You may read
             more casual writings in the{" "}
-            <NextLink href="/notes" passHref>
-              <Link>Notes</Link>
-            </NextLink>{" "}
+            <Link as={NextLink} href="/notes">
+              Notes
+            </Link>{" "}
             section if you wish.
           </Text>
 

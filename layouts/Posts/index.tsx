@@ -35,9 +35,9 @@ export function Posts({ posts }: PostsProps) {
               return (
                 <React.Fragment key={url}>
                   <Heading el="p" size="m" className="Post__Title">
-                    <NextLink href={url} passHref>
-                      <Link>{title}</Link>
-                    </NextLink>
+                    <Link as={NextLink} href={url}>
+                      {title}
+                    </Link>
                   </Heading>
 
                   <ul className="Post__Subheading">

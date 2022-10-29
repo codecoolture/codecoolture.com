@@ -26,9 +26,9 @@ export default class Notes extends React.Component<NotesProps> {
           <Text size="l">
             Here you may find casual writings about software development, productivity, random thoughts, books, and
             everything that does not really fit in the{" "}
-            <NextLink href="/blog" passHref>
-              <Link>blog</Link>
-            </NextLink>{" "}
+            <Link as={NextLink} href="/blog">
+              blog
+            </Link>{" "}
             🙂
           </Text>
 
