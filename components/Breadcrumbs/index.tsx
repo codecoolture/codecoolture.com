@@ -1,5 +1,4 @@
 import NextLink from "next/link";
-import React from "react";
 import { classNames } from "../../lib/classNames";
 import { Link } from "../Link";
 
@@ -16,9 +15,9 @@ export function Breadcrumbs({ className, path }: BreadcrumbsProps) {
       {path.map((breadcrumb, idx) => (
         <div className="Breadcrumb" key={idx}>
           {breadcrumb.url ? (
-            <NextLink href={breadcrumb.url} passHref>
-              <Link>{breadcrumb.label}</Link>
-            </NextLink>
+            <Link as={NextLink} href={breadcrumb.url}>
+              {breadcrumb.label}
+            </Link>
           ) : (
             breadcrumb.label
           )}

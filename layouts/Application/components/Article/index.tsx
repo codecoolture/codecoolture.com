@@ -6,7 +6,7 @@ import { Breadcrumb, Breadcrumbs } from "../../../../components/Breadcrumbs";
 import { Code } from "../../../../components/Code";
 import { Codeblock } from "../../../../components/Codeblock";
 import { Heading } from "../../../../components/Heading";
-import { LinkWithoutRef } from "../../../../components/Link";
+import { Link } from "../../../../components/Link";
 import { List } from "../../../../components/List";
 import { Text } from "../../../../components/Text";
 import { classNames } from "../../../../lib/classNames";
@@ -24,7 +24,7 @@ export function Article({ breadcrumbs = [], children, className }: ArticleProps)
     <Application.Column>
       <MDXProvider
         components={{
-          a: LinkWithoutRef,
+          a: Link,
           blockquote: Blockquote,
           code: Code,
           h1: function h1(props: JSX.IntrinsicElements["h1"]) {

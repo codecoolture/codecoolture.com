@@ -6,7 +6,7 @@ import { Code } from "../../components/Code";
 import { Codeblock } from "../../components/Codeblock";
 import { Figure } from "../../components/Figure";
 import { Heading } from "../../components/Heading";
-import { LinkWithoutRef } from "../../components/Link";
+import { Link } from "../../components/Link";
 import { List } from "../../components/List";
 import { Seo } from "../../components/Seo";
 import { Text } from "../../components/Text";
@@ -37,7 +37,7 @@ export function Post({ breadcrumbs, mdx, post }: PostProps) {
 
             <MDXRemote
               components={{
-                a: LinkWithoutRef,
+                a: Link,
                 blockquote: Blockquote,
                 code: Code,
                 h1: function h1(props: JSX.IntrinsicElements["h1"]) {
