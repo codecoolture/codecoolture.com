@@ -1,15 +1,19 @@
 .Post__Footer {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   font-size: var(--fs-s);
   gap: 1rem;
-  margin: 3rem 0 1rem;
   justify-content: center;
+  margin: 3rem 0 1rem;
 }
 
 .Post__Footer__Chip {
   align-items: center;
   display: inline-flex;
+  justify-content: center;
+  max-width: 100%;
+  min-width: calc(200px - 1.5em);
   padding: 0.35em 0.75em;
 
   border-radius: 3px;

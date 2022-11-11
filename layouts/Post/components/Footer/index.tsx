@@ -22,6 +22,7 @@ const Chip = ({ children, href, type }: ChipProps) => {
 type FooterProps = { post: ApiArticle };
 
 export function Footer({ post }: FooterProps) {
+  const githubEditUrl = `https://github.com/codecoolture/codecoolture.com/edit/trunk/cms/content${post.url}.mdx`;
   const shareableUrl = `https://codecoolture.com${post.url}`;
   const tweet = encodeURIComponent(`Check out "${post.title}" by @codecoolture\n\n`);
 
@@ -32,6 +33,10 @@ export function Footer({ post }: FooterProps) {
         href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareableUrl)}&text=${tweet}`}
       >
         Tweet this post
+      </Chip>
+
+      <Chip type="github" href={githubEditUrl}>
+        Edit on GitHub
       </Chip>
     </footer>
   );
