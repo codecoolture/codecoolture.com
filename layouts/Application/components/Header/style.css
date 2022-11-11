@@ -1,110 +1,50 @@
 .AppHeader {
-  align-items: center;
   box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
   padding: 1em 0;
-  position: relative;
   width: 100%;
-  z-index: 1;
 
   background-color: var(--c-gray-1);
   color: var(--c-gray-12);
 }
 
-.AppHeader--NoBackLink {
+.Menu {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  justify-content: space-between;
+}
+
+.Menu--NoBackLink {
   flex-direction: row-reverse;
 }
 
-.AppHeader p {
+.Menu__BackLink {
   font-size: var(--fs-s);
   font-weight: 700;
 }
 
-.AppHeader__Link {
+.Menu__Link {
+  align-items: center;
+  display: flex;
+  gap: 0.25em;
+
   color: currentColor;
   text-decoration: none;
 }
 
 .Menu__List {
-  display: none;
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
 
   list-style-type: none;
 }
 
-.Menu__List--isOpen {
-  align-items: flex-start;
-  border: 1px solid var(--c-gray-6);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  min-height: 35vh;
-  justify-content: space-evenly;
-  left: 0;
-  margin-top: 10px;
-  padding: 0 1em;
-  position: absolute;
-  width: 100%;
-
-  background-color: var(--c-gray-2);
-  border-radius: 3px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-}
-
 .Menu__Item {
-  font-size: var(--fs-m);
+  font-size: var(--fs-s);
 
   color: var(--c-gray-12);
   cursor: pointer;
   font-weight: 700;
-}
-
-.Menu__List__Item:not(:first-of-type) {
-  margin-top: 0.5em;
-}
-
-.Menu__Trigger {
-  border: 1px solid var(--c-gray-7);
-  font-size: var(--fs-xs);
-  letter-spacing: 1px;
-  padding: 10px;
-
-  background-color: var(--c-gray-3);
-  border-radius: 3px;
-  color: var(--c-gray-11);
-  font-family: var(--ff-sans-serif);
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-@media screen and (min-width: 750px) {
-  .AppHeader {
-    align-items: baseline;
-  }
-
-  .AppHeader h1 {
-    font-size: var(--fs-m);
-  }
-
-  .Menu__Trigger {
-    display: none;
-  }
-
-  .Menu__List {
-    display: flex;
-    flex-direction: row;
-
-    list-style-type: none;
-  }
-
-  .Menu__Item {
-    font-size: var(--fs-s);
-
-    color: currentColor;
-  }
-
-  .Menu__List__Item:not(:first-of-type) {
-    margin-left: 1.5em;
-    margin-top: 0;
-  }
 }

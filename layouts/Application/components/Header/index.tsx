@@ -1,5 +1,6 @@
 import NextLink from "next/link";
 import { Component } from "react";
+import { FaArrowLeft } from "react-icons/fa";
 import { classNames } from "../../../../lib/classNames";
 
 interface HeaderProps {
@@ -17,35 +18,31 @@ export class Header extends Component<HeaderProps, HeaderState> {
     const { hideBackLink } = this.props;
 
     return (
-      <header className={classNames("AppHeader", hideBackLink && "AppHeader--NoBackLink")}>
-        {!hideBackLink && (
-          <p>
-            <NextLink href="/" className="AppHeader__Link">
-              &lt; Back to home 🏡
-            </NextLink>
-          </p>
-        )}
-
-        <nav className="Menu">
-          <button className="Menu__Trigger" onClick={() => this.setState({ isMenuOpen: !this.state.isMenuOpen })}>
-            Menu
-          </button>
+      <header className="AppHeader">
+        <nav className={classNames("Menu", hideBackLink && "Menu--NoBackLink")}>
+          {!hideBackLink && (
+            <p className="Menu__BackLink">
+              <NextLink href="/" className="Menu__Link">
+                <FaArrowLeft /> Home
+              </NextLink>
+            </p>
+          )}
 
           <ul className={`Menu__List ${this.state.isMenuOpen ? "Menu__List--isOpen" : ""}`}>
             <li className="Menu__List__Item Menu__Item">
-              <NextLink className="AppHeader__Link" href="/blog">
+              <NextLink className="Menu__Link" href="/blog">
                 Blog
               </NextLink>
             </li>
 
             <li className="Menu__List__Item Menu__Item">
-              <NextLink href="/notes" className="AppHeader__Link">
+              <NextLink href="/notes" className="Menu__Link">
                 Notes
               </NextLink>
             </li>
 
             <li className="Menu__List__Item Menu__Item">
-              <NextLink href="/about" className="AppHeader__Link">
+              <NextLink href="/about" className="Menu__Link">
                 About
               </NextLink>
             </li>
