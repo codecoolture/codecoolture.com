@@ -62,7 +62,7 @@ export function Post({ breadcrumbs, mdx, post }: PostProps) {
               {...mdx}
             />
 
-            <Footer />
+            <Footer post={post} />
           </Application.Column>
         </section>
       </Application>

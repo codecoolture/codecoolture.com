@@ -1,29 +1,28 @@
 .Post__Footer {
-  border: 1px solid var(--c-gray-6);
+  display: flex;
+  flex-direction: row;
   font-size: var(--fs-s);
-  margin: 3em 0 0;
-  padding: 1em;
-
-  background-color: var(--c-gray-2);
-  border-radius: 3px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  text-align: center;
+  gap: 1rem;
+  margin: 3rem 0 1rem;
+  justify-content: center;
 }
 
 .Post__Footer__Chip {
   align-items: center;
   display: inline-flex;
-  margin: 0 0.15em;
-  padding: 0 0.5em;
+  padding: 0.35em 0.75em;
 
-  color: currentColor;
+  border-radius: 3px;
   text-decoration: none;
 }
 
-.Post__Footer__Chip--is-twitter {
+.Post__Footer__Chip--Twitter {
   background-color: #1da1f2;
-  border-radius: 3px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  color: var(--c-white);
+}
+
+.Post__Footer__Chip--Github {
+  background-color: var(--c-gray-2);
   color: var(--c-white);
 }
 
