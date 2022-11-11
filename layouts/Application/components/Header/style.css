@@ -20,7 +20,7 @@
 }
 
 .Menu__BackLink {
-  font-size: var(--fs-s);
+  font-size: var(--fs-m);
   font-weight: 700;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .Menu__Item {
-  font-size: var(--fs-s);
+  font-size: var(--fs-m);
 
   color: var(--c-gray-12);
   cursor: pointer;
