@@ -32,7 +32,7 @@ export function Footer({ post }: FooterProps) {
         type="twitter"
         href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareableUrl)}&text=${tweet}`}
       >
-        Tweet this post
+        Share on Twitter
       </Chip>
 
       <Chip type="github" href={githubEditUrl}>
