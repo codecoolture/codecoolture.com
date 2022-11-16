@@ -6,3 +6,168 @@ url: "/blog/builder-pattern-for-test-data"
 ---
 
 # Using the Builder pattern for creating test data with ease
+
+If you have yet to hear about [software] design patterns, you may think of them as reusable solutions for everyday
+problems that work for different contexts. Of course, new design patterns appear now and then, but there is a
+well-documented core of patterns that are popular and can be seen in many object-oriented code bases. The Builder
+pattern is one of them.
+
+Although this pattern may come in handy in multiple situations, it is especially helpful when creating test data. Tests
+for any medium-large-sized applications often require us to create various objects, put them in a particular state, and
+have relationships with other entities. That can be hard to do, especially if the objects are complex and we need to
+create many of them. The Builder pattern offers a solution to use a more semantic, domain-specific interface that makes
+the process easier.
+
+For example, imagine we are coding a software system to help manage an automobile repair shop. Not surprisingly, we may
+find mechanics and cars. Mechanics can be responsible for multiple vehicles, be on holiday, and have different hourly
+salaries. The following test verifies that we can add a new car for a mechanic by following specific requirements.
+
+```ts
+import { Car, Mechanic } from "@domain";
+
+describe("POST /mechanics/{id}/cars", () => {
+  it("does not add a new car if the mechanic is on holiday", async () => {
+    const mechanic = new Mechanic({ id: 1, name: "John Doe" });
+
+    const today = new Date();
+    const pto = new Pto({ mechanic, startDate: startOfDay(today), endDate: endOfDay(today) });
+
+    mechanic.ptos = [pto];
+
+    await mechanicRepository.save(mechanic);
+
+    const car = new Car({ id: 1, make: "Mazda", model: "Mazda 3", year: 2021 });
+    await carRepository.save(car);
+
+    const response = await request(app).post(`/mechanics/${mechanic.id}/cars`).send({ carId: car.id });
+
+    expect(response.status).toBe(400);
+  });
+
+  it("does not add a new car if the mechanic is working on five cars already", async () => {
+    const mechanic = new Mechanic({ id: 1, name: "John Doe" });
+
+    mechanic.cars = [
+      new Car({ id: 1, make: "Mazda", model: "Mazda 2", year: 2021 }),
+      new Car({ id: 2, make: "Mazda", model: "Mazda 3", year: 2021 }),
+      new Car({ id: 3, make: "Mazda", model: "CX-30", year: 2021 }),
+      new Car({ id: 4, make: "Mazda", model: "MX-5", year: 2021 }),
+      new Car({ id: 5, make: "Mazda", model: "CX-60", year: 2021 }),
+    ];
+
+    await mechanicRepository.save(mechanic);
+
+    const car6 = new Car({ id: 6, make: "Mazda", model: "CX-9", year: 2021 });
+    await carRepository.save(car6);
+
+    const response = await request(app).post(`/mechanics/${mechanic.id}/cars`).send({ carId: car6.id });
+
+    expect(response.status).toBe(400);
+  });
+});
+```
+
+As you may see in the code block above, creating all these objects by hand is expensive and makes the whole test harder
+to read. Let's try instead to create a `MechanicBuilder` that makes the process easier while producing the same result.
+
+```ts
+import { MechanicBuilder, CarBuilder } from "@test/builders";
+
+describe("POST /mechanics/{id}/cars", () => {
+  it("does not add a new car if the mechanic is on holiday", async () => {
+    const mechanic = await new MechanicBuilder().onHoliday().save(mechanicRepository);
+    const car = await new CarBuilder().save(carRepository);
+
+    const response = await request(app).post(`/mechanics/${mechanic.id}/cars`).send({ carId: car.id });
+
+    expect(response.status).toBe(400);
+  });
+
+  it("does not add a new car if the mechanic is working on five cars already", async () => {
+    const mechanic = await new MechanicBuilder().withCars(5).save(mechanicRepository);
+    const car = await new CarBuilder().save(carRepository);
+
+    const response = await request(app).post(`/mechanics/${mechanic.id}/cars`).send({ carId: car.id });
+
+    expect(response.status).toBe(400);
+  });
+});
+```
+
+Reading the code above, I can clearly see the scenario we are creating for the test. The builder reduces verbosity and
+makes the code more expressive while favoring reusability for other test cases. Of course, we may keep adding methods to
+the `MechanicBuilder` as new requirements appear, so we always have an up-to-date, semantic interface to create
+`Mechanic` objects (and the same applies for `Car` instances).
+
+## Example of a Builder implementation using TypeScript
+
+Wondering how you can create that fancy builder above in TypeScript? 😏 As with many things in software development,
+different paths may lead to the same result, but this approach worked very well for me in the past.
+
+I use an interface to define the shape classes need to implement to work as a Builder.
+
+```ts
+export interface Builder<T> {
+  build(): T;
+  save(repository: Repository<T>): Promise<T>;
+}
+```
+
+Then, I like to create an `abstract` class that implements the interface and provides a basic implementation for the
+`build` and `save` methods (here, I use inheritance just for code reusability).
+
+```ts
+import { Builder } from "@test/builders";
+
+export abstract class BaseBuilder<T> implements Builder<T> {
+  protected abstract entity: T;
+
+  public build(): T {
+    return this.entity;
+  }
+
+  public save(repository: Repository<T>): Promise<T> {
+    return repository.save(this.entity);
+  }
+}
+```
+
+Finally, we can implement the `MechanicBuilder` simply by extending the `BaseBuilder` and providing all the additional
+methods.
+
+```ts
+import { Mechanic } from "@domain";
+import { BaseBuilder, CarBuilder, PtoBuilder } from "@test/builders";
+
+export class MechanicBuilder extends BaseBuilder<Mechanic> {
+  protected entity: Mechanic;
+
+  constructor() {
+    super();
+
+    this.entity = new Mechanic({ id: 1, name: "John Doe" });
+  }
+
+  /**
+   * We return `this` so we can benefit from a fluent interface.
+   */
+  public onHoliday(): this {
+    this.entity.ptos = [new PtoBuilder().for(this.entity).on(new Date()).build()];
+
+    return this;
+  }
+
+  public withCars(count: number): this {
+    this.entity.cars = new Array(count).fill(null).map(() => new CarBuilder().build());
+
+    return this;
+  }
+}
+```
+
+Note how we return `this` in the `onHoliday` and `withCars` methods. That is the secret sauce to making the Builder
+fluent, so we can use it in the following way:
+
+```ts
+const mechanic = await new MechanicBuilder().onHoliday().withCars(5).save(mechanicRepository);
+```
