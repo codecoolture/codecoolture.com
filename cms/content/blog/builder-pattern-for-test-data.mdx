@@ -57,10 +57,10 @@ describe("POST /mechanics/{id}/cars", () => {
 
     await mechanicRepository.save(mechanic);
 
-    const car6 = new Car({ id: 6, make: "Mazda", model: "CX-9", year: 2021 });
-    await carRepository.save(car6);
+    const car = new Car({ id: 6, make: "Mazda", model: "CX-9", year: 2021 });
+    await carRepository.save(car);
 
-    const response = await request(app).post(`/mechanics/${mechanic.id}/cars`).send({ carId: car6.id });
+    const response = await request(app).post(`/mechanics/${mechanic.id}/cars`).send({ carId: car.id });
 
     expect(response.status).toBe(400);
   });
