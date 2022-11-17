@@ -12,9 +12,7 @@ export interface ApplicationProps {
 export function Application({ children, hideBackLink }: ApplicationProps) {
   return (
     <div className="App">
-      <Application.Column>
-        <Header hideBackLink={hideBackLink} />
-      </Application.Column>
+      <Header hideBackLink={hideBackLink} />
 
       <main className="App__Main">{children}</main>
 
