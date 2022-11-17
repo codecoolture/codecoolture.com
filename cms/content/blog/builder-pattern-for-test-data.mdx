@@ -1,5 +1,5 @@
 ---
-date: "2022-09-07"
+date: "2022-11-17"
 spoiler: ""
 title: "Using the Builder pattern for creating test data with ease"
 url: "/blog/builder-pattern-for-test-data"
@@ -9,8 +9,8 @@ url: "/blog/builder-pattern-for-test-data"
 
 If you have yet to hear about [software] design patterns, you may think of them as reusable solutions for everyday
 problems that work for different contexts. Of course, new design patterns appear now and then, but there is a
-well-documented core of patterns that are popular and can be seen in many object-oriented code bases. The Builder
-pattern is one of them.
+[well-documented core of patterns][design-patterns] that are popular and can be seen in many object-oriented code bases.
+The [Builder][builder] pattern is one of them.
 
 Although this pattern may come in handy in multiple situations, it is especially helpful when creating test data. Tests
 for any medium-large-sized applications often require us to create various objects, put them in a particular state, and
@@ -67,8 +67,8 @@ describe("POST /mechanics/{id}/cars", () => {
 });
 ```
 
-As you may see in the code block above, creating all these objects by hand is expensive and makes the whole test harder
-to read. Let's try instead to create a `MechanicBuilder` that makes the process easier while producing the same result.
+As you may see in the code block above, creating all these objects by hand is expensive and makes the whole test hard to
+read. Let's try instead to use a `MechanicBuilder` that makes the process easier while producing the same result.
 
 ```ts
 import { MechanicBuilder, CarBuilder } from "@test/builders";
@@ -94,7 +94,7 @@ describe("POST /mechanics/{id}/cars", () => {
 });
 ```
 
-Reading the code above, I can clearly see the scenario we are creating for the test. The builder reduces verbosity and
+Reading the code above, we can clearly see the scenario we are creating for the test. The builder reduces verbosity and
 makes the code more expressive while favoring reusability for other test cases. Of course, we may keep adding methods to
 the `MechanicBuilder` as new requirements appear, so we always have an up-to-date, semantic interface to create
 `Mechanic` objects (and the same applies for `Car` instances).
@@ -132,7 +132,7 @@ export abstract class BaseBuilder<T> implements Builder<T> {
 }
 ```
 
-Finally, we can implement the `MechanicBuilder` simply by extending the `BaseBuilder` and providing all the additional
+Finally, we can create the `MechanicBuilder` simply by extending the `BaseBuilder` and providing all the additional
 methods.
 
 ```ts
@@ -148,9 +148,6 @@ export class MechanicBuilder extends BaseBuilder<Mechanic> {
     this.entity = new Mechanic({ id: 1, name: "John Doe" });
   }
 
-  /**
-   * We return `this` so we can benefit from a fluent interface.
-   */
   public onHoliday(): this {
     this.entity.ptos = [new PtoBuilder().for(this.entity).on(new Date()).build()];
 
@@ -166,8 +163,12 @@ export class MechanicBuilder extends BaseBuilder<Mechanic> {
 ```
 
 Note how we return `this` in the `onHoliday` and `withCars` methods. That is the secret sauce to making the Builder
-fluent, so we can use it in the following way:
+provide a [fluent interface][fluent] so that we can use it in the following way:
 
 ```ts
 const mechanic = await new MechanicBuilder().onHoliday().withCars(5).save(mechanicRepository);
 ```
+
+[fluent]: https://en.wikipedia.org/wiki/Fluent_interface
+[design-patterns]: https://en.wikipedia.org/wiki/Software_design_pattern#Classification_and_list
+[builder]: https://en.wikipedia.org/wiki/Builder_pattern
