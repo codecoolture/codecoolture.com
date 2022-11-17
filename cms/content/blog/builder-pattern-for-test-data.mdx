@@ -20,7 +20,7 @@ the process easier.
 
 For example, imagine we are coding a software system to help manage an automobile repair shop. Not surprisingly, we may
 find mechanics and cars. Mechanics can be responsible for multiple vehicles, be on holiday, and have different hourly
-salaries. The following test verifies that we can add a new car for a mechanic by following specific requirements.
+salaries. The following tests verify that we cannot assign a car to a mechanic under certain circumstances.
 
 ```ts
 import { Car, Mechanic } from "@domain";
@@ -101,10 +101,10 @@ the `MechanicBuilder` as new requirements appear, so we always have an up-to-dat
 
 ## Example of a Builder implementation using TypeScript
 
-Wondering how you can create that fancy builder above in TypeScript? 😏 As with many things in software development,
+Wondering how you can create that fancy builder above using TypeScript? 😏 As with many things in software development,
 different paths may lead to the same result, but this approach worked very well for me in the past.
 
-I use an interface to define the shape classes need to implement to work as a Builder.
+I usually prefer to use an interface to define the shape classes need to implement to work as a Builder.
 
 ```ts
 export interface Builder<T> {
@@ -168,6 +168,8 @@ provide a [fluent interface][fluent] so that we can use it in the following way:
 ```ts
 const mechanic = await new MechanicBuilder().onHoliday().withCars(5).save(mechanicRepository);
 ```
+
+Happy hacking!
 
 [fluent]: https://en.wikipedia.org/wiki/Fluent_interface
 [design-patterns]: https://en.wikipedia.org/wiki/Software_design_pattern#Classification_and_list
