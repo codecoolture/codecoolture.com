@@ -27,7 +27,7 @@ import { Car, Mechanic } from "@domain";
 
 describe("POST /mechanics/{id}/cars", () => {
   it("does not add a new car if the mechanic is on holiday", async () => {
-    const mechanic = new Mechanic({ id: 1, name: "John Doe" });
+    const mechanic = new Mechanic({ id: 1, name: "Alice" });
 
     const today = new Date();
     const pto = new Pto({ mechanic, startDate: startOfDay(today), endDate: endOfDay(today) });
@@ -45,7 +45,7 @@ describe("POST /mechanics/{id}/cars", () => {
   });
 
   it("does not add a new car if the mechanic is working on five cars already", async () => {
-    const mechanic = new Mechanic({ id: 1, name: "John Doe" });
+    const mechanic = new Mechanic({ id: 1, name: "Alice" });
 
     mechanic.cars = [
       new Car({ id: 1, make: "Mazda", model: "Mazda 2", year: 2021 }),
@@ -104,7 +104,11 @@ the `MechanicBuilder` as new requirements appear, so we always have an up-to-dat
 Wondering how you can create that fancy builder above using TypeScript? 😏 As with many things in software development,
 different paths may lead to the same result, but this approach worked very well for me in the past.
 
-I usually prefer to use an interface to define the shape classes need to implement to work as a Builder.
+The Builder pattern is considered a _creational pattern_ since it helps us create objects by removing all the complexity
+to instantiate them. So let's start by creating a generic `Builder<T>` interface that defines the two methods all
+builders should implement: `build` (to return the object) and `save` (to persist the object in the database). I usually
+add a third method, `with`, that would allow us to pass an object with the properties we want to override. Still, for
+the sake of simplicity, I will skip it in this example.
 
 ```ts
 export interface Builder<T> {
@@ -113,8 +117,9 @@ export interface Builder<T> {
 }
 ```
 
-Then, I like to create an `abstract` class that implements the interface and provides a basic implementation for the
-`build` and `save` methods (here, I use inheritance just for code reusability).
+Then, we may create a `BaseBuilder<T>` abstract class that implements the `Builder<T>` interface and provides a default
+implementation for both methods. The `build` method will return the object, while the `save` method will return the
+object and persist it in the database. Here, we use inheritance just for code reusability.
 
 ```ts
 import { Builder } from "@test/builders";
@@ -132,8 +137,8 @@ export abstract class BaseBuilder<T> implements Builder<T> {
 }
 ```
 
-Finally, we can create the `MechanicBuilder` simply by extending the `BaseBuilder` and providing all the additional
-methods.
+Finally, we can create the `MechanicBuilder` simply by extending `BaseBuilder<Mechanic>` and providing all the
+additional methods.
 
 ```ts
 import { Mechanic } from "@domain";
@@ -145,7 +150,7 @@ export class MechanicBuilder extends BaseBuilder<Mechanic> {
   constructor() {
     super();
 
-    this.entity = new Mechanic({ id: 1, name: "John Doe" });
+    this.entity = new Mechanic({ id: 1, name: "Alice" });
   }
 
   public onHoliday(): this {
@@ -162,8 +167,8 @@ export class MechanicBuilder extends BaseBuilder<Mechanic> {
 }
 ```
 
-Note how we return `this` in the `onHoliday` and `withCars` methods. That is the secret sauce to making the Builder
-provide a [fluent interface][fluent] so that we can use it in the following way:
+> Note how we return `this` in the `onHoliday` and `withCars` methods. That is the _secret sauce_ to making the Builder
+> provide a [fluent interface][fluent] so that we can use it in the following way:
 
 ```ts
 const mechanic = await new MechanicBuilder().onHoliday().withCars(5).save(mechanicRepository);
