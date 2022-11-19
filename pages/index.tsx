@@ -18,9 +18,12 @@ export default function Homepage({ publications }: HomepageProps) {
     <Application hideBackLink>
       <section className="Homepage">
         <div className="Application__Column">
+          <Heading el="h1" size="jumbo">
+            Hola! 👋
+          </Heading>
+
           <Text size="l" className="Homepage__Text">
-            Hi there! 👋 I’m Sergio, a software engineer advocating for software development best practices and good
-            software design.
+            I’m Sergio, a software engineer advocating for software development best practices and good software design.
           </Text>
 
           <Text size="m" className="Homepage__Text">
