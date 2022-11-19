@@ -2,53 +2,6 @@
   margin-top: 1.5em;
 }
 
-.Post__Title {
-  margin-bottom: 0.2em;
-}
-
-.Post__Subheading {
-  align-items: center;
-  display: flex;
-  list-style-type: none;
-}
-
-.Post__Subheading__Item {
-  align-items: center;
-  display: flex;
-}
-
-.Post__Subheading__Item:not(:first-of-type)::before {
-  content: "·";
-  margin: 0 0.5em;
-
-  color: var(--c-gray-11);
-}
-
-.Post__Timestamp {
-  font-size: var(--fs-xs);
-  letter-spacing: 1px;
-
-  color: var(--c-gray-11);
-  text-transform: uppercase;
-}
-
-.Post__Badge {
-  border-width: 1px;
-  font-size: var(--fs-xs);
-  padding: 2px 4px;
-
-  border-radius: 2px;
-  border-style: solid;
-}
-
-.Post__Badge--Language {
-  background-color: var(--c-yellow-3);
-  border-color: var(--c-yellow-6);
-  color: var(--c-yellow-11);
-}
-
-.Post__Badge--Draft {
-  background-color: var(--c-indigo-3);
-  border-color: var(--c-indigo-6);
-  color: var(--c-indigo-11);
+.Posts__Post {
+  margin-top: 1.5rem;
 }

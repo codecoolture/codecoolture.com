@@ -1,0 +1,54 @@
+.PostThumbnail {
+  display: block;
+}
+
+.PostThumbnail__Title {
+  margin-bottom: 0.2em;
+}
+
+.PostThumbnail__Subheading {
+  align-items: center;
+  display: flex;
+  list-style-type: none;
+}
+
+.PostThumbnail__Subheading__Item {
+  align-items: center;
+  display: flex;
+}
+
+.PostThumbnail__Subheading__Item:not(:first-of-type)::before {
+  content: "·";
+  margin: 0 0.5em;
+
+  color: var(--c-gray-11);
+}
+
+.PostThumbnail__Timestamp {
+  font-size: var(--fs-xs) !important;
+  letter-spacing: 1px;
+
+  color: var(--c-gray-11);
+  text-transform: uppercase;
+}
+
+.PostThumbnail__Badge {
+  border-width: 1px;
+  font-size: var(--fs-xs);
+  padding: 2px 4px;
+
+  border-radius: 2px;
+  border-style: solid;
+}
+
+.PostThumbnail__Badge--Language {
+  background-color: var(--c-yellow-3);
+  border-color: var(--c-yellow-6);
+  color: var(--c-yellow-11);
+}
+
+.PostThumbnail__Badge--Draft {
+  background-color: var(--c-indigo-3);
+  border-color: var(--c-indigo-6);
+  color: var(--c-indigo-11);
+}

@@ -4,6 +4,17 @@
 
 .Homepage__Text {
   max-width: 900px;
+}
 
-  font-family: var(--ff-serif);
+.Homepage__Heading {
+  margin-bottom: 1em;
+  margin-top: 1.5em;
+}
+
+.Homepage__Publication:not(:first-of-type) {
+  margin-top: 1rem;
+}
+
+.Homepage__ReadMore {
+  margin-top: 2em;
 }
