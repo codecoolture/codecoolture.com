@@ -68,7 +68,7 @@ describe("POST /mechanics/{id}/cars", () => {
 ```
 
 As you may see in the code block above, creating all these objects by hand is expensive and makes the whole test hard to
-read. Let's try instead to use a `MechanicBuilder` that makes the process easier while producing the same result.
+read. Let’s try instead to use a `MechanicBuilder` that makes the process easier while producing the same result.
 
 ```ts
 import { MechanicBuilder, CarBuilder } from "@test/builders";
@@ -105,7 +105,7 @@ Wondering how you can create that fancy builder above using TypeScript? 😏 As 
 different paths may lead to the same result, but this approach worked very well for me in the past.
 
 The Builder pattern is considered a _creational pattern_ since it helps us create objects by removing all the complexity
-to instantiate them. So let's start by creating a generic `Builder<T>` interface that defines the two methods all
+to instantiate them. So let’s start by creating a generic `Builder<T>` interface that defines the two methods all
 builders should implement: `build` (to return the object) and `save` (to persist the object in the database). I usually
 add a third method, `with`, that would allow us to pass an object with the properties we want to override. Still, for
 the sake of simplicity, I will skip it in this example.

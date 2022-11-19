@@ -9,15 +9,15 @@ published: true
 # Adding an RSS feed to a Next.js site
 
 Really Simple Syndication (**RSS**) has been a pretty popular format for syndicating and publishing content on the web.
-Still, platforms don't usually provide an out-of-the-box solution to adopt it.
+Still, platforms don’t usually provide an out-of-the-box solution to adopt it.
 
-For Next.js projects, specifically, I'm sure there are probably thousands of articles explaining how to do it (and
+For Next.js projects, specifically, I’m sure there are probably thousands of articles explaining how to do it (and
 probably a handful of `npm` packages, too!), but in this post, I will try to outline my own approach to this problem to
 add [RSS capabilities for this very same blog](/feed.xml).
 
 ## How to build the RSS feed
 
-The only thing I didn't want to do was study the [RSS](https://validator.w3.org/feed/docs/rss2.html) or
+The only thing I didn’t want to do was study the [RSS](https://validator.w3.org/feed/docs/rss2.html) or
 [Atom](https://validator.w3.org/feed/docs/atom.html) spec myself to know how to create a valid document. For that
 reason, I browsed the web looking for a well-maintained `npm` package that could help me externalize part of the work.
 
@@ -71,7 +71,7 @@ extra work (I hope it does not bite me in the future!).
 
 ## How to integrate `RssFeedGenerator` with Next.js
 
-At this point, this site uses `next export` to build a static website. Therefore, I couldn't rely on some of the more
+At this point, this site uses `next export` to build a static website. Therefore, I couldn’t rely on some of the more
 advanced Next.js features such as [API Routes](https://nextjs.org/docs/api-routes/introduction) or even
 [middlewares](https://nextjs.org/docs/advanced-features/middleware). So instead, I decided to integrate the RSS feed
 generation within the Next.js build by adding a new `npm script` that executes `bin/rss/index.ts` (a TypeScript script)

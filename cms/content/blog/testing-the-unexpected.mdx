@@ -69,7 +69,7 @@ it("does not use the callback if something goes wrong", async () => {
 
 **Even if it passes, the test is not checking that the spy never gets called**. Since the executor is an asynchronous
 process, and the spy starts with zero calls, the expectation is valid right away. You can spot this by replacing
-`executor={fail}` with `executor={success}` --that's the kind of change that should make the test have a different
+`executor={fail}` with `executor={success}` --that’s the kind of change that should make the test have a different
 result, but it continues passing!
 
 To test this scenario, we need to come up with a different approach:

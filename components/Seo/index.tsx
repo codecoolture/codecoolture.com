@@ -3,7 +3,7 @@ import { ApiArticle } from "../../cms/api/ApiArticle";
 
 function description(post?: ApiArticle) {
   if (!post) {
-    return "Hey, I'm Sergio! I build maintainable and performant full-stack web applications.";
+    return "Hey, I’m Sergio! I build maintainable and performant full-stack web applications.";
   }
 
   return post.spoiler ?? undefined;

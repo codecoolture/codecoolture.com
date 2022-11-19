@@ -29,8 +29,8 @@ export function Footer() {
         </nav>
 
         <p className="AppFooter__Text">
-          Hey, I&apos;m Sergio! I build maintainable and performant full-stack web applications from my lovely home
-          region, Asturias.
+          Hey, I’m Sergio! I build maintainable and performant full-stack web applications from my lovely home region,
+          Asturias.
         </p>
 
         <ul className="AppFooter__Links">
