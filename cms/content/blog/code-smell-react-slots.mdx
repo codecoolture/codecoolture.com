@@ -1,0 +1,151 @@
+---
+date: "2022-11-20"
+spoiler: ""
+title: "Code Smell: React.Slots"
+url: "/blog/code-smell-react-slots"
+---
+
+# React: Slots
+
+## Problem
+
+```tsx
+type NavProps = {
+  cta: { text: string; href: string };
+  menuItems: { text: string; href: string }[];
+  title: string;
+};
+
+export const Nav = ({ cta, menuItems, title }: NavProps) => {
+  return (
+    <nav>
+      <h1>{title}</h1>
+
+      <ul>
+        {menuItems.map((item) => (
+          <li>
+            <a href={item.href}>{item.text}</a>
+          </li>
+        ))}
+      </ul>
+
+      <a href={cta.href}>{cta.text}</a>
+    </nav>
+  );
+};
+
+// Usage
+<Nav
+  cta={{ text: "Buy the book!", href: "https://url.to/buy-my-book" }}
+  menuItems={[
+    { text: "Home", href: "/home" },
+    { text: "About", href: "/about" },
+    { text: "Contact", href: "/contact" },
+  ]}
+  title="My Site"
+/>;
+```
+
+### v2
+
+```tsx
+type NavProps = {
+  cta: React.ReactNode;
+  menuItems: React.ReactNode;
+  title: React.ReactNode;
+};
+
+export const Nav = ({ cta, menuItems, title }: NavProps) => {
+  return (
+    <nav>
+      {title}
+
+      <ul>{menuItems}</ul>
+
+      {cta}
+    </nav>
+  );
+};
+
+// Usage
+<Nav
+  cta={<a href="https://url.to/buy-my-book">Buy the book!</a>}
+  menuItems={
+    <>
+      <li>
+        <a href="/home">Home</a>
+      </li>
+
+      <li>
+        <a href="/about">About</a>
+      </li>
+
+      <li>
+        <a href="/contact">Contact</a>
+      </li>
+    </>
+  }
+  title={<h1>My Site</h1>}
+/>;
+```
+
+## Possible solution
+
+```tsx
+const Nav = ({ children }: { children: React.ReactNode }) => {
+  return <nav>{children}</nav>;
+};
+
+const Title = ({ children }: { children: React.ReactNode }) => {
+  return <h1>{children}</h1>;
+};
+
+const Menu = ({ children }: { children: React.ReactNode }) => {
+  return <ul>{children}</ul>;
+};
+
+Menu.Item = ({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) => {
+  return (
+    <li>
+      <a href={href}>{children}</a>
+    </li>
+  );
+};
+
+const CallToAction = ({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) => {
+  return <a href={href}>{children}</a>;
+};
+
+Nav.Title = Title;
+Nav.Menu = Menu;
+Nav.CallToAction = CallToAction;
+
+export { Nav };
+
+// Usage
+<Nav>
+  <Nav.Title>My Site</Nav.Title>
+
+  <Nav.Menu>
+    <Nav.Menu.Item href="/">Home</Nav.Menu.Item>
+    <Nav.Menu.Item href="/about">About</Nav.Menu.Item>
+    <Nav.Menu.Item href="/contact">Contact</Nav.Menu.Item>
+  </Nav.Menu>
+
+  <Nav.CallToAction href="https://url.to/buy-my-book">
+    Buy the book!
+  </Nav.CallToAction>
+</Nav>;
+```
