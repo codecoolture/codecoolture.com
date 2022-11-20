@@ -1,6 +1,6 @@
 .Application__Column {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 900px;
   position: relative;
   width: calc(100% - 2em);
 }

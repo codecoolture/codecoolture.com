@@ -22,11 +22,11 @@ export default function Homepage({ publications }: HomepageProps) {
             Hola! 👋
           </Heading>
 
-          <Text size="l" className="Homepage__Text">
+          <Text size="l">
             I’m Sergio, a software engineer advocating for software development best practices and good software design.
           </Text>
 
-          <Text size="m" className="Homepage__Text">
+          <Text size="m">
             With +10 years of experience, I have an approach to software development significantly influenced by{" "}
             <Link href="https://en.wikipedia.org/wiki/Extreme_programming">Extreme Programming</Link> practices (working
             in small batches, test-driven development, and continuous integration). I’m particularly interested in
@@ -42,7 +42,7 @@ export default function Homepage({ publications }: HomepageProps) {
             <PostThumbnail className="Homepage__Publication" post={pub} key={pub.url} />
           ))}
 
-          <Text size="m" className="Homepage__Text Homepage__ReadMore">
+          <Text size="m" className="Homepage__ReadMore">
             Fancy reading more? Don’t miss either the <Link href="/blog">blog</Link> or the{" "}
             <Link href="/notes">notes</Link>!
           </Text>
