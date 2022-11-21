@@ -1,5 +1,5 @@
 ---
-date: "2022-11-20"
+date: "2022-11-29"
 spoiler: ""
 title: "Code Smell: React.Slots"
 url: "/blog/react-children-vs-slots"
@@ -92,25 +92,27 @@ export const Nav = ({ cta, menuItems, title }: NavProps) => {
 ## Possible solution
 
 ```tsx
-const Nav = ({ children }: { children: React.ReactNode }) => {
+type NavProps = { children: React.ReactNode };
+
+const Nav = ({ children }: NavProps) => {
   return <nav>{children}</nav>;
 };
 
-const Title = ({ children }: { children: React.ReactNode }) => {
+type TitleProps = { children: React.ReactNode };
+
+const Title = ({ children }: TitleProps) => {
   return <h1>{children}</h1>;
 };
 
-const Menu = ({ children }: { children: React.ReactNode }) => {
+type MenuProps = { children: React.ReactNode };
+
+const Menu = ({ children }: MenuProps) => {
   return <ul>{children}</ul>;
 };
 
-Menu.Item = ({
-  children,
-  href,
-}: {
-  children: React.ReactNode;
-  href: string;
-}) => {
+type MenuItemProps = { children: React.ReactNode; href: string };
+
+Menu.Item = ({ children, href }: MenuItemProps) => {
   return (
     <li>
       <a href={href}>{children}</a>
@@ -118,13 +120,9 @@ Menu.Item = ({
   );
 };
 
-const CallToAction = ({
-  children,
-  href,
-}: {
-  children: React.ReactNode;
-  href: string;
-}) => {
+type CallToActionProps = { children: React.ReactNode; href: string };
+
+const CallToAction = ({ children, href }: CallToActionProps) => {
   return <a href={href}>{children}</a>;
 };
 
@@ -133,8 +131,11 @@ Nav.Menu = Menu;
 Nav.CallToAction = CallToAction;
 
 export { Nav };
+```
 
-// Usage
+That will be used as the following:
+
+```tsx
 <Nav>
   <Nav.Title>My Site</Nav.Title>
 
@@ -147,5 +148,5 @@ export { Nav };
   <Nav.CallToAction href="https://url.to/buy-my-book">
     Buy the book!
   </Nav.CallToAction>
-</Nav>;
+</Nav>
 ```
