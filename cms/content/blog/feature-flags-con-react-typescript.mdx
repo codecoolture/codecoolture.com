@@ -2,34 +2,44 @@
 date: "2020-12-20"
 language: "Español"
 spoiler:
-  "En esencia, una feature flag es un interruptor que nos permite activar o desactivar una funcionalidad concreta bajo
-  una serie de condiciones. En este artículo me gustaría compartir una implementación sencilla en React, utilizando
-  TypeScript."
-title: "Un acercamiento sencillo a feature flags en una aplicación React con TypeScript"
+  "En esencia, una feature flag es un interruptor que nos permite activar o
+  desactivar una funcionalidad concreta bajo una serie de condiciones. En este
+  artículo me gustaría compartir una implementación sencilla en React,
+  utilizando TypeScript."
+title:
+  "Un acercamiento sencillo a feature flags en una aplicación React con
+  TypeScript"
 url: "/blog/feature-flags-con-react-typescript"
 published: true
 ---
 
 # Un acercamiento sencillo a feature flags en una aplicación React con TypeScript
 
-Aunque ya he escrito en otras ocasiones sobre feature flags y como su uso nos puede ayudar a alcanzar un flujo de
-entrega continua, en este artículo me gustaría compartir una implementación sencilla en React utilizando TypeScript.
+Aunque ya he escrito en otras ocasiones sobre feature flags y como su uso nos
+puede ayudar a alcanzar un flujo de entrega continua, en este artículo me
+gustaría compartir una implementación sencilla en React utilizando TypeScript.
 
-En esencia, una feature flag es un interruptor que nos permite activar o desactivar una funcionalidad concreta bajo una
-serie de condiciones. Los tipos de condiciones pueden ser muy variados: entorno de ejecución de la aplicación, tipo de
-usuaria, porcentaje de tráfico, etc. Además, el cálculo de esa condición puede realizarse dentro de la propia
-aplicación, o bien delegarse en otro sistema.
+En esencia, una feature flag es un interruptor que nos permite activar o
+desactivar una funcionalidad concreta bajo una serie de condiciones. Los tipos
+de condiciones pueden ser muy variados: entorno de ejecución de la aplicación,
+tipo de usuaria, porcentaje de tráfico, etc. Además, el cálculo de esa condición
+puede realizarse dentro de la propia aplicación, o bien delegarse en otro
+sistema.
 
-Este concepto posibilita, entre otras cosas, desacoplar nuestro repositorio del proceso de entrega de software. Siempre
-y cuando nuestras funcionalidades incompletas estén protegidas bajo una feature flag, podremos integrar continuamente
-nuestros cambios en la rama principal (aunque eso implique su despliegue a producción o cualquier otro entorno).
+Este concepto posibilita, entre otras cosas, desacoplar nuestro repositorio del
+proceso de entrega de software. Siempre y cuando nuestras funcionalidades
+incompletas estén protegidas bajo una feature flag, podremos integrar
+continuamente nuestros cambios en la rama principal (aunque eso implique su
+despliegue a producción o cualquier otro entorno).
 
 ## Publicando feature flags
 
-El primer paso para comenzar a utilizar feature flags es definirlas en algún sitio. Aunque existan servicios
-específicamente creados para trabajar con ellas (que, además, ofrecen flujos y procesos mucho más refinados), yo siempre
-recomiendo comenzar con un enfoque humilde, gestionando las feature flags directamente en la aplicación. En este caso,
-vamos a crear un módulo que exporte las diferentes feature flags y una función para obtener su estado:
+El primer paso para comenzar a utilizar feature flags es definirlas en algún
+sitio. Aunque existan servicios específicamente creados para trabajar con ellas
+(que, además, ofrecen flujos y procesos mucho más refinados), yo siempre
+recomiendo comenzar con un enfoque humilde, gestionando las feature flags
+directamente en la aplicación. En este caso, vamos a crear un módulo que exporte
+las diferentes feature flags y una función para obtener su estado:
 
 ```tsx
 export const Features = {
@@ -37,20 +47,23 @@ export const Features = {
 };
 ```
 
-La única razón de asociar una función a la feature flag en lugar de directamente un booleano es dotarle de cierta
-flexibilidad (realmente, sería incluso más interesante hacer que la función devolviese una promesa -de esa manera,
-estaríamos cubriendo el caso en el que, para calcular el valor de una feature flag, tuviésemos que realizar una petición
-a un servicio externo).
+La única razón de asociar una función a la feature flag en lugar de directamente
+un booleano es dotarle de cierta flexibilidad (realmente, sería incluso más
+interesante hacer que la función devolviese una promesa -de esa manera,
+estaríamos cubriendo el caso en el que, para calcular el valor de una feature
+flag, tuviésemos que realizar una petición a un servicio externo).
 
 ## Integrando la aplicación React con las feature flags
 
-Ahora que ya tenemos un módulo encargado de publicar las feature flags de la aplicación, es hora de hacerlo accesible
-desde los componentes React.
+Ahora que ya tenemos un módulo encargado de publicar las feature flags de la
+aplicación, es hora de hacerlo accesible desde los componentes React.
 
-El enfoque más directo, sería importar el módulo desde las diferentes páginas o componentes que lo utilicen y realizar
-después las operaciones para mostrar/ocultar alguna parte de la interfaz. Aunque este enfoque funcionaría estaríamos
-creando una dependencia no explícita entre nuestros diferentes componentes y un elemento global (el módulo de
-`Features`) lo que hará que probar nuestros componentes en cada uno de los estados sea más complejo.
+El enfoque más directo, sería importar el módulo desde las diferentes páginas o
+componentes que lo utilicen y realizar después las operaciones para
+mostrar/ocultar alguna parte de la interfaz. Aunque este enfoque funcionaría
+estaríamos creando una dependencia no explícita entre nuestros diferentes
+componentes y un elemento global (el módulo de `Features`) lo que hará que
+probar nuestros componentes en cada uno de los estados sea más complejo.
 
 Vamos a verlo con un ejemplo:
 
@@ -80,9 +93,10 @@ export function Menu() {
 }
 ```
 
-En esta implementación, `Menu` utiliza directamente el módulo de `Features` para saber si tiene que mostrar o no la
-opción de ajustes. A la hora de probar este componente, tenemos que tener en cuenta esta dependencia y utilizar un
-_stub_ para poder ajustarlo a ambos escenarios:
+En esta implementación, `Menu` utiliza directamente el módulo de `Features` para
+saber si tiene que mostrar o no la opción de ajustes. A la hora de probar este
+componente, tenemos que tener en cuenta esta dependencia y utilizar un _stub_
+para poder ajustarlo a ambos escenarios:
 
 ```tsx
 /**
@@ -110,17 +124,22 @@ describe("Menu", () => {
 });
 ```
 
-Los stubs (o test doubles en general) son recursos muy útiles pero me gusta reservar su uso para situaciones donde no
-tengo ninguna otra opción más idiomática para probar el sujeto bajo test. En este caso, lo ideal sería convertir esa
-dependencia no explícita en algo que pudiésemos controlar desde el exterior, utilizando inyección de dependencias. En
-React, tendríamos varias opciones para conseguirlo. Veamos un par de ellas.
+Los stubs (o test doubles en general) son recursos muy útiles pero me gusta
+reservar su uso para situaciones donde no tengo ninguna otra opción más
+idiomática para probar el sujeto bajo test. En este caso, lo ideal sería
+convertir esa dependencia no explícita en algo que pudiésemos controlar desde el
+exterior, utilizando inyección de dependencias. En React, tendríamos varias
+opciones para conseguirlo. Veamos un par de ellas.
 
 ### Obtener las feature flags a través de una prop
 
-Por ejemplo, utilizando una prop `features` para poder recibir el objeto completo de feature flags. El problema con este
-enfoque es que podría haber muchos componentes intermedios que necesiten propagar esta prop sin necesidad de utilizarla.
-Este fenómeno se denomina [Prop Drilling](https://kentcdodds.com/blog/prop-drilling) y, aunque no es malo _per se_,
-puede convertirse en algo difícil de gestionar cuando nuestra aplicación crezca en número de componentes.
+Por ejemplo, utilizando una prop `features` para poder recibir el objeto
+completo de feature flags. El problema con este enfoque es que podría haber
+muchos componentes intermedios que necesiten propagar esta prop sin necesidad de
+utilizarla. Este fenómeno se denomina
+[Prop Drilling](https://kentcdodds.com/blog/prop-drilling) y, aunque no es malo
+_per se_, puede convertirse en algo difícil de gestionar cuando nuestra
+aplicación crezca en número de componentes.
 
 ```tsx
 import { Features } from "../lib/Features";
@@ -148,8 +167,9 @@ export function Menu({ features }: { features: typeof Features }) {
 }
 ```
 
-Ahora que el componente `Menu` obtiene la información de las feature flags a través de una prop, podemos ajustar los
-diferentes escenarios para las pruebas sin necesidad de utilizar test doubles:
+Ahora que el componente `Menu` obtiene la información de las feature flags a
+través de una prop, podemos ajustar los diferentes escenarios para las pruebas
+sin necesidad de utilizar test doubles:
 
 ```tsx
 /**
@@ -176,14 +196,18 @@ describe("Menu", () => {
 
 ### Obtener las feature flags a través de la API de contextos
 
-Bien utilizada, la [API de contextos de React](https://reactjs.org/docs/context.html) puede servir como un contenedor de
-inyección de dependencias que permita aislar a los componentes padre de las dependencias concretas de sus componentes
-hijo. En este caso, vamos a crear un nuevo contexto que publique las feature flags disponibles dentro de la aplicación y
-que permita acceder a ellas a través de un hook concreto, `useFeatures`.
+Bien utilizada, la
+[API de contextos de React](https://reactjs.org/docs/context.html) puede servir
+como un contenedor de inyección de dependencias que permita aislar a los
+componentes padre de las dependencias concretas de sus componentes hijo. En este
+caso, vamos a crear un nuevo contexto que publique las feature flags disponibles
+dentro de la aplicación y que permita acceder a ellas a través de un hook
+concreto, `useFeatures`.
 
-Lo primero, es definir el propio contexto encargado de devolver las feature flags existentes. Junto a él, también
-definiremos el hook que se utilizará después desde nuestros componentes. Este último es una simple capa de abstracción
-que centraliza la lógica común de acceso.
+Lo primero, es definir el propio contexto encargado de devolver las feature
+flags existentes. Junto a él, también definiremos el hook que se utilizará
+después desde nuestros componentes. Este último es una simple capa de
+abstracción que centraliza la lógica común de acceso.
 
 ```tsx
 import { createContext, useContext } from "react";
@@ -199,9 +223,11 @@ export function useFeatures() {
 }
 ```
 
-Los contextos en React se crean con un valor por defecto. En caso de que no exista ningún proveedor que sobrescriba el
-valor para el contexto, nuestros componentes recibirán ese valor al acceder a él. En este caso, hemos creado el contexto
-utilizando como valor por defecto el propio objeto exportado por `Features`.
+Los contextos en React se crean con un valor por defecto. En caso de que no
+exista ningún proveedor que sobrescriba el valor para el contexto, nuestros
+componentes recibirán ese valor al acceder a él. En este caso, hemos creado el
+contexto utilizando como valor por defecto el propio objeto exportado por
+`Features`.
 
 ```tsx
 import { useFeatures } from "../lib/Features";
@@ -231,8 +257,9 @@ export function Menu() {
 }
 ```
 
-Ahora que nuestro componente `Menu` utiliza el nuevo contexto, sólo necesitamos envolver el componente en diferentes
-proveedores cuando queramos probar distintos escenarios:
+Ahora que nuestro componente `Menu` utiliza el nuevo contexto, sólo necesitamos
+envolver el componente en diferentes proveedores cuando queramos probar
+distintos escenarios:
 
 ```tsx
 /**
@@ -268,9 +295,11 @@ describe("Menu", () => {
 
 ## `<FeatureFlag />`, un componente para abstraernos por completo
 
-Si utilizamos la API de contextos, podemos ir todavía un paso más allá y abstraernos por completo de la gestión de
-funcionalidades disponibles. En este caso, vamos a crear un componente `FeatureFlag` que recibirá la flag sobre la que
-queremos trabajar y los nodos que queremos ocultar en caso de no estar disponible:
+Si utilizamos la API de contextos, podemos ir todavía un paso más allá y
+abstraernos por completo de la gestión de funcionalidades disponibles. En este
+caso, vamos a crear un componente `FeatureFlag` que recibirá la flag sobre la
+que queremos trabajar y los nodos que queremos ocultar en caso de no estar
+disponible:
 
 ```tsx
 import { ReactNode } from "react";
@@ -289,8 +318,9 @@ export function FeatureFlag({ children, flag }: FeatureFlagProps) {
 }
 ```
 
-Al definir la prop de `flag` como `keyof typeof Features` estamos tomando ventaja de la ayuda del compilador de
-TypeScript, que nos dirá automáticamente que funcionalidades existen y evitará que utilicemos flags que no se encuentran
+Al definir la prop de `flag` como `keyof typeof Features` estamos tomando
+ventaja de la ayuda del compilador de TypeScript, que nos dirá automáticamente
+que funcionalidades existen y evitará que utilicemos flags que no se encuentran
 en el objeto global de `Features`.
 
 ```tsx
@@ -319,6 +349,8 @@ export function Menu() {
 }
 ```
 
-Con este último enfoque, nuestras pruebas anteriores utilizando el proveedor del contexto de feature flags seguirán
-funcionando (ya que es el mecanismo sobre el que se construye todo) a la vez que tomamos ventaja de un diseño mucho más
-idiomático, encapsulando la gestión de feature flags en su propio componente React.
+Con este último enfoque, nuestras pruebas anteriores utilizando el proveedor del
+contexto de feature flags seguirán funcionando (ya que es el mecanismo sobre el
+que se construye todo) a la vez que tomamos ventaja de un diseño mucho más
+idiomático, encapsulando la gestión de feature flags en su propio componente
+React.
