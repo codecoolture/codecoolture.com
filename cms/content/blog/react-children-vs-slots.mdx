@@ -1,40 +1,25 @@
 ---
 date: "2022-11-29"
 spoiler: ""
-title: "Code Smell: React.Slots"
+title: "React: Using children instead of dedicated slots"
 url: "/blog/react-children-vs-slots"
 ---
 
-# React: Slots
+# React: Using children instead of dedicated slots
 
-## Problem
+Using component props to pass data (or `JSX` elements directly) that will later
+populate inner components has been a prevalent pattern in the React community
+trying to emulate [the better-designed slot approach adopted by Vue][vue-slots].
+
+For example, imagine we are coding a new `Nav` component for our site. The `Nav`
+will render a collection of nav items, the page title, and a call to action
+link. Each page might customize all these elements.
+
+Not surprisingly, I think either one of these two would be the most popular
+examples we might find out there (or even a combination of both):
 
 ```tsx
-type NavProps = {
-  cta: { text: string; href: string };
-  menuItems: { text: string; href: string }[];
-  title: string;
-};
-
-export const Nav = ({ cta, menuItems, title }: NavProps) => {
-  return (
-    <nav>
-      <h1>{title}</h1>
-
-      <ul>
-        {menuItems.map((item) => (
-          <li>
-            <a href={item.href}>{item.text}</a>
-          </li>
-        ))}
-      </ul>
-
-      <a href={cta.href}>{cta.text}</a>
-    </nav>
-  );
-};
-
-// Usage
+// Passing simple data structures with the desired data
 <Nav
   cta={{ text: "Buy the book!", href: "https://url.to/buy-my-book" }}
   menuItems={[
@@ -43,31 +28,9 @@ export const Nav = ({ cta, menuItems, title }: NavProps) => {
     { text: "Contact", href: "/contact" },
   ]}
   title="My Site"
-/>;
-```
+/>
 
-### v2
-
-```tsx
-type NavProps = {
-  cta: React.ReactNode;
-  menuItems: React.ReactNode;
-  title: React.ReactNode;
-};
-
-export const Nav = ({ cta, menuItems, title }: NavProps) => {
-  return (
-    <nav>
-      {title}
-
-      <ul>{menuItems}</ul>
-
-      {cta}
-    </nav>
-  );
-};
-
-// Usage
+// Passing JSX elements directly
 <Nav
   cta={<a href="https://url.to/buy-my-book">Buy the book!</a>}
   menuItems={
@@ -86,8 +49,30 @@ export const Nav = ({ cta, menuItems, title }: NavProps) => {
     </>
   }
   title={<h1>My Site</h1>}
-/>;
+/>
 ```
+
+[continue talking here about the problems with this approach]
+
+## Possible solution
+
+```tsx
+<Nav>
+  <Nav.Title>My Site</Nav.Title>
+
+  <Nav.Menu>
+    <Nav.Menu.Item href="/">Home</Nav.Menu.Item>
+    <Nav.Menu.Item href="/about">About</Nav.Menu.Item>
+    <Nav.Menu.Item href="/contact">Contact</Nav.Menu.Item>
+  </Nav.Menu>
+
+  <Nav.CallToAction href="https://url.to/buy-my-book">
+    Buy the book!
+  </Nav.CallToAction>
+</Nav>
+```
+
+---
 
 ## Possible solution
 
@@ -150,3 +135,5 @@ That will be used as the following:
   </Nav.CallToAction>
 </Nav>
 ```
+
+[vue-slots]: https://vuejs.org/guide/components/slots.html#named-slots
