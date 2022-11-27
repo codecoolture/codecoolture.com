@@ -1,14 +1,23 @@
 ---
 date: "2022-11-26"
 spoiler: ""
-title: "How I like to manage software projects"
+title: "Opinions on managing software projects."
 url: "/notes/managing-software-projects"
 ---
 
-# How I like to manage software projects
+# Opinions on managing software projects
 
-- Don’t try to parallelize the work too early. Use pair-programming or
-  ensemble-programming sessions to create a shared understading of the
-  foundational concepts and the overall architecture of the project.
-- Embrace some early duplication. Give some time to understand the problem space
-  and try different approaches. It is usually easy to remove duplication later.
+Don’t try to parallelize the work too early. Instead, use pair-programming or
+ensemble-programming sessions to create a shared understanding of the
+foundational concepts of the project.
+
+Embrace some early duplication. Give some time to understand the problem space
+and try different approaches. It is usually easy to remove duplication later.
+
+Set up CI/CD early on. It will help you demonstrate progress; also, these
+workflows are easier to install when the project is simple.
+
+Tests. Use high-level, acceptance-like tests to drive your first few features.
+That will ensure your architecture is designed with testability in mind. Then,
+keep favoring higher-level tests for a few more cycles (for example, try writing
+more integration tests than unit tests).
