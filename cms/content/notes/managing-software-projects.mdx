@@ -11,13 +11,28 @@ Don’t try to parallelize the work too early. Instead, use pair-programming or
 ensemble-programming sessions to create a shared understanding of the
 foundational concepts of the project.
 
-Embrace some early duplication. Give some time to understand the problem space
-and try different approaches. It is usually easy to remove duplication later.
+Embrace some early duplication. Use the first few weeks to explore the problem
+space and try different approaches. Removing duplication is more straightforward
+than dealing with a flawed architecture.
 
-Set up CI/CD early on. It will help you demonstrate progress; also, these
-workflows are easier to install when the project is simple.
+Trunk-based deployment and continuous deployment. Optimize for shorter feedback
+loops.
 
 Tests. Use high-level, acceptance-like tests to drive your first few features.
 That will ensure your architecture is designed with testability in mind. Then,
 keep favoring higher-level tests for a few more cycles (for example, try writing
-more integration tests than unit tests).
+more integration tests than unit tests). Tests of a higher granularity usually
+provide more confidence but can be slow. Use the right balance (but favor
+confidence vs. speed -it should always be possible to optimize test performance
+later).
+
+Don’t overuse feature flags. There are other ways to deploy incremental changes.
+Duplication is often a cursed word in software development, but it may avoid
+many headaches if used with caution.
+
+When writing documentation, prefer the following types: how-to guides to perform
+specific tasks on the project (how to execute a background job, how to log
+analytics events) and architecture decision records (ADRs), so future engineers
+can understand the WHY of the existing design decisions.
+
+Tackle the tasks with the most uncertainty first.
