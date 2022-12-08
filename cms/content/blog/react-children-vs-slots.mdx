@@ -1,5 +1,5 @@
 ---
-date: "2022-11-29"
+date: "2022-12-13"
 spoiler: ""
 title: "React: Using children instead of dedicated slots"
 url: "/blog/react-children-vs-slots"
@@ -8,17 +8,18 @@ url: "/blog/react-children-vs-slots"
 # React: Using children instead of dedicated slots
 
 Using component props to pass data (or `JSX` elements directly) that will later
-populate inner components has been a prevalent pattern in the React community
-trying to emulate [the better-designed slot approach adopted by Vue][vue-slots].
+populate inner pieces of UI has been a prevalent pattern in the React community,
+trying (probably) to emulate [the better-designed slot approach adopted by
+Vue][vue-slots].
 
-For example, imagine we are coding a new `Nav` component for our site. The `Nav`
-will render a collection of nav items, the page title, and a call to action
-link. Each page might customize all these elements.
+For example, imagine we are coding a new `Nav` component for our site. It will
+render a collection of nav items, the page title, and a call to action link.
+Each page might customize any of these elements.
 
-Not surprisingly, I think either one of these two would be the most popular
-examples we might find out there (or even a combination of both):
+Not surprisingly, I think either of these two would be the most popular examples
+we might find out there (or a combination of both):
 
-```tsx
+```jsx
 // Passing simple data structures with the desired data
 <Nav
   cta={{ text: "Buy the book!", href: "https://url.to/buy-my-book" }}
@@ -52,11 +53,19 @@ examples we might find out there (or even a combination of both):
 />
 ```
 
-[continue talking here about the problems with this approach]
+Even in such as simple example, we can start seeing some of the problems with
+this approach: it creeps the component API with render props, it is not very
+idiomatic, and it can quickly get worse as we continue adding some more
+customization for each element (for example, we may later add specific props to
+styling each of the items, title, and call-to-action components:
+`menuItemStyle`, `titleStyle`, `ctaStyle`, and so on).
 
-## Possible solution
+Let's try a different approach. One that resembles how HTML works and that is
+supported out-of-the-box by React.
 
-```tsx
+## Using `children` and dedicated components
+
+```jsx
 <Nav>
   <Nav.Title>My Site</Nav.Title>
 
@@ -72,32 +81,48 @@ examples we might find out there (or even a combination of both):
 </Nav>
 ```
 
----
+If you have done some React development, you probably know the `children` prop
+is how React passes content down to components (for example `<p>Hola</p>`, where
+`p` is the component, and `Hola` is the value of the `children` prop).
 
-## Possible solution
+The example above extensively uses the `children` prop and composition to render
+the desired UI. Instead of passing multiple props to the `Nav` component, we
+create many small, dedicated components to render each of the inner pieces of
+UI. This approach gives us a much more flexible and idiomatic API. It makes it
+possible to add additional elements to the `Nav` component without changing the
+API (following the [Open-Closed design principle][open-closed]).
 
-```tsx
-type NavProps = { children: React.ReactNode };
+On the other hand, this approach has some drawbacks worth mentioning:
 
-const Nav = ({ children }: NavProps) => {
+- We have to make it clear that these dedicated components are only meant to be
+  used as children of the `Nav` component. We can do this by using the `Nav`
+  namespace, for example: `Nav.Title`, `Nav.Menu`, and `Nav.CallToAction`.
+- We must ensure the `Nav` component is flexible enough to handle the different
+  cases we might want to render. For example, if we want to make it possible to
+  render the `Nav.Menu` component either after or before the `Nav.CallToAction`
+  component, the styles should be sufficiently sophisticated to handle both
+  cases.
+
+### Possible implementation
+
+Pay attention to how we export the `Nav` component and its dedicated components.
+That’s the secret sauce to namespace them and make it clear they are only meant
+to be used as children of the `Nav` component.
+
+```jsx
+const Nav = ({ children }) => {
   return <nav>{children}</nav>;
 };
 
-type TitleProps = { children: React.ReactNode };
-
-const Title = ({ children }: TitleProps) => {
-  return <h1>{children}</h1>;
+const CallToAction = ({ children, href }) => {
+  return <a href={href}>{children}</a>;
 };
 
-type MenuProps = { children: React.ReactNode };
-
-const Menu = ({ children }: MenuProps) => {
+const Menu = ({ children }) => {
   return <ul>{children}</ul>;
 };
 
-type MenuItemProps = { children: React.ReactNode; href: string };
-
-Menu.Item = ({ children, href }: MenuItemProps) => {
+const MenuItem = ({ children, href }) => {
   return (
     <li>
       <a href={href}>{children}</a>
@@ -105,35 +130,36 @@ Menu.Item = ({ children, href }: MenuItemProps) => {
   );
 };
 
-type CallToActionProps = { children: React.ReactNode; href: string };
-
-const CallToAction = ({ children, href }: CallToActionProps) => {
-  return <a href={href}>{children}</a>;
+const Title = ({ children }) => {
+  return <h1>{children}</h1>;
 };
 
-Nav.Title = Title;
-Nav.Menu = Menu;
+Menu.Item = MenuItem;
+
 Nav.CallToAction = CallToAction;
+Nav.Menu = Menu;
+Nav.Title = Title;
 
 export { Nav };
 ```
 
-That will be used as the following:
+## Notes
 
-```tsx
-<Nav>
-  <Nav.Title>My Site</Nav.Title>
-
-  <Nav.Menu>
-    <Nav.Menu.Item href="/">Home</Nav.Menu.Item>
-    <Nav.Menu.Item href="/about">About</Nav.Menu.Item>
-    <Nav.Menu.Item href="/contact">Contact</Nav.Menu.Item>
-  </Nav.Menu>
-
-  <Nav.CallToAction href="https://url.to/buy-my-book">
-    Buy the book!
-  </Nav.CallToAction>
-</Nav>
-```
+- A few weeks after starting to write this post, I received a newsletter from
+  [Kent C. Dodds][kentcdodds] featuring a React article. Coincidentally, the
+  content of [the article][soul-crushing-components] covered precisely this! So,
+  digging a little more, I found this pattern had been documented since a few
+  years ago (watch out [this video talk][talk] from Ryan Florence at Phoenix
+  ReactJS conf in 2017), and it is called _Compound components_.
+- [Radix UI][radix] uses this pattern extensively.
+- If you’re curious, I used this pattern to build the whole landing page for my
+  tddworkshop.com page. You can check the source code [here][tddworkshop].
 
 [vue-slots]: https://vuejs.org/guide/components/slots.html#named-slots
+[open-closed]: https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle
+[tddworkshop]:
+  https://github.com/codecoolture/tddworkshop.com/blob/trunk/pages/en/index.tsx
+[radix]: https://www.radix-ui.com/
+[kentcdodds]: https://kentcdodds.com/
+[soul-crushing-components]: https://epicreact.dev/soul-crushing-components/
+[talk]: https://www.youtube.com/watch?v=hEGg-3pIHlE
