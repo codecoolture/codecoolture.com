@@ -8,7 +8,7 @@ url: "/blog/react-children-vs-slots"
 # React: Using children instead of dedicated slots
 
 Using component props to pass data (or `JSX` elements directly) that will later
-populate inner pieces of UI has been a prevalent pattern in the React community,
+populate internal UI pieces has been a prevalent pattern in the React community,
 trying (probably) to emulate [the better-designed slot approach adopted by
 Vue][vue-slots].
 
@@ -56,9 +56,26 @@ we might find out there (or a combination of both):
 Even in such as simple example, we can start seeing some of the problems with
 this approach: it creeps the component API with render props, it is not very
 idiomatic, and it can quickly get worse as we continue adding some more
-customization for each element (for example, we may later add specific props to
+customization for each element. For example, we may later add specific props to
 styling each of the items, title, and call-to-action components:
-`menuItemStyle`, `titleStyle`, `ctaStyle`, and so on).
+`menuItemStyle`, `titleStyle`, `ctaStyle`, and so on:
+
+```jsx
+<Nav
+  cta={{ text: "Buy the book!", href: "https://url.to/buy-my-book" }}
+  ctaStyle={{ color: "red" }}
+  ctaOnClick={() => alert("Thanks for buying the book!")}
+  menuItems={[
+    { text: "Home", href: "/home" },
+    { text: "About", href: "/about" },
+    { text: "Contact", href: "/contact" },
+  ]}
+  menuItemStyle={{ color: "blue" }}
+  onMenuItemClick={(href) => alert(`Navigating to ${href}`)}
+  title="My Site"
+  titleStyle={{ color: "green" }}
+/>
+```
 
 Let's try a different approach. One that resembles how HTML works and that is
 supported out-of-the-box by React.
@@ -85,14 +102,17 @@ If you have done some React development, you probably know the `children` prop
 is how React passes content down to components (for example `<p>Hola</p>`, where
 `p` is the component, and `Hola` is the value of the `children` prop).
 
-The example above extensively uses the `children` prop and composition to render
-the desired UI. Instead of passing multiple props to the `Nav` component, we
-create many small, dedicated components to render each of the inner pieces of
-UI. This approach gives us a much more flexible and idiomatic API. It makes it
-possible to add additional elements to the `Nav` component without changing the
-API (following the [Open-Closed design principle][open-closed]).
+The example above uses `children` and composition extensively to render the
+desired UI. Instead of passing multiple props to the `Nav` component, we create
+many small, dedicated components which may of course receive their own props.
 
-On the other hand, this approach has some drawbacks worth mentioning:
+As a result, this approach gives us a much more flexible and idiomatic API. If
+we later need to add additional elements to the `Nav` component, we can do so
+without changing the `Nav` component at all (following the [Open-Closed design
+principle][open-closed]).
+
+On the other hand, using this technique comes with some drawbacks worth
+mentioning:
 
 - We have to make it clear that these dedicated components are only meant to be
   used as children of the `Nav` component. We can do this by using the `Nav`
@@ -154,6 +174,8 @@ export { Nav };
 - [Radix UI][radix] uses this pattern extensively.
 - If you’re curious, I used this pattern to build the whole landing page for my
   tddworkshop.com page. You can check the source code [here][tddworkshop].
+
+Happy hacking!
 
 [vue-slots]: https://vuejs.org/guide/components/slots.html#named-slots
 [open-closed]: https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle
