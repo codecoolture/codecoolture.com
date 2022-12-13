@@ -1,11 +1,11 @@
 ---
 date: "2022-12-13"
 spoiler: ""
-title: "React: Using children instead of dedicated slots"
+title: "React: Using children instead of dedicated render slots"
 url: "/blog/react-children-vs-slots"
 ---
 
-# React: Using children instead of dedicated slots
+# React: Using children instead of dedicated render slots
 
 Using component props to pass data (or `JSX` elements directly) that will later
 populate internal UI pieces has been a prevalent pattern in the React community,
@@ -167,10 +167,10 @@ export { Nav };
 
 - A few weeks after starting to write this post, I received a newsletter from
   [Kent C. Dodds][kentcdodds] featuring a React article. Coincidentally, the
-  content of [the article][soul-crushing-components] covered precisely this! So,
+  content of [the post][soul-crushing-components] covered precisely this! So,
   digging a little more, I found this pattern had been documented since a few
-  years ago (watch out [this video talk][talk] from Ryan Florence at Phoenix
-  ReactJS conf in 2017), and it is called _Compound components_.
+  years ago (watch out [this video talk][talk] from Ryan Florence at _Phoenix
+  ReactJS Conf_ in 2017), and it is called **_Compound components_**.
 - [Radix UI][radix] uses this pattern extensively.
 - If you’re curious, I used this pattern to build the whole landing page for my
   tddworkshop.com page. You can check the source code [here][tddworkshop].
