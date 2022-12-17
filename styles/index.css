@@ -27,9 +27,9 @@
 @import "./pages/index.css";
 
 :root {
-  --ff-serif: "IBM Plex Serif", serif;
-  --ff-sans-serif: "IBM Plex Sans", sans-serif;
-  --ff-monospace: "IBM Plex Mono", monospace;
+  --ff-serif: var(--font-ibm-plex-serif);
+  --ff-sans-serif: var(--font-ibm-plex-sans);
+  --ff-monospace: var(--font-ibm-plex-mono);
 
   --fs-xl: 2.5em;
   --fs-l: 1.5em;
