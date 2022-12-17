@@ -35,25 +35,37 @@ export function Footer() {
 
         <ul className="AppFooter__Links">
           <li className="AppFooter__Links__Item">
-            <a href="https://twitter.com/codecoolture" className="AppFooter__Links__Link">
+            <a
+              href="https://twitter.com/codecoolture"
+              className="AppFooter__Links__Link"
+              aria-label="Go to Sergio's Twitter profile"
+            >
               <FaTwitter />
             </a>
           </li>
 
           <li className="AppFooter__Links__Item">
-            <a href="https://github.com/sergioalvz" className="AppFooter__Links__Link">
+            <a
+              href="https://github.com/sergioalvz"
+              className="AppFooter__Links__Link"
+              aria-label="Go to Sergio's GitHub profile"
+            >
               <FaGithub />
             </a>
           </li>
 
           <li className="AppFooter__Links__Item">
-            <a href="https://www.linkedin.com/in/sergioalvarezsuarez/" className="AppFooter__Links__Link">
+            <a
+              href="https://www.linkedin.com/in/sergioalvarezsuarez/"
+              className="AppFooter__Links__Link"
+              aria-label="Go to Sergio's LinkedIn profile"
+            >
               <FaLinkedin />
             </a>
           </li>
 
           <li className="AppFooter__Links__Item">
-            <a href="/feed.xml" className="AppFooter__Links__Link">
+            <a href="/feed.xml" className="AppFooter__Links__Link" aria-label="Subscribe to this site's RSS feed">
               <FaRss />
             </a>
           </li>
