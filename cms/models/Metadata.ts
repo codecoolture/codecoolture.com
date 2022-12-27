@@ -1,5 +1,5 @@
+import { ISO_DATE_STRING } from "@/lib/regex";
 import { z } from "zod";
-import { ISO_DATE_STRING } from "../../lib/regex";
 
 const Metadata = z
   .object({

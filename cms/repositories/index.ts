@@ -1,5 +1,5 @@
-import { getConfig } from "../../config";
-import { MarkdownRepository } from "../lib/MarkdownRepository";
+import { MarkdownRepository } from "@/cms/lib/MarkdownRepository";
+import { getConfig } from "@/config";
 import { ArticleRepository } from "./ArticleRepository";
 
 export const blogpostRepository: ArticleRepository = await MarkdownRepository.fromDirectory(

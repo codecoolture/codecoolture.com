@@ -1,5 +1,4 @@
-import React from "react";
-import { classNames } from "../../lib/classNames";
+import { classNames } from "@/lib/classNames";
 
 export interface TimestampProps {
   className?: string;

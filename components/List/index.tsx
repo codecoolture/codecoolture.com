@@ -1,4 +1,4 @@
-import { classNames } from "../../lib/classNames";
+import { classNames } from "@/lib/classNames";
 
 function Item({ children }: Pick<JSX.IntrinsicElements["li"], "children">) {
   return (

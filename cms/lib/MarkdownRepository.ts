@@ -1,7 +1,7 @@
+import { Article } from "@/cms/models/Article";
+import { ArticleRepository } from "@/cms/repositories/ArticleRepository";
 import { orderBy, reject } from "lodash";
 import { readdir, stat } from "node:fs/promises";
-import { Article } from "../models/Article";
-import { ArticleRepository } from "../repositories/ArticleRepository";
 import { DirectoryNotFound, FileNotFound, isNodeError } from "./errors";
 import { Markdown } from "./Markdown";
 

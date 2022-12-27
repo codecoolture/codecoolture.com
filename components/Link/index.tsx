@@ -1,4 +1,4 @@
-import { classNames } from "../../lib/classNames";
+import { classNames } from "@/lib/classNames";
 
 export type LinkProps = Pick<JSX.IntrinsicElements["a"], "href" | "rel" | "target" | "className" | "children"> & {
   as?: React.ElementType;

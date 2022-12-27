@@ -1,6 +1,6 @@
+import { Application } from "@/layouts/Application";
 import NextLink from "next/link";
 import { FaGithub, FaLinkedin, FaRss, FaTwitter } from "react-icons/fa";
-import { Application } from "../..";
 
 export function Footer() {
   return (

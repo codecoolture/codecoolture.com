@@ -1,4 +1,4 @@
-import { classNames } from "../../lib/classNames";
+import { classNames } from "@/lib/classNames";
 
 type CodeProps = Pick<JSX.IntrinsicElements["code"], "className" | "children"> & {
   "data-qa"?: string;

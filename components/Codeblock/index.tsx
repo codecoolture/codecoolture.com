@@ -1,4 +1,4 @@
-import { classNames } from "../../lib/classNames";
+import { classNames } from "@/lib/classNames";
 
 type CodeblockProps = Pick<JSX.IntrinsicElements["pre"], "children" | "className">;
 

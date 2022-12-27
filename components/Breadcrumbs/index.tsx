@@ -1,6 +1,6 @@
+import { Link } from "@/components/Link";
+import { classNames } from "@/lib/classNames";
 import NextLink from "next/link";
-import { classNames } from "../../lib/classNames";
-import { Link } from "../Link";
 
 export type Breadcrumb = { label: string; url?: string };
 

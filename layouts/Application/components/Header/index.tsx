@@ -1,8 +1,8 @@
+import { Application } from "@/layouts/Application";
+import { classNames } from "@/lib/classNames";
 import NextLink from "next/link";
 import { Component } from "react";
 import { FaArrowLeft } from "react-icons/fa";
-import { Application } from "../..";
-import { classNames } from "../../../../lib/classNames";
 
 interface HeaderProps {
   hideBackLink?: boolean;

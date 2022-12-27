@@ -1,5 +1,5 @@
+import { classNames } from "@/lib/classNames";
 import { forwardRef } from "react";
-import { classNames } from "../../lib/classNames";
 
 export type ButtonProps = {
   children: string;

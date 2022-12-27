@@ -1,12 +1,12 @@
+import { ApiArticle } from "@/cms/api/ApiArticle";
+import { noteRepository } from "@/cms/repositories";
+import { Post } from "@/layouts/Post";
+import { isDevelopment } from "@/lib/env";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import React from "react";
 import remarkUnwrapImages from "remark-unwrap-images";
-import { ApiArticle } from "../../cms/api/ApiArticle";
-import { noteRepository } from "../../cms/repositories";
-import { Post } from "../../layouts/Post";
-import { isDevelopment } from "../../lib/env";
 
 interface NoteProps {
   mdx: MDXRemoteSerializeResult;

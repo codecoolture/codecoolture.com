@@ -1,5 +1,5 @@
+import { classNames } from "@/lib/classNames";
 import React from "react";
-import { classNames } from "../../lib/classNames";
 
 interface HeadingProps {
   children?: React.ReactNode;

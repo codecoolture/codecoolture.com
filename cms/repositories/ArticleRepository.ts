@@ -1,4 +1,4 @@
-import { Article } from "../models/Article";
+import { Article } from "@/cms/models/Article";
 
 type AllOptions = { drafts: boolean };
 type ShowOptions = { drafts: boolean };

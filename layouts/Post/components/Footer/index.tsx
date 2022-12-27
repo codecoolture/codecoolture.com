@@ -1,7 +1,7 @@
+import { ApiArticle } from "@/cms/api/ApiArticle";
 import { capitalize } from "lodash";
 import React from "react";
 import { FaGithub, FaTwitter } from "react-icons/fa";
-import { ApiArticle } from "../../../../cms/api/ApiArticle";
 
 type ChipProps = { children: React.ReactNode; href: string; type: "twitter" | "github" };
 

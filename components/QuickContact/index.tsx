@@ -1,6 +1,5 @@
-import React from "react";
-import { classNames } from "../../lib/classNames";
-import { Button } from "../Button";
+import { Button } from "@/components/Button";
+import { classNames } from "@/lib/classNames";
 
 export type QuickContactProps = {
   children: string;

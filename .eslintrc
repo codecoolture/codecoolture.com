@@ -10,6 +10,17 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "group": ["../*"],
+            "message": "Usage of relative parent imports is not allowed."
+          }
+        ]
+      }
+    ],
     "react/react-in-jsx-scope": "off",
     "react/no-unknown-property": [
       2,

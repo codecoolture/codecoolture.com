@@ -1,17 +1,17 @@
+import { ApiArticle } from "@/cms/api/ApiArticle";
+import { Blockquote } from "@/components/Blockquote";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { Code } from "@/components/Code";
+import { Codeblock } from "@/components/Codeblock";
+import { Figure } from "@/components/Figure";
+import { Heading } from "@/components/Heading";
+import { Link } from "@/components/Link";
+import { List } from "@/components/List";
+import { Seo } from "@/components/Seo";
+import { Text } from "@/components/Text";
+import { Timestamp } from "@/components/Timestamp";
+import { Application } from "@/layouts/Application";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { ApiArticle } from "../../cms/api/ApiArticle";
-import { Blockquote } from "../../components/Blockquote";
-import { Breadcrumbs } from "../../components/Breadcrumbs";
-import { Code } from "../../components/Code";
-import { Codeblock } from "../../components/Codeblock";
-import { Figure } from "../../components/Figure";
-import { Heading } from "../../components/Heading";
-import { Link } from "../../components/Link";
-import { List } from "../../components/List";
-import { Seo } from "../../components/Seo";
-import { Text } from "../../components/Text";
-import { Timestamp } from "../../components/Timestamp";
-import { Application } from "../Application";
 import { Footer } from "./components/Footer";
 
 export interface PostProps {
