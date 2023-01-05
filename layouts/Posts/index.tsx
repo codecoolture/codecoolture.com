@@ -1,8 +1,9 @@
+import { orderBy } from "lodash";
+import React from "react";
+
 import { ApiArticle } from "@/cms/api/ApiArticle";
 import { Heading } from "@/components/Heading";
 import { PostThumbnail } from "@/components/PostThumbnail";
-import { orderBy } from "lodash";
-import React from "react";
 
 export interface PostsProps {
   posts: ApiArticle[];

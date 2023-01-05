@@ -1,3 +1,7 @@
+import { GetStaticProps } from "next";
+import NextLink from "next/link";
+import React from "react";
+
 import { ApiArticle } from "@/cms/api/ApiArticle";
 import { blogpostRepository } from "@/cms/repositories";
 import { Heading } from "@/components/Heading";
@@ -6,9 +10,6 @@ import { Text } from "@/components/Text";
 import { Application } from "@/layouts/Application";
 import { Posts } from "@/layouts/Posts";
 import { isDevelopment } from "@/lib/env";
-import { GetStaticProps } from "next";
-import NextLink from "next/link";
-import React from "react";
 
 interface ArticlesProps {
   articles: ApiArticle[];

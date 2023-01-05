@@ -1,5 +1,6 @@
-import { ApiArticle } from "@/cms/api/ApiArticle";
 import Head from "next/head";
+
+import { ApiArticle } from "@/cms/api/ApiArticle";
 
 function description(post?: ApiArticle) {
   if (!post) {

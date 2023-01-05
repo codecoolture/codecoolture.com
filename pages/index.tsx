@@ -1,3 +1,6 @@
+import { orderBy } from "lodash";
+import { GetStaticProps } from "next";
+
 import { ApiArticle } from "@/cms/api/ApiArticle";
 import { blogpostRepository, noteRepository } from "@/cms/repositories";
 import { Heading } from "@/components/Heading";
@@ -6,8 +9,6 @@ import { PostThumbnail } from "@/components/PostThumbnail";
 import { Text } from "@/components/Text";
 import { Application } from "@/layouts/Application";
 import { isDevelopment } from "@/lib/env";
-import { orderBy } from "lodash";
-import { GetStaticProps } from "next";
 
 type HomepageProps = {
   publications: ApiArticle[];

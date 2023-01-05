@@ -1,5 +1,6 @@
-import { classNames } from "@/lib/classNames";
 import React, { useEffect, useRef, useState } from "react";
+
+import { classNames } from "@/lib/classNames";
 
 export interface CarouselProps {
   children: React.ReactNode;

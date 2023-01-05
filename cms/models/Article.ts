@@ -1,5 +1,6 @@
 import { ApiArticle } from "@/cms/api/ApiArticle";
 import { Markdown } from "@/cms/lib/Markdown";
+
 import { isMetadata, Metadata } from "./Metadata";
 
 export class Article {

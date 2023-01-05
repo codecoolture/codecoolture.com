@@ -1,3 +1,6 @@
+import { MDXProvider } from "@mdx-js/react";
+import React from "react";
+
 import { Blockquote } from "@/components/Blockquote";
 import { Breadcrumb, Breadcrumbs } from "@/components/Breadcrumbs";
 import { Code } from "@/components/Code";
@@ -8,8 +11,6 @@ import { List } from "@/components/List";
 import { Text } from "@/components/Text";
 import { Application } from "@/layouts/Application";
 import { classNames } from "@/lib/classNames";
-import { MDXProvider } from "@mdx-js/react";
-import React from "react";
 
 export interface ArticleProps {
   breadcrumbs?: Breadcrumb[];

@@ -1,6 +1,8 @@
-import { getConfig } from "@/config";
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
+
+import { getConfig } from "@/config";
+
 import { RssFeedGenerator } from "./RssFeedGenerator";
 
 (async function run() {

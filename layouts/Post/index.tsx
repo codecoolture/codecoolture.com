@@ -1,3 +1,5 @@
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+
 import { ApiArticle } from "@/cms/api/ApiArticle";
 import { Blockquote } from "@/components/Blockquote";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -11,7 +13,7 @@ import { Seo } from "@/components/Seo";
 import { Text } from "@/components/Text";
 import { Timestamp } from "@/components/Timestamp";
 import { Application } from "@/layouts/Application";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+
 import { Footer } from "./components/Footer";
 
 export interface PostProps {

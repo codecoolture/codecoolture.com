@@ -1,10 +1,11 @@
+import NextLink from "next/link";
+
 import { ApiArticle } from "@/cms/api/ApiArticle";
 import { Heading } from "@/components/Heading";
 import { Link } from "@/components/Link";
 import { Text } from "@/components/Text";
 import { Timestamp } from "@/components/Timestamp";
 import { classNames } from "@/lib/classNames";
-import NextLink from "next/link";
 
 export type PostThumbnailProps = {
   className?: string;

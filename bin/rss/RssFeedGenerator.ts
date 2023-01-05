@@ -1,7 +1,8 @@
-import { MarkdownRepository } from "@/cms/lib/MarkdownRepository";
 import { Feed } from "feed";
 import { orderBy } from "lodash";
 import { marked } from "marked";
+
+import { MarkdownRepository } from "@/cms/lib/MarkdownRepository";
 
 export class RssFeedGenerator {
   constructor(private paths: string[]) {}

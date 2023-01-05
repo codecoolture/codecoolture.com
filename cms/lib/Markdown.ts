@@ -1,5 +1,6 @@
-import frontMatter from "front-matter";
 import { readFile } from "node:fs/promises";
+
+import frontMatter from "front-matter";
 
 export class Markdown {
   public static async fromFile(path: string): Promise<Markdown> {
