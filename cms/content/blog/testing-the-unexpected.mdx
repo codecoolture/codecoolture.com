@@ -2,15 +2,16 @@
 date: "2021-03-08"
 spoiler:
   "A reasonable approach to test React components with unexpected async effects."
-title: "Testing the unexpected"
+title:
+  "Uncovering and conquering async bugs: A trick to testing undesired effects"
 url: "/blog/testing-the-unexpected"
 published: true
 ---
 
-# Testing the unexpected
+# Uncovering and conquering async bugs: A trick to testing undesired effects
 
 Imagine you are coding a new React component to upload a file. The component
-will receive a callback to notify the app if the upload has been or not
+will receive a callback to notify the app if the upload has been or has not been
 successful. You may end with something similar to:
 
 ```tsx
@@ -35,7 +36,7 @@ function UploadButton({ executor, onSuccess }) {
 ```
 
 To test the most simple scenario, that the `<UploadButton />` component uses the
-callback once the upload completed, we can rely on the standard approach:
+callback once the upload is completed, we can rely on the standard approach:
 
 ```tsx
 it("uses the callback to notify that the upload completed", async () => {
@@ -52,9 +53,9 @@ it("uses the callback to notify that the upload completed", async () => {
 ```
 
 But things are more complicated if we want to ensure that the `onSuccess`
-callback does not get executed if something unexpected happens and the process
-fails. The initial and most naive implementation might be to assure that the spy
-is never called when using the failing executor:
+callback is not executed if something unexpected happens and the process fails.
+The initial and most naive implementation might be to assure that the spy is
+never called when using the failing executor:
 
 ```tsx
 it("does not use the callback if something goes wrong", async () => {
@@ -72,7 +73,7 @@ it("does not use the callback if something goes wrong", async () => {
 
 **Even if it passes, the test is not checking that the spy never gets called**.
 Since the executor is an asynchronous process, and the spy starts with zero
-calls, the expectation is valid right away. You can spot this by replacing
+calls, the expectation is valid immediately. You can spot this by replacing
 `executor={fail}` with `executor={success}` --that’s the kind of change that
 should make the test have a different result, but it continues passing!
 
@@ -93,16 +94,16 @@ it("does not use the callback if something goes wrong", async () => {
 ```
 
 By embracing the asynchronous nature of this problem, we can wrap the rendering
-within a promise and use its reject function as `onSuccess` callback. Remember
-that promises execute immediately but return a delayed response. To give some
-room for the component to fail, I use the [setTimeout][settimeout] trick to
-force the process to complete pending tasks from the queue.
+within a promise and use its reject function as the `onSuccess` callback.
+Remember that promises execute immediately but return a delayed response. To
+give some room for the component to fail, I use the [setTimeout][settimeout]
+trick to force the process to complete pending tasks from the queue.
 
 Now, `asyncRender` should always resolve (with an `undefined` value). If it does
 not, our component is having issues handling the `onSuccess` callback and
 calling it even when the upload fails (since it is what the failing executor
-does). If you change `executor={fail}` by `executor={success}`, you may see the
-result keeps coherent, and the test then fails.
+does). If you change `executor={fail}` to `executor={success}`, you may see the
+result keeps consistent, and the test fails.
 
 [settimeout]:
   https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#zero_delays
