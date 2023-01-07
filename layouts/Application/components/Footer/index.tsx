@@ -1,9 +1,13 @@
 import NextLink from "next/link";
 import { FaGithub, FaLinkedin, FaRss, FaTwitter } from "react-icons/fa";
+import { RxMoon, RxSun } from "react-icons/rx";
 
+import { useDarkMode } from "@/hooks";
 import { Application } from "@/layouts/Application";
 
 export function Footer() {
+  const { isDarkModeEnabled, toggleDarkMode } = useDarkMode();
+
   return (
     <footer className="AppFooter" data-qa="app-footer">
       <Application.Column>
@@ -34,43 +38,49 @@ export function Footer() {
           Asturias.
         </p>
 
-        <ul className="AppFooter__Links">
-          <li className="AppFooter__Links__Item">
-            <a
-              href="https://twitter.com/codecoolture"
-              className="AppFooter__Links__Link"
-              aria-label="Go to Sergio's Twitter profile"
-            >
-              <FaTwitter />
-            </a>
-          </li>
+        <div className="AppFooter__Actions">
+          <ul className="AppFooter__Links">
+            <li className="AppFooter__Links__Item">
+              <a
+                href="https://twitter.com/codecoolture"
+                className="AppFooter__Links__Link"
+                aria-label="Go to Sergio's Twitter profile"
+              >
+                <FaTwitter />
+              </a>
+            </li>
 
-          <li className="AppFooter__Links__Item">
-            <a
-              href="https://github.com/sergioalvz"
-              className="AppFooter__Links__Link"
-              aria-label="Go to Sergio's GitHub profile"
-            >
-              <FaGithub />
-            </a>
-          </li>
+            <li className="AppFooter__Links__Item">
+              <a
+                href="https://github.com/sergioalvz"
+                className="AppFooter__Links__Link"
+                aria-label="Go to Sergio's GitHub profile"
+              >
+                <FaGithub />
+              </a>
+            </li>
 
-          <li className="AppFooter__Links__Item">
-            <a
-              href="https://www.linkedin.com/in/sergioalvarezsuarez/"
-              className="AppFooter__Links__Link"
-              aria-label="Go to Sergio's LinkedIn profile"
-            >
-              <FaLinkedin />
-            </a>
-          </li>
+            <li className="AppFooter__Links__Item">
+              <a
+                href="https://www.linkedin.com/in/sergioalvarezsuarez/"
+                className="AppFooter__Links__Link"
+                aria-label="Go to Sergio's LinkedIn profile"
+              >
+                <FaLinkedin />
+              </a>
+            </li>
 
-          <li className="AppFooter__Links__Item">
-            <a href="/feed.xml" className="AppFooter__Links__Link" aria-label="Subscribe to this site's RSS feed">
-              <FaRss />
-            </a>
-          </li>
-        </ul>
+            <li className="AppFooter__Links__Item">
+              <a href="/feed.xml" className="AppFooter__Links__Link" aria-label="Subscribe to this site's RSS feed">
+                <FaRss />
+              </a>
+            </li>
+          </ul>
+
+          <button className="AppFooter__DarkModeToggle" onClick={() => toggleDarkMode()}>
+            {isDarkModeEnabled ? <RxSun /> : <RxMoon />}
+          </button>
+        </div>
       </Application.Column>
     </footer>
   );

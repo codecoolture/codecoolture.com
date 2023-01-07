@@ -45,6 +45,12 @@
   font-family: var(--ff-serif);
 }
 
+.AppFooter__Actions {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
 .AppFooter__Links {
   display: flex;
   margin: 1em 0;
@@ -74,4 +80,25 @@
 .AppFooter__Links__Link:hover {
   background-color: var(--c-yellow-4);
   border-color: var(--c-yellow-8);
+}
+
+.AppFooter__DarkModeToggle {
+  align-items: center;
+  border: 2px solid var(--c-gray-7);
+  display: flex;
+  font-size: var(--fs-s);
+  justify-content: center;
+  padding: 0.5em;
+
+  background-color: var(--c-gray-3);
+  border-radius: 100%;
+  color: var(--c-gray-11);
+  cursor: pointer;
+
+  transition: background-color ease-in 150ms, border-color ease-in 150ms;
+}
+
+.AppFooter__DarkModeToggle:hover {
+  background-color: var(--c-gray-4);
+  border-color: var(--c-gray-8);
 }
