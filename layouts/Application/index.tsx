@@ -1,5 +1,7 @@
 import React from "react";
 
+import { useDarkMode } from "@/hooks";
+
 import { Article } from "./components/Article";
 import { Column } from "./components/Column";
 import { Footer } from "./components/Footer";
@@ -11,8 +13,10 @@ export interface ApplicationProps {
 }
 
 export function Application({ children, hideBackLink }: ApplicationProps) {
+  const { isDarkModeEnabled } = useDarkMode();
+
   return (
-    <div className="App">
+    <div className={`App ${isDarkModeEnabled ? "dark-theme" : ""}`}>
       <Header hideBackLink={hideBackLink} />
 
       <main className="App__Main">{children}</main>

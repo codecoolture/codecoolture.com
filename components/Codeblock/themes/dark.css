@@ -4,8 +4,8 @@
  * @author Rose Pritchard
  */
 
-body.dark-theme code[class*="language-"],
-body.dark-theme pre[class*="language-"] {
+.Codeblock.Codeblock--Dark code[class*="language-"],
+.Codeblock.Codeblock--Dark pre[class*="language-"] {
   color: #ccc;
   text-align: left;
   white-space: pre;
@@ -25,90 +25,90 @@ body.dark-theme pre[class*="language-"] {
 }
 
 /* Code blocks */
-body.dark-theme pre[class*="language-"] {
+.Codeblock.Codeblock--Dark pre[class*="language-"] {
   padding: 1em;
   margin: 0.5em 0;
   overflow: auto;
 }
 
 /* Inline code */
-body.dark-theme :not(pre) > code[class*="language-"] {
+.Codeblock.Codeblock--Dark :not(pre) > code[class*="language-"] {
   padding: 0.1em;
   border-radius: 0.3em;
   white-space: normal;
 }
 
-body.dark-theme .token.comment,
-body.dark-theme .token.block-comment,
-body.dark-theme .token.prolog,
-body.dark-theme .token.doctype,
-body.dark-theme .token.cdata {
+.Codeblock.Codeblock--Dark .token.comment,
+.Codeblock.Codeblock--Dark .token.block-comment,
+.Codeblock.Codeblock--Dark .token.prolog,
+.Codeblock.Codeblock--Dark .token.doctype,
+.Codeblock.Codeblock--Dark .token.cdata {
   color: #999;
 }
 
-body.dark-theme .token.punctuation {
+.Codeblock.Codeblock--Dark .token.punctuation {
   color: #ccc;
 }
 
-body.dark-theme .token.tag,
-body.dark-theme .token.attr-name,
-body.dark-theme .token.namespace,
-body.dark-theme .token.deleted {
+.Codeblock.Codeblock--Dark .token.tag,
+.Codeblock.Codeblock--Dark .token.attr-name,
+.Codeblock.Codeblock--Dark .token.namespace,
+.Codeblock.Codeblock--Dark .token.deleted {
   color: #e2777a;
 }
 
-body.dark-theme .token.function-name {
+.Codeblock.Codeblock--Dark .token.function-name {
   color: #6196cc;
 }
 
-body.dark-theme .token.boolean,
-body.dark-theme .token.number,
-body.dark-theme .token.function {
+.Codeblock.Codeblock--Dark .token.boolean,
+.Codeblock.Codeblock--Dark .token.number,
+.Codeblock.Codeblock--Dark .token.function {
   color: #f08d49;
 }
 
-body.dark-theme .token.property,
-body.dark-theme .token.class-name,
-body.dark-theme .token.constant,
-body.dark-theme .token.symbol {
+.Codeblock.Codeblock--Dark .token.property,
+.Codeblock.Codeblock--Dark .token.class-name,
+.Codeblock.Codeblock--Dark .token.constant,
+.Codeblock.Codeblock--Dark .token.symbol {
   color: #f8c555;
 }
 
-body.dark-theme .token.selector,
-body.dark-theme .token.important,
-body.dark-theme .token.atrule,
-body.dark-theme .token.keyword,
-body.dark-theme .token.builtin {
+.Codeblock.Codeblock--Dark .token.selector,
+.Codeblock.Codeblock--Dark .token.important,
+.Codeblock.Codeblock--Dark .token.atrule,
+.Codeblock.Codeblock--Dark .token.keyword,
+.Codeblock.Codeblock--Dark .token.builtin {
   color: #cc99cd;
 }
 
-body.dark-theme .token.string,
-body.dark-theme .token.char,
-body.dark-theme .token.attr-value,
-body.dark-theme .token.regex,
-body.dark-theme .token.variable {
+.Codeblock.Codeblock--Dark .token.string,
+.Codeblock.Codeblock--Dark .token.char,
+.Codeblock.Codeblock--Dark .token.attr-value,
+.Codeblock.Codeblock--Dark .token.regex,
+.Codeblock.Codeblock--Dark .token.variable {
   color: #7ec699;
 }
 
-body.dark-theme .token.operator,
-body.dark-theme .token.entity,
-body.dark-theme .token.url {
+.Codeblock.Codeblock--Dark .token.operator,
+.Codeblock.Codeblock--Dark .token.entity,
+.Codeblock.Codeblock--Dark .token.url {
   color: #67cdcc;
 }
 
-body.dark-theme .token.important,
-body.dark-theme .token.bold {
+.Codeblock.Codeblock--Dark .token.important,
+.Codeblock.Codeblock--Dark .token.bold {
   font-weight: bold;
 }
 
-body.dark-theme .token.italic {
+.Codeblock.Codeblock--Dark .token.italic {
   font-style: italic;
 }
 
-body.dark-theme .token.entity {
+.Codeblock.Codeblock--Dark .token.entity {
   cursor: help;
 }
 
-body.dark-theme .token.inserted {
+.Codeblock.Codeblock--Dark .token.inserted {
   color: green;
 }

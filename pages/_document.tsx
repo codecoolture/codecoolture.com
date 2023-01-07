@@ -15,7 +15,7 @@ export default class MyDocument extends Document {
           />
         </Head>
 
-        <body className="dark-theme">
+        <body>
           <Main />
           <NextScript />
         </body>

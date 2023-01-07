@@ -1,5 +1,8 @@
+@import "@radix-ui/colors/gray.css";
 @import "@radix-ui/colors/grayDark.css";
+@import "@radix-ui/colors/indigo.css";
 @import "@radix-ui/colors/indigoDark.css";
+@import "@radix-ui/colors/yellow.css";
 @import "@radix-ui/colors/yellowDark.css";
 
 @import "../components/Blockquote/style.css";
@@ -92,12 +95,9 @@ html,
 body {
   font-size: var(--fs-m);
   width: 100%;
-
-  background-color: var(--c-gray-1);
 }
 
 body {
-  color: var(--c-gray-12);
   font-family: var(--ff-sans-serif);
 }
 

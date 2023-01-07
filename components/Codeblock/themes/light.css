@@ -4,8 +4,8 @@
  * @author Lea Verou
  */
 
-body:not(.dark-theme) code[class*="language-"],
-body:not(.dark-theme) pre[class*="language-"] {
+.Codeblock:not(.Codeblock--Dark) code[class*="language-"],
+.Codeblock:not(.Codeblock--Dark) pre[class*="language-"] {
   color: black;
   text-shadow: 0 1px white;
   text-align: left;
@@ -25,113 +25,113 @@ body:not(.dark-theme) pre[class*="language-"] {
   hyphens: none;
 }
 
-body:not(.dark-theme) pre[class*="language-"]::-moz-selection,
-body:not(.dark-theme) pre[class*="language-"] ::-moz-selection,
-body:not(.dark-theme) code[class*="language-"]::-moz-selection,
-body:not(.dark-theme) code[class*="language-"] ::-moz-selection {
+.Codeblock:not(.Codeblock--Dark) pre[class*="language-"]::-moz-selection,
+.Codeblock:not(.Codeblock--Dark) pre[class*="language-"] ::-moz-selection,
+.Codeblock:not(.Codeblock--Dark) code[class*="language-"]::-moz-selection,
+.Codeblock:not(.Codeblock--Dark) code[class*="language-"] ::-moz-selection {
   text-shadow: none;
   background: #b3d4fc;
 }
 
-body:not(.dark-theme) pre[class*="language-"]::selection,
-body:not(.dark-theme) pre[class*="language-"] ::selection,
-body:not(.dark-theme) code[class*="language-"]::selection,
-body:not(.dark-theme) code[class*="language-"] ::selection {
+.Codeblock:not(.Codeblock--Dark) pre[class*="language-"]::selection,
+.Codeblock:not(.Codeblock--Dark) pre[class*="language-"] ::selection,
+.Codeblock:not(.Codeblock--Dark) code[class*="language-"]::selection,
+.Codeblock:not(.Codeblock--Dark) code[class*="language-"] ::selection {
   text-shadow: none;
   background: #b3d4fc;
 }
 
 @media print {
-  body:not(.dark-theme) code[class*="language-"],
-  body:not(.dark-theme) pre[class*="language-"] {
+  .Codeblock:not(.Codeblock--Dark) code[class*="language-"],
+  .Codeblock:not(.Codeblock--Dark) pre[class*="language-"] {
     text-shadow: none;
   }
 }
 
 /* Code blocks */
-body:not(.dark-theme) pre[class*="language-"] {
+.Codeblock:not(.Codeblock--Dark) pre[class*="language-"] {
   padding: 1em;
   margin: 0.5em 0;
   overflow: auto;
 }
 
 /* Inline code */
-body:not(.dark-theme) :not(pre) > code[class*="language-"] {
+.Codeblock:not(.Codeblock--Dark) :not(pre) > code[class*="language-"] {
   padding: 0.1em;
   border-radius: 0.3em;
   white-space: normal;
 }
 
-body:not(.dark-theme) .token.comment,
-body:not(.dark-theme) .token.prolog,
-body:not(.dark-theme) .token.doctype,
-body:not(.dark-theme) .token.cdata {
+.Codeblock:not(.Codeblock--Dark) .token.comment,
+.Codeblock:not(.Codeblock--Dark) .token.prolog,
+.Codeblock:not(.Codeblock--Dark) .token.doctype,
+.Codeblock:not(.Codeblock--Dark) .token.cdata {
   color: slategray;
 }
 
-body:not(.dark-theme) .token.punctuation {
+.Codeblock:not(.Codeblock--Dark) .token.punctuation {
   color: #999;
 }
 
-body:not(.dark-theme) .token.namespace {
+.Codeblock:not(.Codeblock--Dark) .token.namespace {
   opacity: 0.7;
 }
 
-body:not(.dark-theme) .token.property,
-body:not(.dark-theme) .token.tag,
-body:not(.dark-theme) .token.boolean,
-body:not(.dark-theme) .token.number,
-body:not(.dark-theme) .token.constant,
-body:not(.dark-theme) .token.symbol,
-body:not(.dark-theme) .token.deleted {
+.Codeblock:not(.Codeblock--Dark) .token.property,
+.Codeblock:not(.Codeblock--Dark) .token.tag,
+.Codeblock:not(.Codeblock--Dark) .token.boolean,
+.Codeblock:not(.Codeblock--Dark) .token.number,
+.Codeblock:not(.Codeblock--Dark) .token.constant,
+.Codeblock:not(.Codeblock--Dark) .token.symbol,
+.Codeblock:not(.Codeblock--Dark) .token.deleted {
   color: #905;
 }
 
-body:not(.dark-theme) .token.selector,
-body:not(.dark-theme) .token.attr-name,
-body:not(.dark-theme) .token.string,
-body:not(.dark-theme) .token.char,
-body:not(.dark-theme) .token.builtin,
-body:not(.dark-theme) .token.inserted {
+.Codeblock:not(.Codeblock--Dark) .token.selector,
+.Codeblock:not(.Codeblock--Dark) .token.attr-name,
+.Codeblock:not(.Codeblock--Dark) .token.string,
+.Codeblock:not(.Codeblock--Dark) .token.char,
+.Codeblock:not(.Codeblock--Dark) .token.builtin,
+.Codeblock:not(.Codeblock--Dark) .token.inserted {
   color: #690;
 }
 
-body:not(.dark-theme) .token.operator,
-body:not(.dark-theme) .token.entity,
-body:not(.dark-theme) .token.url,
-body:not(.dark-theme) .language-css .token.string,
-body:not(.dark-theme) .style .token.string {
+.Codeblock:not(.Codeblock--Dark) .token.operator,
+.Codeblock:not(.Codeblock--Dark) .token.entity,
+.Codeblock:not(.Codeblock--Dark) .token.url,
+.Codeblock:not(.Codeblock--Dark) .language-css .token.string,
+.Codeblock:not(.Codeblock--Dark) .style .token.string {
   color: #9a6e3a;
   /* This background color was intended by the author of this theme. */
   background: hsla(0, 0%, 100%, 0.5);
 }
 
-body:not(.dark-theme) .token.atrule,
-body:not(.dark-theme) .token.attr-value,
-body:not(.dark-theme) .token.keyword {
+.Codeblock:not(.Codeblock--Dark) .token.atrule,
+.Codeblock:not(.Codeblock--Dark) .token.attr-value,
+.Codeblock:not(.Codeblock--Dark) .token.keyword {
   color: #07a;
 }
 
-body:not(.dark-theme) .token.function,
-body:not(.dark-theme) .token.class-name {
+.Codeblock:not(.Codeblock--Dark) .token.function,
+.Codeblock:not(.Codeblock--Dark) .token.class-name {
   color: #dd4a68;
 }
 
-body:not(.dark-theme) .token.regex,
-body:not(.dark-theme) .token.important,
-body:not(.dark-theme) .token.variable {
+.Codeblock:not(.Codeblock--Dark) .token.regex,
+.Codeblock:not(.Codeblock--Dark) .token.important,
+.Codeblock:not(.Codeblock--Dark) .token.variable {
   color: #e90;
 }
 
-body:not(.dark-theme) .token.important,
-body:not(.dark-theme) .token.bold {
+.Codeblock:not(.Codeblock--Dark) .token.important,
+.Codeblock:not(.Codeblock--Dark) .token.bold {
   font-weight: bold;
 }
 
-body:not(.dark-theme) .token.italic {
+.Codeblock:not(.Codeblock--Dark) .token.italic {
   font-style: italic;
 }
 
-body:not(.dark-theme) .token.entity {
+.Codeblock:not(.Codeblock--Dark) .token.entity {
   cursor: help;
 }

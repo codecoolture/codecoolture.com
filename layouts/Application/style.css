@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
+  background-color: var(--c-gray-1);
+  color: var(--c-gray-12);
 }
 
 .App__Main {

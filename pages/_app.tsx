@@ -3,6 +3,7 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 
 import { Seo } from "@/components/Seo";
+import { DarkModeProvider } from "@/contexts";
 import { useFathom } from "@/hooks";
 
 import "@/styles/index.css";
@@ -30,7 +31,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         }
       `}</style>
 
-      <Component {...pageProps} />
+      <DarkModeProvider>
+        <Component {...pageProps} />
+      </DarkModeProvider>
     </>
   );
 }
