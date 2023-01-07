@@ -1,6 +1,7 @@
-@import "~prismjs/themes/prism-tomorrow.css";
+@import "./themes/dark.css";
+@import "./themes/light.css";
 
-.Codeblock[class*="language-"] {
+.Codeblock {
   font-size: var(--fs-s);
   margin-bottom: 1em;
 
@@ -9,5 +10,8 @@
 
 /* Overrides */
 .Codeblock .Code {
+  font-size: 1em;
   padding: 0;
+
+  background: none;
 }

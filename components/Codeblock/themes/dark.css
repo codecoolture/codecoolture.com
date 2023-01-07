@@ -1,0 +1,114 @@
+/**
+ * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
+ * Based on https://github.com/chriskempson/tomorrow-theme
+ * @author Rose Pritchard
+ */
+
+body.dark-theme code[class*="language-"],
+body.dark-theme pre[class*="language-"] {
+  color: #ccc;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+body.dark-theme pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+}
+
+/* Inline code */
+body.dark-theme :not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+
+body.dark-theme .token.comment,
+body.dark-theme .token.block-comment,
+body.dark-theme .token.prolog,
+body.dark-theme .token.doctype,
+body.dark-theme .token.cdata {
+  color: #999;
+}
+
+body.dark-theme .token.punctuation {
+  color: #ccc;
+}
+
+body.dark-theme .token.tag,
+body.dark-theme .token.attr-name,
+body.dark-theme .token.namespace,
+body.dark-theme .token.deleted {
+  color: #e2777a;
+}
+
+body.dark-theme .token.function-name {
+  color: #6196cc;
+}
+
+body.dark-theme .token.boolean,
+body.dark-theme .token.number,
+body.dark-theme .token.function {
+  color: #f08d49;
+}
+
+body.dark-theme .token.property,
+body.dark-theme .token.class-name,
+body.dark-theme .token.constant,
+body.dark-theme .token.symbol {
+  color: #f8c555;
+}
+
+body.dark-theme .token.selector,
+body.dark-theme .token.important,
+body.dark-theme .token.atrule,
+body.dark-theme .token.keyword,
+body.dark-theme .token.builtin {
+  color: #cc99cd;
+}
+
+body.dark-theme .token.string,
+body.dark-theme .token.char,
+body.dark-theme .token.attr-value,
+body.dark-theme .token.regex,
+body.dark-theme .token.variable {
+  color: #7ec699;
+}
+
+body.dark-theme .token.operator,
+body.dark-theme .token.entity,
+body.dark-theme .token.url {
+  color: #67cdcc;
+}
+
+body.dark-theme .token.important,
+body.dark-theme .token.bold {
+  font-weight: bold;
+}
+
+body.dark-theme .token.italic {
+  font-style: italic;
+}
+
+body.dark-theme .token.entity {
+  cursor: help;
+}
+
+body.dark-theme .token.inserted {
+  color: green;
+}
