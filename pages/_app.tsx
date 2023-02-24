@@ -1,5 +1,5 @@
-import { IBM_Plex_Mono, IBM_Plex_Sans, IBM_Plex_Serif } from "@next/font/google";
 import { AppProps } from "next/app";
+import { IBM_Plex_Mono, IBM_Plex_Sans, IBM_Plex_Serif } from "next/font/google";
 import Head from "next/head";
 
 import { Seo } from "@/components/Seo";
@@ -8,20 +8,18 @@ import { useFathom } from "@/hooks";
 
 import "@/styles/index.css";
 
-const ibmPlexMono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "700"], display: "swap" });
+const ibmPlexMono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "700"] });
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
   style: ["italic", "normal"],
   weight: ["400", "700"],
-  display: "swap",
 });
 
 const ibmPlexSerif = IBM_Plex_Serif({
   subsets: ["latin"],
   style: ["italic", "normal"],
   weight: ["400", "700"],
-  display: "swap",
 });
 
 export default function MyApp({ Component, pageProps }: AppProps) {
