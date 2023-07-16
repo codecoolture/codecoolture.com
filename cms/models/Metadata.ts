@@ -5,6 +5,7 @@ import { ISO_DATE_STRING } from "@/lib/regex";
 const Metadata = z
   .object({
     canonical: z.string().url().optional(),
+    collections: z.array(z.string()).optional(),
     cover: z.string().url().optional(),
     published: z.boolean().optional(),
     language: z.string().optional(),

@@ -2,7 +2,7 @@ import { orderBy } from "lodash";
 import { GetStaticProps } from "next";
 
 import { ApiArticle } from "@/cms/api/ApiArticle";
-import { blogpostRepository, noteRepository } from "@/cms/repositories";
+import { getBlogpostRepository, getNotesRepository } from "@/cms/repositories";
 import { Heading } from "@/components/Heading";
 import { Link } from "@/components/Link";
 import { PostThumbnail } from "@/components/PostThumbnail";
@@ -54,8 +54,8 @@ export default function Homepage({ publications }: HomepageProps) {
 }
 
 export const getStaticProps: GetStaticProps<HomepageProps> = async () => {
-  const blogposts = await blogpostRepository.all({ drafts: isDevelopment() });
-  const notes = await noteRepository.all({ drafts: isDevelopment() });
+  const blogposts = await (await getBlogpostRepository()).all({ drafts: isDevelopment() });
+  const notes = await (await getNotesRepository()).all({ drafts: isDevelopment() });
 
   const publications = orderBy([...blogposts, ...notes], (article) => article.getDate(), "desc").slice(0, 5);
 

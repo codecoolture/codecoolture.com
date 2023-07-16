@@ -3,7 +3,7 @@ import NextLink from "next/link";
 import React from "react";
 
 import { ApiArticle } from "@/cms/api/ApiArticle";
-import { blogpostRepository } from "@/cms/repositories";
+import { getBlogpostRepository } from "@/cms/repositories";
 import { Heading } from "@/components/Heading";
 import { Link } from "@/components/Link";
 import { Text } from "@/components/Text";
@@ -41,7 +41,7 @@ export default class Articles extends React.Component<ArticlesProps> {
 }
 
 export const getStaticProps: GetStaticProps<ArticlesProps> = async () => {
-  const articles = await blogpostRepository.all({ drafts: isDevelopment() });
+  const articles = await (await getBlogpostRepository()).all({ drafts: isDevelopment() });
 
   return {
     props: {

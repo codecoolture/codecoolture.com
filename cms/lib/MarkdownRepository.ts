@@ -52,7 +52,7 @@ export class MarkdownRepository implements ArticleRepository {
   public show: ArticleRepository["show"] = async (slug, options = { drafts: false }) => {
     try {
       const markdown = await Markdown.fromFile(`${this.root}/${slug}`);
-      const article = Article.fromMarkdown(markdown);
+      const article = await Article.fromMarkdown(markdown);
 
       if (!options.drafts && article.isDraft()) {
         throw new FileNotFound();

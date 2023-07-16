@@ -4,10 +4,10 @@ import { serialize } from "next-mdx-remote/serialize";
 import React from "react";
 import remarkUnwrapImages from "remark-unwrap-images";
 
-import { isDevelopment } from "@/lib/env";
-import { Post } from "@/layouts/Post";
-import { noteRepository } from "@/cms/repositories";
 import { ApiArticle } from "@/cms/api/ApiArticle";
+import { getNotesRepository } from "@/cms/repositories";
+import { Post } from "@/layouts/Post";
+import { isDevelopment } from "@/lib/env";
 
 interface NoteProps {
   mdx: MDXRemoteSerializeResult;
@@ -21,7 +21,7 @@ export default class Notes extends React.Component<NoteProps> {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = (await noteRepository.all({ drafts: isDevelopment() })).map((note) => {
+  const paths = (await (await getNotesRepository()).all({ drafts: isDevelopment() })).map((note) => {
     const slug = note.getUrl().split("/").pop();
 
     if (!slug) {
@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps<NoteProps> = async ({ params }) => {
     throw new Error("ERROR: Cannot create a Note without slug");
   }
 
-  const note = await noteRepository.show(`${params.slug}.mdx`, { drafts: isDevelopment() });
+  const note = await (await getNotesRepository()).show(`${params.slug}.mdx`, { drafts: isDevelopment() });
 
   return {
     props: {

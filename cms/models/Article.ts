@@ -1,10 +1,12 @@
 import { ApiArticle } from "@/cms/api/ApiArticle";
 import { Markdown } from "@/cms/lib/Markdown";
+import { getCollectionRepository } from "@/cms/repositories";
 
 import { isMetadata, Metadata } from "./Metadata";
+import { Collection } from "./Collection";
 
 export class Article {
-  public static fromMarkdown(markdown: Markdown) {
+  public static async fromMarkdown(markdown: Markdown) {
     const content = markdown.getContent();
     const metadata = markdown.getMetadata();
 
@@ -12,10 +14,16 @@ export class Article {
       throw new Error(`Invalid metadata: ${JSON.stringify(metadata)}`);
     }
 
-    return new Article(content, metadata);
+    const collections = await Promise.all(
+      Array.from(new Set(metadata.collections ?? [])).map(async (collection) =>
+        (await getCollectionRepository()).show(collection),
+      ),
+    );
+
+    return new Article(content, metadata, collections);
   }
 
-  private constructor(private content: string, private metadata: Metadata) {}
+  private constructor(private content: string, private metadata: Metadata, private collections: Collection[]) {}
 
   public isDraft() {
     return !this.metadata.published;
@@ -31,6 +39,10 @@ export class Article {
 
   public getContent() {
     return this.content;
+  }
+
+  public getCollections() {
+    return this.collections;
   }
 
   public toApiArticle(defaults: Partial<ApiArticle> = {}): ApiArticle {

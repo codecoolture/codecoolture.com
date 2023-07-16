@@ -3,7 +3,7 @@ import NextLink from "next/link";
 import React from "react";
 
 import { ApiArticle } from "@/cms/api/ApiArticle";
-import { noteRepository } from "@/cms/repositories";
+import { getNotesRepository } from "@/cms/repositories";
 import { Heading } from "@/components/Heading";
 import { Link } from "@/components/Link";
 import { Text } from "@/components/Text";
@@ -41,7 +41,7 @@ export default class Notes extends React.Component<NotesProps> {
 }
 
 export const getStaticProps: GetStaticProps<NotesProps> = async () => {
-  const notes = await noteRepository.all({ drafts: isDevelopment() });
+  const notes = await (await getNotesRepository()).all({ drafts: isDevelopment() });
 
   return {
     props: {

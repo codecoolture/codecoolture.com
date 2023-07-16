@@ -4,10 +4,10 @@ import { serialize } from "next-mdx-remote/serialize";
 import React from "react";
 import remarkUnwrapImages from "remark-unwrap-images";
 
-import { isDevelopment } from "@/lib/env";
-import { Post } from "@/layouts/Post";
-import { blogpostRepository } from "@/cms/repositories";
 import { ApiArticle } from "@/cms/api/ApiArticle";
+import { getBlogpostRepository } from "@/cms/repositories";
+import { Post } from "@/layouts/Post";
+import { isDevelopment } from "@/lib/env";
 
 interface ArticleProps {
   article: ApiArticle;
@@ -21,7 +21,7 @@ export default class Articles extends React.Component<ArticleProps> {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = (await blogpostRepository.all({ drafts: isDevelopment() })).map((article) => {
+  const paths = (await (await getBlogpostRepository()).all({ drafts: isDevelopment() })).map((article) => {
     const slug = article.getUrl().split("/").pop();
 
     if (!slug) {
@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps<ArticleProps> = async ({ params }) =
     throw new Error("ERROR: Cannot create a blogpost without slug");
   }
 
-  const article = await blogpostRepository.show(`${params.slug}.mdx`, { drafts: isDevelopment() });
+  const article = await (await getBlogpostRepository()).show(`${params.slug}.mdx`, { drafts: isDevelopment() });
 
   return {
     props: {
