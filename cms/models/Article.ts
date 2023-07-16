@@ -48,6 +48,7 @@ export class Article {
   public toApiArticle(defaults: Partial<ApiArticle> = {}): ApiArticle {
     return {
       canonical: this.metadata.canonical ?? null,
+      collections: this.collections.map((collection) => collection.toApiCollection()),
       content: this.content,
       cover: this.metadata.cover ?? defaults.cover ?? null,
       date: this.metadata.date,
