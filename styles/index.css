@@ -28,6 +28,7 @@
 @import "../layouts/Posts/style.css";
 
 @import "./pages/index.css";
+@import "./pages/collections.css";
 
 :root {
   --ff-serif: var(--font-ibm-plex-serif);
