@@ -3,6 +3,14 @@
     {
       "slug": "books",
       "name": "Books"
+    },
+    {
+      "slug": "react",
+      "name": "React"
+    },
+    {
+      "slug": "tdd",
+      "name": "Test-Driven Development"
     }
   ]
 }

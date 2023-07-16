@@ -16,3 +16,20 @@
 .Post__Figure {
   margin: 2em 0;
 }
+
+.Post__Collections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  list-style-type: none;
+}
+
+.Post__Collections__Collection {
+  color: var(--c-gray-11);
+
+  transition: color 150ms ease-in-out;
+}
+
+.Post__Collections__Collection:hover {
+  color: var(--c-yellow-11);
+}

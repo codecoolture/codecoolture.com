@@ -1,4 +1,5 @@
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import NextLink from "next/link";
 
 import { ApiArticle } from "@/cms/api/ApiArticle";
 import { Blockquote } from "@/components/Blockquote";
@@ -63,6 +64,18 @@ export function Post({ breadcrumbs, mdx, post }: PostProps) {
               }}
               {...mdx}
             />
+
+            {post.collections.length > 0 && (
+              <ul className="Post__Collections">
+                {post.collections.map((collection) => (
+                  <li key={collection.slug} className="Post__Collections__Collection">
+                    <Link as={NextLink} href={`/collections/${collection.slug}`}>
+                      #{collection.slug}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
 
             <Footer post={post} />
           </Application.Column>
