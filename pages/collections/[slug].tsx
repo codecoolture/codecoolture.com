@@ -4,12 +4,11 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { ApiArticle } from "@/cms/api/ApiArticle";
 import { ApiCollection } from "@/cms/api/ApiCollection";
 import { getBlogpostRepository, getCollectionRepository, getNotesRepository } from "@/cms/repositories";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { Collections } from "@/components/Collections";
 import { Heading } from "@/components/Heading";
 import { Application } from "@/layouts/Application";
 import { Posts } from "@/layouts/Posts";
 import { isDevelopment } from "@/lib/env";
-import { Collections } from "@/components/Collections";
 
 interface CollectionProps {
   articles: ApiArticle[];
