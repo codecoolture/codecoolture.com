@@ -1,17 +1,20 @@
-import { GetStaticPaths, GetStaticProps } from "next";
 import { orderBy } from "lodash";
+import { GetStaticPaths, GetStaticProps } from "next";
 
 import { ApiArticle } from "@/cms/api/ApiArticle";
 import { ApiCollection } from "@/cms/api/ApiCollection";
 import { getBlogpostRepository, getCollectionRepository, getNotesRepository } from "@/cms/repositories";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Heading } from "@/components/Heading";
 import { Application } from "@/layouts/Application";
 import { Posts } from "@/layouts/Posts";
 import { isDevelopment } from "@/lib/env";
+import { Collections } from "@/components/Collections";
 
 interface CollectionProps {
   articles: ApiArticle[];
   collection: ApiCollection;
+  collections: ApiCollection[];
 }
 
 export default function CollectionPage(props: CollectionProps) {
@@ -23,6 +26,12 @@ export default function CollectionPage(props: CollectionProps) {
         </Heading>
 
         <Posts posts={props.articles} />
+
+        <Heading el="h2" size="xl" className="CollectionPage__AllCollections">
+          Browse all collections
+        </Heading>
+
+        <Collections collections={props.collections} />
       </Application.Article>
     </Application>
   );
@@ -42,6 +51,7 @@ export const getStaticProps: GetStaticProps<CollectionProps> = async ({ params }
   }
 
   const collection = await getCollectionRepository().show(params.slug);
+  const collections = await getCollectionRepository().all();
 
   const blogposts = await getBlogpostRepository().all({ drafts: isDevelopment() });
   const notes = await getNotesRepository().all({ drafts: isDevelopment() });
@@ -54,6 +64,7 @@ export const getStaticProps: GetStaticProps<CollectionProps> = async ({ params }
     props: {
       articles: articles.map((article) => article.toApiArticle()),
       collection: collection.toApiCollection(),
+      collections: collections.map((collection) => collection.toApiCollection()),
     },
   };
 };

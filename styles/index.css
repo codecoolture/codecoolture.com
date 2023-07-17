@@ -10,6 +10,7 @@
 @import "../components/Button/style.css";
 @import "../components/Code/style.css";
 @import "../components/Codeblock/style.css";
+@import "../components/Collections/style.css";
 @import "../components/Figure/style.css";
 @import "../components/Heading/style.css";
 @import "../components/Link/style.css";
@@ -29,6 +30,7 @@
 
 @import "./pages/index.css";
 @import "./pages/collections.css";
+@import "./pages/collections/[slug].css";
 
 :root {
   --ff-serif: var(--font-ibm-plex-serif);

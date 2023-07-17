@@ -1,0 +1,16 @@
+.Collections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  list-style-type: none;
+}
+
+.Collections__Collection {
+  color: var(--c-gray-11);
+
+  transition: color 150ms ease-in-out;
+}
+
+.Collections__Collection:hover {
+  color: var(--c-gray-12);
+}
