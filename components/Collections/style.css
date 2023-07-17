@@ -6,11 +6,21 @@
 }
 
 .Collections__Collection {
-  color: var(--c-gray-11);
+  border: 2px solid var(--c-gray-7);
+  border-radius: 3px;
+  display: block;
+  font-size: var(--fs-s);
+  padding: 0.35em 0.75em;
 
-  transition: color 150ms ease-in-out;
+  background-color: var(--c-gray-3);
+  color: var(--c-gray-11);
+  text-decoration: none;
+
+  transition: color 150ms ease-in-out, background-color 150ms ease-in-out, border-color 150ms ease-in-out;
 }
 
 .Collections__Collection:hover {
-  color: var(--c-gray-12);
+  border-color: var(--c-yellow-8);
+  color: var(--c-yellow-11);
+  background-color: var(--c-yellow-4);
 }
