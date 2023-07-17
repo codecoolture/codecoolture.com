@@ -29,7 +29,7 @@ export default function CollectionPage(props: CollectionProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = (await (await getCollectionRepository()).all()).map((collection) => {
+  const paths = (await getCollectionRepository().all()).map((collection) => {
     return { params: { slug: collection.getSlug() } };
   });
 
@@ -41,10 +41,10 @@ export const getStaticProps: GetStaticProps<CollectionProps> = async ({ params }
     throw new Error("ERROR: Cannot create a collection page without slug");
   }
 
-  const collection = await (await getCollectionRepository()).show(params.slug);
+  const collection = await getCollectionRepository().show(params.slug);
 
-  const blogposts = await (await getBlogpostRepository()).all({ drafts: isDevelopment() });
-  const notes = await (await getNotesRepository()).all({ drafts: isDevelopment() });
+  const blogposts = await getBlogpostRepository().all({ drafts: isDevelopment() });
+  const notes = await getNotesRepository().all({ drafts: isDevelopment() });
 
   const articles = orderBy([...blogposts, ...notes], (article) => article.getDate(), "desc").filter((article) => {
     return article.getCollections().some((c) => c.getSlug() === collection.getSlug());

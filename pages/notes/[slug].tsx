@@ -21,7 +21,7 @@ export default class Notes extends React.Component<NoteProps> {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = (await (await getNotesRepository()).all({ drafts: isDevelopment() })).map((note) => {
+  const paths = (await getNotesRepository().all({ drafts: isDevelopment() })).map((note) => {
     const slug = note.getUrl().split("/").pop();
 
     if (!slug) {
@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps<NoteProps> = async ({ params }) => {
     throw new Error("ERROR: Cannot create a Note without slug");
   }
 
-  const note = await (await getNotesRepository()).show(`${params.slug}.mdx`, { drafts: isDevelopment() });
+  const note = await getNotesRepository().show(`${params.slug}.mdx`, { drafts: isDevelopment() });
 
   return {
     props: {

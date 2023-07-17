@@ -21,7 +21,7 @@ export default class Articles extends React.Component<ArticleProps> {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = (await (await getBlogpostRepository()).all({ drafts: isDevelopment() })).map((article) => {
+  const paths = (await getBlogpostRepository().all({ drafts: isDevelopment() })).map((article) => {
     const slug = article.getUrl().split("/").pop();
 
     if (!slug) {
@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps<ArticleProps> = async ({ params }) =
     throw new Error("ERROR: Cannot create a blogpost without slug");
   }
 
-  const article = await (await getBlogpostRepository()).show(`${params.slug}.mdx`, { drafts: isDevelopment() });
+  const article = await getBlogpostRepository().show(`${params.slug}.mdx`, { drafts: isDevelopment() });
 
   return {
     props: {

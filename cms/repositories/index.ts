@@ -4,10 +4,9 @@ import { getConfig } from "@/config";
 import { ArticleRepository } from "./ArticleRepository";
 import { CollectionRepository } from "./CollectionRepository";
 
-export const getBlogpostRepository = (): Promise<ArticleRepository> =>
+export const getBlogpostRepository = (): ArticleRepository =>
   MarkdownRepository.fromDirectory(getConfig().writing.articles);
 
-export const getNotesRepository = (): Promise<ArticleRepository> =>
-  MarkdownRepository.fromDirectory(getConfig().writing.notes);
+export const getNotesRepository = (): ArticleRepository => MarkdownRepository.fromDirectory(getConfig().writing.notes);
 
-export const getCollectionRepository = (): Promise<CollectionRepository> => Promise.resolve(new CollectionRepository());
+export const getCollectionRepository = (): CollectionRepository => new CollectionRepository();

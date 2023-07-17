@@ -54,8 +54,8 @@ export default function Homepage({ publications }: HomepageProps) {
 }
 
 export const getStaticProps: GetStaticProps<HomepageProps> = async () => {
-  const blogposts = await (await getBlogpostRepository()).all({ drafts: isDevelopment() });
-  const notes = await (await getNotesRepository()).all({ drafts: isDevelopment() });
+  const blogposts = await getBlogpostRepository().all({ drafts: isDevelopment() });
+  const notes = await getNotesRepository().all({ drafts: isDevelopment() });
 
   const publications = orderBy([...blogposts, ...notes], (article) => article.getDate(), "desc").slice(0, 5);
 

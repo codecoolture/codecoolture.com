@@ -41,7 +41,7 @@ export default class Articles extends React.Component<ArticlesProps> {
 }
 
 export const getStaticProps: GetStaticProps<ArticlesProps> = async () => {
-  const articles = await (await getBlogpostRepository()).all({ drafts: isDevelopment() });
+  const articles = await getBlogpostRepository().all({ drafts: isDevelopment() });
 
   return {
     props: {

@@ -37,7 +37,7 @@ export default function CollectionsPage(props: CollectionsPageProps) {
 }
 
 export const getStaticProps: GetStaticProps<CollectionsPageProps> = async () => {
-  const collections = await (await getCollectionRepository()).all();
+  const collections = await getCollectionRepository().all();
 
   return {
     props: {

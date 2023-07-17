@@ -15,9 +15,7 @@ export class Article {
     }
 
     const collections = await Promise.all(
-      Array.from(new Set(metadata.collections ?? [])).map(async (collection) =>
-        (await getCollectionRepository()).show(collection),
-      ),
+      Array.from(new Set(metadata.collections ?? [])).map((collection) => getCollectionRepository().show(collection)),
     );
 
     return new Article(content, metadata, collections);

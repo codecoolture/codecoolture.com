@@ -41,7 +41,7 @@ export default class Notes extends React.Component<NotesProps> {
 }
 
 export const getStaticProps: GetStaticProps<NotesProps> = async () => {
-  const notes = await (await getNotesRepository()).all({ drafts: isDevelopment() });
+  const notes = await getNotesRepository().all({ drafts: isDevelopment() });
 
   return {
     props: {

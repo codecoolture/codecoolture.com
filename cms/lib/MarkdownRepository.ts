@@ -1,4 +1,5 @@
-import { readdir, stat } from "node:fs/promises";
+import { statSync } from "node:fs";
+import { readdir } from "node:fs/promises";
 
 import { orderBy, reject } from "lodash";
 
@@ -9,12 +10,12 @@ import { DirectoryNotFound, FileNotFound, isNodeError } from "./errors";
 import { Markdown } from "./Markdown";
 
 export class MarkdownRepository implements ArticleRepository {
-  public static async fromDirectory(path: string) {
+  public static fromDirectory(path: string) {
     try {
       /**
        * Let's check if the directory exists.
        */
-      await stat(path);
+      statSync(path);
     } catch (error) {
       if (isNodeError(error) && error.code === "ENOENT") {
         throw new DirectoryNotFound(`The requested directory "${path}" does not exist!`);

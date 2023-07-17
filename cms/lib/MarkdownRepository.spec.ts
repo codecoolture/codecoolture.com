@@ -8,19 +8,17 @@ describe("MarkdownRepository", () => {
 
   describe(".fromDirectory", () => {
     it("throws an error if the root directory does not exist", async () => {
-      await expect(MarkdownRepository.fromDirectory("not-found-directory")).rejects.toThrowError(DirectoryNotFound);
+      expect(() => MarkdownRepository.fromDirectory("not-found-directory")).toThrowError(DirectoryNotFound);
     });
 
     it("builds the instance otherwise", async () => {
-      await expect(MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH))).resolves.toBeInstanceOf(
-        MarkdownRepository,
-      );
+      expect(MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH))).toBeInstanceOf(MarkdownRepository);
     });
   });
 
   describe("#all", () => {
     it("returns an empty collection if there are no markdowns", async () => {
-      const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./empty"));
+      const subject = MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./empty"));
 
       const result = await subject.all();
 
@@ -28,7 +26,7 @@ describe("MarkdownRepository", () => {
     });
 
     it("returns all the available markdown files sorted by date", async () => {
-      const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./examples"));
+      const subject = MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./examples"));
 
       const result = await subject.all();
 
@@ -47,7 +45,7 @@ describe("MarkdownRepository", () => {
 
     describe("working with drafts", () => {
       it("does not return drafts by default", async () => {
-        const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./drafts"));
+        const subject = MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./drafts"));
 
         const results = await subject.all();
 
@@ -59,7 +57,7 @@ describe("MarkdownRepository", () => {
       });
 
       it("does not return drafts if explicitly asked not to", async () => {
-        const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./drafts"));
+        const subject = MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./drafts"));
 
         const results = await subject.all({ drafts: false });
 
@@ -71,7 +69,7 @@ describe("MarkdownRepository", () => {
       });
 
       it("returns drafts if asked to", async () => {
-        const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./drafts"));
+        const subject = MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./drafts"));
 
         const results = await subject.all({ drafts: true });
 
@@ -89,13 +87,13 @@ describe("MarkdownRepository", () => {
 
   describe("#show", () => {
     it("throws an exception if the file does not exist", async () => {
-      const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./examples"));
+      const subject = MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./examples"));
 
       await expect(subject.show("non-existing")).rejects.toThrowError(FileNotFound);
     });
 
     it("returns the file otherwise", async () => {
-      const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./examples"));
+      const subject = MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./examples"));
 
       const result = await subject.show("first-article.md");
 
@@ -108,14 +106,14 @@ describe("MarkdownRepository", () => {
 
     describe("working with drafts", () => {
       it("throws an exception if the file is a draft and drafts are not allowed", async () => {
-        const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./drafts"));
+        const subject = MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./drafts"));
 
         await expect(subject.show("draft.md")).rejects.toThrowError(FileNotFound);
         await expect(subject.show("draft.md", { drafts: false })).rejects.toThrowError(FileNotFound);
       });
 
       it("returns the file if it is a draft and drafts are allowed", async () => {
-        const subject = await MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./drafts"));
+        const subject = MarkdownRepository.fromDirectory(join(FIXTURES_DIR_PATH, "./drafts"));
 
         const result = await subject.show("draft.md", { drafts: true });
 
