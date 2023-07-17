@@ -65,7 +65,7 @@ export function Post({ breadcrumbs, mdx, post }: PostProps) {
               {...mdx}
             />
 
-            <Collections collections={post.collections} />
+            <Collections className="Post__Collections" collections={post.collections} />
 
             <Footer post={post} />
           </Application.Column>
