@@ -1,11 +1,11 @@
 ---
-date: "2022-11-26"
+date: "2023-07-18"
 spoiler: ""
-title: "Opinions on managing software projects."
-url: "/notes/managing-software-projects"
+title: "Opinions on running software projects."
+url: "/notes/opinions"
 ---
 
-# Opinions on managing software projects
+# Opinions on running software projects
 
 Don’t try to parallelize the work too early. Instead, use pair-programming or
 ensemble-programming sessions to create a shared understanding of the
@@ -36,3 +36,16 @@ analytics events) and architecture decision records (ADRs), so future engineers
 can understand the WHY of the existing design decisions.
 
 Tackle the tasks with the most uncertainty first.
+
+Slice wisely. Rather than slicing by technical layers (for example, creating one
+task for front-end work and another for back-end work), use slices that make
+business sense and provide value (i.e., the minimum viable feature). This
+enables shorter feedback loops and reduces integration problems.
+
+If using a pull-requests-based workflow, break the rule of one feature = one
+(often giant) pull request. Use stacked pull requests to generate small
+reviewable units.
+
+[Defer commitment]
+
+[Baby steps]
