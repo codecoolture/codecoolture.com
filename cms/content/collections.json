@@ -11,6 +11,14 @@
     {
       "slug": "tdd",
       "name": "Test-Driven Development"
+    },
+    {
+      "slug": "software-delivery",
+      "name": "Software Delivery"
+    },
+    {
+      "slug": "testing",
+      "name": "Testing"
     }
   ]
 }
