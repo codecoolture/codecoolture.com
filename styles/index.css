@@ -1,9 +1,9 @@
 @import "@radix-ui/colors/gray.css";
-@import "@radix-ui/colors/grayDark.css";
+@import "@radix-ui/colors/gray-dark.css";
 @import "@radix-ui/colors/indigo.css";
-@import "@radix-ui/colors/indigoDark.css";
+@import "@radix-ui/colors/indigo-dark.css";
 @import "@radix-ui/colors/yellow.css";
-@import "@radix-ui/colors/yellowDark.css";
+@import "@radix-ui/colors/yellow-dark.css";
 
 @import "../components/Blockquote/style.css";
 @import "../components/Breadcrumbs/style.css";
@@ -47,44 +47,44 @@
 
 :root,
 .dark-theme {
-  --c-gray-1: var(--gray1);
-  --c-gray-2: var(--gray2);
-  --c-gray-3: var(--gray3);
-  --c-gray-4: var(--gray4);
-  --c-gray-5: var(--gray5);
-  --c-gray-6: var(--gray6);
-  --c-gray-7: var(--gray7);
-  --c-gray-8: var(--gray8);
-  --c-gray-9: var(--gray9);
-  --c-gray-10: var(--gray10);
-  --c-gray-11: var(--gray11);
-  --c-gray-12: var(--gray12);
+  --c-gray-1: var(--gray-1);
+  --c-gray-2: var(--gray-2);
+  --c-gray-3: var(--gray-3);
+  --c-gray-4: var(--gray-4);
+  --c-gray-5: var(--gray-5);
+  --c-gray-6: var(--gray-6);
+  --c-gray-7: var(--gray-7);
+  --c-gray-8: var(--gray-8);
+  --c-gray-9: var(--gray-9);
+  --c-gray-10: var(--gray-10);
+  --c-gray-11: var(--gray-11);
+  --c-gray-12: var(--gray-12);
 
-  --c-indigo-1: var(--indigo1);
-  --c-indigo-2: var(--indigo2);
-  --c-indigo-3: var(--indigo3);
-  --c-indigo-4: var(--indigo4);
-  --c-indigo-5: var(--indigo5);
-  --c-indigo-6: var(--indigo6);
-  --c-indigo-7: var(--indigo7);
-  --c-indigo-8: var(--indigo8);
-  --c-indigo-9: var(--indigo9);
-  --c-indigo-10: var(--indigo10);
-  --c-indigo-11: var(--indigo11);
-  --c-indigo-12: var(--indigo12);
+  --c-indigo-1: var(--indigo-1);
+  --c-indigo-2: var(--indigo-2);
+  --c-indigo-3: var(--indigo-3);
+  --c-indigo-4: var(--indigo-4);
+  --c-indigo-5: var(--indigo-5);
+  --c-indigo-6: var(--indigo-6);
+  --c-indigo-7: var(--indigo-7);
+  --c-indigo-8: var(--indigo-8);
+  --c-indigo-9: var(--indigo-9);
+  --c-indigo-10: var(--indigo-10);
+  --c-indigo-11: var(--indigo-11);
+  --c-indigo-12: var(--indigo-12);
 
-  --c-yellow-1: var(--yellow1);
-  --c-yellow-2: var(--yellow2);
-  --c-yellow-3: var(--yellow3);
-  --c-yellow-4: var(--yellow4);
-  --c-yellow-5: var(--yellow5);
-  --c-yellow-6: var(--yellow6);
-  --c-yellow-7: var(--yellow7);
-  --c-yellow-8: var(--yellow8);
-  --c-yellow-9: var(--yellow9);
-  --c-yellow-10: var(--yellow10);
-  --c-yellow-11: var(--yellow11);
-  --c-yellow-12: var(--yellow12);
+  --c-yellow-1: var(--yellow-1);
+  --c-yellow-2: var(--yellow-2);
+  --c-yellow-3: var(--yellow-3);
+  --c-yellow-4: var(--yellow-4);
+  --c-yellow-5: var(--yellow-5);
+  --c-yellow-6: var(--yellow-6);
+  --c-yellow-7: var(--yellow-7);
+  --c-yellow-8: var(--yellow-8);
+  --c-yellow-9: var(--yellow-9);
+  --c-yellow-10: var(--yellow-10);
+  --c-yellow-11: var(--yellow-11);
+  --c-yellow-12: var(--yellow-12);
 
   --c-white: #fff;
 }
