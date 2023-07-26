@@ -1,3 +1,4 @@
+import { orderBy } from "lodash";
 import NextLink from "next/link";
 
 import { ApiCollection } from "@/cms/api/ApiCollection";
@@ -15,7 +16,7 @@ export function Collections(props: CollectionsProps) {
 
   return (
     <ul className={classNames("Collections", props.className)}>
-      {props.collections.map((collection) => (
+      {orderBy(props.collections, (collection) => collection.slug, "asc").map((collection) => (
         <li key={collection.slug}>
           <NextLink className="Collections__Collection" href={`/collections/${collection.slug}`}>
             #{collection.slug}
