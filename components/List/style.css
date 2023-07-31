@@ -28,12 +28,12 @@
   content: "";
 
   box-sizing: border-box;
-  border: 0.1em solid var(--gray6);
+  border: 0.1em solid var(--c-gray-6);
   flex-shrink: 0;
   height: 0.75rem;
   margin-right: 10px;
   width: 0.75rem;
-  background-color: var(--gray3);
+  background-color: var(--c-gray-3);
   border-radius: 100%;
 
   box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.05);
