@@ -40,6 +40,13 @@ export class RssFeedGenerator {
 
     for (const apiArticle of apiArticlesFromNewestToOldest) {
       feed.addItem({
+        author: [
+          {
+            email: "hola@codecoolture.com",
+            link: "https://codecoolture.com/about",
+            name: "Sergio Álvarez",
+          },
+        ],
         title: apiArticle.title,
         id: `${BASE_URL}${apiArticle.url}`,
         link: `${BASE_URL}${apiArticle.url}`,
