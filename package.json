@@ -20,7 +20,7 @@
     "react-dom": "18.2.0",
     "react-icons": "4.10.1",
     "remark-unwrap-images": "3.0.1",
-    "zod": "3.21.4"
+    "zod": "3.22.2"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "13.4.13",
