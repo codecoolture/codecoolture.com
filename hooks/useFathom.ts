@@ -8,8 +8,8 @@ export const useFathom = () => {
   useEffect(() => {
     Fathom.load("UGMTAFWE", {
       canonical: false,
+      honorDNT: true,
       includedDomains: ["codecoolture.com"],
-      url: "https://stingray.codecoolture.com/script.js",
     });
 
     function onRouteChangeComplete() {
