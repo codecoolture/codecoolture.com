@@ -1,6 +1,6 @@
 import { capitalize } from "lodash";
 import React from "react";
-import { FaGithub, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaXTwitter } from "react-icons/fa6";
 
 import { ApiArticle } from "@/cms/api/ApiArticle";
 
@@ -8,7 +8,7 @@ type ChipProps = { children: React.ReactNode; href: string; type: "twitter" | "g
 
 const Chip = ({ children, href, type }: ChipProps) => {
   const kype = capitalize(type);
-  const Icon = type === "twitter" ? FaTwitter : FaGithub;
+  const Icon = type === "twitter" ? FaXTwitter : FaGithub;
 
   const classes = ["Post__Footer__Chip", `Post__Footer__Chip--${kype}`].join(" ");
 
@@ -29,10 +29,7 @@ export function Footer({ post }: FooterProps) {
 
   return (
     <footer className="Post__Footer">
-      <Chip
-        type="twitter"
-        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareableUrl)}&text=${tweet}`}
-      >
+      <Chip type="twitter" href={`https://x.com/intent/tweet?url=${encodeURIComponent(shareableUrl)}&text=${tweet}`}>
         Share on Twitter
       </Chip>
 
