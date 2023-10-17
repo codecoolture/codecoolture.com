@@ -1,35 +1,31 @@
 .Post__Footer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   font-size: var(--fs-s);
-  gap: 1rem;
-  justify-content: center;
-  margin: 3rem 0 1rem;
+  margin: 2rem 0 1rem;
 }
 
-.Post__Footer__Chip {
+.Post__Footer__List {
   align-items: center;
-  display: inline-flex;
-  justify-content: center;
-  max-width: 100%;
-  min-width: calc(200px - 1.5em);
-  padding: 0.35em 0.75em;
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  justify-content: end;
 
-  border-radius: 3px;
-  text-decoration: none;
+  list-style-type: none;
 }
 
-.Post__Footer__Chip--Twitter {
-  background-color: #24292f;
-  color: var(--c-white);
+.Post__Footer__ListItem {
+  align-items: center;
+  display: flex;
 }
 
-.Post__Footer__Chip--Github {
-  background-color: #24292f;
-  color: var(--c-white);
+.Post__Footer__ListItem:not(:first-child)::before {
+  content: "·";
+  margin-right: 0.5rem;
+
+  color: var(--c-gray-11);
 }
 
-.Post__Footer__Chip__Icon {
-  margin-right: 0.5em;
+.Post__Footer__Link {
+  color: var(--c-gray-11);
 }
