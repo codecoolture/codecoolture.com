@@ -9,7 +9,7 @@
     "@mdx-js/loader": "2.3.0",
     "@mdx-js/react": "2.3.0",
     "@next/mdx": "13.4.19",
-    "@radix-ui/colors": "2.0.1",
+    "@radix-ui/colors": "2.1.0",
     "fathom-client": "3.5.0",
     "front-matter": "4.0.2",
     "lodash": "4.17.21",
