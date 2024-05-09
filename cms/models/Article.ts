@@ -21,7 +21,11 @@ export class Article {
     return new Article(content, metadata, collections);
   }
 
-  private constructor(private content: string, private metadata: Metadata, private collections: Collection[]) {}
+  private constructor(
+    private content: string,
+    private metadata: Metadata,
+    private collections: Collection[],
+  ) {}
 
   public isDraft() {
     return !this.metadata.published;

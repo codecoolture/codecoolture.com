@@ -1,7 +1,10 @@
 import { ApiCollection } from "@/cms/api/ApiCollection";
 
 export class Collection {
-  constructor(private slug: string, private name: string) {}
+  constructor(
+    private slug: string,
+    private name: string,
+  ) {}
 
   public getSlug() {
     return this.slug;
