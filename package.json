@@ -45,8 +45,7 @@
     "prettier": "2.8.8",
     "start-server-and-test": "2.0.1",
     "ts-jest": "29.1.1",
-    "ts-node": "10.9.1",
-    "tsconfig-paths": "4.2.0",
+    "tsx": "4.9.3",
     "typescript": "5.4.5"
   },
   "scripts": {
@@ -61,7 +60,7 @@
     "lint": "eslint --ext .tsx --ext .ts .",
     "start": "next start",
     "test": "jest",
-    "ts:exec": "TS_NODE_PROJECT=\"tsconfig.cli.json\" node node_modules/.bin/ts-node -T",
+    "ts:exec": "tsx",
     "typecheck": "tsc --noEmit"
   }
 }
