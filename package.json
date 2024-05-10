@@ -6,8 +6,8 @@
   "private": true,
   "dependencies": {
     "@mapbox/rehype-prism": "0.8.0",
-    "@mdx-js/loader": "2.3.0",
-    "@mdx-js/react": "2.3.0",
+    "@mdx-js/loader": "3.0.1",
+    "@mdx-js/react": "3.0.1",
     "@next/mdx": "13.4.19",
     "@radix-ui/colors": "2.1.0",
     "fathom-client": "3.5.0",
@@ -45,9 +45,8 @@
     "prettier": "3.2.5",
     "start-server-and-test": "2.0.3",
     "ts-jest": "29.1.2",
-    "ts-node": "10.9.2",
-    "tsconfig-paths": "4.2.0",
-    "typescript": "5.1.6"
+    "tsx": "4.9.3",
+    "typescript": "5.4.5"
   },
   "scripts": {
     "analyze": "yarn lint && yarn typecheck",
@@ -61,7 +60,7 @@
     "lint": "eslint --ext .tsx --ext .ts .",
     "start": "next start",
     "test": "jest",
-    "ts:exec": "TS_NODE_PROJECT=\"tsconfig.cli.json\" node node_modules/.bin/ts-node -T",
+    "ts:exec": "tsx",
     "typecheck": "tsc --noEmit"
   }
 }
