@@ -37,12 +37,12 @@
   --ff-sans-serif: var(--font-ibm-plex-sans);
   --ff-monospace: var(--font-ibm-plex-mono);
 
-  --fs-xl: 2.5em;
-  --fs-l: 1.5em;
+  --fs-xl: 2.5rem;
+  --fs-l: 1.5rem;
   --fs-m: 18px;
-  --fs-s: 0.8em;
-  --fs-xs: 0.6em;
-  --fs-xxs: 0.5em;
+  --fs-s: 0.8rem;
+  --fs-xs: 0.6rem;
+  --fs-xxs: 0.5rem;
 }
 
 :root,
