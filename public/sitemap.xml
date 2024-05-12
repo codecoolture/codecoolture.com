@@ -1,174 +1,214 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url>
-  <loc>https://codecoolture.com/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/blog/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/about/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/contact/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/now/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/uses/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/blog/testing-the-unexpected/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/blog/feature-flags-con-react-typescript/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/blog/test-driven-front-end-development/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/blog/applying-atdd-to-game-of-life/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/blog/decoupling-vcs-from-software-delivery/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/blog/react-multiple-render/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/blog/javascript-naked-code/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/blog/branch-by-abstraction-react/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/rss-for-next-blog/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/quarterlinks-q3-2021/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/quarterlinks-q2-2021/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/quarterlinks-q1-2021/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/quarterlinks-q4-2020/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/liderazgo-tecnico-generacion-espacios/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/quarterlinks-q3-2020/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/quarterlinks-q2-2020/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/portfolio-blog-nextjs/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/quarterlinks-q1-2020/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/object-oriented-reengineering-patterns/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/effective-code-reviews/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/quarterlinks-q4-2019/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/quarterlinks-q3-2019/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/dotfiles/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/a-philosophy-of-software-design/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/tdd-workshop-asturias-hacking/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://codecoolture.com/notes/the-nature-of-software-development/</loc>
-  <lastmod>2022-09-21T09:46:39+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>https://codecoolture.com/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/blog/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/about/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/opinions/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/blog/react-compound-components/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/blog/builder-pattern-for-test-data/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/rss-for-next-blog/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/quarterlinks-q3-2021/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/contact/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/now/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/uses/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/blog/testing-the-unexpected/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/blog/feature-flags-con-react-typescript/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/blog/test-driven-front-end-development/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/blog/applying-atdd-to-game-of-life/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/blog/decoupling-vcs-from-software-delivery/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/blog/react-multiple-render/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/blog/javascript-naked-code/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/blog/branch-by-abstraction-react/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/quarterlinks-q2-2021/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/quarterlinks-q1-2021/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/quarterlinks-q4-2020/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/liderazgo-tecnico-generacion-espacios/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/quarterlinks-q3-2020/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/quarterlinks-q2-2020/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/portfolio-blog-nextjs/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/quarterlinks-q1-2020/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/object-oriented-reengineering-patterns/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/effective-code-reviews/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/quarterlinks-q4-2019/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/quarterlinks-q3-2019/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/dotfiles/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/a-philosophy-of-software-design/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/tdd-workshop-asturias-hacking/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/notes/the-nature-of-software-development/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/collections/react/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/collections/testing/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/collections/software-delivery/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/collections/tdd/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/collections/books/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://codecoolture.com/collections/code-review/</loc>
+    <lastmod>2024-05-12T09:47:41+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
 </urlset>
