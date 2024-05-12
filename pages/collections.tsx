@@ -1,12 +1,11 @@
 import { GetStaticProps } from "next";
-import NextLink from "next/link";
 
 import { ApiCollection } from "@/cms/api/ApiCollection";
 import { getCollectionRepository } from "@/cms/repositories";
-import { Application } from "@/layouts/Application";
+import { Collections } from "@/components/Collections";
 import { Heading } from "@/components/Heading";
 import { Text } from "@/components/Text";
-import { Link } from "@/components/Link";
+import { Application } from "@/layouts/Application";
 
 type CollectionsPageProps = {
   collections: ApiCollection[];
@@ -22,15 +21,7 @@ export default function CollectionsPage(props: CollectionsPageProps) {
 
         <Text size="l">Articles are sometimes grouped into collections. Here you may find all of them.</Text>
 
-        <ul className="Page__Collections">
-          {props.collections.map((collection) => (
-            <li key={collection.slug}>
-              <Link as={NextLink} href={`/collections/${collection.slug}`}>
-                #{collection.slug}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <Collections collections={props.collections} />
       </Application.Article>
     </Application>
   );

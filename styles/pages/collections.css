@@ -1,6 +1,0 @@
-.Page__Collections {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-  list-style-type: none;
-}

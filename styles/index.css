@@ -28,7 +28,6 @@
 @import "../layouts/Posts/style.css";
 
 @import "./pages/index.css";
-@import "./pages/collections.css";
 @import "./pages/collections/[slug].css";
 
 :root {
