@@ -78,7 +78,17 @@ export function Footer() {
           </ul>
 
           <button className="AppFooter__DarkModeToggle" onClick={() => toggleDarkMode()}>
-            {isDarkModeEnabled ? <RxSun /> : <RxMoon />}
+            {isDarkModeEnabled && (
+              <>
+                <RxSun /> Use light mode
+              </>
+            )}
+
+            {!isDarkModeEnabled && (
+              <>
+                <RxMoon /> Use dark mode
+              </>
+            )}
           </button>
         </div>
       </Application.Column>
