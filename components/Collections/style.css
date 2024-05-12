@@ -6,7 +6,7 @@
 }
 
 .Collections__Collection {
-  border: 2px solid var(--c-gray-7);
+  border: 1px solid var(--c-gray-7);
   border-radius: 3px;
   display: block;
   font-size: var(--fs-s);
@@ -16,7 +16,10 @@
   color: var(--c-gray-11);
   text-decoration: none;
 
-  transition: color 150ms ease-in-out, background-color 150ms ease-in-out, border-color 150ms ease-in-out;
+  transition:
+    color 150ms ease-in-out,
+    background-color 150ms ease-in-out,
+    border-color 150ms ease-in-out;
 }
 
 .Collections__Collection:hover {

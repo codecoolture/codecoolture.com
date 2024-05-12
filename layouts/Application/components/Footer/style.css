@@ -66,7 +66,7 @@
 
 .AppFooter__Links__Link {
   align-items: center;
-  border: 2px solid var(--c-yellow-7);
+  border: 1px solid var(--c-yellow-7);
   display: flex;
   font-size: var(--fs-s);
   justify-content: center;
@@ -88,7 +88,7 @@
 
 .AppFooter__DarkModeToggle {
   align-items: center;
-  border: 2px solid var(--c-gray-7);
+  border: 1px solid var(--c-gray-7);
   display: flex;
   font-size: var(--fs-s);
   gap: 0.5em;
