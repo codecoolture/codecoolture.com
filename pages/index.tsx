@@ -28,11 +28,11 @@ export default function Homepage({ publications }: HomepageProps) {
           </Text>
 
           <Text size="m">
-            With +10 years of experience, I have an approach to software development significantly influenced by{" "}
-            <Link href="https://en.wikipedia.org/wiki/Extreme_programming">Extreme Programming</Link> practices (working
-            in small batches, test-driven development, and continuous integration). I’m particularly interested in
-            software design, biased towards easy-to-understand software solutions. I’ve combined long periods of working
-            as full-stack engineer with periods leading software teams.
+            With over 10 years of experience, my approach to software development is significantly influenced by{" "}
+            <Link href="https://en.wikipedia.org/wiki/Extreme_programming">Extreme Programming</Link> practices, such as
+            working in small batches, test-driven development, and continuous integration. I’m particularly interested
+            in software design, favoring easy-to-understand software solutions. I’ve combined long periods of working as
+            a full-stack engineer with periods of leading software teams.
           </Text>
 
           <Heading el="h2" size="xl" className="Homepage__Heading">
