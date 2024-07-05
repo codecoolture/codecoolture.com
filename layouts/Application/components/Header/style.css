@@ -1,14 +1,8 @@
 .AppHeader {
   box-sizing: border-box;
   padding: 1em 0;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1;
 
   color: var(--c-gray-12);
-
-  backdrop-filter: blur(4px) saturate(120%);
 }
 
 .Menu {
