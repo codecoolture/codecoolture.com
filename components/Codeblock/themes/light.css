@@ -1,8 +1,86 @@
 /**
- * prism.js default theme for JavaScript, CSS and HTML
- * Based on dabblet (http://dabblet.com)
- * @author Lea Verou
+ * Theme: Atom One Light
  */
+
+.Codeblock:not(.Codeblock--Dark) pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+}
+
+.Codeblock:not(.Codeblock--Dark) .hljs {
+  color: #383a42;
+}
+
+.Codeblock:not(.Codeblock--Dark) .hljs-comment,
+.Codeblock:not(.Codeblock--Dark) .hljs-quote {
+  color: #a0a1a7;
+  font-style: italic;
+}
+
+.Codeblock:not(.Codeblock--Dark) .hljs-doctag,
+.Codeblock:not(.Codeblock--Dark) .hljs-formula,
+.Codeblock:not(.Codeblock--Dark) .hljs-keyword {
+  color: #a626a4;
+}
+
+.Codeblock:not(.Codeblock--Dark) .hljs-deletion,
+.Codeblock:not(.Codeblock--Dark) .hljs-name,
+.Codeblock:not(.Codeblock--Dark) .hljs-section,
+.Codeblock:not(.Codeblock--Dark) .hljs-selector-tag,
+.Codeblock:not(.Codeblock--Dark) .hljs-subst {
+  color: #e45649;
+}
+
+.Codeblock:not(.Codeblock--Dark) .hljs-literal {
+  color: #0184bb;
+}
+
+.Codeblock:not(.Codeblock--Dark) .hljs-addition,
+.Codeblock:not(.Codeblock--Dark) .hljs-attribute,
+.Codeblock:not(.Codeblock--Dark) .hljs-meta .hljs-string,
+.Codeblock:not(.Codeblock--Dark) .hljs-regexp,
+.Codeblock:not(.Codeblock--Dark) .hljs-string {
+  color: #50a14f;
+}
+
+.Codeblock:not(.Codeblock--Dark) .hljs-attr,
+.Codeblock:not(.Codeblock--Dark) .hljs-number,
+.Codeblock:not(.Codeblock--Dark) .hljs-selector-attr,
+.Codeblock:not(.Codeblock--Dark) .hljs-selector-class,
+.Codeblock:not(.Codeblock--Dark) .hljs-selector-pseudo,
+.Codeblock:not(.Codeblock--Dark) .hljs-template-variable,
+.Codeblock:not(.Codeblock--Dark) .hljs-type,
+.Codeblock:not(.Codeblock--Dark) .hljs-variable {
+  color: #986801;
+}
+
+.Codeblock:not(.Codeblock--Dark) .hljs-bullet,
+.Codeblock:not(.Codeblock--Dark) .hljs-link,
+.Codeblock:not(.Codeblock--Dark) .hljs-meta,
+.Codeblock:not(.Codeblock--Dark) .hljs-selector-id,
+.Codeblock:not(.Codeblock--Dark) .hljs-symbol,
+.Codeblock:not(.Codeblock--Dark) .hljs-title {
+  color: #4078f2;
+}
+
+.Codeblock:not(.Codeblock--Dark) .hljs-built_in,
+.Codeblock:not(.Codeblock--Dark) .hljs-class .hljs-title,
+.Codeblock:not(.Codeblock--Dark) .hljs-title.class_ {
+  color: #c18401;
+}
+
+.Codeblock:not(.Codeblock--Dark) .hljs-emphasis {
+  font-style: italic;
+}
+
+.Codeblock:not(.Codeblock--Dark) .hljs-strong {
+  font-weight: 700;
+}
+
+.Codeblock:not(.Codeblock--Dark) .hljs-link {
+  text-decoration: underline;
+}
 
 .Codeblock:not(.Codeblock--Dark) code[class*="language-"],
 .Codeblock:not(.Codeblock--Dark) pre[class*="language-"] {

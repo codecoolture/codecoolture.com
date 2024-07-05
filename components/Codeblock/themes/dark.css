@@ -1,114 +1,82 @@
 /**
- * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
- * Based on https://github.com/chriskempson/tomorrow-theme
- * @author Rose Pritchard
+ * Theme: Atom One Dark
  */
-
-.Codeblock.Codeblock--Dark code[class*="language-"],
-.Codeblock.Codeblock--Dark pre[class*="language-"] {
-  color: #ccc;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.5;
-
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
-}
-
-/* Code blocks */
-.Codeblock.Codeblock--Dark pre[class*="language-"] {
+.Codeblock.Codeblock--Dark pre code.hljs {
+  display: block;
+  overflow-x: auto;
   padding: 1em;
-  margin: 0.5em 0;
-  overflow: auto;
 }
 
-/* Inline code */
-.Codeblock.Codeblock--Dark :not(pre) > code[class*="language-"] {
-  padding: 0.1em;
-  border-radius: 0.3em;
-  white-space: normal;
+.Codeblock.Codeblock--Dark .hljs {
+  color: #abb2bf;
 }
 
-.Codeblock.Codeblock--Dark .token.comment,
-.Codeblock.Codeblock--Dark .token.block-comment,
-.Codeblock.Codeblock--Dark .token.prolog,
-.Codeblock.Codeblock--Dark .token.doctype,
-.Codeblock.Codeblock--Dark .token.cdata {
-  color: #999;
-}
-
-.Codeblock.Codeblock--Dark .token.punctuation {
-  color: #ccc;
-}
-
-.Codeblock.Codeblock--Dark .token.tag,
-.Codeblock.Codeblock--Dark .token.attr-name,
-.Codeblock.Codeblock--Dark .token.namespace,
-.Codeblock.Codeblock--Dark .token.deleted {
-  color: #e2777a;
-}
-
-.Codeblock.Codeblock--Dark .token.function-name {
-  color: #6196cc;
-}
-
-.Codeblock.Codeblock--Dark .token.boolean,
-.Codeblock.Codeblock--Dark .token.number,
-.Codeblock.Codeblock--Dark .token.function {
-  color: #f08d49;
-}
-
-.Codeblock.Codeblock--Dark .token.property,
-.Codeblock.Codeblock--Dark .token.class-name,
-.Codeblock.Codeblock--Dark .token.constant,
-.Codeblock.Codeblock--Dark .token.symbol {
-  color: #f8c555;
-}
-
-.Codeblock.Codeblock--Dark .token.selector,
-.Codeblock.Codeblock--Dark .token.important,
-.Codeblock.Codeblock--Dark .token.atrule,
-.Codeblock.Codeblock--Dark .token.keyword,
-.Codeblock.Codeblock--Dark .token.builtin {
-  color: #cc99cd;
-}
-
-.Codeblock.Codeblock--Dark .token.string,
-.Codeblock.Codeblock--Dark .token.char,
-.Codeblock.Codeblock--Dark .token.attr-value,
-.Codeblock.Codeblock--Dark .token.regex,
-.Codeblock.Codeblock--Dark .token.variable {
-  color: #7ec699;
-}
-
-.Codeblock.Codeblock--Dark .token.operator,
-.Codeblock.Codeblock--Dark .token.entity,
-.Codeblock.Codeblock--Dark .token.url {
-  color: #67cdcc;
-}
-
-.Codeblock.Codeblock--Dark .token.important,
-.Codeblock.Codeblock--Dark .token.bold {
-  font-weight: bold;
-}
-
-.Codeblock.Codeblock--Dark .token.italic {
+.Codeblock.Codeblock--Dark .hljs-comment,
+.Codeblock.Codeblock--Dark .hljs-quote {
+  color: #5c6370;
   font-style: italic;
 }
 
-.Codeblock.Codeblock--Dark .token.entity {
-  cursor: help;
+.Codeblock.Codeblock--Dark .hljs-doctag,
+.Codeblock.Codeblock--Dark .hljs-formula,
+.Codeblock.Codeblock--Dark .hljs-keyword {
+  color: #c678dd;
 }
 
-.Codeblock.Codeblock--Dark .token.inserted {
-  color: green;
+.Codeblock.Codeblock--Dark .hljs-deletion,
+.Codeblock.Codeblock--Dark .hljs-name,
+.Codeblock.Codeblock--Dark .hljs-section,
+.Codeblock.Codeblock--Dark .hljs-selector-tag,
+.Codeblock.Codeblock--Dark .hljs-subst {
+  color: #e06c75;
+}
+
+.Codeblock.Codeblock--Dark .hljs-literal {
+  color: #56b6c2;
+}
+
+.Codeblock.Codeblock--Dark .hljs-addition,
+.Codeblock.Codeblock--Dark .hljs-attribute,
+.Codeblock.Codeblock--Dark .hljs-meta .hljs-string,
+.Codeblock.Codeblock--Dark .hljs-regexp,
+.Codeblock.Codeblock--Dark .hljs-string {
+  color: #98c379;
+}
+
+.Codeblock.Codeblock--Dark .hljs-attr,
+.Codeblock.Codeblock--Dark .hljs-number,
+.Codeblock.Codeblock--Dark .hljs-selector-attr,
+.Codeblock.Codeblock--Dark .hljs-selector-class,
+.Codeblock.Codeblock--Dark .hljs-selector-pseudo,
+.Codeblock.Codeblock--Dark .hljs-template-variable,
+.Codeblock.Codeblock--Dark .hljs-type,
+.Codeblock.Codeblock--Dark .hljs-variable {
+  color: #d19a66;
+}
+
+.Codeblock.Codeblock--Dark .hljs-bullet,
+.Codeblock.Codeblock--Dark .hljs-link,
+.Codeblock.Codeblock--Dark .hljs-meta,
+.Codeblock.Codeblock--Dark .hljs-selector-id,
+.Codeblock.Codeblock--Dark .hljs-symbol,
+.Codeblock.Codeblock--Dark .hljs-title {
+  color: #61aeee;
+}
+
+.Codeblock.Codeblock--Dark .hljs-built_in,
+.Codeblock.Codeblock--Dark .hljs-class .hljs-title,
+.Codeblock.Codeblock--Dark .hljs-title.class_ {
+  color: #e6c07b;
+}
+
+.Codeblock.Codeblock--Dark .hljs-emphasis {
+  font-style: italic;
+}
+
+.Codeblock.Codeblock--Dark .hljs-strong {
+  font-weight: 700;
+}
+
+.Codeblock.Codeblock--Dark .hljs-link {
+  text-decoration: underline;
 }

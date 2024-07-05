@@ -4,6 +4,8 @@
 .Codeblock {
   font-size: var(--fs-s);
   margin-bottom: 1em;
+  overflow-x: scroll;
+  padding: 1em;
 
   background-color: var(--c-gray-2);
 }
@@ -14,4 +16,5 @@
   padding: 0;
 
   background: none;
+  color: currentColor;
 }
