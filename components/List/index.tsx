@@ -1,8 +1,8 @@
 import { classNames } from "@/lib/classNames";
 
-function Item({ children }: Pick<JSX.IntrinsicElements["li"], "children">) {
+function Item({ children, id }: Pick<JSX.IntrinsicElements["li"], "children" | "id">) {
   return (
-    <li className="List__Item">
+    <li className="List__Item" id={id}>
       <span>{children}</span>
     </li>
   );

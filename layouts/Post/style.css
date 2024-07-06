@@ -20,3 +20,19 @@
 .Post__Collections {
   margin-top: 2em;
 }
+
+/* Handling footnotes */
+
+.Post sup {
+  font-size: var(--fs-xs);
+}
+
+.Post .footnotes {
+  border-top: 1px solid var(--c-gray-6);
+  font-size: var(--fs-xs);
+  margin-top: 2em;
+}
+
+.Post .footnotes h2 {
+  display: none;
+}

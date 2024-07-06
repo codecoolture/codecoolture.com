@@ -3,6 +3,7 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import React from "react";
 import rehypeHighligh from "rehype-highlight";
+import remarkGfm from "remark-gfm";
 import remarkUnwrapImages from "remark-unwrap-images";
 
 import { ApiArticle } from "@/cms/api/ApiArticle";
@@ -49,7 +50,7 @@ export const getStaticProps: GetStaticProps<ArticleProps> = async ({ params }) =
       mdx: await serialize(article.getContent(), {
         mdxOptions: {
           rehypePlugins: [rehypeHighligh],
-          remarkPlugins: [remarkUnwrapImages],
+          remarkPlugins: [remarkGfm, remarkUnwrapImages],
         },
       }),
     },
