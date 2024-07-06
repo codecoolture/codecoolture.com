@@ -44,7 +44,7 @@
     "marked": "4.3.0",
     "prettier": "3.2.5",
     "start-server-and-test": "2.0.4",
-    "ts-jest": "29.1.2",
+    "ts-jest": "29.1.5",
     "tsx": "4.9.3",
     "typescript": "5.4.5"
   },
