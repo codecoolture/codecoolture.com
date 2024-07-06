@@ -3,7 +3,7 @@ import { classNames } from "@/lib/classNames";
 function Item({ children, id }: Pick<JSX.IntrinsicElements["li"], "children" | "id">) {
   return (
     <li className="List__Item" id={id}>
-      <span>{children}</span>
+      <div className="List__Item__Wrapper">{children}</div>
     </li>
   );
 }
