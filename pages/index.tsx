@@ -1,5 +1,6 @@
 import { orderBy } from "lodash";
 import { GetStaticProps } from "next";
+import Image from "next/image";
 
 import { ApiArticle } from "@/cms/api/ApiArticle";
 import { getBlogpostRepository, getNotesRepository } from "@/cms/repositories";
@@ -20,11 +21,13 @@ export default function Homepage({ publications }: HomepageProps) {
       <section className="Homepage">
         <div className="Application__Column">
           <Heading el="h1" size="jumbo">
-            Hola! 👋
+            Hola 👋
           </Heading>
 
           <Text size="l">
-            I’m Sergio, a software engineer advocating for software development best practices and good software design.
+            I’m Sergio{" "}
+            <Image className="Homepage__Avatar" src="/static/img/sergio.jpg" alt="" width={120} height={120} />, a
+            software engineer advocating for software development best practices and good software design.
           </Text>
 
           <Text size="m">

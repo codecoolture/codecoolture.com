@@ -2,6 +2,15 @@
   padding: 5vh 0;
 }
 
+.Homepage__Avatar {
+  height: 60px;
+  width: 60px;
+
+  border-radius: 100%;
+
+  translate: 0 20%;
+}
+
 .Homepage__Heading {
   margin-bottom: 1em;
   margin-top: 1.5em;
