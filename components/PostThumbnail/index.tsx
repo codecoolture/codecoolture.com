@@ -17,12 +17,6 @@ export function PostThumbnail({ className, post }: PostThumbnailProps) {
 
   return (
     <div className={classes}>
-      <Heading el="p" size="m" className="PostThumbnail__Title">
-        <Link as={NextLink} href={post.url}>
-          {post.title}
-        </Link>
-      </Heading>
-
       <ul className="PostThumbnail__Subheading">
         <li className="PostThumbnail__Subheading__Item">
           <Timestamp className="PostThumbnail__Timestamp" date={post.date} />
@@ -40,6 +34,12 @@ export function PostThumbnail({ className, post }: PostThumbnailProps) {
           </li>
         )}
       </ul>
+
+      <Heading el="p" size="m" className="PostThumbnail__Title">
+        <Link as={NextLink} href={post.url}>
+          {post.title}
+        </Link>
+      </Heading>
 
       <Text>{post.spoiler}</Text>
     </div>
