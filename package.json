@@ -7,7 +7,7 @@
   "dependencies": {
     "@mdx-js/loader": "3.0.1",
     "@mdx-js/react": "3.0.1",
-    "@next/mdx": "13.4.19",
+    "@next/mdx": "13.5.7",
     "@radix-ui/colors": "2.1.0",
     "fathom-client": "3.5.0",
     "front-matter": "4.0.2",
