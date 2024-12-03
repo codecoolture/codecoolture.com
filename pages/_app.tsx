@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import { AppProps } from "next/app";
 import { IBM_Plex_Mono, IBM_Plex_Sans, IBM_Plex_Serif } from "next/font/google";
 import Head from "next/head";
@@ -45,6 +46,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
       <DarkModeProvider>
         <Component {...pageProps} />
+
+        <Analytics />
       </DarkModeProvider>
     </>
   );
