@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { FaGithub, FaLinkedin, FaMastodon, FaRss } from "react-icons/fa";
+import { FaBluesky, FaGithub, FaLinkedin, FaRss } from "react-icons/fa6";
 import { RxMoon, RxSun } from "react-icons/rx";
 
 import { useDarkMode } from "@/hooks";
@@ -42,11 +42,11 @@ export function Footer() {
           <ul className="AppFooter__Links">
             <li className="AppFooter__Links__Item">
               <a
-                href="https://mastodon.world/@codecoolture"
+                href="https://bsky.app/profile/sergio.codecoolture.com"
                 className="AppFooter__Links__Link"
-                aria-label="Go to Sergio's Mastodon profile"
+                aria-label="Go to Sergio's Bluesky profile"
               >
-                <FaMastodon />
+                <FaBluesky />
               </a>
             </li>
 
