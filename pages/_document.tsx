@@ -1,4 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 export default class MyDocument extends Document {
   public render() {
@@ -17,7 +18,14 @@ export default class MyDocument extends Document {
 
         <body>
           <Main />
+
           <NextScript />
+
+          <Script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"token": "6efcdbbf14834302a919baeeb3e0b0a8"}'
+          />
         </body>
       </Html>
     );
