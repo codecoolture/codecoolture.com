@@ -917,10 +917,10 @@
   dependencies:
     "@types/mdx" "^2.0.0"
 
-"@next/env@15.0.6":
-  version "15.0.6"
-  resolved "https://registry.yarnpkg.com/@next/env/-/env-15.0.6.tgz#bd9e829fe45efb4a724ef0724044f38713d98c0a"
-  integrity sha512-rZibc2hQig468lV1oT9wEb96z4rcYO6j9XbzCRMYr1xXFLOCB2aUBgO+qHTaJwlDgEcOcX6hmWaqUgXn+CXOXQ==
+"@next/env@15.0.7":
+  version "15.0.7"
+  resolved "https://registry.yarnpkg.com/@next/env/-/env-15.0.7.tgz#9b3ea3f47325f20510a1b42e94879c8d3a705ffa"
+  integrity sha512-g/v9G2Xmv9T6w/DcRdcdVkLuAHnGt5fcJ3C33PmPrrdtUrwrjXcT4jXasdedSbw+koXa4YeEA3nPgy6q2wmk2A==
 
 "@next/eslint-plugin-next@15.0.3":
   version "15.0.3"
@@ -5026,12 +5026,12 @@ next-mdx-remote@5.0.0:
     vfile "^6.0.1"
     vfile-matter "^5.0.0"
 
-next@15.0.6:
-  version "15.0.6"
-  resolved "https://registry.yarnpkg.com/next/-/next-15.0.6.tgz#461376e003c2d805e3369e0043fb017081e3e635"
-  integrity sha512-srsIn0zBpspm1wO5omzPQJ5E28kujrnjqwYHQR8XGZ7fijiBT9SPk3Aa+Ff/HPybgr8EZNyF7TVzH9/M9IvziQ==
+next@15.0.7:
+  version "15.0.7"
+  resolved "https://registry.yarnpkg.com/next/-/next-15.0.7.tgz#1497966ccec5e9c4251b48d413701f153d486d5e"
+  integrity sha512-Vl6fLEuOP1MgtEmDrY51BQr6Bl8oC8vDSHdA10xZWPPZa6e+dOwYNDLWHjvTktNLZkKYySpsW3Yzy4Lo+JORkw==
   dependencies:
-    "@next/env" "15.0.6"
+    "@next/env" "15.0.7"
     "@swc/counter" "0.1.3"
     "@swc/helpers" "0.5.13"
     busboy "1.6.0"
