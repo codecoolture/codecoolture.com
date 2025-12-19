@@ -53,7 +53,7 @@
     "analyze": "yarn lint && yarn typecheck",
     "build": "yarn build:rss && next build",
     "build:rss": "NODE_ENV=development yarn ts:exec ./bin/rss/index.ts",
-    "ci:test": "yarn test --runInBand",
+    "ci:test": "yarn test",
     "ci:test:acc": "yarn build && yarn start-server-and-test start 3000 'cypress run'",
     "cy:open": "start-server-and-test dev 3000 'cypress open'",
     "cy:run": "start-server-and-test dev 3000 'cypress run'",
