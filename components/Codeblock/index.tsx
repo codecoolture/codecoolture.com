@@ -1,7 +1,7 @@
 import { useDarkMode } from "@/hooks";
 import { classNames } from "@/lib/classNames";
 
-type CodeblockProps = Pick<JSX.IntrinsicElements["pre"], "children" | "className">;
+type CodeblockProps = Pick<React.JSX.IntrinsicElements["pre"], "children" | "className">;
 
 export function Codeblock({ children }: CodeblockProps) {
   const { isDarkModeEnabled } = useDarkMode();

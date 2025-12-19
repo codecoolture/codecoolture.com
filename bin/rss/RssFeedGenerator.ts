@@ -11,11 +11,7 @@ export class RssFeedGenerator {
     const BASE_URL = "https://codecoolture.com";
 
     const feed = new Feed({
-      author: {
-        name: "Sergio Álvarez",
-        email: "hola@codecoolture.com",
-        link: "https://codecoolture.com/about",
-      },
+      author: { name: "Sergio Álvarez", email: "hola@codecoolture.com", link: "https://codecoolture.com/about" },
       copyright: `All rights reserved. Sergio Álvarez. ${new Date().getFullYear()}`,
       description:
         "Articles and notes about software development. Written by Sergio Álvarez. Better code, one piece at a time.",
@@ -40,18 +36,12 @@ export class RssFeedGenerator {
 
     for (const apiArticle of apiArticlesFromNewestToOldest) {
       feed.addItem({
-        author: [
-          {
-            email: "hola@codecoolture.com",
-            link: "https://codecoolture.com/about",
-            name: "Sergio Álvarez",
-          },
-        ],
+        author: [{ email: "hola@codecoolture.com", link: "https://codecoolture.com/about", name: "Sergio Álvarez" }],
         title: apiArticle.title,
         id: `${BASE_URL}${apiArticle.url}`,
         link: `${BASE_URL}${apiArticle.url}`,
         description: apiArticle.spoiler ?? undefined,
-        content: marked(apiArticle.content),
+        content: await marked(apiArticle.content),
         date: new Date(apiArticle.date),
         image: apiArticle.cover ?? undefined,
       });

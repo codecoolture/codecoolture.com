@@ -4,7 +4,7 @@ export type FigureProps = {
   alt?: string;
   className?: string;
   loading?: "eager" | "lazy";
-  src?: string;
+  src?: React.JSX.IntrinsicElements["img"]["src"];
   title?: string;
 };
 

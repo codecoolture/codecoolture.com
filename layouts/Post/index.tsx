@@ -43,19 +43,19 @@ export function Post({ breadcrumbs, mdx, post }: PostProps) {
                 a: Link,
                 blockquote: Blockquote,
                 code: Code,
-                h1: function h1(props: JSX.IntrinsicElements["h1"]) {
+                h1: function h1(props: React.JSX.IntrinsicElements["h1"]) {
                   return <Heading el="h1" size="jumbo" {...props} />;
                 },
-                h2: function h2(props: JSX.IntrinsicElements["h2"]) {
+                h2: function h2(props: React.JSX.IntrinsicElements["h2"]) {
                   return <Heading el="h2" size="l" {...props} />;
                 },
-                h3: function h3(props: JSX.IntrinsicElements["h3"]) {
+                h3: function h3(props: React.JSX.IntrinsicElements["h3"]) {
                   return <Heading el="h3" size="m" {...props} />;
                 },
-                img: (props: JSX.IntrinsicElements["img"]) => <Figure className="Post__Figure" {...props} />,
+                img: (props: React.JSX.IntrinsicElements["img"]) => <Figure className="Post__Figure" {...props} />,
                 inlineCode: Code,
                 li: List.Item,
-                ol: function OrderedList(props: JSX.IntrinsicElements["ol"]) {
+                ol: function OrderedList(props: React.JSX.IntrinsicElements["ol"]) {
                   return <List type="number">{props.children}</List>;
                 },
                 p: Text,
