@@ -1,6 +1,6 @@
 import { classNames } from "@/lib/classNames";
 
-function Item({ children, id }: Pick<JSX.IntrinsicElements["li"], "children" | "id">) {
+function Item({ children, id }: Pick<React.JSX.IntrinsicElements["li"], "children" | "id">) {
   return (
     <li className="List__Item" id={id}>
       <div className="List__Item__Wrapper">{children}</div>
@@ -8,7 +8,7 @@ function Item({ children, id }: Pick<JSX.IntrinsicElements["li"], "children" | "
   );
 }
 
-export type ListProps = Pick<JSX.IntrinsicElements["ul"], "children"> & {
+export type ListProps = Pick<React.JSX.IntrinsicElements["ul"], "children"> & {
   type?: "bullet" | "number";
 };
 

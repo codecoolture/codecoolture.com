@@ -2,9 +2,12 @@
   "compilerOptions": {
     "target": "es2018",
     "module": "esnext",
-    "lib": ["dom", "es2018"],
+    "lib": [
+      "dom",
+      "es2018"
+    ],
     "allowJs": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "sourceMap": true,
     "removeComments": true,
     "noEmit": true,
@@ -20,7 +23,9 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ]
     },
     "plugins": [
       {
@@ -28,6 +33,15 @@
       }
     ]
   },
-  "exclude": ["cypress", "./cypress.config.ts", "node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
+  "exclude": [
+    "cypress",
+    "./cypress.config.ts",
+    "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ]
 }

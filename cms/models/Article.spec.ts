@@ -1,5 +1,7 @@
 import { join } from "node:path";
 
+import { describe, it, expect } from "vitest";
+
 import { Markdown } from "@/cms/lib/Markdown";
 
 import { Article } from "./Article";

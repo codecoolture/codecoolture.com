@@ -1,4 +1,4 @@
-export type TextProps = Pick<JSX.IntrinsicElements["p"], "children" | "className"> & {
+export type TextProps = Pick<React.JSX.IntrinsicElements["p"], "children" | "className"> & {
   size?: "l" | "m";
 };
 

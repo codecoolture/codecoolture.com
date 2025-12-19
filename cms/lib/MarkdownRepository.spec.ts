@@ -1,5 +1,7 @@
 import { join } from "path";
 
+import { describe, it, expect } from "vitest";
+
 import { DirectoryNotFound, FileNotFound } from "./errors";
 import { MarkdownRepository } from "./MarkdownRepository";
 

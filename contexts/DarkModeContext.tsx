@@ -1,5 +1,5 @@
 import { noop } from "lodash";
-import { createContext, ReactNode, useEffect, useMemo, useState } from "react";
+import { createContext, ReactNode, useMemo, useState } from "react";
 
 type DarkModeContextValue = {
   isDarkModeEnabled: boolean;
@@ -12,12 +12,13 @@ export function DarkModeProvider({ children }: { children: ReactNode }) {
   /**
    * We make dark mode enabled by default.
    */
-  const [isDarkModeEnabled, setIsDarkModeEnabled] = useState(true);
+  const [isDarkModeEnabled, setIsDarkModeEnabled] = useState(() => {
+    if (typeof window === "undefined") {
+      return true;
+    }
 
-  /**
-   * We check if the user has a preference for dark mode and we set it accordingly.
-   */
-  useEffect(() => setIsDarkModeEnabled(window.localStorage.getItem("darkMode") !== "false"), []);
+    return window.localStorage.getItem("darkMode") !== "false";
+  });
 
   const toggleDarkMode = (enable?: boolean) => {
     const toggleTo = enable ?? !isDarkModeEnabled;

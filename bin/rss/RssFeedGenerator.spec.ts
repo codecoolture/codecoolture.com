@@ -1,5 +1,7 @@
 import { join } from "node:path";
 
+import { describe, it, expect, assert } from "vitest";
+
 import { RssFeedGenerator } from "./RssFeedGenerator";
 
 describe("RssFeedGenerator", () => {
@@ -67,7 +69,7 @@ describe("RssFeedGenerator", () => {
     const articles = feed.match(/<entry>.*?<\/entry>/gs);
 
     if (articles === null) {
-      fail("No articles found");
+      assert.fail("No articles found");
     }
 
     expect(articles[0]).toMatch(/<title type="html"><!\[CDATA\[Newest\]\]><\/title>/);
