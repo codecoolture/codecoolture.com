@@ -1,11 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es2018",
+    "target": "es2021",
     "module": "esnext",
-    "lib": [
-      "dom",
-      "es2018"
-    ],
+    "lib": ["dom", "es2021"],
     "allowJs": true,
     "jsx": "react-jsx",
     "sourceMap": true,
@@ -23,9 +20,7 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"]
     },
     "plugins": [
       {
@@ -33,15 +28,6 @@
       }
     ]
   },
-  "exclude": [
-    "cypress",
-    "./cypress.config.ts",
-    "node_modules"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ]
+  "exclude": ["cypress", "./cypress.config.ts", "node_modules"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
 }

@@ -85,28 +85,3 @@
   background-color: var(--c-yellow-4);
   border-color: var(--c-yellow-8);
 }
-
-.AppFooter__DarkModeToggle {
-  align-items: center;
-  border: 1px solid var(--c-gray-7);
-  display: flex;
-  font-size: var(--fs-s);
-  gap: 0.5em;
-  justify-content: center;
-  padding: 0.5em;
-
-  background-color: var(--c-gray-3);
-  border-radius: 99999999px;
-  color: var(--c-gray-11);
-  cursor: pointer;
-  font-family: var(--ff-sans-serif);
-
-  transition:
-    background-color ease-in 150ms,
-    border-color ease-in 150ms;
-}
-
-.AppFooter__DarkModeToggle:hover {
-  background-color: var(--c-gray-4);
-  border-color: var(--c-gray-8);
-}
