@@ -1,13 +1,9 @@
 import NextLink from "next/link";
 import { FaBluesky, FaGithub, FaLinkedin, FaRss } from "react-icons/fa6";
-import { RxMoon, RxSun } from "react-icons/rx";
 
-import { useDarkMode } from "@/hooks";
 import { Application } from "@/layouts/Application";
 
 export function Footer() {
-  const { isDarkModeEnabled, toggleDarkMode } = useDarkMode();
-
   return (
     <footer className="AppFooter" data-qa="app-footer">
       <Application.Column>
@@ -76,20 +72,6 @@ export function Footer() {
               </a>
             </li>
           </ul>
-
-          <button className="AppFooter__DarkModeToggle" onClick={() => toggleDarkMode()}>
-            {isDarkModeEnabled && (
-              <>
-                <RxSun /> Use light mode
-              </>
-            )}
-
-            {!isDarkModeEnabled && (
-              <>
-                <RxMoon /> Use dark mode
-              </>
-            )}
-          </button>
         </div>
       </Application.Column>
     </footer>

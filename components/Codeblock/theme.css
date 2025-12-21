@@ -1,0 +1,299 @@
+/**
+ * Theme: Atom One Dark
+ */
+.Codeblock pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+}
+
+.Codeblock .hljs {
+  color: #abb2bf;
+}
+
+.Codeblock .hljs-comment,
+.Codeblock .hljs-quote {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.Codeblock .hljs-doctag,
+.Codeblock .hljs-formula,
+.Codeblock .hljs-keyword {
+  color: #c678dd;
+}
+
+.Codeblock .hljs-deletion,
+.Codeblock .hljs-name,
+.Codeblock .hljs-section,
+.Codeblock .hljs-selector-tag,
+.Codeblock .hljs-subst {
+  color: #e06c75;
+}
+
+.Codeblock .hljs-literal {
+  color: #56b6c2;
+}
+
+.Codeblock .hljs-addition,
+.Codeblock .hljs-attribute,
+.Codeblock .hljs-meta .hljs-string,
+.Codeblock .hljs-regexp,
+.Codeblock .hljs-string {
+  color: #98c379;
+}
+
+.Codeblock .hljs-attr,
+.Codeblock .hljs-number,
+.Codeblock .hljs-selector-attr,
+.Codeblock .hljs-selector-class,
+.Codeblock .hljs-selector-pseudo,
+.Codeblock .hljs-template-variable,
+.Codeblock .hljs-type,
+.Codeblock .hljs-variable {
+  color: #d19a66;
+}
+
+.Codeblock .hljs-bullet,
+.Codeblock .hljs-link,
+.Codeblock .hljs-meta,
+.Codeblock .hljs-selector-id,
+.Codeblock .hljs-symbol,
+.Codeblock .hljs-title {
+  color: #61aeee;
+}
+
+.Codeblock .hljs-built_in,
+.Codeblock .hljs-class .hljs-title,
+.Codeblock .hljs-title.class_ {
+  color: #e6c07b;
+}
+
+.Codeblock .hljs-emphasis {
+  font-style: italic;
+}
+
+.Codeblock .hljs-strong {
+  font-weight: 700;
+}
+
+.Codeblock .hljs-link {
+  text-decoration: underline;
+}
+
+@media (prefers-color-scheme: light) {
+  /**
+   * Theme: Atom One Light
+   */
+  .Codeblock pre code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em;
+  }
+
+  .Codeblock .hljs {
+    color: #383a42;
+  }
+
+  .Codeblock .hljs-comment,
+  .Codeblock .hljs-quote {
+    color: #a0a1a7;
+    font-style: italic;
+  }
+
+  .Codeblock .hljs-doctag,
+  .Codeblock .hljs-formula,
+  .Codeblock .hljs-keyword {
+    color: #a626a4;
+  }
+
+  .Codeblock .hljs-deletion,
+  .Codeblock .hljs-name,
+  .Codeblock .hljs-section,
+  .Codeblock .hljs-selector-tag,
+  .Codeblock .hljs-subst {
+    color: #e45649;
+  }
+
+  .Codeblock .hljs-literal {
+    color: #0184bb;
+  }
+
+  .Codeblock .hljs-addition,
+  .Codeblock .hljs-attribute,
+  .Codeblock .hljs-meta .hljs-string,
+  .Codeblock .hljs-regexp,
+  .Codeblock .hljs-string {
+    color: #50a14f;
+  }
+
+  .Codeblock .hljs-attr,
+  .Codeblock .hljs-number,
+  .Codeblock .hljs-selector-attr,
+  .Codeblock .hljs-selector-class,
+  .Codeblock .hljs-selector-pseudo,
+  .Codeblock .hljs-template-variable,
+  .Codeblock .hljs-type,
+  .Codeblock .hljs-variable {
+    color: #986801;
+  }
+
+  .Codeblock .hljs-bullet,
+  .Codeblock .hljs-link,
+  .Codeblock .hljs-meta,
+  .Codeblock .hljs-selector-id,
+  .Codeblock .hljs-symbol,
+  .Codeblock .hljs-title {
+    color: #4078f2;
+  }
+
+  .Codeblock .hljs-built_in,
+  .Codeblock .hljs-class .hljs-title,
+  .Codeblock .hljs-title.class_ {
+    color: #c18401;
+  }
+
+  .Codeblock .hljs-emphasis {
+    font-style: italic;
+  }
+
+  .Codeblock .hljs-strong {
+    font-weight: 700;
+  }
+
+  .Codeblock .hljs-link {
+    text-decoration: underline;
+  }
+
+  .Codeblock code[class*="language-"],
+  .Codeblock pre[class*="language-"] {
+    color: black;
+    text-shadow: 0 1px white;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .Codeblock pre[class*="language-"]::-moz-selection,
+  .Codeblock pre[class*="language-"] ::-moz-selection,
+  .Codeblock code[class*="language-"]::-moz-selection,
+  .Codeblock code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background: #b3d4fc;
+  }
+
+  .Codeblock pre[class*="language-"]::selection,
+  .Codeblock pre[class*="language-"] ::selection,
+  .Codeblock code[class*="language-"]::selection,
+  .Codeblock code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+  }
+
+  @media print {
+    .Codeblock code[class*="language-"],
+    .Codeblock pre[class*="language-"] {
+      text-shadow: none;
+    }
+  }
+
+  /* Code blocks */
+  .Codeblock pre[class*="language-"] {
+    padding: 1em;
+    margin: 0.5em 0;
+    overflow: auto;
+  }
+
+  /* Inline code */
+  .Codeblock :not(pre) > code[class*="language-"] {
+    padding: 0.1em;
+    border-radius: 0.3em;
+    white-space: normal;
+  }
+
+  .Codeblock .token.comment,
+  .Codeblock .token.prolog,
+  .Codeblock .token.doctype,
+  .Codeblock .token.cdata {
+    color: slategray;
+  }
+
+  .Codeblock .token.punctuation {
+    color: #999;
+  }
+
+  .Codeblock .token.namespace {
+    opacity: 0.7;
+  }
+
+  .Codeblock .token.property,
+  .Codeblock .token.tag,
+  .Codeblock .token.boolean,
+  .Codeblock .token.number,
+  .Codeblock .token.constant,
+  .Codeblock .token.symbol,
+  .Codeblock .token.deleted {
+    color: #905;
+  }
+
+  .Codeblock .token.selector,
+  .Codeblock .token.attr-name,
+  .Codeblock .token.string,
+  .Codeblock .token.char,
+  .Codeblock .token.builtin,
+  .Codeblock .token.inserted {
+    color: #690;
+  }
+
+  .Codeblock .token.operator,
+  .Codeblock .token.entity,
+  .Codeblock .token.url,
+  .Codeblock .language-css .token.string,
+  .Codeblock .style .token.string {
+    color: #9a6e3a;
+    /* This background color was intended by the author of this theme. */
+    background: hsla(0, 0%, 100%, 0.5);
+  }
+
+  .Codeblock .token.atrule,
+  .Codeblock .token.attr-value,
+  .Codeblock .token.keyword {
+    color: #07a;
+  }
+
+  .Codeblock .token.function,
+  .Codeblock .token.class-name {
+    color: #dd4a68;
+  }
+
+  .Codeblock .token.regex,
+  .Codeblock .token.important,
+  .Codeblock .token.variable {
+    color: #e90;
+  }
+
+  .Codeblock .token.important,
+  .Codeblock .token.bold {
+    font-weight: bold;
+  }
+
+  .Codeblock .token.italic {
+    font-style: italic;
+  }
+
+  .Codeblock .token.entity {
+    cursor: help;
+  }
+}

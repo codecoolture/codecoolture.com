@@ -1,5 +1,4 @@
-@import "./themes/dark.css";
-@import "./themes/light.css";
+@import "./theme.css";
 
 .Codeblock {
   font-size: var(--fs-s);
