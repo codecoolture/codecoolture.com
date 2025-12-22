@@ -28,12 +28,13 @@
   --ff-sans-serif: var(--font-ibm-plex-sans);
   --ff-monospace: var(--font-ibm-plex-mono);
 
-  --fs-xl: 2.5rem;
-  --fs-l: 1.5rem;
-  --fs-m: 18px;
-  --fs-s: 0.8rem;
-  --fs-xs: 0.6rem;
-  --fs-xxs: 0.5rem;
+  /* Typographic scale based on Perfect Fourth ratio (1.333) */
+  --fs-2xl: 2.369rem;
+  --fs-xl: 1.777rem;
+  --fs-l: 1.333rem;
+  --fs-m: 1rem;
+  --fs-s: 0.75rem;
+  --fs-xs: 0.563rem;
 
   --c-white: #fff;
 }
