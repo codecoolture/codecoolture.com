@@ -1,7 +1,7 @@
 import { classNames } from "@/lib/classNames";
 
-type CodeblockProps = Pick<React.JSX.IntrinsicElements["pre"], "children" | "className">;
+type CodeblockProps = React.JSX.IntrinsicElements["pre"];
 
-export function Codeblock({ children }: CodeblockProps) {
-  return <pre className={classNames("Codeblock")}>{children}</pre>;
+export function Codeblock({ className, ...props }: CodeblockProps) {
+  return <pre className={classNames("Codeblock", className)} {...props} />;
 }

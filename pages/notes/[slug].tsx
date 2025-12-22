@@ -1,25 +1,21 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
-import React from "react";
-import rehypeHighligh from "rehype-highlight";
+import rehypeHighlight from "rehype-highlight";
 import rehypeUnwrapImages from "rehype-unwrap-images";
 import remarkGfm from "remark-gfm";
+import { serialize, type SerializeResult } from "next-mdx-remote-client/serialize";
 
 import { ApiArticle } from "@/cms/api/ApiArticle";
 import { getNotesRepository } from "@/cms/repositories";
 import { Post } from "@/layouts/Post";
 import { isDevelopment } from "@/lib/env";
 
-interface NoteProps {
-  mdx: MDXRemoteSerializeResult;
+type NoteProps = {
+  mdx: SerializeResult;
   note: ApiArticle;
-}
+};
 
-export default class Notes extends React.Component<NoteProps> {
-  public render() {
-    return <Post breadcrumbs={[{ label: "Notes", url: "/notes" }]} mdx={this.props.mdx} post={this.props.note} />;
-  }
+export default function Note(props: Readonly<NoteProps>) {
+  return <Post breadcrumbs={[{ label: "Notes", url: "/notes" }]} mdx={props.mdx} post={props.note} />;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -47,10 +43,14 @@ export const getStaticProps: GetStaticProps<NoteProps> = async ({ params }) => {
     props: {
       note: note.toApiArticle({ cover: "https://codecoolture.com/static/notes/cover.jpg" }),
 
-      mdx: await serialize(note.getContent(), {
-        mdxOptions: {
-          rehypePlugins: [rehypeHighligh, rehypeUnwrapImages],
-          remarkPlugins: [remarkGfm],
+      mdx: await serialize({
+        source: note.getContent(),
+
+        options: {
+          mdxOptions: {
+            rehypePlugins: [rehypeHighlight, rehypeUnwrapImages],
+            remarkPlugins: [remarkGfm],
+          },
         },
       }),
     },

@@ -1,4 +1,5 @@
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { MDXClient } from "next-mdx-remote-client";
+import { type SerializeResult } from "next-mdx-remote-client/serialize";
 
 import { ApiArticle } from "@/cms/api/ApiArticle";
 import { Blockquote } from "@/components/Blockquote";
@@ -20,12 +21,16 @@ import { Footer } from "./components/Footer";
 export interface PostProps {
   breadcrumbs: Array<{ label: string; url?: string }>;
 
-  mdx: MDXRemoteSerializeResult;
+  mdx: SerializeResult;
 
   post: ApiArticle;
 }
 
-export function Post({ breadcrumbs, mdx, post }: PostProps) {
+export function Post({ breadcrumbs, mdx, post }: Readonly<PostProps>) {
+  if ("error" in mdx) {
+    throw mdx.error;
+  }
+
   return (
     <>
       <Seo post={post} />
@@ -38,7 +43,7 @@ export function Post({ breadcrumbs, mdx, post }: PostProps) {
               <Timestamp date={post.date} />
             </header>
 
-            <MDXRemote
+            <MDXClient
               components={{
                 a: Link,
                 blockquote: Blockquote,
