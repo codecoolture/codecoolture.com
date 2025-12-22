@@ -1,8 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
+import { serialize, type SerializeResult } from "next-mdx-remote-client/serialize";
 import React from "react";
-import rehypeHighligh from "rehype-highlight";
+import rehypeHighlight from "rehype-highlight";
 import rehypeUnwrapImages from "rehype-unwrap-images";
 import remarkGfm from "remark-gfm";
 
@@ -13,7 +12,7 @@ import { isDevelopment } from "@/lib/env";
 
 interface ArticleProps {
   article: ApiArticle;
-  mdx: MDXRemoteSerializeResult;
+  mdx: SerializeResult;
 }
 
 export default class Articles extends React.Component<ArticleProps> {
@@ -47,10 +46,14 @@ export const getStaticProps: GetStaticProps<ArticleProps> = async ({ params }) =
     props: {
       article: article.toApiArticle({ cover: "https://codecoolture.com/static/articles/cover.jpg" }),
 
-      mdx: await serialize(article.getContent(), {
-        mdxOptions: {
-          rehypePlugins: [rehypeHighligh, rehypeUnwrapImages],
-          remarkPlugins: [remarkGfm],
+      mdx: await serialize({
+        source: article.getContent(),
+
+        options: {
+          mdxOptions: {
+            rehypePlugins: [rehypeHighlight, rehypeUnwrapImages],
+            remarkPlugins: [remarkGfm],
+          },
         },
       }),
     },
