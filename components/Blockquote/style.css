@@ -1,5 +1,5 @@
 .Blockquote {
-  font-size: 1.2em;
+  font-size: var(--fs-l);
   margin-bottom: 1em;
   padding: 0 0.5em;
 
