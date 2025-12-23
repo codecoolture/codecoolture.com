@@ -30,7 +30,7 @@
 .AppFooter__Link {
   letter-spacing: 1px;
 
-  color: var(--c-gray-12);
+  color: currentColor;
   font-weight: 700;
   text-decoration: none;
   text-transform: uppercase;
@@ -41,7 +41,6 @@
   line-height: 1.65;
   margin-top: 1em;
 
-  color: var(--c-gray-12);
   font-family: var(--ff-serif);
 }
 

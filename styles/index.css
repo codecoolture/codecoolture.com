@@ -47,6 +47,9 @@ html,
 body {
   font-size: var(--fs-m);
   width: 100%;
+
+  background-color: var(--c-gray-1);
+  color: var(--c-gray-12);
 }
 
 body {
