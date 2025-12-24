@@ -4,7 +4,7 @@
       "title": "Ni por favor ni por favora: Cómo hablar con lenguaje inclusivo sin que se note (demasiado)",
       "author": "María Martín Barranco",
       "category": "worldview",
-      "readAt": "2020-04-27 21:46:13 UTC",
+      "readAt": "2020-04-27T21:46:13Z",
       "image": "/static/library/ni-por-favor-ni-por-favora.jpg",
       "status": "read",
       "language": "es"
@@ -13,7 +13,7 @@
       "title": "On Writing: A Memoir of the Craft",
       "author": "Stephen King",
       "category": "craft",
-      "readAt": "2020-05-08 15:38:33 UTC",
+      "readAt": "2020-05-08T15:38:33Z",
       "image": "/static/library/on-writing.jpg",
       "status": "read",
       "language": "en"
@@ -22,7 +22,7 @@
       "title": "Who Cooked Adam Smith's Dinner?: A Story About Women and Economics",
       "author": "Katrine Marçal",
       "category": "worldview",
-      "readAt": "2020-05-07 21:59:37 UTC",
+      "readAt": "2020-05-07T21:59:37Z",
       "image": "/static/library/who-cooked-adam-smiths-dinner.jpg",
       "status": "read",
       "language": "en"
@@ -31,7 +31,7 @@
       "title": "Creativity, Inc.: Overcoming the Unseen Forces That Stand in the Way of True Inspiration",
       "author": "Ed Catmull, Amy Wallace",
       "category": "craft",
-      "readAt": "2020-07-12 11:23:35 UTC",
+      "readAt": "2020-07-12T11:23:35Z",
       "image": "/static/library/creativity-inc.jpg",
       "status": "read",
       "language": "en"
@@ -40,7 +40,7 @@
       "title": "MAKE: Bootstrapper's Handbook",
       "author": "Pieter Levels",
       "category": "craft",
-      "readAt": "2021-01-12 23:04:10 UTC",
+      "readAt": "2021-01-12T23:04:10Z",
       "image": "/static/library/make-bootstrapper-handbook.jpg",
       "status": "read",
       "language": "en"
@@ -49,7 +49,7 @@
       "title": "The Obstacle Is the Way: The Timeless Art of Turning Trials into Triumph",
       "author": "Ryan Holiday",
       "category": "mental-models",
-      "readAt": "2021-01-29 16:11:45 UTC",
+      "readAt": "2021-01-29T16:11:45Z",
       "image": "/static/library/the-obstacle-is-the-way.jpg",
       "status": "read",
       "language": "en"
@@ -58,7 +58,7 @@
       "title": "Meditations",
       "author": "Marcus Aurelius",
       "category": "mental-models",
-      "readAt": "2021-02-23 07:26:17 UTC",
+      "readAt": "2021-02-23T07:26:17Z",
       "image": "/static/library/meditations.jpg",
       "status": "read",
       "language": "en"
@@ -67,7 +67,7 @@
       "title": "Measure What Matters: How Google, Bono, and the Gates Foundation Rock the World with OKRs",
       "author": "John Doerr",
       "category": "mental-models",
-      "readAt": "2021-04-01 06:57:08 UTC",
+      "readAt": "2021-04-01T06:57:08Z",
       "image": "/static/library/measure-what-matters.jpg",
       "status": "read",
       "language": "en"
@@ -76,7 +76,7 @@
       "title": "The Psychology of Money: Timeless lessons on wealth, greed, and happiness",
       "author": "Morgan Housel",
       "category": "mental-models",
-      "readAt": "2022-04-18 11:33:24 UTC",
+      "readAt": "2022-04-18T11:33:24Z",
       "image": "/static/library/the-psychology-of-money.jpg",
       "status": "read",
       "language": "en"
@@ -85,7 +85,7 @@
       "title": "Anything You Want: 40 Lessons for a New Kind of Entrepreneur",
       "author": "Derek Sivers",
       "category": "foundational",
-      "readAt": "2021-04-09 06:58:28 UTC",
+      "readAt": "2021-04-09T06:58:28Z",
       "image": "/static/library/anything-you-want.jpg",
       "status": "read",
       "language": "en"
@@ -94,7 +94,7 @@
       "title": "Mindfulness in Plain English",
       "author": "Bhante Gunaratana",
       "category": "exploration",
-      "readAt": "2021-06-29 15:29:09 UTC",
+      "readAt": "2021-06-29T15:29:09Z",
       "image": "/static/library/mindfulness-in-plain-english.jpg",
       "status": "read",
       "language": "en"
@@ -103,7 +103,7 @@
       "title": "An Elegant Puzzle: Systems of Engineering Management",
       "author": "Will Larson",
       "category": "craft",
-      "readAt": "2021-06-27 10:37:57 UTC",
+      "readAt": "2021-06-27T10:37:57Z",
       "image": "/static/library/an-elegant-puzzle.jpg",
       "status": "read",
       "language": "en"
@@ -112,7 +112,7 @@
       "title": "The Mom Test: How to talk to customers & learn if your business is a good idea when everyone is lying to you",
       "author": "Rob Fitzpatrick",
       "category": "craft",
-      "readAt": "2021-11-08 09:07:35 UTC",
+      "readAt": "2021-11-08T09:07:35Z",
       "image": "/static/library/the-mom-test.jpg",
       "status": "read",
       "language": "en"
@@ -121,7 +121,7 @@
       "title": "So Good They Can't Ignore You: Why Skills Trump Passion in the Quest for Work You Love",
       "author": "Cal Newport",
       "category": "mental-models",
-      "readAt": "2021-12-14 07:15:54 UTC",
+      "readAt": "2021-12-14T07:15:54Z",
       "image": "/static/library/so-good-they-cant-ignore-you.jpg",
       "status": "read",
       "language": "en"
@@ -131,7 +131,7 @@
       "title": "Modern Software Engineering: Doing What Works to Build Better Software Faster",
       "author": "David Farley",
       "category": "craft",
-      "readAt": "2022-01-17 09:28:55 UTC",
+      "readAt": "2022-01-17T09:28:55Z",
       "image": "/static/library/modern-software-engineering.jpg",
       "status": "read",
       "language": "en"
@@ -140,7 +140,7 @@
       "title": "Test-Driven Development: By Example",
       "author": "Kent Beck",
       "category": "foundational",
-      "readAt": "2022-03-14 18:49:58 UTC",
+      "readAt": "2022-03-14T18:49:58Z",
       "image": "/static/library/test-driven-development-by-example.jpg",
       "status": "read",
       "language": "en"
@@ -150,7 +150,7 @@
       "title": "How to Live: 27 conflicting answers and one weird conclusion",
       "author": "Derek Sivers",
       "category": "worldview",
-      "readAt": "2022-04-05 14:39:15 UTC",
+      "readAt": "2022-04-05T14:39:15Z",
       "image": "/static/library/how-to-live.jpg",
       "status": "read",
       "language": "en"
@@ -159,7 +159,7 @@
       "title": "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
       "author": "James Clear",
       "category": "mental-models",
-      "readAt": "2022-04-02 11:46:51 UTC",
+      "readAt": "2022-04-02T11:46:51Z",
       "image": "/static/library/atomic-habits.jpg",
       "status": "read",
       "language": "en"
@@ -169,7 +169,7 @@
       "title": "A Series of Fortunate Events: Chance and the Making of the Planet, Life, and You",
       "author": "Sean B. Carroll",
       "category": "worldview",
-      "readAt": "2024-06-07 02:07:18 UTC",
+      "readAt": "2024-06-07T02:07:18Z",
       "image": "/static/library/a-series-of-fortunate-events.jpg",
       "status": "read",
       "language": "en"
@@ -179,7 +179,7 @@
       "title": "Sapiens: A Brief History of Humankind",
       "author": "Yuval Noah Harari",
       "category": "worldview",
-      "readAt": "2022-06-20 10:00:10 UTC",
+      "readAt": "2022-06-20T10:00:10Z",
       "image": "/static/library/sapiens.jpg",
       "status": "read",
       "language": "en"
@@ -189,7 +189,7 @@
       "title": "The Courage to Be Disliked: How to Free Yourself, Change Your Life and Achieve Real Happiness",
       "author": "Ichiro Kishimi, Fumitake Koga",
       "category": "mental-models",
-      "readAt": "2022-07-09 10:36:36 UTC",
+      "readAt": "2022-07-09T10:36:36Z",
       "image": "/static/library/the-courage-to-be-disliked.jpg",
       "status": "read",
       "language": "en"
@@ -199,7 +199,7 @@
       "title": "Einstein: His Life and Universe",
       "author": "Walter Isaacson",
       "category": "worldview",
-      "readAt": "2022-11-24 23:05:49 UTC",
+      "readAt": "2022-11-24T23:05:49Z",
       "image": "/static/library/einstein-his-life-and-universe.jpg",
       "status": "read",
       "language": "en"
@@ -208,7 +208,7 @@
       "title": "Fundamentals of Software Architecture: An Engineering Approach",
       "author": "Mark Richards, Neal Ford",
       "category": "craft",
-      "readAt": "2024-01-31 21:20:12 UTC",
+      "readAt": "2024-01-31T21:20:12Z",
       "image": "/static/library/fundamentals-of-software-architecture.jpg",
       "status": "read",
       "language": "en"
@@ -218,7 +218,7 @@
       "title": "The Good Life: Lessons from the World's Longest Scientific Study of Happiness",
       "author": "Robert Waldinger, Marc Schulz",
       "category": "mental-models",
-      "readAt": "2023-05-03 11:38:29 UTC",
+      "readAt": "2023-05-03T11:38:29Z",
       "image": "/static/library/the-good-life.jpg",
       "status": "read",
       "language": "en"
@@ -228,7 +228,7 @@
       "title": "Hell Yeah or No: What's Worth Doing",
       "author": "Derek Sivers",
       "category": "mental-models",
-      "readAt": "2023-06-15 21:02:51 UTC",
+      "readAt": "2023-06-15T21:02:51Z",
       "image": "/static/library/hell-yeah-or-no.jpg",
       "status": "read",
       "language": "en"
@@ -237,7 +237,7 @@
       "title": "On Writing Well: The Classic Guide to Writing Nonfiction",
       "author": "William Zinsser",
       "category": "craft",
-      "readAt": "2023-07-23 16:45:06 UTC",
+      "readAt": "2023-07-23T16:45:06Z",
       "image": "/static/library/on-writing-well.jpg",
       "status": "read",
       "language": "en"
@@ -247,7 +247,7 @@
       "title": "Capitalist Realism: Is There No Alternative?",
       "author": "Mark Fisher",
       "category": "worldview",
-      "readAt": "2023-07-31 07:47:09 UTC",
+      "readAt": "2023-07-31T07:47:09Z",
       "image": "/static/library/capitalist-realism.jpg",
       "status": "read",
       "language": "en"
@@ -257,7 +257,7 @@
       "title": "Traffic: Genius, Rivalry, and Delusion in the Billion-Dollar Race to Go Viral",
       "author": "Ben Smith",
       "category": "exploration",
-      "readAt": "2023-10-26 22:02:14 UTC",
+      "readAt": "2023-10-26T22:02:14Z",
       "image": "/static/library/traffic.jpg",
       "status": "read",
       "language": "en"
@@ -267,7 +267,7 @@
       "title": "How To Win Friends & Influence People",
       "author": "Dale Carnegie",
       "category": "mental-models",
-      "readAt": "2023-09-02 22:55:50 UTC",
+      "readAt": "2023-09-02T22:55:50Z",
       "image": "/static/library/how-to-win-friends-and-influence-people.jpg",
       "status": "read",
       "language": "en"
@@ -277,7 +277,7 @@
       "title": "Engineers Survival Guide: Advice, tactics, and tricks after a decade of working at Facebook, Snapchat, and Microsoft",
       "author": "Merih Taze",
       "category": "exploration",
-      "readAt": "2023-12-11 18:21:03 UTC",
+      "readAt": "2023-12-11T18:21:03Z",
       "image": "/static/library/engineers-survival-guide.jpg",
       "status": "read",
       "language": "en"
@@ -287,7 +287,7 @@
       "title": "Tidy First?: A Personal Exercise in Empirical Software Design",
       "author": "Kent Beck",
       "category": "craft",
-      "readAt": "2023-12-14 08:39:49 UTC",
+      "readAt": "2023-12-14T08:39:49Z",
       "image": "/static/library/tidy-first.jpg",
       "status": "read",
       "language": "en"
@@ -297,7 +297,7 @@
       "title": "The Staff Engineer's Path: A Guide for Individual Contributors Navigating Growth and Change",
       "author": "Tanya Reilly",
       "category": "mental-models",
-      "readAt": "2024-08-05 09:57:23 UTC",
+      "readAt": "2024-08-05T09:57:23Z",
       "image": "/static/library/the-staff-engineers-path.jpg",
       "status": "read",
       "language": "en"
@@ -306,7 +306,7 @@
       "title": "Get Together: How to build a community with your people",
       "author": "Bailey Richardson, Kevin Huynh, Kai Elmer Sotto",
       "category": "exploration",
-      "readAt": "2024-07-09 22:26:09 UTC",
+      "readAt": "2024-07-09T22:26:09Z",
       "image": "/static/library/get-together.jpg",
       "status": "read",
       "language": "en"
@@ -315,7 +315,7 @@
       "title": "Are Your Lights On?: How to Figure Out What the Problem Really Is",
       "author": "Donald C. Gause, Gerald M. Weinberg",
       "category": "mental-models",
-      "readAt": "2024-06-26 20:41:25 UTC",
+      "readAt": "2024-06-26T20:41:25Z",
       "image": "/static/library/are-your-lights-on.jpg",
       "status": "read",
       "language": "en"
@@ -325,7 +325,7 @@
       "title": "Refactoring UI",
       "author": "Adam Wathan, Steve Schoger",
       "category": "craft",
-      "readAt": "2024-05-13 01:48:15 UTC",
+      "readAt": "2024-05-13T01:48:15Z",
       "image": "/static/library/refactoring-ui.jpg",
       "status": "read",
       "language": "en"
@@ -335,7 +335,7 @@
       "title": "Show Your Work!: 10 Ways to Share Your Creativity and Get Discovered",
       "author": "Austin Kleon",
       "category": "mental-models",
-      "readAt": "2024-07-02 21:12:35 UTC",
+      "readAt": "2024-07-02T21:12:35Z",
       "image": "/static/library/show-your-work.jpg",
       "status": "read",
       "language": "en"
@@ -345,7 +345,7 @@
       "title": "Contra el desarrollo personal",
       "author": "Thierry Jobard",
       "category": "worldview",
-      "readAt": "2024-08-13 07:24:39 UTC",
+      "readAt": "2024-08-13T07:24:39Z",
       "image": "/static/library/contra-el-desarrollo-personal.jpg",
       "status": "read",
       "language": "es"
@@ -355,7 +355,7 @@
       "title": "What Is ChatGPT Doing... and Why Does It Work?",
       "author": "Stephen Wolfram",
       "category": "exploration",
-      "readAt": "2024-08-27 17:06:58 UTC",
+      "readAt": "2024-08-27T17:06:58Z",
       "image": "/static/library/what-is-chatgpt-doing-and-why-does-it-work.jpg",
       "status": "read",
       "language": "en"
@@ -365,7 +365,7 @@
       "title": "Fooled by Randomness: The Hidden Role of Chance in Life and in the Markets (Incerto)",
       "author": "Nassim Nicholas Taleb",
       "category": "mental-models",
-      "readAt": "2024-11-07 23:50:46 UTC",
+      "readAt": "2024-11-07T23:50:46Z",
       "image": "/static/library/fooled-by-randomness.jpg",
       "status": "read",
       "language": "en"
@@ -375,7 +375,7 @@
       "title": "Self-Compassion: The Proven Power of Being Kind to Yourself",
       "author": "Kristin Neff",
       "category": "mental-models",
-      "readAt": "2025-06-29 15:37:37 UTC",
+      "readAt": "2025-06-29T15:37:37Z",
       "image": "/static/library/self-compassion.jpg",
       "status": "read",
       "language": "en"
@@ -385,7 +385,7 @@
       "title": "The Man from the Future: The Visionary Ideas of John von Neumann",
       "author": "Ananyo Bhattacharya",
       "category": "exploration",
-      "readAt": "2025-10-30 20:54:54 UTC",
+      "readAt": "2025-10-30T20:54:54Z",
       "image": "/static/library/the-man-from-the-future.jpg",
       "status": "read",
       "language": "en"
@@ -395,7 +395,7 @@
       "title": "Useful Not True: whatever works for you",
       "author": "Derek Sivers",
       "category": "mental-models",
-      "readAt": "2025-11-02 22:53:39 UTC",
+      "readAt": "2025-11-02T22:53:39Z",
       "image": "/static/library/useful-not-true.jpg",
       "status": "read",
       "language": "en"
