@@ -89,7 +89,7 @@ export default function LibraryPage(props: Readonly<LibraryPageProps>) {
   return (
     <Application>
       <Application.Article>
-        <Heading size="jumbo">Library</Heading>
+        <Heading size="jumbo">My library</Heading>
 
         <Text size="l">
           This isn’t an exhaustive list of everything I’ve read, but a curated selection of books from recent years that
