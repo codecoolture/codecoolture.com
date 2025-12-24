@@ -1,13 +1,67 @@
 {
   "library": [
     {
-      "title": "Ni por favor ni por favora: Cómo hablar con lenguaje inclusivo sin que se note (demasiado)",
-      "author": "María Martín Barranco",
-      "category": "worldview",
-      "readAt": "2020-04-27",
-      "image": "/static/library/ni-por-favor-ni-por-favora.jpg",
+      "title": "Growing Object-Oriented Software, Guided by Tests",
+      "author": "Steve Freeman, Nat Pryce",
+      "category": "foundational",
+      "readAt": "2018-02-02",
+      "image": "/static/library/growing-object-oriented-software.jpg",
       "status": "read",
-      "language": "es"
+      "language": "en"
+    },
+    {
+      "title": "The Nature of Software Development: Keep It Simple, Make It Valuable, Build It Piece by Piece",
+      "author": "Ron Jeffries",
+      "category": "foundational",
+      "readAt": "2019-01-26",
+      "image": "/static/library/the-nature-of-software-development.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "A Philosophy of Software Design",
+      "author": "John Ousterhout",
+      "category": "foundational",
+      "readAt": "2019-04-11",
+      "image": "/static/library/a-philosophy-of-software-design.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Extreme Programming Explained: Embrace Change",
+      "author": "Kent Beck, Cynthia Andres",
+      "category": "foundational",
+      "readAt": "2019-07-15",
+      "image": "/static/library/extreme-programming-explained.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Anything You Want: 40 Lessons for a New Kind of Entrepreneur",
+      "author": "Derek Sivers",
+      "category": "foundational",
+      "readAt": "2021-04-09",
+      "image": "/static/library/anything-you-want.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Test-Driven Development: By Example",
+      "author": "Kent Beck",
+      "category": "foundational",
+      "readAt": "2022-03-14",
+      "image": "/static/library/test-driven-development-by-example.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Object-Oriented Reengineering Patterns",
+      "author": "Serge Demeyer, Stéphane Ducasse, Oscar Nierstrasz",
+      "category": "craft",
+      "readAt": "2020-03-30",
+      "image": "/static/library/object-oriented-reengineering-patterns.jpg",
+      "status": "read",
+      "language": "en"
     },
     {
       "title": "On Writing: A Memoir of the Craft",
@@ -19,11 +73,11 @@
       "language": "en"
     },
     {
-      "title": "Who Cooked Adam Smith's Dinner?: A Story About Women and Economics",
-      "author": "Katrine Marçal",
-      "category": "worldview",
-      "readAt": "2020-05-07",
-      "image": "/static/library/who-cooked-adam-smiths-dinner.jpg",
+      "title": "Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations",
+      "author": "Nicole Forsgren, Jez Humble, Gene Kim",
+      "category": "craft",
+      "readAt": "2020-06-30",
+      "image": "/static/library/accelerate.jpg",
       "status": "read",
       "language": "en"
     },
@@ -33,6 +87,60 @@
       "category": "craft",
       "readAt": "2020-07-12",
       "image": "/static/library/creativity-inc.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "An Elegant Puzzle: Systems of Engineering Management",
+      "author": "Will Larson",
+      "category": "craft",
+      "readAt": "2021-06-27",
+      "image": "/static/library/an-elegant-puzzle.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Modern Software Engineering: Doing What Works to Build Better Software Faster",
+      "author": "David Farley",
+      "category": "craft",
+      "readAt": "2022-01-17",
+      "image": "/static/library/modern-software-engineering.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "On Writing Well: The Classic Guide to Writing Nonfiction",
+      "author": "William Zinsser",
+      "category": "craft",
+      "readAt": "2023-07-23",
+      "image": "/static/library/on-writing-well.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Tidy First?: A Personal Exercise in Empirical Software Design",
+      "author": "Kent Beck",
+      "category": "craft",
+      "readAt": "2023-12-14",
+      "image": "/static/library/tidy-first.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Fundamentals of Software Architecture: An Engineering Approach",
+      "author": "Mark Richards, Neal Ford",
+      "category": "craft",
+      "readAt": "2024-01-31",
+      "image": "/static/library/fundamentals-of-software-architecture.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "The First 90 Days. Updated And Expanded: Proven Straegies for Getting up to Speed faster and smarter",
+      "author": "Michael D. Watkins",
+      "category": "mental-models",
+      "readAt": "2019-08-15",
+      "image": "/static/library/the-first-90-days.jpg",
       "status": "read",
       "language": "en"
     },
@@ -64,74 +172,11 @@
       "language": "en"
     },
     {
-      "title": "The Psychology of Money: Timeless lessons on wealth, greed, and happiness",
-      "author": "Morgan Housel",
-      "category": "mental-models",
-      "readAt": "2022-04-18",
-      "image": "/static/library/the-psychology-of-money.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "Anything You Want: 40 Lessons for a New Kind of Entrepreneur",
-      "author": "Derek Sivers",
-      "category": "foundational",
-      "readAt": "2021-04-09",
-      "image": "/static/library/anything-you-want.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "Mindfulness in Plain English",
-      "author": "Bhante Gunaratana",
-      "category": "exploration",
-      "readAt": "2021-06-29",
-      "image": "/static/library/mindfulness-in-plain-english.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "An Elegant Puzzle: Systems of Engineering Management",
-      "author": "Will Larson",
-      "category": "craft",
-      "readAt": "2021-06-27",
-      "image": "/static/library/an-elegant-puzzle.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
       "title": "So Good They Can't Ignore You: Why Skills Trump Passion in the Quest for Work You Love",
       "author": "Cal Newport",
       "category": "mental-models",
       "readAt": "2021-12-14",
       "image": "/static/library/so-good-they-cant-ignore-you.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "Modern Software Engineering: Doing What Works to Build Better Software Faster",
-      "author": "David Farley",
-      "category": "craft",
-      "readAt": "2022-01-17",
-      "image": "/static/library/modern-software-engineering.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "Test-Driven Development: By Example",
-      "author": "Kent Beck",
-      "category": "foundational",
-      "readAt": "2022-03-14",
-      "image": "/static/library/test-driven-development-by-example.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "How to Live: 27 conflicting answers and one weird conclusion",
-      "author": "Derek Sivers",
-      "category": "worldview",
-      "readAt": "2022-04-05",
-      "image": "/static/library/how-to-live.jpg",
       "status": "read",
       "language": "en"
     },
@@ -145,20 +190,11 @@
       "language": "en"
     },
     {
-      "title": "A Series of Fortunate Events: Chance and the Making of the Planet, Life, and You",
-      "author": "Sean B. Carroll",
-      "category": "exploration",
-      "readAt": "2024-06-07",
-      "image": "/static/library/a-series-of-fortunate-events.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "Sapiens: A Brief History of Humankind",
-      "author": "Yuval Noah Harari",
-      "category": "worldview",
-      "readAt": "2022-06-20",
-      "image": "/static/library/sapiens.jpg",
+      "title": "The Psychology of Money: Timeless lessons on wealth, greed, and happiness",
+      "author": "Morgan Housel",
+      "category": "mental-models",
+      "readAt": "2022-04-18",
+      "image": "/static/library/the-psychology-of-money.jpg",
       "status": "read",
       "language": "en"
     },
@@ -172,33 +208,6 @@
       "language": "en"
     },
     {
-      "title": "Einstein: His Life and Universe",
-      "author": "Walter Isaacson",
-      "category": "exploration",
-      "readAt": "2022-11-24",
-      "image": "/static/library/einstein-his-life-and-universe.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "Fundamentals of Software Architecture: An Engineering Approach",
-      "author": "Mark Richards, Neal Ford",
-      "category": "craft",
-      "readAt": "2024-01-31",
-      "image": "/static/library/fundamentals-of-software-architecture.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "The Good Life: Lessons from the World's Longest Scientific Study of Happiness",
-      "author": "Robert Waldinger, Marc Schulz",
-      "category": "worldview",
-      "readAt": "2023-05-03",
-      "image": "/static/library/the-good-life.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
       "title": "Hell Yeah or No: What's Worth Doing",
       "author": "Derek Sivers",
       "category": "mental-models",
@@ -208,65 +217,11 @@
       "language": "en"
     },
     {
-      "title": "On Writing Well: The Classic Guide to Writing Nonfiction",
-      "author": "William Zinsser",
-      "category": "craft",
-      "readAt": "2023-07-23",
-      "image": "/static/library/on-writing-well.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "Capitalist Realism: Is There No Alternative?",
-      "author": "Mark Fisher",
-      "category": "exploration",
-      "readAt": "2023-07-31",
-      "image": "/static/library/capitalist-realism.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "Traffic: Genius, Rivalry, and Delusion in the Billion-Dollar Race to Go Viral",
-      "author": "Ben Smith",
-      "category": "exploration",
-      "readAt": "2023-10-26",
-      "image": "/static/library/traffic.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
       "title": "How To Win Friends & Influence People",
       "author": "Dale Carnegie",
       "category": "mental-models",
       "readAt": "2023-09-02",
       "image": "/static/library/how-to-win-friends-and-influence-people.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "Tidy First?: A Personal Exercise in Empirical Software Design",
-      "author": "Kent Beck",
-      "category": "craft",
-      "readAt": "2023-12-14",
-      "image": "/static/library/tidy-first.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "The Staff Engineer's Path: A Guide for Individual Contributors Navigating Growth and Change",
-      "author": "Tanya Reilly",
-      "category": "mental-models",
-      "readAt": "2024-08-05",
-      "image": "/static/library/the-staff-engineers-path.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "Get Together: How to build a community with your people",
-      "author": "Bailey Richardson, Kevin Huynh, Kai Elmer Sotto",
-      "category": "exploration",
-      "readAt": "2024-07-09",
-      "image": "/static/library/get-together.jpg",
       "status": "read",
       "language": "en"
     },
@@ -289,13 +244,13 @@
       "language": "en"
     },
     {
-      "title": "Contra el desarrollo personal",
-      "author": "Thierry Jobard",
-      "category": "exploration",
-      "readAt": "2024-08-13",
-      "image": "/static/library/contra-el-desarrollo-personal.jpg",
+      "title": "The Staff Engineer's Path: A Guide for Individual Contributors Navigating Growth and Change",
+      "author": "Tanya Reilly",
+      "category": "mental-models",
+      "readAt": "2024-08-05",
+      "image": "/static/library/the-staff-engineers-path.jpg",
       "status": "read",
-      "language": "es"
+      "language": "en"
     },
     {
       "title": "Fooled by Randomness: The Hidden Role of Chance in Life and in the Markets (Incerto)",
@@ -305,6 +260,123 @@
       "image": "/static/library/fooled-by-randomness.jpg",
       "status": "read",
       "language": "en"
+    },
+    {
+      "title": "Useful Not True: whatever works for you",
+      "author": "Derek Sivers",
+      "category": "mental-models",
+      "readAt": "2025-11-02",
+      "image": "/static/library/useful-not-true.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Ni por favor ni por favora: Cómo hablar con lenguaje inclusivo sin que se note (demasiado)",
+      "author": "María Martín Barranco",
+      "category": "worldview",
+      "readAt": "2020-04-27",
+      "image": "/static/library/ni-por-favor-ni-por-favora.jpg",
+      "status": "read",
+      "language": "es"
+    },
+    {
+      "title": "Who Cooked Adam Smith's Dinner?: A Story About Women and Economics",
+      "author": "Katrine Marçal",
+      "category": "worldview",
+      "readAt": "2020-05-07",
+      "image": "/static/library/who-cooked-adam-smiths-dinner.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "How to Live: 27 conflicting answers and one weird conclusion",
+      "author": "Derek Sivers",
+      "category": "worldview",
+      "readAt": "2022-04-05",
+      "image": "/static/library/how-to-live.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Sapiens: A Brief History of Humankind",
+      "author": "Yuval Noah Harari",
+      "category": "worldview",
+      "readAt": "2022-06-20",
+      "image": "/static/library/sapiens.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "The Good Life: Lessons from the World's Longest Scientific Study of Happiness",
+      "author": "Robert Waldinger, Marc Schulz",
+      "category": "worldview",
+      "readAt": "2023-05-03",
+      "image": "/static/library/the-good-life.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Mindfulness in Plain English",
+      "author": "Bhante Gunaratana",
+      "category": "exploration",
+      "readAt": "2021-06-29",
+      "image": "/static/library/mindfulness-in-plain-english.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Einstein: His Life and Universe",
+      "author": "Walter Isaacson",
+      "category": "exploration",
+      "readAt": "2022-11-24",
+      "image": "/static/library/einstein-his-life-and-universe.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Capitalist Realism: Is There No Alternative?",
+      "author": "Mark Fisher",
+      "category": "exploration",
+      "readAt": "2023-07-31",
+      "image": "/static/library/capitalist-realism.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Traffic: Genius, Rivalry, and Delusion in the Billion-Dollar Race to Go Viral",
+      "author": "Ben Smith",
+      "category": "exploration",
+      "readAt": "2023-10-26",
+      "image": "/static/library/traffic.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "A Series of Fortunate Events: Chance and the Making of the Planet, Life, and You",
+      "author": "Sean B. Carroll",
+      "category": "exploration",
+      "readAt": "2024-06-07",
+      "image": "/static/library/a-series-of-fortunate-events.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Get Together: How to build a community with your people",
+      "author": "Bailey Richardson, Kevin Huynh, Kai Elmer Sotto",
+      "category": "exploration",
+      "readAt": "2024-07-09",
+      "image": "/static/library/get-together.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Contra el desarrollo personal",
+      "author": "Thierry Jobard",
+      "category": "exploration",
+      "readAt": "2024-08-13",
+      "image": "/static/library/contra-el-desarrollo-personal.jpg",
+      "status": "read",
+      "language": "es"
     },
     {
       "title": "Self-Compassion: The Proven Power of Being Kind to Yourself",
@@ -321,78 +393,6 @@
       "category": "exploration",
       "readAt": "2025-10-30",
       "image": "/static/library/the-man-from-the-future.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "Useful Not True: whatever works for you",
-      "author": "Derek Sivers",
-      "category": "mental-models",
-      "readAt": "2025-11-02",
-      "image": "/static/library/useful-not-true.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "The Nature of Software Development: Keep It Simple, Make It Valuable, Build It Piece by Piece",
-      "author": "Ron Jeffries",
-      "category": "foundational",
-      "readAt": "2019-01-26",
-      "image": "/static/library/the-nature-of-software-development.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "A Philosophy of Software Design",
-      "author": "John Ousterhout",
-      "category": "foundational",
-      "readAt": "2019-04-11",
-      "image": "/static/library/a-philosophy-of-software-design.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "Object-Oriented Reengineering Patterns",
-      "author": "Serge Demeyer, Stéphane Ducasse, Oscar Nierstrasz",
-      "category": "craft",
-      "readAt": "2020-03-30",
-      "image": "/static/library/object-oriented-reengineering-patterns.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "The First 90 Days. Updated And Expanded: Proven Straegies for Getting up to Speed faster and smarter",
-      "author": "Michael D. Watkins",
-      "category": "mental-models",
-      "readAt": "2019-08-15",
-      "image": "/static/library/the-first-90-days.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "Extreme Programming Explained: Embrace Change",
-      "author": "Kent Beck, Cynthia Andres",
-      "category": "foundational",
-      "readAt": "2019-07-15",
-      "image": "/static/library/extreme-programming-explained.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations",
-      "author": "Nicole Forsgren, Jez Humble, Gene Kim",
-      "category": "craft",
-      "readAt": "2020-06-30",
-      "image": "/static/library/accelerate.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "Growing Object-Oriented Software, Guided by Tests",
-      "author": "Steve Freeman, Nat Pryce",
-      "category": "foundational",
-      "readAt": "2018-02-02",
-      "image": "/static/library/growing-object-oriented-software.jpg",
       "status": "read",
       "language": "en"
     }
