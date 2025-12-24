@@ -332,6 +332,69 @@
       "image": "/static/library/useful-not-true.jpg",
       "status": "read",
       "language": "en"
+    },
+    {
+      "title": "The Nature of Software Development: Keep It Simple, Make It Valuable, Build It Piece by Piece",
+      "author": "Ron Jeffries",
+      "category": "foundational",
+      "readAt": "2019-01-26",
+      "image": "/static/library/the-nature-of-software-development.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "A Philosophy of Software Design",
+      "author": "John Ousterhout",
+      "category": "foundational",
+      "readAt": "2019-04-11",
+      "image": "/static/library/a-philosophy-of-software-design.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Object-Oriented Reengineering Patterns",
+      "author": "Serge Demeyer, Stéphane Ducasse, Oscar Nierstrasz",
+      "category": "craft",
+      "readAt": "2020-03-30",
+      "image": "/static/library/object-oriented-reengineering-patterns.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "The First 90 Days. Updated And Expanded: Proven Straegies for Getting up to Speed faster and smarter",
+      "author": "Michael D. Watkins",
+      "category": "mental-models",
+      "readAt": "2019-08-15",
+      "image": "/static/library/the-first-90-days.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Extreme Programming Explained: Embrace Change",
+      "author": "Kent Beck, Cynthia Andres",
+      "category": "foundational",
+      "readAt": "2019-07-15",
+      "image": "/static/library/extreme-programming-explained.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations",
+      "author": "Nicole Forsgren, Jez Humble, Gene Kim",
+      "category": "craft",
+      "readAt": "2020-06-30",
+      "image": "/static/library/accelerate.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "Growing Object-Oriented Software, Guided by Tests",
+      "author": "Steve Freeman, Nat Pryce",
+      "category": "foundational",
+      "readAt": "2018-02-02",
+      "image": "/static/library/growing-object-oriented-software.jpg",
+      "status": "read",
+      "language": "en"
     }
   ]
 }
