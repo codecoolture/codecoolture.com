@@ -1,0 +1,35 @@
+.LibrarySection:not(:first-of-type) {
+  margin-top: 2rem;
+}
+
+.LibrarySection__Books {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+
+  list-style-type: none;
+}
+
+.LibrarySection__Books__Details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.LibrarySection__Book__Title {
+  font-size: var(--fs-s);
+
+  font-weight: 500;
+}
+
+.LibrarySection__Book__Author {
+  font-size: var(--fs-s);
+
+  color: var(--c-gray-11);
+}
+
+.LibrarySection__Book__Date {
+  font-size: var(--fs-xs);
+
+  color: var(--c-gray-11);
+}

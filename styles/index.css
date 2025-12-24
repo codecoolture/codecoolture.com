@@ -22,6 +22,9 @@
 
 @import "./pages/index.css";
 @import "./pages/collections/[slug].css";
+@import "./pages/library.css";
+
+@import "./utils.css";
 
 :root {
   --ff-serif: var(--font-ibm-plex-serif);

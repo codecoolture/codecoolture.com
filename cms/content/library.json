@@ -37,15 +37,6 @@
       "language": "en"
     },
     {
-      "title": "MAKE: Bootstrapper's Handbook",
-      "author": "Pieter Levels",
-      "category": "craft",
-      "readAt": "2021-01-12",
-      "image": "/static/library/make-bootstrapper-handbook.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
       "title": "The Obstacle Is the Way: The Timeless Art of Turning Trials into Triumph",
       "author": "Ryan Holiday",
       "category": "mental-models",
@@ -109,15 +100,6 @@
       "language": "en"
     },
     {
-      "title": "The Mom Test: How to talk to customers & learn if your business is a good idea when everyone is lying to you",
-      "author": "Rob Fitzpatrick",
-      "category": "craft",
-      "readAt": "2021-11-08",
-      "image": "/static/library/the-mom-test.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
       "title": "So Good They Can't Ignore You: Why Skills Trump Passion in the Quest for Work You Love",
       "author": "Cal Newport",
       "category": "mental-models",
@@ -126,7 +108,6 @@
       "status": "read",
       "language": "en"
     },
-
     {
       "title": "Modern Software Engineering: Doing What Works to Build Better Software Faster",
       "author": "David Farley",
@@ -145,7 +126,6 @@
       "status": "read",
       "language": "en"
     },
-
     {
       "title": "How to Live: 27 conflicting answers and one weird conclusion",
       "author": "Derek Sivers",
@@ -164,17 +144,15 @@
       "status": "read",
       "language": "en"
     },
-
     {
       "title": "A Series of Fortunate Events: Chance and the Making of the Planet, Life, and You",
       "author": "Sean B. Carroll",
-      "category": "worldview",
+      "category": "exploration",
       "readAt": "2024-06-07",
       "image": "/static/library/a-series-of-fortunate-events.jpg",
       "status": "read",
       "language": "en"
     },
-
     {
       "title": "Sapiens: A Brief History of Humankind",
       "author": "Yuval Noah Harari",
@@ -184,7 +162,6 @@
       "status": "read",
       "language": "en"
     },
-
     {
       "title": "The Courage to Be Disliked: How to Free Yourself, Change Your Life and Achieve Real Happiness",
       "author": "Ichiro Kishimi, Fumitake Koga",
@@ -194,11 +171,10 @@
       "status": "read",
       "language": "en"
     },
-
     {
       "title": "Einstein: His Life and Universe",
       "author": "Walter Isaacson",
-      "category": "worldview",
+      "category": "exploration",
       "readAt": "2022-11-24",
       "image": "/static/library/einstein-his-life-and-universe.jpg",
       "status": "read",
@@ -213,17 +189,15 @@
       "status": "read",
       "language": "en"
     },
-
     {
       "title": "The Good Life: Lessons from the World's Longest Scientific Study of Happiness",
       "author": "Robert Waldinger, Marc Schulz",
-      "category": "mental-models",
+      "category": "worldview",
       "readAt": "2023-05-03",
       "image": "/static/library/the-good-life.jpg",
       "status": "read",
       "language": "en"
     },
-
     {
       "title": "Hell Yeah or No: What's Worth Doing",
       "author": "Derek Sivers",
@@ -242,17 +216,15 @@
       "status": "read",
       "language": "en"
     },
-
     {
       "title": "Capitalist Realism: Is There No Alternative?",
       "author": "Mark Fisher",
-      "category": "worldview",
+      "category": "exploration",
       "readAt": "2023-07-31",
       "image": "/static/library/capitalist-realism.jpg",
       "status": "read",
       "language": "en"
     },
-
     {
       "title": "Traffic: Genius, Rivalry, and Delusion in the Billion-Dollar Race to Go Viral",
       "author": "Ben Smith",
@@ -262,7 +234,6 @@
       "status": "read",
       "language": "en"
     },
-
     {
       "title": "How To Win Friends & Influence People",
       "author": "Dale Carnegie",
@@ -272,17 +243,6 @@
       "status": "read",
       "language": "en"
     },
-
-    {
-      "title": "Engineers Survival Guide: Advice, tactics, and tricks after a decade of working at Facebook, Snapchat, and Microsoft",
-      "author": "Merih Taze",
-      "category": "exploration",
-      "readAt": "2023-12-11",
-      "image": "/static/library/engineers-survival-guide.jpg",
-      "status": "read",
-      "language": "en"
-    },
-
     {
       "title": "Tidy First?: A Personal Exercise in Empirical Software Design",
       "author": "Kent Beck",
@@ -292,7 +252,6 @@
       "status": "read",
       "language": "en"
     },
-
     {
       "title": "The Staff Engineer's Path: A Guide for Individual Contributors Navigating Growth and Change",
       "author": "Tanya Reilly",
@@ -320,17 +279,6 @@
       "status": "read",
       "language": "en"
     },
-
-    {
-      "title": "Refactoring UI",
-      "author": "Adam Wathan, Steve Schoger",
-      "category": "craft",
-      "readAt": "2024-05-13",
-      "image": "/static/library/refactoring-ui.jpg",
-      "status": "read",
-      "language": "en"
-    },
-
     {
       "title": "Show Your Work!: 10 Ways to Share Your Creativity and Get Discovered",
       "author": "Austin Kleon",
@@ -340,27 +288,15 @@
       "status": "read",
       "language": "en"
     },
-
     {
       "title": "Contra el desarrollo personal",
       "author": "Thierry Jobard",
-      "category": "worldview",
+      "category": "exploration",
       "readAt": "2024-08-13",
       "image": "/static/library/contra-el-desarrollo-personal.jpg",
       "status": "read",
       "language": "es"
     },
-
-    {
-      "title": "What Is ChatGPT Doing... and Why Does It Work?",
-      "author": "Stephen Wolfram",
-      "category": "exploration",
-      "readAt": "2024-08-27",
-      "image": "/static/library/what-is-chatgpt-doing-and-why-does-it-work.jpg",
-      "status": "read",
-      "language": "en"
-    },
-
     {
       "title": "Fooled by Randomness: The Hidden Role of Chance in Life and in the Markets (Incerto)",
       "author": "Nassim Nicholas Taleb",
@@ -370,17 +306,15 @@
       "status": "read",
       "language": "en"
     },
-
     {
       "title": "Self-Compassion: The Proven Power of Being Kind to Yourself",
       "author": "Kristin Neff",
-      "category": "mental-models",
+      "category": "exploration",
       "readAt": "2025-06-29",
       "image": "/static/library/self-compassion.jpg",
       "status": "read",
       "language": "en"
     },
-
     {
       "title": "The Man from the Future: The Visionary Ideas of John von Neumann",
       "author": "Ananyo Bhattacharya",
@@ -390,7 +324,6 @@
       "status": "read",
       "language": "en"
     },
-
     {
       "title": "Useful Not True: whatever works for you",
       "author": "Derek Sivers",
