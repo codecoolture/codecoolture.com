@@ -5,6 +5,7 @@ import z from "zod";
 
 import { library } from "@/cms/content/library.json";
 import { Heading } from "@/components/Heading";
+import { Link } from "@/components/Link";
 import { Text } from "@/components/Text";
 import { Application } from "@/layouts/Application";
 
@@ -72,6 +73,7 @@ export function LibrarySectionBooks(props: Readonly<{ books: Book[] }>) {
               <dt className="sr-only">Read At</dt>
               <dd className="LibrarySection__Book__Date">
                 {/* Displays relative time - e.g, 1 year ago */}
+                last read{" "}
                 {new Intl.RelativeTimeFormat("en", { numeric: "auto" }).format(
                   -Math.floor((now - new Date(book.readAt).getTime()) / (1000 * 60 * 60 * 24 * 30 * 12)),
                   "year",
@@ -150,6 +152,15 @@ export default function LibraryPage(props: Readonly<LibraryPageProps>) {
 
           <LibrarySectionBooks books={props.library["exploration"]} />
         </LibrarySection>
+
+        <Text className="Library__Footer">
+          I also use Goodreads as a personal reading log. If you’re curious about what I’m reading at the moment, you’ll
+          find a broader and <em>more eclectic</em> mix of fiction and non-fiction{" "}
+          <Link href="https://www.goodreads.com/user/show/37956895-sergio" target="_blank">
+            there
+          </Link>
+          .
+        </Text>
       </Application.Article>
     </Application>
   );

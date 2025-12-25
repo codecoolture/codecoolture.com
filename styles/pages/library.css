@@ -29,3 +29,11 @@
 
   color: var(--c-gray-11);
 }
+
+.Library__Footer::before {
+  content: "---";
+
+  display: block;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
