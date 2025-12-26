@@ -10,26 +10,6 @@
   list-style-type: none;
 }
 
-.LibrarySection__Books__Details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.LibrarySection__Book__Title {
-  font-weight: 500;
-}
-
-.LibrarySection__Book__Author {
-  color: var(--c-gray-11);
-}
-
-.LibrarySection__Book__Date {
-  font-size: var(--fs-s);
-
-  color: var(--c-gray-11);
-}
-
 .Library__Footer::before {
   content: "--";
 

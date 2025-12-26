@@ -1,9 +1,8 @@
 import { GetStaticProps } from "next";
-import Image from "next/image";
-import { useState } from "react";
 
 import { Book } from "@/cms/models/Book";
 import { getBookRepository } from "@/cms/repositories";
+import { Book as BookThumbnail } from "@/components/Book";
 import { Heading } from "@/components/Heading";
 import { Link } from "@/components/Link";
 import { Text } from "@/components/Text";
@@ -26,41 +25,11 @@ export function LibrarySectionDescription(props: Readonly<React.PropsWithChildre
 }
 
 export function LibrarySectionBooks(props: Readonly<{ books: Book[] }>) {
-  const [now] = useState(() => Date.now());
-
-  const yearsAgo = (date: Date) => {
-    return new Intl.RelativeTimeFormat("en", { numeric: "auto" }).format(
-      -Math.floor((now - date.getTime()) / (1000 * 60 * 60 * 24 * 30 * 12)),
-      "year",
-    );
-  };
-
   return (
     <ul className="LibrarySection__Books">
-      {props.books.map((book) => {
-        return (
-          <li key={book.title}>
-            <Image
-              src={book.image}
-              alt={`Cover of the book ${book.title}`}
-              width={230}
-              height={345}
-              style={{ objectFit: "contain" }}
-            />
-
-            <dl className="LibrarySection__Books__Details">
-              <dt className="sr-only">Title</dt>
-              <dd className="LibrarySection__Book__Title">{book.title}</dd>
-
-              <dt className="sr-only">Author</dt>
-              <dd className="LibrarySection__Book__Author">{book.author}</dd>
-
-              <dt className="sr-only">Read At</dt>
-              <dd className="LibrarySection__Book__Date">last read {yearsAgo(new Date(book.readAt))}</dd>
-            </dl>
-          </li>
-        );
-      })}
+      {props.books.map((book) => (
+        <BookThumbnail as="li" book={book} key={book.title} />
+      ))}
     </ul>
   );
 }

@@ -3,7 +3,9 @@ import { GetStaticProps } from "next";
 import Image from "next/image";
 
 import { ApiArticle } from "@/cms/api/ApiArticle";
-import { getBlogpostRepository, getNotesRepository } from "@/cms/repositories";
+import { Book } from "@/cms/models/Book";
+import { getBlogpostRepository, getBookRepository, getNotesRepository } from "@/cms/repositories";
+import { Book as BookThumbnail } from "@/components/Book";
 import { Heading } from "@/components/Heading";
 import { Link } from "@/components/Link";
 import { PostThumbnail } from "@/components/PostThumbnail";
@@ -13,9 +15,10 @@ import { isDevelopment } from "@/lib/env";
 
 type HomepageProps = {
   publications: ApiArticle[];
+  books: Book[];
 };
 
-export default function Homepage({ publications }: HomepageProps) {
+export default function Homepage({ publications, books }: Readonly<HomepageProps>) {
   return (
     <Application hideBackLink>
       <section className="Homepage">
@@ -39,7 +42,7 @@ export default function Homepage({ publications }: HomepageProps) {
           </Text>
 
           <Heading el="h2" size="xl" className="Homepage__Heading">
-            Latest publications
+            Recent writing
           </Heading>
 
           {publications.map((pub) => (
@@ -50,6 +53,30 @@ export default function Homepage({ publications }: HomepageProps) {
             Fancy reading more? Don’t miss either the <Link href="/blog">blog</Link> or the{" "}
             <Link href="/notes">notes</Link>!
           </Text>
+
+          <Heading el="h2" size="xl" className="Homepage__Heading">
+            My library
+          </Heading>
+
+          <Text size="m">
+            I love reading, and over time I’ve built a collection of books that have shaped my thinking on software
+            development in meaningful ways.
+          </Text>
+
+          <Text size="m">
+            <Link href="/library">My library</Link> spans technical foundations, craft practices, and broader
+            perspectives, and it’s always growing!
+          </Text>
+
+          <div className="Homepage__Books">
+            {books.map((book) => (
+              <BookThumbnail book={book} key={book.title} />
+            ))}
+          </div>
+
+          <Text className="Homepage__ReadMore">
+            Don’t forget to check out <Link href="/library">the full library!</Link>
+          </Text>
         </div>
       </section>
     </Application>
@@ -59,12 +86,18 @@ export default function Homepage({ publications }: HomepageProps) {
 export const getStaticProps: GetStaticProps<HomepageProps> = async () => {
   const blogposts = await getBlogpostRepository().all({ drafts: isDevelopment() });
   const notes = await getNotesRepository().all({ drafts: isDevelopment() });
+  const books = getBookRepository().all();
 
   const publications = orderBy([...blogposts, ...notes], (article) => article.getDate(), "desc").slice(0, 5);
+  const foundationalBooks = books.filter((book) => book.category === "foundational");
+  const craftBooks = books.filter((book) => book.category === "craft");
 
   return {
     props: {
       publications: publications.map((pub) => pub.toApiArticle()),
+
+      // Prioritize foundational books, then craft books
+      books: [...foundationalBooks, ...craftBooks].slice(0, 6),
     },
   };
 };

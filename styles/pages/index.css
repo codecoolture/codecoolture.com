@@ -12,12 +12,19 @@
 }
 
 .Homepage__Heading {
-  margin-bottom: 1em;
-  margin-top: 1.5em;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 .Homepage__Publication:not(:first-of-type) {
   margin-top: 1rem;
+}
+
+.Homepage__Books {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .Homepage__ReadMore {

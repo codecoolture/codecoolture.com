@@ -1,0 +1,19 @@
+.Details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.Title {
+  font-weight: 500;
+}
+
+.Author {
+  color: var(--c-gray-11);
+}
+
+.Date {
+  font-size: var(--fs-s);
+
+  color: var(--c-gray-11);
+}
