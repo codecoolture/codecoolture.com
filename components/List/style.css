@@ -7,8 +7,9 @@
 }
 
 .List--Number {
-  list-style-position: inside;
+  list-style-position: outside;
   list-style-type: decimal;
+  padding-inline-start: 1em;
 }
 
 .List__Item {
@@ -16,7 +17,7 @@
 }
 
 .List__Item__Wrapper {
-  display: inline-block;
+  display: inline;
 }
 
 .List__Item:not(:first-of-type) {
