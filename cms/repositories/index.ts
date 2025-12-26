@@ -2,6 +2,7 @@ import { MarkdownRepository } from "@/cms/lib/MarkdownRepository";
 import { getConfig } from "@/config";
 
 import { ArticleRepository } from "./ArticleRepository";
+import { BookRepository } from "./BookRepository";
 import { CollectionRepository } from "./CollectionRepository";
 
 export const getBlogpostRepository = (): ArticleRepository =>
@@ -10,3 +11,5 @@ export const getBlogpostRepository = (): ArticleRepository =>
 export const getNotesRepository = (): ArticleRepository => MarkdownRepository.fromDirectory(getConfig().writing.notes);
 
 export const getCollectionRepository = (): CollectionRepository => new CollectionRepository();
+
+export const getBookRepository = (): BookRepository => new BookRepository();

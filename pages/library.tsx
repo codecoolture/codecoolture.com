@@ -1,38 +1,16 @@
 import { GetStaticProps } from "next";
 import Image from "next/image";
 import { useState } from "react";
-import z from "zod";
 
-import { library } from "@/cms/content/library.json";
+import { Book } from "@/cms/models/Book";
+import { getBookRepository } from "@/cms/repositories";
 import { Heading } from "@/components/Heading";
 import { Link } from "@/components/Link";
 import { Text } from "@/components/Text";
 import { Application } from "@/layouts/Application";
 
-const BookSchema = z.object({
-  title: z.string(),
-  author: z.string(),
-  readAt: z.iso.date(),
-  category: z.union([
-    z.literal("foundational"),
-    z.literal("craft"),
-    z.literal("mental-models"),
-    z.literal("worldview"),
-    z.literal("exploration"),
-  ]),
-  image: z.string(),
-  status: z.union([z.literal("read")]),
-  language: z.union([z.literal("en"), z.literal("es")]),
-});
-
-type Book = z.infer<typeof BookSchema>;
-
 type LibraryPageProps = {
   library: Record<Book["category"], Book[]>;
-};
-
-const toBook = (data: unknown): Book => {
-  return BookSchema.parse(data);
 };
 
 export function LibrarySection(props: Readonly<React.PropsWithChildren>) {
@@ -49,6 +27,13 @@ export function LibrarySectionDescription(props: Readonly<React.PropsWithChildre
 
 export function LibrarySectionBooks(props: Readonly<{ books: Book[] }>) {
   const [now] = useState(() => Date.now());
+
+  const yearsAgo = (date: Date) => {
+    return new Intl.RelativeTimeFormat("en", { numeric: "auto" }).format(
+      -Math.floor((now - date.getTime()) / (1000 * 60 * 60 * 24 * 30 * 12)),
+      "year",
+    );
+  };
 
   return (
     <ul className="LibrarySection__Books">
@@ -71,14 +56,7 @@ export function LibrarySectionBooks(props: Readonly<{ books: Book[] }>) {
               <dd className="LibrarySection__Book__Author">{book.author}</dd>
 
               <dt className="sr-only">Read At</dt>
-              <dd className="LibrarySection__Book__Date">
-                {/* Displays relative time - e.g, 1 year ago */}
-                last read{" "}
-                {new Intl.RelativeTimeFormat("en", { numeric: "auto" }).format(
-                  -Math.floor((now - new Date(book.readAt).getTime()) / (1000 * 60 * 60 * 24 * 30 * 12)),
-                  "year",
-                )}
-              </dd>
+              <dd className="LibrarySection__Book__Date">last read {yearsAgo(new Date(book.readAt))}</dd>
             </dl>
           </li>
         );
@@ -167,7 +145,7 @@ export default function LibraryPage(props: Readonly<LibraryPageProps>) {
 }
 
 export const getStaticProps: GetStaticProps<LibraryPageProps> = async () => {
-  const books = library.map(toBook);
+  const books = getBookRepository().all();
 
   return {
     props: {
