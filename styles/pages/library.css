@@ -31,7 +31,7 @@
 }
 
 .Library__Footer::before {
-  content: "---";
+  content: "--";
 
   display: block;
   margin-top: 2rem;
