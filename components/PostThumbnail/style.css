@@ -10,6 +10,7 @@
   align-items: center;
   display: flex;
   list-style-type: none;
+  margin-bottom: 0.15rem;
 }
 
 .PostThumbnail__Subheading__Item {
@@ -25,7 +26,7 @@
 }
 
 .PostThumbnail__Timestamp {
-  font-size: var(--fs-xs) !important;
+  font-size: var(--fs-s) !important;
   letter-spacing: 1px;
 
   color: var(--c-gray-11);
@@ -34,7 +35,7 @@
 
 .PostThumbnail__Badge {
   border-width: 1px;
-  font-size: var(--fs-xs);
+  font-size: var(--fs-s);
   padding: 2px 4px;
 
   border-radius: 2px;

@@ -62,7 +62,13 @@ body {
 
 @media screen and (min-width: 320px) {
   :root {
-    --fs-m: calc(18px + 6 * ((100vw - 320px) / 680));
+    --fs-m: 18px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --fs-m: 21px;
   }
 }
 
