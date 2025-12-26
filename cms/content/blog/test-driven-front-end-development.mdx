@@ -76,7 +76,7 @@ una editorial de libros y queremos añadir una página de contacto:
 Utilizando [**Cypress**](https://www.cypress.io/), podemos trasladar esta
 descripción a una prueba de alto nivel como la siguiente:
 
-```tsx
+```typescript
 // Location: cypress/integration/sendContactMessage.test.ts
 
 context("sendContactMessage", () => {
@@ -117,7 +117,7 @@ En este caso, **como todavía no hemos escrito código de producción, lo que
 esperamos es que el test falle**. Es ahora cuando tenemos que escribir la mínima
 cantidad posible de código para que este test pueda pasar.
 
-```tsx
+```typescript
 // Location: pages/contact.tsx
 
 export default function Contact() {
@@ -162,7 +162,7 @@ export default function Contact() {
 }
 ```
 
-```tsx
+```typescript
 // Location: pages/contact/success.tsx
 
 export default function ContactSuccess() {
