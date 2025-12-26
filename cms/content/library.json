@@ -395,6 +395,24 @@
       "image": "/static/library/the-man-from-the-future.jpg",
       "status": "read",
       "language": "en"
+    },
+    {
+      "title": "Hackers & Painters: Big Ideas from the Computer Age",
+      "author": "Paul Graham",
+      "category": "uncategorized",
+      "readAt": "2017-05-01",
+      "image": "/static/library/hackers-and-painters.jpg",
+      "status": "read",
+      "language": "en"
+    },
+    {
+      "title": "The Pragmatic Programmer: From Journeyman to Master",
+      "author": "Andrew Hunt, David Thomas",
+      "category": "uncategorized",
+      "readAt": "2015-05-01",
+      "image": "/static/library/pragmatic-programmer.jpg",
+      "status": "read",
+      "language": "en"
     }
   ]
 }

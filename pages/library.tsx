@@ -100,6 +100,17 @@ export default function LibraryPage(props: Readonly<LibraryPageProps>) {
           <LibrarySectionBooks books={props.library["exploration"]} />
         </LibrarySection>
 
+        <LibrarySection>
+          <LibrarySectionHeading>Uncategorized</LibrarySectionHeading>
+
+          <LibrarySectionDescription>
+            Books I remember enjoying, but whose influence is now distant or unclear. They’re works I’d need to revisit
+            to reassess how they resonate with me today.
+          </LibrarySectionDescription>
+
+          <LibrarySectionBooks books={props.library["uncategorized"]} />
+        </LibrarySection>
+
         <Text className="Library__Footer">
           I also use Goodreads as a personal reading log. If you’re curious about what I’m reading at the moment, you’ll
           find a broader and <em>more eclectic</em> mix of fiction and non-fiction{" "}
@@ -124,6 +135,7 @@ export const getStaticProps: GetStaticProps<LibraryPageProps> = async () => {
         "mental-models": books.filter((book) => book.category === "mental-models"),
         worldview: books.filter((book) => book.category === "worldview"),
         exploration: books.filter((book) => book.category === "exploration"),
+        uncategorized: books.filter((book) => book.category === "uncategorized"),
       },
     },
   };

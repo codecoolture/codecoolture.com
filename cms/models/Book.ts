@@ -10,6 +10,7 @@ const BookSchema = z.object({
     z.literal("mental-models"),
     z.literal("worldview"),
     z.literal("exploration"),
+    z.literal("uncategorized"),
   ]),
   image: z.string(),
   status: z.union([z.literal("read")]),
