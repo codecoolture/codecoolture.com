@@ -79,6 +79,17 @@ export default function LibraryPage(props: Readonly<LibraryPageProps>) {
         </LibrarySection>
 
         <LibrarySection>
+          <LibrarySectionHeading>Reference</LibrarySectionHeading>
+
+          <LibrarySectionDescription>
+            Books I don’t read cover to cover, but return to occasionally as a shared vocabulary or point of reference.
+            They’re more about clarity and alignment than influence or inspiration.
+          </LibrarySectionDescription>
+
+          <LibrarySectionBooks books={props.library["reference"]} />
+        </LibrarySection>
+
+        <LibrarySection>
           <LibrarySectionHeading>Worldview</LibrarySectionHeading>
 
           <LibrarySectionDescription>
@@ -135,6 +146,7 @@ export const getStaticProps: GetStaticProps<LibraryPageProps> = async () => {
         "mental-models": books.filter((book) => book.category === "mental-models"),
         worldview: books.filter((book) => book.category === "worldview"),
         exploration: books.filter((book) => book.category === "exploration"),
+        reference: books.filter((book) => book.category === "reference"),
         uncategorized: books.filter((book) => book.category === "uncategorized"),
       },
     },
