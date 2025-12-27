@@ -39,8 +39,12 @@ export function Book({ as = "div", book }: Readonly<BookProps>) {
         <dt className="sr-only">Author</dt>
         <dd className={styles.Author}>{book.author}</dd>
 
-        <dt className="sr-only">Read At</dt>
-        <dd className={styles.Date}>last read {yearsAgo(new Date(book.readAt))}</dd>
+        {book.readAt !== undefined && (
+          <>
+            <dt className="sr-only">Read At</dt>
+            <dd className={styles.Date}>last read {yearsAgo(new Date(book.readAt))}</dd>
+          </>
+        )}
       </dl>
     </Komponent>
   );

@@ -3,7 +3,7 @@ import z from "zod";
 const BookSchema = z.object({
   title: z.string(),
   author: z.string(),
-  readAt: z.iso.date(),
+  readAt: z.iso.date().optional(),
   category: z.union([
     z.literal("foundational"),
     z.literal("craft"),

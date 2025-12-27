@@ -76,7 +76,6 @@
       "title": "Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations",
       "author": "Nicole Forsgren, Jez Humble, Gene Kim",
       "category": "craft",
-      "readAt": "2020-06-30",
       "image": "/static/library/accelerate.jpg",
       "status": "read",
       "language": "en"
@@ -139,7 +138,6 @@
       "title": "The First 90 Days. Updated And Expanded: Proven Straegies for Getting up to Speed faster and smarter",
       "author": "Michael D. Watkins",
       "category": "mental-models",
-      "readAt": "2019-08-15",
       "image": "/static/library/the-first-90-days.jpg",
       "status": "read",
       "language": "en"
@@ -400,7 +398,6 @@
       "title": "Hackers & Painters: Big Ideas from the Computer Age",
       "author": "Paul Graham",
       "category": "uncategorized",
-      "readAt": "2017-05-01",
       "image": "/static/library/hackers-and-painters.jpg",
       "status": "read",
       "language": "en"
@@ -409,7 +406,6 @@
       "title": "The Pragmatic Programmer: From Journeyman to Master",
       "author": "Andrew Hunt, David Thomas",
       "category": "uncategorized",
-      "readAt": "2015-05-01",
       "image": "/static/library/pragmatic-programmer.jpg",
       "status": "read",
       "language": "en"
@@ -418,7 +414,6 @@
       "title": "Peopleware: Productive Projects and Teams",
       "author": "Tom DeMarco, Timothy Lister",
       "category": "uncategorized",
-      "readAt": "2017-05-01",
       "image": "/static/library/peopleware.jpg",
       "status": "read",
       "language": "en"
@@ -427,7 +422,6 @@
       "title": "Design Patterns: Elements of Reusable Object-Oriented Software",
       "author": "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
       "category": "reference",
-      "readAt": "2016-05-01",
       "image": "/static/library/design-patterns.jpg",
       "status": "read",
       "language": "en"
