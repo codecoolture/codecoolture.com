@@ -413,6 +413,15 @@
       "image": "/static/library/pragmatic-programmer.jpg",
       "status": "read",
       "language": "en"
+    },
+    {
+      "title": "Peopleware: Productive Projects and Teams",
+      "author": "Tom DeMarco, Timothy Lister",
+      "category": "uncategorized",
+      "readAt": "2017-05-01",
+      "image": "/static/library/peopleware.jpg",
+      "status": "read",
+      "language": "en"
     }
   ]
 }
