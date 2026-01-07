@@ -90,22 +90,11 @@ export default function LibraryPage(props: Readonly<LibraryPageProps>) {
         </LibrarySection>
 
         <LibrarySection>
-          <LibrarySectionHeading>Worldview</LibrarySectionHeading>
-
-          <LibrarySectionDescription>
-            Books that expand context beyond day-to-day work. They explore society, culture, history, and systems, and
-            help situate technology within the world it operates in.
-          </LibrarySectionDescription>
-
-          <LibrarySectionBooks books={props.library["worldview"]} />
-        </LibrarySection>
-
-        <LibrarySection>
           <LibrarySectionHeading>Exploration</LibrarySectionHeading>
 
           <LibrarySectionDescription>
-            Curiosity-driven reading. Books that informed or inspired me, offered useful perspective, or simply expanded
-            my interests, without becoming part of my core operating system.
+            Curiosity-driven reading. Books that offered context, perspective, or inspiration, and sometimes influenced
+            how I think, work, or approach my career, without becoming part of my core mental toolkit.
           </LibrarySectionDescription>
 
           <LibrarySectionBooks books={props.library["exploration"]} />
@@ -144,7 +133,6 @@ export const getStaticProps: GetStaticProps<LibraryPageProps> = async () => {
         foundational: books.filter((book) => book.category === "foundational"),
         craft: books.filter((book) => book.category === "craft"),
         "mental-models": books.filter((book) => book.category === "mental-models"),
-        worldview: books.filter((book) => book.category === "worldview"),
         exploration: books.filter((book) => book.category === "exploration"),
         reference: books.filter((book) => book.category === "reference"),
         uncategorized: books.filter((book) => book.category === "uncategorized"),

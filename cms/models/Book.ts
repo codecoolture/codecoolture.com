@@ -8,7 +8,6 @@ const BookSchema = z.object({
     z.literal("foundational"),
     z.literal("craft"),
     z.literal("mental-models"),
-    z.literal("worldview"),
     z.literal("exploration"),
     z.literal("reference"),
     z.literal("uncategorized"),

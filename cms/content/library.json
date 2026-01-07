@@ -135,7 +135,7 @@
       "language": "en"
     },
     {
-      "title": "The First 90 Days. Updated And Expanded: Proven Straegies for Getting up to Speed faster and smarter",
+      "title": "The First 90 Days. Updated And Expanded: Proven Strategies for Getting up to Speed faster and smarter",
       "author": "Michael D. Watkins",
       "category": "mental-models",
       "image": "/static/library/the-first-90-days.jpg",
@@ -145,7 +145,7 @@
     {
       "title": "The Obstacle Is the Way: The Timeless Art of Turning Trials into Triumph",
       "author": "Ryan Holiday",
-      "category": "mental-models",
+      "category": "exploration",
       "readAt": "2021-01-29",
       "image": "/static/library/the-obstacle-is-the-way.jpg",
       "status": "read",
@@ -179,18 +179,9 @@
       "language": "en"
     },
     {
-      "title": "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
-      "author": "James Clear",
-      "category": "mental-models",
-      "readAt": "2022-04-02",
-      "image": "/static/library/atomic-habits.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
       "title": "The Psychology of Money: Timeless lessons on wealth, greed, and happiness",
       "author": "Morgan Housel",
-      "category": "mental-models",
+      "category": "exploration",
       "readAt": "2022-04-18",
       "image": "/static/library/the-psychology-of-money.jpg",
       "status": "read",
@@ -199,7 +190,7 @@
     {
       "title": "The Courage to Be Disliked: How to Free Yourself, Change Your Life and Achieve Real Happiness",
       "author": "Ichiro Kishimi, Fumitake Koga",
-      "category": "mental-models",
+      "category": "exploration",
       "readAt": "2022-07-09",
       "image": "/static/library/the-courage-to-be-disliked.jpg",
       "status": "read",
@@ -233,15 +224,6 @@
       "language": "en"
     },
     {
-      "title": "Show Your Work!: 10 Ways to Share Your Creativity and Get Discovered",
-      "author": "Austin Kleon",
-      "category": "mental-models",
-      "readAt": "2024-07-02",
-      "image": "/static/library/show-your-work.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
       "title": "The Staff Engineer's Path: A Guide for Individual Contributors Navigating Growth and Change",
       "author": "Tanya Reilly",
       "category": "mental-models",
@@ -251,7 +233,7 @@
       "language": "en"
     },
     {
-      "title": "Fooled by Randomness: The Hidden Role of Chance in Life and in the Markets (Incerto)",
+      "title": "Fooled by Randomness: The Hidden Role of Chance in Life and in the Markets",
       "author": "Nassim Nicholas Taleb",
       "category": "mental-models",
       "readAt": "2024-11-07",
@@ -271,7 +253,7 @@
     {
       "title": "Ni por favor ni por favora: Cómo hablar con lenguaje inclusivo sin que se note (demasiado)",
       "author": "María Martín Barranco",
-      "category": "worldview",
+      "category": "mental-models",
       "readAt": "2020-04-27",
       "image": "/static/library/ni-por-favor-ni-por-favora.jpg",
       "status": "read",
@@ -280,7 +262,7 @@
     {
       "title": "Who Cooked Adam Smith's Dinner?: A Story About Women and Economics",
       "author": "Katrine Marçal",
-      "category": "worldview",
+      "category": "exploration",
       "readAt": "2020-05-07",
       "image": "/static/library/who-cooked-adam-smiths-dinner.jpg",
       "status": "read",
@@ -289,7 +271,7 @@
     {
       "title": "How to Live: 27 conflicting answers and one weird conclusion",
       "author": "Derek Sivers",
-      "category": "worldview",
+      "category": "exploration",
       "readAt": "2022-04-05",
       "image": "/static/library/how-to-live.jpg",
       "status": "read",
@@ -298,7 +280,7 @@
     {
       "title": "Sapiens: A Brief History of Humankind",
       "author": "Yuval Noah Harari",
-      "category": "worldview",
+      "category": "exploration",
       "readAt": "2022-06-20",
       "image": "/static/library/sapiens.jpg",
       "status": "read",
@@ -307,18 +289,9 @@
     {
       "title": "The Good Life: Lessons from the World's Longest Scientific Study of Happiness",
       "author": "Robert Waldinger, Marc Schulz",
-      "category": "worldview",
+      "category": "exploration",
       "readAt": "2023-05-03",
       "image": "/static/library/the-good-life.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "Mindfulness in Plain English",
-      "author": "Bhante Gunaratana",
-      "category": "exploration",
-      "readAt": "2021-06-29",
-      "image": "/static/library/mindfulness-in-plain-english.jpg",
       "status": "read",
       "language": "en"
     },
@@ -332,56 +305,11 @@
       "language": "en"
     },
     {
-      "title": "Capitalist Realism: Is There No Alternative?",
-      "author": "Mark Fisher",
-      "category": "exploration",
-      "readAt": "2023-07-31",
-      "image": "/static/library/capitalist-realism.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "Traffic: Genius, Rivalry, and Delusion in the Billion-Dollar Race to Go Viral",
-      "author": "Ben Smith",
-      "category": "exploration",
-      "readAt": "2023-10-26",
-      "image": "/static/library/traffic.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "A Series of Fortunate Events: Chance and the Making of the Planet, Life, and You",
-      "author": "Sean B. Carroll",
-      "category": "exploration",
-      "readAt": "2024-06-07",
-      "image": "/static/library/a-series-of-fortunate-events.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
       "title": "Get Together: How to build a community with your people",
       "author": "Bailey Richardson, Kevin Huynh, Kai Elmer Sotto",
       "category": "exploration",
       "readAt": "2024-07-09",
       "image": "/static/library/get-together.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
-      "title": "Contra el desarrollo personal",
-      "author": "Thierry Jobard",
-      "category": "exploration",
-      "readAt": "2024-08-13",
-      "image": "/static/library/contra-el-desarrollo-personal.jpg",
-      "status": "read",
-      "language": "es"
-    },
-    {
-      "title": "Self-Compassion: The Proven Power of Being Kind to Yourself",
-      "author": "Kristin Neff",
-      "category": "exploration",
-      "readAt": "2025-06-29",
-      "image": "/static/library/self-compassion.jpg",
       "status": "read",
       "language": "en"
     },
