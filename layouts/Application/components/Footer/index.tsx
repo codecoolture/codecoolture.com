@@ -26,6 +26,12 @@ export function Footer() {
                 Uses
               </NextLink>
             </li>
+
+            <li className="AppFooter__Nav__Item">
+              <NextLink href="/ai" className="AppFooter__Link">
+                AI
+              </NextLink>
+            </li>
           </ul>
         </nav>
 
