@@ -1,11 +1,17 @@
 .LibrarySection:not(:first-of-type) {
-  margin-top: 2rem;
+  margin-top: 3rem;
+}
+
+.LibrarySection__Description {
+  margin-bottom: 2rem !important; /*  Default margin-bottom from Text component
+                                      has more specificity */
 }
 
 .LibrarySection__Books {
+  column-gap: 1.5rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+  row-gap: 2rem;
 
   list-style-type: none;
 }

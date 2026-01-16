@@ -21,7 +21,7 @@ export function LibrarySectionHeading(props: Readonly<React.PropsWithChildren>) 
 }
 
 export function LibrarySectionDescription(props: Readonly<React.PropsWithChildren>) {
-  return <Text>{props.children}</Text>;
+  return <Text className="LibrarySection__Description">{props.children}</Text>;
 }
 
 export function LibrarySectionBooks(props: Readonly<{ books: Book[] }>) {

@@ -64,15 +64,6 @@
       "language": "en"
     },
     {
-      "title": "On Writing: A Memoir of the Craft",
-      "author": "Stephen King",
-      "category": "craft",
-      "readAt": "2020-05-08",
-      "image": "/static/library/on-writing.jpg",
-      "status": "read",
-      "language": "en"
-    },
-    {
       "title": "Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations",
       "author": "Nicole Forsgren, Jez Humble, Gene Kim",
       "category": "craft",
@@ -83,7 +74,7 @@
     {
       "title": "Creativity, Inc.: Overcoming the Unseen Forces That Stand in the Way of True Inspiration",
       "author": "Ed Catmull, Amy Wallace",
-      "category": "craft",
+      "category": "mental-models",
       "readAt": "2020-07-12",
       "image": "/static/library/creativity-inc.jpg",
       "status": "read",
@@ -135,7 +126,7 @@
       "language": "en"
     },
     {
-      "title": "The First 90 Days. Updated And Expanded: Proven Strategies for Getting up to Speed faster and smarter",
+      "title": "The First 90 Days: Proven Strategies for Getting up to Speed faster and smarter",
       "author": "Michael D. Watkins",
       "category": "mental-models",
       "image": "/static/library/the-first-90-days.jpg",
