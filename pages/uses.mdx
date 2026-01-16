@@ -17,57 +17,80 @@ export default ({ children }) => {
 
 ## Hardware
 
-- **MacBook Air 13-inch, 2025 (Apple M4, 24GB RAM, 512GB SSD)**
-- **iPad Pro 11-inch (Apple M4)**
-- [**Logitech MX Keys Mini**](https://www.logitech.com/en-eu/shop/p/mx-keys-mini)
-- [**Logitech MX Master 3s**](https://www.logitech.com/en-us/products/mice/mx-master-3s.html)
-- [**Dell P2421D Monitor**](https://www.dell.com/en-us/work/shop/dell-24-monitor-p2421d/apd/210-aull): not expensive,
-  but sharp and reliable.
+I’m into the Apple ecosystem. My main machine is a MacBook Air with an Apple
+chip. This is often enough for my development needs on the side, and the
+portability of this laptop is a plus. When I need to work even more lightweight
+(because I’m traveling or working on the go), I use an iPad Pro 11-inch with an
+Apple chip. I’ve found this machine to be super capable of handling most work
+(with, of course, a few compromises in developer ergonomics).
+
+When I need to do some coding on the go with the iPad, I use GitHub Codespaces.
+Again, the ergonomics are far from those of a desktop machine (window management
+is something that doesn’t work as well on iPadOS, even with the latest updates),
+but it’s good enough to let me get the work done. Another drawback of coding on
+the iPad is that I need an internet connection, so it’s not the best option if
+you’re planning to work while flying or from places with limited connectivity.
+
+While I’m on my desktop, I use a Jarvis standing desk from Fully and I switch
+between sitting and standing regularly. I have other peripherals from Logitech
+(the MX line) and elgato (mic, key light), and I’ve repurposed an old Sony
+mirrorless camera as my main webcam (I use an elgato Cam Link to connect it to
+the laptop).
 
 ## Dev Tools
 
-- [Visual Studio Code][vscode] (color theme: [Night Owl][nightowl]; font family: [JetBrains Mono][mono])
-- [Warp][warp]
+For writing code, I use VS Code (because it’s everywhere these days). And since
+I’m currently working at GitHub, I use GitHub Copilot extensively as my AI
+companion. Regarding VS Code customization, I’m enjoying the [Catppuccin
+theme][catppuccin] (the Mocha variant), and I always work with dark themes (I
+don’t think I have a solid reason for that, just personal preference).
 
-## Technologies & frameworks
+As for coding fonts, that’s something I’ve experimented with a lot. I spent
+quite some time using JetBrains Mono, then Dank Mono, and for the past few
+months, I’ve been a happy user of [MonoLisa][monolisa]. I’m by no means a font
+expert, so the choice often comes down to personal preference for their
+aesthetics, ligature support, italics, etc.
 
-- [TypeScript](https://www.typescriptlang.org/)
-- [Node](https://nodejs.org/en/)
-- [React](https://reactjs.org/)
-- [NEXT.js](https://nextjs.org/)
-- [Radix Colors](https://www.radix-ui.com/colors)
-- [Testing Library](https://testing-library.com/)
-- [Vitest](https://vitest.dev/)
-- [Cypress](https://www.cypress.io/)
-- [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/)
-- [Docker](https://www.docker.com/products/docker-desktop) and [Compose](https://docs.docker.com/compose/)
+These days, I typically use the integrated terminal in VS Code for convenience.
 
-## Services
+## Technologies & Frameworks
 
-- [Google Cloud Platform](https://cloud.google.com/)
-- [Vercel](https://vercel.com/)
-- [GitHub](https://github.com/codecoolture)
+This is obviously super dependent on the project and the context I’m working in.
+But my go-to technologies and frameworks these days for any new development are:
 
-## macOS
+- **TypeScript**: I’m not going to make a long argument for this language. It
+  just works, it’s everywhere, and it has great adoption. I was really into
+  JavaScript back in the day, and the transition to TypeScript just felt
+  natural.
+- **Next.js**: It’s opinionated and quirky sometimes, but I’ve been using it
+  since 2018 in very different projects. It’s well maintained and continuously
+  evolving (which can be a good or a bad thing, depending on how you look at
+  it). The React ecosystem hasn’t yet reached full maturity (we just need to
+  look at the recent movement towards React Server Components), and Next.js is
+  always at the forefront. Beyond being a front-end framework, I’ve also had a
+  great experience using it as a full-stack framework while working on
+  [saraos.tech][saraos] (it’s a monolithic application built on Next.js,
+  handling both front-end and back-end).
+- **Other tools**: These often come and go, but my default testing framework
+  these days is [Vitest][vitest]. And for every front-end project, I use [Radix
+  Colors][radix-colors] to get a good starting point for designing the color
+  palette (it works well in both light and dark themes and provides [clear
+  guidance][radix-colors-scale] on when to use each color and shade). Highly
+  recommended (as well as much of the Radix ecosystem).
 
-- [Homebrew][homebrew]
-- [Notion](https://www.notion.so/)
-- Google Chrome
-- [1Password](https://1password.com/)
-- Spotify
-- [Itsycal](https://www.mowglii.com/itsycal/)
-- Slack
-- [VLC](https://www.videolan.org/vlc/index.html)
-- [coconutBattery](https://www.coconut-flavour.com/coconutbattery/)
-- [TunnelBear](https://www.tunnelbear.com/)
+## AI
 
-_Updated on December 2025_
+I use AI tools every day. They’ve become such a fundamental part of my workflow
+that I decided to create a [dedicated page](/ai) I can update frequently, where
+I explain how I use AI and which tools and platforms I’m currently using.
 
-[vscode]: https://code.visualstudio.com/
-[nightowl]: https://marketplace.visualstudio.com/items?itemName=sdras.night-owl
-[mono]: https://www.jetbrains.com/lp/mono/
-[warp]: https://www.warp.dev/
-[homebrew]: https://brew.sh/
-[ohmyzsh]: https://github.com/ohmyzsh/ohmyzsh
-[nvm]: https://github.com/nvm-sh/nvm
-[spaceship]: https://spaceship-prompt.sh/
+_Updated on January 2026_
+
+[catppuccin]:
+  https://marketplace.visualstudio.com/items?itemName=Catppuccin.catppuccin-vsc
+[monolisa]: https://www.monolisa.dev/
+[radix-colors]: https://www.radix-ui.com/colors
+[radix-colors-scale]:
+  https://www.radix-ui.com/colors/docs/palette-composition/understanding-the-scale
+[saraos]: https://saraos.tech/
+[vitest]: https://vitest.dev/

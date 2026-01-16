@@ -4,7 +4,7 @@ module.exports = {
   printWidth: 120,
   overrides: [
     {
-      files: "cms/**/*.mdx",
+      files: "**/*.mdx",
       options: {
         printWidth: 80,
       },
