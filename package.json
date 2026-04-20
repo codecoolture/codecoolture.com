@@ -39,7 +39,7 @@
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-prettier": "5.5.4",
     "eslint-plugin-react": "7.37.5",
-    "feed": "5.1.0",
+    "feed": "5.2.1",
     "marked": "17.0.1",
     "prettier": "3.7.4",
     "start-server-and-test": "2.1.3",
