@@ -43,7 +43,7 @@
     "marked": "17.0.6",
     "prettier": "3.8.4",
     "start-server-and-test": "2.1.5",
-    "tsx": "4.21.0",
+    "tsx": "4.23.13",
     "typescript": "5.9.3",
     "vite-tsconfig-paths": "^6.0.3",
     "vitest": "^4.0.16"
